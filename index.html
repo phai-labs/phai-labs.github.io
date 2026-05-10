@@ -456,12 +456,19 @@
       padding-inline:0.1em;
     }
     .thesis{
-      padding-top:0;
-      padding-bottom:0;
+      justify-content:flex-start;
+      padding-top:max(6.4rem, calc(env(safe-area-inset-top) + 5.6rem));
+      padding-bottom:max(1rem, calc(env(safe-area-inset-bottom) + 0.75rem));
     }
     .thesis-head{
-      top:38%;
-      gap:0.62rem;
+      position:relative;
+      top:auto;
+      left:auto;
+      right:auto;
+      transform:none;
+      z-index:2;
+      margin:0;
+      gap:0.7rem;
       width:100%;
       padding-inline:1.25rem;
     }
@@ -477,16 +484,18 @@
       max-width:24ch;
     }
     .thesis-grid{
-      left:0;
-      right:0;
-      bottom:0.9rem;
+      position:relative;
+      left:auto;
+      right:auto;
+      bottom:auto;
+      margin-top:auto;
       padding-inline:1rem;
       padding-top:0;
-      padding-bottom:0;
+      padding-bottom:max(0.4rem, env(safe-area-inset-bottom));
     }
     .thesis-stage::after{
       background:
-        linear-gradient(180deg, rgba(5,5,5,0.84) 0%, rgba(5,5,5,0.32) 28%, rgba(5,5,5,0.82) 100%),
+        linear-gradient(180deg, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.38) 30%, rgba(5,5,5,0.84) 100%),
         radial-gradient(ellipse at 80% 20%, rgba(180,200,220,0.06) 0%, transparent 52%);
     }
     .blocks{
@@ -502,7 +511,7 @@
     .blocks::-webkit-scrollbar{display:none}
     .block{
       flex:0 0 78vw;
-      min-height:112px;
+      min-height:104px;
       padding:0.82rem 0.86rem 0.88rem;
       scroll-snap-align:center;
       background:rgba(5,5,5,0.24);
