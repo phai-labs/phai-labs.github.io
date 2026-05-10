@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PhAI Labs — Physical AI Scientists for Biology</title>
+<meta name="description" content="PhAI Labs is building Physical AI Scientists for Biology: autonomous wet labs, biological world models, and physical AI infrastructure." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg: #050505;
+    --bg-2: #0a0a0a;
+    --ink: #f4f4f2;
+    --ink-mute: rgba(244,244,242,0.62);
+    --ink-quiet: rgba(244,244,242,0.38);
+    --line: rgba(244,244,242,0.10);
+    --line-soft: rgba(244,244,242,0.05);
+    --accent: oklch(0.78 0.06 220);
+    --accent-warm: oklch(0.82 0.05 70);
+    --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    --pad-x: clamp(1.5rem, 5vw, 5rem);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:var(--bg);color:var(--ink);font-family:var(--font-display);-webkit-font-smoothing:antialiased;letter-spacing:-0.012em}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+  body{overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+
+  /* film grain */
+  body::before{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:100;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    opacity:0.05;mix-blend-mode:overlay;
+  }
+
+  /* nav */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;
+    padding:1.4rem var(--pad-x);
+    font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--ink-mute);
+    background:linear-gradient(180deg, rgba(5,5,5,0.7) 0%, rgba(5,5,5,0) 100%);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  .brand{display:flex;align-items:center;gap:0.7rem;color:var(--ink)}
+  .brand-mark{
+    display:inline-block;width:14px;height:14px;border-radius:2px;
+    background:var(--ink);
+    position:relative;
+  }
+  .brand-mark::after{
+    content:'';position:absolute;inset:3px;background:var(--bg);border-radius:1px;
+  }
+  .brand-name{font-weight:600;letter-spacing:0.22em}
+
+  /* shared screen */
+  section.screen{
+    min-height:100vh;
+    min-height:100svh;
+    height:100vh;
+    height:100svh;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    padding:0 var(--pad-x);
+  }
+
+  /* SCREEN 1 — hero */
+  .hero{
+    justify-content:center;
+    padding-top:0;
+    padding-bottom:0;
+    padding-left:0;
+    padding-right:0;
+    overflow:hidden;
+    background:var(--bg);
+  }
+  .hero-stage{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    background:#070707;
+  }
+  .hero-stage video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .hero-stage::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(5,5,5,0.6) 0%, rgba(5,5,5,0.16) 34%, rgba(5,5,5,0.68) 100%),
+      radial-gradient(ellipse at 50% 38%, rgba(255,255,255,0.045) 0%, transparent 55%);
+  }
+
+  .hero-copy{
+    position:relative;z-index:2;
+    width:100%;
+    max-width:1600px;
+    flex:1 1 auto;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding-inline:var(--pad-x);
+    padding-top:clamp(5.75rem, 10vh, 7.25rem);
+    padding-bottom:clamp(3rem, 7vh, 4.8rem);
+  }
+  h1.hero-title{
+    font-family:var(--font-display);
+    font-weight:300;
+    font-size:clamp(1.95rem, 4.6vw, 4.55rem);
+    line-height:1.02;
+    letter-spacing:-0.045em;
+    display:grid;
+    justify-items:center;
+    gap:0.08em;
+    width:auto;
+    max-width:100%;
+    padding-inline:0.2em;
+    overflow:visible;
+  }
+  .hero-title-line{
+    display:block;
+    white-space:nowrap;
+    padding-inline:0.12em;
+    overflow:visible;
+  }
+  .hero-title-line.accent-line{
+    font-style:italic;
+    font-weight:300;
+    color:var(--ink);
+    background:linear-gradient(120deg, var(--ink) 0%, var(--accent) 60%, var(--ink) 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+    padding-right:0.22em;
+  }
+
+  /* SCREEN 2 — thesis */
+  .thesis{
+    padding-top:0;
+    padding-bottom:0;
+    padding-left:0;
+    padding-right:0;
+    overflow:hidden;
+    background:var(--bg);
+    justify-content:center;
+    gap:0;
+  }
+  .thesis > :not(.thesis-stage){
+    position:relative;
+    z-index:1;
+  }
+  .thesis-head{
+    position:absolute;
+    top:50%;
+    left:0;
+    right:0;
+    transform:translateY(-50%);
+    z-index:2;
+    display:grid;
+    grid-template-columns: 1fr;
+    justify-items:center;
+    text-align:center;
+    gap:clamp(0.55rem, 1.2vh, 0.9rem);
+    width:min(1040px, 100%);
+    margin:0 auto;
+    padding-inline:var(--pad-x);
+  }
+  h2.thesis-title{
+    font-family:var(--font-display);
+    font-weight:300;
+    font-size:clamp(2.15rem, 4.8vw, 4.25rem);
+    line-height:0.98;
+    letter-spacing:-0.045em;
+    max-width:16ch;
+    text-wrap:balance;
+    padding-inline:0.05em;
+  }
+  h2.thesis-title em{
+    font-style:italic;font-weight:300;
+    color:var(--accent);
+  }
+  .thesis-sub{
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    padding-top:0;
+    border-top:none;
+    max-width:none;
+  }
+
+  /* layout: full-screen video with bottom floating cards */
+  .thesis-grid{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    padding-inline:var(--pad-x);
+    padding-top:clamp(0.6rem, 1.2vh, 0.9rem);
+    padding-bottom:clamp(1.2rem, 2.8vh, 2.1rem);
+  }
+  @media (max-width: 980px){
+    .thesis-grid{align-items:flex-end;}
+  }
+
+  .thesis-stage{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    background:#070707;
+  }
+  .thesis-stage video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    opacity:0.9;
+    filter:blur(1px);
+    transform:scale(1.15);
+    transform-origin:center center;
+  }
+  .thesis-stage::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(5,5,5,0.78) 0%, rgba(5,5,5,0.22) 26%, rgba(5,5,5,0.74) 100%),
+      radial-gradient(ellipse at 80% 20%, rgba(180,200,220,0.08) 0%, transparent 50%);
+  }
+
+  .blocks{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:clamp(0.45rem, 0.8vw, 0.7rem);
+    width:min(900px, 100%);
+  }
+  .block{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr;
+    gap:0.52rem 0.5rem;
+    align-items:flex-start;
+    min-height:118px;
+    padding:0.72rem 0.78rem 0.76rem;
+    border:1px solid var(--line);
+    background:rgba(5,5,5,0.12);
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+    transition:background .35s ease, transform .35s ease, border-color .35s ease;
+    cursor:default;
+    position:relative;
+  }
+  .block:hover{
+    background:rgba(8,8,8,0.24);
+    border-color:rgba(244,244,242,0.2);
+    transform:translateY(-4px);
+  }
+  .block::before{
+    content:'';
+    position:absolute;
+    left:0.78rem;
+    right:0.78rem;
+    top:0.5rem;
+    height:1px;
+    background:rgba(244,244,242,0.045);
+  }
+  .block-num{
+    grid-column:1;
+    grid-row:1;
+    font-family:var(--font-mono);
+    font-size:0.56rem;letter-spacing:0.14em;
+    color:var(--ink-quiet);
+    padding-top:0.1rem;
+    font-variant-numeric:tabular-nums;
+  }
+  .block-body{
+    grid-column:1 / span 2;
+    grid-row:2;
+    align-self:end;
+  }
+  .block-body h3{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:clamp(0.8rem, 0.95vw, 0.94rem);
+    letter-spacing:-0.02em;
+    line-height:1.08;
+    margin-bottom:0.18rem;
+  }
+  .block-body p{
+    font-family:var(--font-mono);
+    font-size:0.52rem;
+    letter-spacing:0.02em;
+    color:var(--ink-mute);
+    line-height:1.3;
+    max-width:none;
+  }
+  .block-arrow{
+    grid-column:2;
+    grid-row:1;
+    align-self:start;
+    width:18px;height:18px;
+    border:1px solid var(--line);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ink-quiet);
+    font-family:var(--font-mono);font-size:0.48rem;
+    transition:all .3s ease;
+  }
+  .block:hover .block-arrow{
+    border-color:var(--accent);color:var(--accent);
+    transform:translateX(4px);
+  }
+
+  /* SCREEN 3 — team */
+  .team{
+    justify-content:center;
+    padding-left:0;
+    padding-right:0;
+    overflow:hidden;
+    background:#050505;
+    padding-top:clamp(5.8rem, 11vh, 7.8rem);
+    padding-bottom:clamp(2.4rem, 6vh, 4.2rem);
+  }
+  .team > :not(.team-stage){
+    position:relative;
+    z-index:1;
+  }
+  .team-stage{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    background:#070707;
+  }
+  .team-stage video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    opacity:0.86;
+    filter:blur(1.2px);
+    transform:scale(1.05);
+    transform-origin:center center;
+  }
+  .team-stage::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(5,5,5,0.62) 0%, rgba(5,5,5,0.18) 35%, rgba(5,5,5,0.72) 100%),
+      radial-gradient(ellipse at 50% 24%, rgba(255,255,255,0.04) 0%, transparent 58%);
+  }
+  .team-wrap{
+    width:min(1360px, 100%);
+    margin:0 auto;
+    padding-inline:var(--pad-x);
+    display:grid;
+    justify-items:center;
+    align-content:center;
+    text-align:center;
+    gap:clamp(1.15rem, 2.6vh, 2.2rem);
+  }
+  .team-title{
+    font-family:var(--font-display);
+    font-weight:300;
+    font-size:clamp(4.6rem, 10vw, 8.6rem);
+    line-height:0.88;
+    letter-spacing:-0.065em;
+    margin-bottom:0;
+    color:rgba(244,244,242,0.96);
+    text-shadow:0 12px 40px rgba(0,0,0,0.22);
+  }
+  .team-note{
+    font-family:var(--font-display);
+    font-size:clamp(1.38rem, 2.15vw, 2.15rem);
+    line-height:1.08;
+    letter-spacing:-0.03em;
+    color:rgba(244,244,242,0.86);
+    text-wrap:balance;
+    max-width:27ch;
+    padding:1.1rem 1.25rem 1.25rem;
+    border:1px solid rgba(244,244,242,0.12);
+    background:rgba(5,5,5,0.16);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    box-shadow:0 24px 80px rgba(0,0,0,0.16);
+  }
+  .team-contact{
+    display:grid;
+    justify-items:center;
+    margin-top:clamp(0.25rem, 0.8vh, 0.5rem);
+  }
+  .contact-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:148px;
+    min-height:46px;
+    padding:0.8rem 1.35rem;
+    border:1px solid rgba(244,244,242,0.28);
+    border-radius:999px;
+    background:rgba(244,244,242,0.08);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    color:rgba(244,244,242,0.96);
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    transition:background .25s ease, border-color .25s ease, transform .25s ease;
+  }
+  .contact-button:hover{
+    background:rgba(244,244,242,0.14);
+    border-color:rgba(244,244,242,0.4);
+    transform:translateY(-2px);
+  }
+  /* responsive hero */
+  @media (max-width: 980px){
+    .blocks{grid-template-columns:1fr;}
+    .block{
+      min-height:auto;
+      padding:0.88rem 0.92rem;
+    }
+    .thesis-grid{
+      align-items:flex-end;
+      padding-bottom:1.25rem;
+    }
+  }
+  @media (max-width: 720px){
+    .hero-copy,.thesis-head,.thesis-grid,.team-wrap{padding-inline:1.25rem}
+    .hero-copy{
+      padding-top:6.2rem;
+      padding-bottom:2.7rem;
+    }
+    h1.hero-title{
+      font-size:clamp(1.75rem, 8.7vw, 2.85rem);
+      line-height:1.04;
+      gap:0.12em;
+      padding-inline:0.1em;
+    }
+    .thesis{
+      padding-top:6.4rem;
+      padding-bottom:1.5rem;
+    }
+    .thesis-head{
+      top:48%;
+      gap:0.7rem;
+    }
+    h2.thesis-title{max-width:13ch}
+    .team{
+      justify-content:center;
+      padding-top:6.5rem;
+      padding-bottom:2.5rem;
+    }
+    .team-title{font-size:clamp(3.6rem, 18vw, 6.2rem);}
+    .team-note{
+      font-size:clamp(1.1rem, 5vw, 1.45rem);
+      line-height:1.08;
+      max-width:15ch;
+      padding:0.95rem 1rem 1.05rem;
+    }
+    .contact-button{
+      min-width:132px;
+      min-height:42px;
+      padding:0.72rem 1.1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-name">PhAI Labs</span>
+  </div>
+</nav>
+
+<!-- ============== SCREEN 1 — HERO ============== -->
+<section class="screen hero" id="top" data-screen-label="01 Hero">
+  <div class="hero-stage" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="logo/first.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="hero-copy">
+    <h1 class="hero-title">
+      <span class="hero-title-line">Physical AI Scientists</span>
+      <span class="hero-title-line accent-line">for Biology</span>
+    </h1>
+  </div>
+</section>
+
+<!-- ============== SCREEN 2 — THESIS ============== -->
+<section class="screen thesis" id="thesis" data-screen-label="02 Thesis">
+  <div class="thesis-stage" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="logo/LUMI-lab.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="thesis-head">
+    <h2 class="thesis-title">The next frontier of AI is <em>physical science.</em></h2>
+    <div class="thesis-sub">Wet Lab as Data Factory.</div>
+  </div>
+
+  <div class="thesis-grid">
+    <div class="blocks">
+      <div class="block">
+        <div class="block-num">01</div>
+        <div class="block-body">
+          <h3>Autonomous Wet Labs</h3>
+          <p>24 / 7 patient-grounded experimentation, executed by robots, observed by foundation models.</p>
+        </div>
+        <div class="block-arrow">↗</div>
+      </div>
+
+      <div class="block">
+        <div class="block-num">02</div>
+        <div class="block-body">
+          <h3>Biological World Models</h3>
+          <p>Virtual Cell &nbsp;→&nbsp; Virtual Immune System &nbsp;→&nbsp; Lab World Model.</p>
+        </div>
+        <div class="block-arrow">↗</div>
+      </div>
+
+      <div class="block">
+        <div class="block-num">03</div>
+        <div class="block-body">
+          <h3>Physical AI Infrastructure</h3>
+          <p>Robotics, XR, multimodal agents — the substrate beneath every experiment.</p>
+        </div>
+        <div class="block-arrow">↗</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SCREEN 3 — TEAM ============== -->
+<section class="screen team" id="team" data-screen-label="03 Team">
+  <div class="team-stage" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="logo/video_no_audio.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="team-wrap">
+    <h2 class="team-title">Team</h2>
+    <p class="team-note">Founded by researchers from Stanford, Oxford, and leading industry firms spanning CRISPR gene editing, virtual cell, clinical medicine, and agentic AI systems.</p>
+    <div class="team-contact">
+      <a class="contact-button" href="mailto:wuyc@stanford.edu">Contact</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // light reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) e.target.classList.add('in');
+    });
+  },{threshold:0.15});
+  document.querySelectorAll('.screen').forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
