@@ -123,11 +123,11 @@
     font-family:var(--font-display);
     font-weight:300;
     font-size:clamp(1.95rem, 4.6vw, 4.55rem);
-    line-height:1.02;
+    line-height:1.08;
     letter-spacing:-0.045em;
     display:grid;
     justify-items:center;
-    gap:0.08em;
+    gap:0.02em;
     width:auto;
     max-width:100%;
     padding-inline:0.2em;
@@ -136,17 +136,17 @@
   .hero-title-line{
     display:block;
     white-space:nowrap;
+    line-height:1.08;
     padding-inline:0.12em;
     overflow:visible;
   }
   .hero-title-line.accent-line{
     font-style:italic;
     font-weight:300;
-    color:var(--ink);
-    background:linear-gradient(120deg, var(--ink) 0%, var(--accent) 60%, var(--ink) 100%);
-    -webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;
-    padding-right:0.22em;
+    color:color-mix(in oklab, var(--ink) 82%, var(--accent) 18%);
+    text-shadow:0 8px 30px rgba(0,0,0,0.14);
+    padding-right:0.1em;
+    padding-bottom:0.14em;
   }
 
   /* SCREEN 2 — thesis */
@@ -451,8 +451,8 @@
     }
     h1.hero-title{
       font-size:clamp(1.75rem, 8.7vw, 2.85rem);
-      line-height:1.04;
-      gap:0.12em;
+      line-height:1.1;
+      gap:0.04em;
       padding-inline:0.1em;
     }
     .thesis{
