@@ -1,645 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>PhAI Labs — Physical AI Scientists for Biology</title>
-<meta name="description" content="PhAI Labs is building Physical AI Scientists for Biology: autonomous wet labs, biological world models, and physical AI infrastructure." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PhAI Labs &mdash; Model &amp; Data Infrastructure for AI for Science</title>
+<meta name="description" content="PhAI Labs builds the model and data infrastructure for AI for Science: rubric engineering, a lab context protocol, and verifier-driven reinforcement learning trained on experimental outcomes." />
+<link rel="canonical" href="https://phai-labs.com/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2308090A%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke-width%3D%221.4%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M8%208C5.6%204.4%201.4%204.9%201.4%208S5.6%2011.6%208%208Z%22%20stroke%3D%22%238FBFCB%22%2F%3E%3Cpath%20d%3D%22M8%208c2.4%203.6%206.6%203.1%206.6%200S10.4%204.4%208%208Z%22%20stroke%3D%22%23D69A57%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://phai-labs.com/" />
+<meta property="og:site_name" content="PhAI Labs" />
+<meta property="og:title" content="PhAI Labs &mdash; The third scaling law is scientific intelligence" />
+<meta property="og:description" content="PhAI Labs builds the model and data infrastructure for AI for Science: rubric engineering, a lab context protocol, and verifier-driven reinforcement learning trained on experimental outcomes." />
+<meta property="og:image" content="https://phai-labs.com/logo/poster.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PhAI Labs" />
+<meta name="twitter:description" content="PhAI Labs builds the model and data infrastructure for AI for Science: rubric engineering, a lab context protocol, and verifier-driven reinforcement learning trained on experimental outcomes." />
+<meta name="twitter:image" content="https://phai-labs.com/logo/poster.jpg" />
+<link rel="preload" href="fonts/IBMPlexSerif-Light.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/IBMPlexSans-Light.woff2" as="font" type="font/woff2" crossorigin />
 <style>
-  :root{
-    --bg: #050505;
-    --bg-2: #0a0a0a;
-    --ink: #f4f4f2;
-    --ink-mute: rgba(244,244,242,0.62);
-    --ink-quiet: rgba(244,244,242,0.38);
-    --line: rgba(244,244,242,0.10);
-    --line-soft: rgba(244,244,242,0.05);
-    --accent: oklch(0.78 0.06 220);
-    --accent-warm: oklch(0.82 0.05 70);
-    --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
-    --pad-x: clamp(1.5rem, 5vw, 5rem);
-  }
+/* ---------- faces: IBM Plex superfamily, inlined (OFL) ---------- */
+@font-face{font-family:'Plex Serif';font-style:normal;font-weight:300;font-display:swap;
+  src:url(fonts/IBMPlexSerif-Light.woff2) format('woff2')}
+@font-face{font-family:'Plex Serif';font-style:italic;font-weight:300;font-display:swap;
+  src:url(fonts/IBMPlexSerif-LightItalic.woff2) format('woff2')}
+@font-face{font-family:'Plex Sans';font-style:normal;font-weight:300;font-display:swap;
+  src:url(fonts/IBMPlexSans-Light.woff2) format('woff2')}
+@font-face{font-family:'Plex Sans';font-style:normal;font-weight:400;font-display:swap;
+  src:url(fonts/IBMPlexSans-Regular.woff2) format('woff2')}
+@font-face{font-family:'Plex Mono';font-style:normal;font-weight:400;font-display:swap;
+  src:url(fonts/IBMPlexMono-Regular.woff2) format('woff2')}
 
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{background:var(--bg);color:var(--ink);font-family:var(--font-display);-webkit-font-smoothing:antialiased;letter-spacing:-0.012em}
-  html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
-  body{overflow-x:hidden}
-  a{color:inherit;text-decoration:none}
+/* ---------- tokens ----------
+   One committed visual world: a night instrument panel. The page is graded around
+   full-bleed lab footage, so the tokens deliberately do not invert for light mode. */
+:root{
+  color-scheme:dark;
 
-  /* film grain */
-  body::before{
-    content:'';position:fixed;inset:0;pointer-events:none;z-index:100;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
-    opacity:0.05;mix-blend-mode:overlay;
-  }
+  --ground:#08090A;
+  --ground-2:#0E1011;
+  --ink:#E9ECEA;
+  --ink-2:rgba(233,236,234,.55);
+  --ink-3:rgba(233,236,234,.30);
+  --rule:rgba(233,236,234,.11);
+  --rule-soft:rgba(233,236,234,.06);
 
-  /* nav */
-  nav{
-    position:fixed;top:0;left:0;right:0;z-index:50;
-    display:flex;align-items:center;
-    padding:1.4rem var(--pad-x);
-    font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;
-    color:var(--ink-mute);
-    background:linear-gradient(180deg, rgba(5,5,5,0.7) 0%, rgba(5,5,5,0) 100%);
-    backdrop-filter:blur(8px);
-    -webkit-backdrop-filter:blur(8px);
-  }
-  .brand{display:flex;align-items:center;gap:0.7rem;color:var(--ink)}
-  .brand-mark{
-    display:inline-block;width:14px;height:14px;border-radius:2px;
-    background:var(--ink);
-    position:relative;
-  }
-  .brand-mark::after{
-    content:'';position:absolute;inset:3px;background:var(--bg);border-radius:1px;
-  }
-  .brand-name{font-weight:600;letter-spacing:0.22em}
+  /* the two channels the whole thesis turns on */
+  --dry:#8FBFCB;
+  --wet:#D69A57;
 
-  /* shared screen */
-  section.screen{
-    min-height:100vh;
-    min-height:100svh;
-    height:100vh;
-    height:100svh;
-    scroll-snap-align:start;
-    scroll-snap-stop:always;
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    padding:0 var(--pad-x);
-  }
+  --serif:'Plex Serif',Iowan Old Style,Palatino,Georgia,serif;
+  --sans:'Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
 
-  /* SCREEN 1 — hero */
-  .hero{
-    justify-content:center;
-    padding-top:0;
-    padding-bottom:0;
-    padding-left:0;
-    padding-right:0;
-    overflow:hidden;
-    background:var(--bg);
-  }
-  .hero-stage{
-    position:absolute;
-    inset:0;
-    overflow:hidden;
-    background:#070707;
-  }
-  .hero-stage video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .hero-stage::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:
-      linear-gradient(180deg, rgba(5,5,5,0.6) 0%, rgba(5,5,5,0.16) 34%, rgba(5,5,5,0.68) 100%),
-      radial-gradient(ellipse at 50% 38%, rgba(255,255,255,0.045) 0%, transparent 55%);
-  }
+  --pad:clamp(1.4rem,5.5vw,5.5rem);
+  --shell:1200px;
+  --rail-gap:clamp(1.3rem,2.6vw,2.6rem);
+}
 
-  .hero-copy{
-    position:relative;z-index:2;
-    width:100%;
-    max-width:1600px;
-    flex:1 1 auto;
-    margin:0 auto;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding-inline:var(--pad-x);
-    padding-top:clamp(5.75rem, 10vh, 7.25rem);
-    padding-bottom:clamp(3rem, 7vh, 4.8rem);
-  }
-  h1.hero-title{
-    font-family:var(--font-display);
-    font-weight:300;
-    font-size:clamp(1.95rem, 4.6vw, 4.55rem);
-    line-height:1.08;
-    letter-spacing:-0.045em;
-    display:grid;
-    justify-items:center;
-    gap:0.02em;
-    width:auto;
-    max-width:100%;
-    padding-inline:0.2em;
-    overflow:visible;
-  }
-  .hero-title-line{
-    display:block;
-    white-space:nowrap;
-    line-height:1.08;
-    padding-inline:0.12em;
-    overflow:visible;
-  }
-  .hero-title-line.accent-line{
-    font-style:italic;
-    font-weight:300;
-    color:color-mix(in oklab, var(--ink) 82%, var(--accent) 18%);
-    text-shadow:0 8px 30px rgba(0,0,0,0.14);
-    padding-right:0.1em;
-    padding-bottom:0.14em;
-  }
+*{margin:0;padding:0;box-sizing:border-box}
+/* the page keeps its one world whichever theme the viewer is in */
+html,:root[data-theme="light"],:root[data-theme="dark"]{background:#08090A;color-scheme:dark}
+body{
+  background:var(--ground);color:var(--ink);
+  font-family:var(--sans);font-weight:300;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:1px solid var(--dry);outline-offset:4px}
+::selection{background:rgba(143,191,203,.24)}
 
-  /* SCREEN 2 — thesis */
-  .thesis{
-    padding-top:0;
-    padding-bottom:0;
-    padding-left:0;
-    padding-right:0;
-    overflow:hidden;
-    background:var(--bg);
-    justify-content:center;
-    gap:0;
-  }
-  .thesis > :not(.thesis-stage){
-    position:relative;
-    z-index:1;
-  }
-  .thesis-head{
-    position:absolute;
-    top:50%;
-    left:0;
-    right:0;
-    transform:translateY(-50%);
-    z-index:2;
-    display:grid;
-    grid-template-columns: 1fr;
-    justify-items:center;
-    text-align:center;
-    gap:clamp(0.55rem, 1.2vh, 0.9rem);
-    width:min(1040px, 100%);
-    margin:0 auto;
-    padding-inline:var(--pad-x);
-  }
-  h2.thesis-title{
-    font-family:var(--font-display);
-    font-weight:300;
-    font-size:clamp(2.15rem, 4.8vw, 4.25rem);
-    line-height:0.98;
-    letter-spacing:-0.045em;
-    max-width:16ch;
-    text-wrap:balance;
-    padding-inline:0.05em;
-  }
-  h2.thesis-title em{
-    font-style:italic;font-weight:300;
-    color:var(--accent);
-  }
-  .thesis-sub{
-    font-family:var(--font-mono);
-    font-size:0.7rem;
-    letter-spacing:0.22em;
-    text-transform:uppercase;
-    color:var(--ink-mute);
-    padding-top:0;
-    border-top:none;
-    max-width:none;
-  }
+/* ---------- masthead ---------- */
+.mast{
+  position:fixed;inset:0 0 auto 0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.2rem var(--pad);
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+  background:linear-gradient(180deg,rgba(8,9,10,.74) 0%,rgba(8,9,10,0) 100%);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+.mast__brand{display:flex;align-items:center;gap:.62rem;color:var(--ink)}
+/* the mark is the loop, at 15px: two channels crossing at one point */
+.mast__mark{display:block;width:15px;height:15px;flex:none;overflow:visible}
+.mast__contact{color:var(--ink-3);transition:color .25s ease}
+.mast__contact:hover{color:var(--ink)}
 
-  /* layout: full-screen video with bottom floating cards */
-  .thesis-grid{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    padding-inline:var(--pad-x);
-    padding-top:clamp(0.6rem, 1.2vh, 0.9rem);
-    padding-bottom:clamp(1.2rem, 2.8vh, 2.1rem);
-  }
-  @media (max-width: 980px){
-    .thesis-grid{align-items:flex-end;}
-  }
+/* ---------- hero ---------- */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;align-items:flex-end;
+  padding:0 0 clamp(2.6rem,7vh,5rem);
+  overflow:hidden;background:var(--ground-2);
+}
+.hero__film{position:absolute;inset:0;overflow:hidden}
+.hero__film video{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(.58) contrast(1.08) brightness(.7);
+}
+/* the clip has bright passages, so the lower third carries a hard scrim
+   while the middle stays open enough to read as a real lab */
+.hero__film::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(8,9,10,.82) 0%,rgba(8,9,10,.26) 26%,rgba(8,9,10,.82) 66%,rgba(8,9,10,.96) 100%),
+    linear-gradient(94deg,rgba(8,9,10,.76) 0%,rgba(8,9,10,.08) 58%);
+}
+.hero__copy{
+  position:relative;z-index:2;
+  width:min(var(--shell),100%);margin:0 auto;
+  padding-inline:var(--pad);
+  display:grid;gap:clamp(1rem,2.2vh,1.65rem);
+}
+.hero__eyebrow{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--ink-2);
+}
+.hero__line{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(2.45rem,6.1vw,5.4rem);
+  line-height:1.02;letter-spacing:-.035em;
+  max-width:17ch;text-wrap:balance;
+}
+.hero__line em{font-style:italic}
+.hero__sub{font-size:clamp(1rem,1.35vw,1.22rem);line-height:1.5;color:var(--ink-2);max-width:44ch}
+.hero__scroll{
+  display:flex;align-items:center;gap:.65rem;margin-top:.35rem;
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-3);
+}
+.hero__scroll i{display:block;width:34px;height:1px;background:var(--rule);position:relative;overflow:hidden}
+.hero__scroll i::after{
+  content:'';position:absolute;inset:0;background:var(--ink-3);
+  transform:translateX(-100%);animation:sweep 3.4s cubic-bezier(.4,0,.2,1) infinite;
+}
+@keyframes sweep{0%{transform:translateX(-100%)}55%,100%{transform:translateX(100%)}}
 
-  .thesis-stage{
-    position:absolute;
-    inset:0;
-    overflow:hidden;
-    background:#070707;
-  }
-  .thesis-stage video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    opacity:0.9;
-    filter:blur(1px);
-    transform:scale(1.15);
-    transform-origin:center center;
-  }
-  .thesis-stage::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:
-      linear-gradient(180deg, rgba(5,5,5,0.78) 0%, rgba(5,5,5,0.22) 26%, rgba(5,5,5,0.74) 100%),
-      radial-gradient(ellipse at 80% 20%, rgba(180,200,220,0.08) 0%, transparent 50%);
-  }
+/* ---------- the argument, kept on one continuous rule ---------- */
+.log{padding-top:clamp(4rem,10vh,8rem)}
 
-  .blocks{
-    display:grid;
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap:clamp(0.45rem, 0.8vw, 0.7rem);
-    width:min(900px, 100%);
-  }
-  .block{
-    display:grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto 1fr;
-    gap:0.52rem 0.5rem;
-    align-items:flex-start;
-    min-height:118px;
-    padding:0.72rem 0.78rem 0.76rem;
-    border:1px solid var(--line);
-    background:rgba(5,5,5,0.12);
-    backdrop-filter:blur(4px);
-    -webkit-backdrop-filter:blur(4px);
-    transition:background .35s ease, transform .35s ease, border-color .35s ease;
-    cursor:default;
-    position:relative;
-  }
-  .block:hover{
-    background:rgba(8,8,8,0.24);
-    border-color:rgba(244,244,242,0.2);
-    transform:translateY(-4px);
-  }
-  .block::before{
-    content:'';
-    position:absolute;
-    left:0.78rem;
-    right:0.78rem;
-    top:0.5rem;
-    height:1px;
-    background:rgba(244,244,242,0.045);
-  }
-  .block-num{
-    grid-column:1;
-    grid-row:1;
-    font-family:var(--font-mono);
-    font-size:0.56rem;letter-spacing:0.14em;
-    color:var(--ink-quiet);
-    padding-top:0.1rem;
-    font-variant-numeric:tabular-nums;
-  }
-  .block-body{
-    grid-column:1 / span 2;
-    grid-row:2;
-    align-self:end;
-  }
-  .block-body h3{
-    font-family:var(--font-display);
-    font-weight:500;
-    font-size:clamp(0.8rem, 0.95vw, 0.94rem);
-    letter-spacing:-0.02em;
-    line-height:1.08;
-    margin-bottom:0.18rem;
-  }
-  .block-body p{
-    font-family:var(--font-mono);
-    font-size:0.52rem;
-    letter-spacing:0.02em;
-    color:var(--ink-mute);
-    line-height:1.3;
-    max-width:none;
-  }
-  .block-arrow{
-    grid-column:2;
-    grid-row:1;
-    align-self:start;
-    width:18px;height:18px;
-    border:1px solid var(--line);border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    color:var(--ink-quiet);
-    font-family:var(--font-mono);font-size:0.48rem;
-    transition:all .3s ease;
-  }
-  .block:hover .block-arrow{
-    border-color:var(--accent);color:var(--accent);
-    transform:translateX(4px);
-  }
+.s{
+  position:relative;
+  width:min(var(--shell),100%);margin:0 auto;
+  padding:clamp(3.2rem,7.5vh,6.2rem) var(--pad);
+  display:grid;gap:clamp(1.45rem,3.2vh,2.5rem);
+}
+.s::before{
+  content:'';position:absolute;top:0;bottom:0;left:var(--pad);width:1px;background:var(--rule);
+}
+.log > .s:first-child::before{background:linear-gradient(180deg,transparent,var(--rule) 34%)}
+.s > *{margin-left:var(--rail-gap)}
 
-  /* SCREEN 3 — team */
-  .team{
-    justify-content:center;
-    padding-left:0;
-    padding-right:0;
-    overflow:hidden;
-    background:#050505;
-    padding-top:clamp(5.8rem, 11vh, 7.8rem);
-    padding-bottom:clamp(2.4rem, 6vh, 4.2rem);
+.s__index{
+  position:relative;
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-3);
+}
+.s__index::before{
+  content:'';position:absolute;top:.46em;height:1px;background:var(--rule);
+  left:calc(-1 * var(--rail-gap));width:calc(var(--rail-gap) - .55rem);
+}
+.s__index b{font-weight:400;color:var(--ink-2)}
+
+.s__lede{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(1.95rem,4.3vw,3.45rem);
+  line-height:1.06;letter-spacing:-.03em;max-width:19ch;text-wrap:balance;
+}
+.s__lede em{font-style:italic}
+.s__body{font-size:clamp(.97rem,1.15vw,1.08rem);line-height:1.62;color:var(--ink-2);max-width:58ch}
+.s__body strong{font-weight:400;color:var(--ink)}
+.s__body em{font-style:italic}
+
+/* ---------- sets: hairline-separated columns, no boxes ---------- */
+.set{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--rule)}
+.set--pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+.item{
+  display:grid;gap:.6rem;align-content:start;
+  padding:clamp(1.1rem,2vw,1.55rem) clamp(1.1rem,2.2vw,2.1rem) clamp(1.3rem,2.5vw,1.9rem) 0;
+  border-right:1px solid var(--rule-soft);
+}
+.set > .item:last-child{border-right:0;padding-right:0}
+.item__tag{
+  display:flex;align-items:center;gap:.55rem;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);
+}
+.item__tag::before{content:'';width:5px;height:5px;flex:none;border-radius:50%;background:var(--chan,var(--ink-3))}
+.item--dry{--chan:var(--dry)}
+.item--wet{--chan:var(--wet)}
+.item__note{font-size:.92rem;line-height:1.56;color:var(--ink-2);max-width:36ch}
+.item__meta{
+  font-family:var(--mono);font-size:.57rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+}
+
+/* ---------- signature: the reality loop ---------- */
+.loop{max-width:860px}          /* keeps the key aligned to the figure, not the column */
+.loop__canvas{display:block;width:100%;height:auto}
+.loop__key{
+  display:flex;flex-wrap:wrap;gap:.55rem 1.9rem;
+  margin-top:1.05rem;padding-top:.85rem;border-top:1px solid var(--rule-soft);
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);
+}
+.loop__key i{font-style:normal;display:flex;align-items:center;gap:.5rem}
+.loop__key i::before{content:'';width:14px;height:1px;flex:none;background:var(--chan,var(--ink-3))}
+
+/* ---------- close ---------- */
+.close{background:linear-gradient(180deg,var(--ground) 0%,var(--ground-2) 100%)}
+.close__inner{
+  position:relative;
+  width:min(var(--shell),100%);margin:0 auto;
+  padding:clamp(3.6rem,9vh,7rem) var(--pad) clamp(2.4rem,5vh,3.6rem);
+  display:grid;gap:clamp(1.35rem,3vh,2.1rem);
+}
+.close__inner::before{
+  content:'';position:absolute;top:0;bottom:0;left:var(--pad);width:1px;
+  background:linear-gradient(180deg,var(--rule) 62%,transparent);
+}
+.close__inner > *{margin-left:var(--rail-gap)}
+.close__lede{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(1.95rem,4.3vw,3.45rem);
+  line-height:1.06;letter-spacing:-.03em;max-width:18ch;text-wrap:balance;
+}
+.close__lede em{font-style:italic}
+.close__body{font-size:clamp(.97rem,1.15vw,1.08rem);line-height:1.62;color:var(--ink-2);max-width:54ch}
+.close__body em{font-style:italic}
+.contact{
+  justify-self:start;
+  display:inline-flex;align-items:center;gap:.8rem;
+  padding:.88rem 1.45rem;border:1px solid var(--rule);border-radius:999px;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--ink);
+  transition:border-color .3s ease,background .3s ease,transform .3s ease;
+}
+.contact:hover{border-color:rgba(233,236,234,.34);background:rgba(233,236,234,.05);transform:translateY(-2px)}
+.contact i{font-style:normal;color:var(--ink-3);transition:transform .3s ease}
+.contact:hover i{transform:translateX(3px)}
+
+.foot{
+  width:min(var(--shell),100%);margin:0 auto;
+  padding:1.35rem var(--pad) clamp(2rem,5vh,3rem);
+  display:flex;flex-wrap:wrap;gap:.55rem 1.5rem;justify-content:space-between;
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);
+}
+
+/* ---------- reveal ---------- */
+.r{opacity:0;transform:translateY(14px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+.r.in{opacity:1;transform:none}
+.r:nth-child(2){transition-delay:.07s}
+.r:nth-child(3){transition-delay:.14s}
+.r:nth-child(4){transition-delay:.2s}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .set,.set--pair{grid-template-columns:1fr;border-top:0}
+  .item{border-right:0;border-top:1px solid var(--rule);padding:1.1rem 0 1.4rem}
+  .set > .item:last-child{padding-right:0}
+  .item__note{max-width:48ch}
+}
+@media (max-width:640px){
+  :root{--rail-gap:1.05rem}
+  /* the portrait crop loses the horizontal scrim, so weight the bottom harder */
+  .hero__film::after{
+    background:linear-gradient(180deg,rgba(8,9,10,.74) 0%,rgba(8,9,10,.30) 20%,rgba(8,9,10,.93) 58%,rgba(8,9,10,.99) 100%);
   }
-  .team > :not(.team-stage){
-    position:relative;
-    z-index:1;
-  }
-  .team-stage{
-    position:absolute;
-    inset:0;
-    overflow:hidden;
-    background:#070707;
-  }
-  .team-stage video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    opacity:0.86;
-    filter:blur(1.2px);
-    transform:scale(1.05);
-    transform-origin:center center;
-  }
-  .team-stage::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:
-      linear-gradient(180deg, rgba(5,5,5,0.62) 0%, rgba(5,5,5,0.18) 35%, rgba(5,5,5,0.72) 100%),
-      radial-gradient(ellipse at 50% 24%, rgba(255,255,255,0.04) 0%, transparent 58%);
-  }
-  .team-wrap{
-    width:min(1360px, 100%);
-    margin:0 auto;
-    padding-inline:var(--pad-x);
-    display:grid;
-    justify-items:center;
-    align-content:center;
-    text-align:center;
-    gap:clamp(1.15rem, 2.6vh, 2.2rem);
-  }
-  .team-title{
-    font-family:var(--font-display);
-    font-weight:300;
-    font-size:clamp(4.6rem, 10vw, 8.6rem);
-    line-height:0.88;
-    letter-spacing:-0.065em;
-    margin-bottom:0;
-    color:rgba(244,244,242,0.96);
-    text-shadow:0 12px 40px rgba(0,0,0,0.22);
-  }
-  .team-note{
-    font-family:var(--font-display);
-    font-size:clamp(1.38rem, 2.15vw, 2.15rem);
-    line-height:1.08;
-    letter-spacing:-0.03em;
-    color:rgba(244,244,242,0.86);
-    text-wrap:balance;
-    max-width:27ch;
-    padding:1.1rem 1.25rem 1.25rem;
-    border:1px solid rgba(244,244,242,0.12);
-    background:rgba(5,5,5,0.16);
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    box-shadow:0 24px 80px rgba(0,0,0,0.16);
-  }
-  .team-contact{
-    display:grid;
-    justify-items:center;
-    margin-top:clamp(0.25rem, 0.8vh, 0.5rem);
-  }
-  .contact-button{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-width:148px;
-    min-height:46px;
-    padding:0.8rem 1.35rem;
-    border:1px solid rgba(244,244,242,0.28);
-    border-radius:999px;
-    background:rgba(244,244,242,0.08);
-    backdrop-filter:blur(8px);
-    -webkit-backdrop-filter:blur(8px);
-    color:rgba(244,244,242,0.96);
-    font-family:var(--font-mono);
-    font-size:0.72rem;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    transition:background .25s ease, border-color .25s ease, transform .25s ease;
-  }
-  .contact-button:hover{
-    background:rgba(244,244,242,0.14);
-    border-color:rgba(244,244,242,0.4);
-    transform:translateY(-2px);
-  }
-  /* responsive hero */
-  @media (max-width: 980px){
-    .blocks{grid-template-columns:1fr;}
-    .block{
-      min-height:auto;
-      padding:0.88rem 0.92rem;
-    }
-    .thesis-grid{
-      align-items:flex-end;
-      padding-bottom:1.25rem;
-    }
-  }
-  @media (max-width: 720px){
-    .hero-copy,.thesis-head,.thesis-grid,.team-wrap{padding-inline:1.25rem}
-    .hero-copy{
-      padding-top:6.2rem;
-      padding-bottom:2.7rem;
-    }
-    h1.hero-title{
-      font-size:clamp(1.75rem, 8.7vw, 2.85rem);
-      line-height:1.1;
-      gap:0.04em;
-      padding-inline:0.1em;
-    }
-    .thesis{
-      justify-content:flex-start;
-      padding-top:max(6.4rem, calc(env(safe-area-inset-top) + 5.6rem));
-      padding-bottom:max(1rem, calc(env(safe-area-inset-bottom) + 0.75rem));
-    }
-    .thesis-head{
-      position:relative;
-      top:auto;
-      left:auto;
-      right:auto;
-      transform:none;
-      z-index:2;
-      margin:0;
-      gap:0.7rem;
-      width:100%;
-      padding-inline:1.25rem;
-    }
-    h2.thesis-title{
-      max-width:12ch;
-      font-size:clamp(1.9rem, 8.8vw, 2.9rem);
-      line-height:1.02;
-      text-shadow:0 10px 30px rgba(0,0,0,0.24);
-    }
-    .thesis-sub{
-      font-size:0.62rem;
-      letter-spacing:0.16em;
-      max-width:24ch;
-    }
-    .thesis-grid{
-      position:relative;
-      left:auto;
-      right:auto;
-      bottom:auto;
-      margin-top:auto;
-      padding-inline:1rem;
-      padding-top:0;
-      padding-bottom:max(0.4rem, env(safe-area-inset-bottom));
-    }
-    .thesis-stage::after{
-      background:
-        linear-gradient(180deg, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.38) 30%, rgba(5,5,5,0.84) 100%),
-        radial-gradient(ellipse at 80% 20%, rgba(180,200,220,0.06) 0%, transparent 52%);
-    }
-    .blocks{
-      display:flex;
-      width:100%;
-      gap:0.6rem;
-      overflow-x:auto;
-      overscroll-behavior-x:contain;
-      scroll-snap-type:x mandatory;
-      padding-bottom:0.25rem;
-      -webkit-overflow-scrolling:touch;
-    }
-    .blocks::-webkit-scrollbar{display:none}
-    .block{
-      flex:0 0 78vw;
-      min-height:104px;
-      padding:0.82rem 0.86rem 0.88rem;
-      scroll-snap-align:center;
-      background:rgba(5,5,5,0.24);
-      backdrop-filter:blur(5px);
-      -webkit-backdrop-filter:blur(5px);
-    }
-    .block-body h3{
-      font-size:0.84rem;
-      line-height:1.1;
-    }
-    .block-body p{
-      font-size:0.56rem;
-      line-height:1.34;
-    }
-    .team{
-      justify-content:center;
-      padding-top:6.5rem;
-      padding-bottom:2.5rem;
-    }
-    .team-title{font-size:clamp(3.6rem, 18vw, 6.2rem);}
-    .team-note{
-      font-size:clamp(1.1rem, 5vw, 1.45rem);
-      line-height:1.08;
-      max-width:15ch;
-      padding:0.95rem 1rem 1.05rem;
-    }
-    .contact-button{
-      min-width:132px;
-      min-height:42px;
-      padding:0.72rem 1.1rem;
-    }
-  }
+  .hero__line{max-width:13ch}
+  .s__lede,.close__lede{max-width:15ch}
+  .foot{flex-direction:column;gap:.5rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  .r{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="brand">
-    <span class="brand-mark" aria-hidden="true"></span>
-    <span class="brand-name">PhAI Labs</span>
+<header class="mast">
+  <div class="mast__brand">
+    <svg class="mast__mark" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke-width="1.4" stroke-linecap="round">
+      <path d="M8 8C5.6 4.4 1.4 4.9 1.4 8S5.6 11.6 8 8Z" stroke="#8FBFCB"/>
+      <path d="M8 8c2.4 3.6 6.6 3.1 6.6 0S10.4 4.4 8 8Z" stroke="#D69A57"/>
+    </svg>
+    <span>PhAI Labs</span>
   </div>
-</nav>
+  <a class="mast__contact" href="mailto:wuyc@phai-labs.com">Contact</a>
+</header>
 
-<!-- ============== SCREEN 1 — HERO ============== -->
-<section class="screen hero" id="top" data-screen-label="01 Hero">
-  <div class="hero-stage" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="metadata">
+<section class="hero">
+  <div class="hero__film" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto" poster="logo/poster.jpg">
       <source src="logo/first.mp4" type="video/mp4" />
     </video>
   </div>
-
-  <div class="hero-copy">
-    <h1 class="hero-title">
-      <span class="hero-title-line">Physical AI Scientists</span>
-      <span class="hero-title-line accent-line">for Biology</span>
-    </h1>
+  <div class="hero__copy">
+    <p class="hero__eyebrow">PhAI Labs</p>
+    <h1 class="hero__line">The third scaling law is <em>scientific intelligence</em>.</h1>
+    <p class="hero__sub">We build the model and data infrastructure it runs on.</p>
+    <p class="hero__scroll"><i></i>The argument</p>
   </div>
 </section>
 
-<!-- ============== SCREEN 2 — THESIS ============== -->
-<section class="screen thesis" id="thesis" data-screen-label="02 Thesis">
-  <div class="thesis-stage" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="metadata">
-      <source src="logo/LUMI-lab.mp4" type="video/mp4" />
-    </video>
-  </div>
+<main class="log">
 
-  <div class="thesis-head">
-    <h2 class="thesis-title">The next frontier of AI is <em>physical science.</em></h2>
-    <div class="thesis-sub">Wet Lab as Data Factory.</div>
-  </div>
+  <section class="s">
+    <p class="s__index r"><b>01</b> &nbsp;/&nbsp; The constraint</p>
+    <h2 class="s__lede r">Intelligence has run out of <em>internet</em>.</h2>
+    <p class="s__body r">Published data is static and already trained on. Synthetic reasoning only restates what a
+      model already knows. Contract labs return a result with no task context and no training interface. The one
+      input the frontier is short of &mdash; <strong>scientific data with a verified physical outcome attached</strong> &mdash;
+      cannot be scraped. It has to be produced.</p>
+  </section>
 
-  <div class="thesis-grid">
-    <div class="blocks">
-      <div class="block">
-        <div class="block-num">01</div>
-        <div class="block-body">
-          <h3>Autonomous Wet Labs</h3>
-          <p>24 / 7 patient-grounded experimentation, executed by robots, observed by foundation models.</p>
-        </div>
-        <div class="block-arrow">↗</div>
-      </div>
+  <section class="s">
+    <p class="s__index r"><b>02</b> &nbsp;/&nbsp; The loop</p>
+    <h2 class="s__lede r">Data trains the model. The model designs the <em>next experiment</em>.</h2>
 
-      <div class="block">
-        <div class="block-num">02</div>
-        <div class="block-body">
-          <h3>Biological World Models</h3>
-          <p>Virtual Cell &nbsp;→&nbsp; Virtual Immune System &nbsp;→&nbsp; Lab World Model.</p>
-        </div>
-        <div class="block-arrow">↗</div>
-      </div>
-
-      <div class="block">
-        <div class="block-num">03</div>
-        <div class="block-body">
-          <h3>Physical AI Infrastructure</h3>
-          <p>Robotics, XR, multimodal agents — the substrate beneath every experiment.</p>
-        </div>
-        <div class="block-arrow">↗</div>
+    <div class="loop r">
+      <canvas class="loop__canvas" id="loop" role="img"
+        aria-label="A figure-eight loop. Dry computational trajectories run through the left lobe and wet experimental outcomes through the right lobe; both pass through the single crossing point they share, labelled rubric by task ID."></canvas>
+      <div class="loop__key">
+        <i style="--chan:var(--dry)">Dry &nbsp;&middot;&nbsp; hypothesis, trajectory, rubric</i>
+        <i style="--chan:var(--wet)">Wet &nbsp;&middot;&nbsp; protocol, outcome, reward</i>
+        <i>Coupled on Rubric &times; Task ID</i>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============== SCREEN 3 — TEAM ============== -->
-<section class="screen team" id="team" data-screen-label="03 Team">
-  <div class="team-stage" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="metadata">
-      <source src="logo/video_no_audio.mp4" type="video/mp4" />
-    </video>
-  </div>
-  <div class="team-wrap">
-    <h2 class="team-title">Team</h2>
-    <p class="team-note">Founded by researchers from Stanford, Oxford, and leading industry firms spanning CRISPR gene editing, virtual cell, clinical medicine, and agentic AI systems.</p>
-    <div class="team-contact">
-      <a class="contact-button" href="mailto:wuyc@stanford.edu">Contact</a>
+    <p class="s__body r">A model's failures are the hypotheses worth testing. A rubric turns each one into a protocol
+      with controls, thresholds and a stopping condition. What comes back from the bench &mdash; including every failure &mdash;
+      returns as reward, as a harder benchmark, and as the next rubric. Two directions, so the returns compound
+      rather than add: <strong>every cycle lowers the cost of the next unit of valid data</strong>.</p>
+  </section>
+
+  <section class="s">
+    <p class="s__index r"><b>03</b> &nbsp;/&nbsp; The stack</p>
+    <h2 class="s__lede r">An experiment should return more than a <em>result</em>.</h2>
+    <div class="set r">
+      <div class="item">
+        <p class="item__tag">Rubric Engineering</p>
+        <p class="item__note">The scoring layer for scientific work: what counts as correct, what counts as causal,
+          and what is worth running at all.</p>
+        <p class="item__meta">Specify &middot; Calibrate &middot; Version</p>
+      </div>
+      <div class="item">
+        <p class="item__tag">Lab Context Protocol</p>
+        <p class="item__note">Instruments that emit their own training data &mdash; context, action, deviation, recovery &mdash;
+          without binding to one robot body.</p>
+        <p class="item__meta">Hardware-agnostic</p>
+      </div>
+      <div class="item">
+        <p class="item__tag">Verifier-Driven RL</p>
+        <p class="item__note">Post-training where the reward is a physical outcome, so models converge on reality
+          rather than on a loss curve.</p>
+        <p class="item__meta">Outcome as reward</p>
+      </div>
     </div>
+  </section>
+
+  <section class="s">
+    <p class="s__index r"><b>04</b> &nbsp;/&nbsp; Models</p>
+    <h2 class="s__lede r">Trained on data that was never <em>public</em>.</h2>
+    <div class="set set--pair r">
+      <div class="item item--dry">
+        <p class="item__tag">Cancer World Model</p>
+        <p class="item__note">Perturbation, microenvironment and patient response held in one predictive substrate,
+          evaluated against virtual-cell baselines.</p>
+        <p class="item__meta">In development</p>
+      </div>
+      <div class="item item--wet">
+        <p class="item__tag">MedGenesis</p>
+        <p class="item__note">Clinical reasoning under uncertainty &mdash; causal inference, evidence synthesis,
+          quantitative judgment &mdash; benchmarked against frontier general models.</p>
+        <p class="item__meta">In development</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="close">
+  <div class="close__inner">
+    <p class="s__index r"><b>05</b> &nbsp;/&nbsp; Team</p>
+    <h2 class="close__lede r">Built by people who can run the experiment <em>and</em> train the model.</h2>
+    <p class="close__body r">Clinical medicine at Fudan. AI research at Oxford, Princeton and Peking University.
+      First-author work in <em>Cell</em>, <em>Nature</em> and <em>Science</em>; open systems used across robotics,
+      reasoning and multimodal learning.</p>
+    <a class="contact r" href="mailto:wuyc@phai-labs.com">wuyc@phai-labs.com <i>&rarr;</i></a>
   </div>
-</section>
+  <div class="foot">
+    <span>PhAI Labs</span>
+    <span>Model &amp; data infrastructure for AI for Science</span>
+    <span>phai-labs.com</span>
+  </div>
+</footer>
 
 <script>
-  // light reveal
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting) e.target.classList.add('in');
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* staged reveal */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.15,rootMargin:'0px 0px -6%'});
+  document.querySelectorAll('.r').forEach(function(n){ reduce ? n.classList.add('in') : io.observe(n); });
+
+  /* ---- the reality loop ----------------------------------------------------
+     Lemniscate of Bernoulli. The left lobe carries dry trajectories, the right
+     lobe wet outcomes, and both pass through the one point they share. ------ */
+  var cv = document.getElementById('loop');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var css = getComputedStyle(document.documentElement);
+  var DRY = (css.getPropertyValue('--dry') || '').trim() || '#8FBFCB';
+  var WET = (css.getPropertyValue('--wet') || '').trim() || '#D69A57';
+  var INK3 = 'rgba(233,236,234,.32)';
+
+  var W=0,H=0,A=0,cx=0,cy=0,pts=[],total=0,raf=0;
+  var N=26, parts=[];
+  for(var k=0;k<N;k++) parts.push({off:k/N, v:0.58 + (k%5)*0.055});
+
+  function build(){
+    cv.style.width='';
+    var avail = cv.getBoundingClientRect().width || cv.parentNode.clientWidth || 640;
+    W = Math.max(272, Math.min(860, avail));
+    A = W*0.46;
+    H = Math.round(A*0.70 + 76);            /* lobe height plus label room */
+    cx = W/2; cy = H/2 - 6;
+
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    cv.style.width = W+'px'; cv.style.height = H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+
+    /* sample once, keep an arc-length table so particles travel at even speed */
+    pts=[]; total=0;
+    var S=1200, px=0, py=0;
+    for(var i=0;i<=S;i++){
+      var t = i/S*Math.PI*2;
+      var d = 1 + Math.sin(t)*Math.sin(t);
+      var x = cx + A*Math.cos(t)/d;
+      var y = cy + A*Math.sin(t)*Math.cos(t)/d;
+      if(i>0) total += Math.hypot(x-px,y-py);
+      pts.push({x:x,y:y,s:total,t:t});
+      px=x; py=y;
+    }
+  }
+
+  function at(s){
+    s = ((s % total) + total) % total;
+    var lo=0, hi=pts.length-1;
+    while(lo<hi){ var mid=(lo+hi)>>1; if(pts[mid].s < s) lo=mid+1; else hi=mid; }
+    return pts[lo];
+  }
+  /* t within (-pi/2, pi/2) is the right lobe: wet. everything else: dry. */
+  function chan(t){ return (t < Math.PI/2 || t > Math.PI*1.5) ? WET : DRY; }
+
+  function label(text,x,y,color){
+    ctx.font='400 9.5px "Plex Mono",ui-monospace,monospace';
+    if('letterSpacing' in ctx) ctx.letterSpacing='1.7px';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillStyle=color; ctx.fillText(text,x,y);
+  }
+
+  function frame(now){
+    ctx.clearRect(0,0,W,H);
+
+    ctx.lineWidth=1; ctx.globalAlpha=.2;
+    for(var i=1;i<pts.length;i++){
+      ctx.beginPath();
+      ctx.moveTo(pts[i-1].x,pts[i-1].y);
+      ctx.lineTo(pts[i].x,pts[i].y);
+      ctx.strokeStyle=chan(pts[i].t);
+      ctx.stroke();
+    }
+    ctx.globalAlpha=1;
+
+    /* the crossing the two channels share */
+    ctx.beginPath();
+    ctx.moveTo(cx, cy-A*0.35-14); ctx.lineTo(cx, cy+A*0.35+14);
+    ctx.strokeStyle='rgba(233,236,234,.14)'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx,cy,2.4,0,Math.PI*2);
+    ctx.fillStyle='rgba(233,236,234,.6)'; ctx.fill();
+
+    for(var k=0;k<parts.length;k++){
+      var p=parts[k];
+      var q=at(now*0.042*p.v + p.off*total);
+      var c=chan(q.t);
+      ctx.beginPath(); ctx.arc(q.x,q.y,5.5,0,Math.PI*2);
+      ctx.fillStyle=c; ctx.globalAlpha=.1; ctx.fill();
+      ctx.beginPath(); ctx.arc(q.x,q.y,1.7,0,Math.PI*2);
+      ctx.fillStyle=c; ctx.globalAlpha=.95; ctx.fill();
+    }
+    ctx.globalAlpha=1;
+
+    label('DRY', cx-A*0.62, cy, DRY);
+    label('WET', cx+A*0.62, cy, WET);
+    label('RUBRIC \u00D7 TASK ID', cx, cy+A*0.35+32, INK3);
+
+    if(!reduce) raf = requestAnimationFrame(frame);
+  }
+
+  function start(){
+    cancelAnimationFrame(raf);
+    build();
+    if(reduce) frame(3600); else raf = requestAnimationFrame(frame);
+  }
+  start();
+
+  var rt;
+  addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(start,160); });
+
+  /* only draw while the figure is on screen */
+  new IntersectionObserver(function(es){
+    if(reduce) return;
+    es.forEach(function(e){
+      cancelAnimationFrame(raf);
+      if(e.isIntersecting) raf = requestAnimationFrame(frame);
     });
-  },{threshold:0.15});
-  document.querySelectorAll('.screen').forEach(s=>io.observe(s));
+  },{threshold:0}).observe(cv);
+})();
 </script>
 </body>
 </html>
