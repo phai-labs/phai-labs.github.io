@@ -96,6 +96,13 @@ a{color:inherit;text-decoration:none}
    the thesis turns on, held apart as a slow wash over a ruled field. Nothing is
    loaded, so the first paint is the page itself. */
 .hero__film{position:absolute;inset:0;overflow:hidden;background:var(--ground-2)}
+/* the same figure as section 02, drawn large and unlabelled. It sits above the
+   wash and below the ruled scrim, so the grade that keeps the headline legible
+   is applied to the figure too. */
+.hero__loop{
+  position:absolute;inset:0;display:block;width:100%;height:100%;
+  opacity:.85;
+}
 .hero__film::before{
   content:'';position:absolute;inset:0;
   background:
@@ -291,7 +298,9 @@ a{color:inherit;text-decoration:none}
 </header>
 
 <section class="hero">
-  <div class="hero__film" aria-hidden="true"></div>
+  <div class="hero__film" aria-hidden="true">
+    <canvas class="hero__loop" id="heroloop"></canvas>
+  </div>
   <div class="hero__copy">
     <p class="hero__eyebrow">PhAI Labs</p>
     <h1 class="hero__line">The third scaling law is <em>scientific intelligence</em>.</h1>
@@ -405,118 +414,157 @@ a{color:inherit;text-decoration:none}
 
   /* ---- the reality loop ----------------------------------------------------
      Lemniscate of Bernoulli. The left lobe carries dry trajectories, the right
-     lobe wet outcomes, and both pass through the one point they share. ------ */
-  var cv = document.getElementById('loop');
-  if(!cv) return;
-  var ctx = cv.getContext('2d');
+     lobe wet outcomes, and both pass through the one point they share.
+
+     Drawn twice from one body: the figure in section 02, which is labelled and
+     sized to its column, and the hero, where the same curve fills the frame
+     unlabelled and dimmed so it reads as ground for the headline rather than as
+     a second diagram competing with it. The two must not drift apart, which is
+     why the geometry lives here once and the differences are all options. --- */
   var css = getComputedStyle(document.documentElement);
   var DRY = (css.getPropertyValue('--dry') || '').trim() || '#8FBFCB';
   var WET = (css.getPropertyValue('--wet') || '').trim() || '#D69A57';
   var INK3 = 'rgba(233,236,234,.32)';
 
-  var W=0,H=0,A=0,cx=0,cy=0,pts=[],total=0,raf=0;
-  var N=26, parts=[];
-  for(var k=0;k<N;k++) parts.push({off:k/N, v:0.58 + (k%5)*0.055});
+  function makeLoop(cv, o){
+    if(!cv) return;
+    var ctx = cv.getContext('2d');
+    var W=0,H=0,A=0,cx=0,cy=0,pts=[],total=0,raf=0;
+    var N=o.count, parts=[];
+    for(var k=0;k<N;k++) parts.push({off:k/N, v:0.58 + (k%5)*0.055});
 
-  function build(){
-    cv.style.width='';
-    var avail = cv.getBoundingClientRect().width || cv.parentNode.clientWidth || 640;
-    W = Math.max(272, Math.min(860, avail));
-    A = W*0.46;
-    H = Math.round(A*0.70 + 76);            /* lobe height plus label room */
-    cx = W/2; cy = H/2 - 6;
+    function build(){
+      if(o.fill){
+        /* the hero canvas takes the box it is given; the figure is placed
+           inside it rather than the box being sized to the figure */
+        var b = cv.parentNode.getBoundingClientRect();
+        W = Math.max(320, b.width); H = Math.max(320, b.height);
+        /* the figure is pushed right to clear the headline, which only works
+           while there is a column of quiet ground to push it out of. Under a
+           tablet the copy is full-width, so it centres instead */
+        var narrow = W < 720;
+        A = Math.min(W*(narrow?0.40:o.ax), H*o.ay);
+        cx = W*(narrow?0.50:o.cxf); cy = H*(narrow?0.36:o.cyf);
+      } else {
+        cv.style.width='';
+        var avail = cv.getBoundingClientRect().width || cv.parentNode.clientWidth || 640;
+        W = Math.max(272, Math.min(860, avail));
+        A = W*0.46;
+        H = Math.round(A*0.70 + 76);          /* lobe height plus label room */
+        cx = W/2; cy = H/2 - 6;
+      }
 
-    var dpr = Math.min(2, window.devicePixelRatio || 1);
-    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
-    cv.style.width = W+'px'; cv.style.height = H+'px';
-    ctx.setTransform(dpr,0,0,dpr,0,0);
+      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+      if(!o.fill){ cv.style.width = W+'px'; cv.style.height = H+'px'; }
+      ctx.setTransform(dpr,0,0,dpr,0,0);
 
-    /* sample once, keep an arc-length table so particles travel at even speed */
-    pts=[]; total=0;
-    var S=1200, px=0, py=0;
-    for(var i=0;i<=S;i++){
-      var t = i/S*Math.PI*2;
-      var d = 1 + Math.sin(t)*Math.sin(t);
-      var x = cx + A*Math.cos(t)/d;
-      var y = cy + A*Math.sin(t)*Math.cos(t)/d;
-      if(i>0) total += Math.hypot(x-px,y-py);
-      pts.push({x:x,y:y,s:total,t:t});
-      px=x; py=y;
+      /* sample once, keep an arc-length table so particles travel at even speed */
+      pts=[]; total=0;
+      var S=1200, px=0, py=0;
+      for(var i=0;i<=S;i++){
+        var t = i/S*Math.PI*2;
+        var d = 1 + Math.sin(t)*Math.sin(t);
+        var x = cx + A*Math.cos(t)/d;
+        var y = cy + A*Math.sin(t)*Math.cos(t)/d;
+        if(i>0) total += Math.hypot(x-px,y-py);
+        pts.push({x:x,y:y,s:total,t:t});
+        px=x; py=y;
+      }
     }
-  }
 
-  function at(s){
-    s = ((s % total) + total) % total;
-    var lo=0, hi=pts.length-1;
-    while(lo<hi){ var mid=(lo+hi)>>1; if(pts[mid].s < s) lo=mid+1; else hi=mid; }
-    return pts[lo];
-  }
-  /* t within (-pi/2, pi/2) is the right lobe: wet. everything else: dry. */
-  function chan(t){ return (t < Math.PI/2 || t > Math.PI*1.5) ? WET : DRY; }
+    function at(s){
+      s = ((s % total) + total) % total;
+      var lo=0, hi=pts.length-1;
+      while(lo<hi){ var mid=(lo+hi)>>1; if(pts[mid].s < s) lo=mid+1; else hi=mid; }
+      return pts[lo];
+    }
+    /* t within (-pi/2, pi/2) is the right lobe: wet. everything else: dry. */
+    function chan(t){ return (t < Math.PI/2 || t > Math.PI*1.5) ? WET : DRY; }
 
-  function label(text,x,y,color){
-    ctx.font='400 9.5px "Plex Mono",ui-monospace,monospace';
-    if('letterSpacing' in ctx) ctx.letterSpacing='1.7px';
-    ctx.textAlign='center'; ctx.textBaseline='middle';
-    ctx.fillStyle=color; ctx.fillText(text,x,y);
-  }
+    function label(text,x,y,color){
+      ctx.font='400 9.5px "Plex Mono",ui-monospace,monospace';
+      if('letterSpacing' in ctx) ctx.letterSpacing='1.7px';
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillStyle=color; ctx.fillText(text,x,y);
+    }
 
-  function frame(now){
-    ctx.clearRect(0,0,W,H);
+    function frame(now){
+      ctx.clearRect(0,0,W,H);
 
-    ctx.lineWidth=1; ctx.globalAlpha=.2;
-    for(var i=1;i<pts.length;i++){
+      ctx.lineWidth=o.track; ctx.globalAlpha=o.trackA;
+      for(var i=1;i<pts.length;i++){
+        ctx.beginPath();
+        ctx.moveTo(pts[i-1].x,pts[i-1].y);
+        ctx.lineTo(pts[i].x,pts[i].y);
+        ctx.strokeStyle=chan(pts[i].t);
+        ctx.stroke();
+      }
+      ctx.globalAlpha=1;
+
+      /* the crossing the two channels share */
       ctx.beginPath();
-      ctx.moveTo(pts[i-1].x,pts[i-1].y);
-      ctx.lineTo(pts[i].x,pts[i].y);
-      ctx.strokeStyle=chan(pts[i].t);
-      ctx.stroke();
+      ctx.moveTo(cx, cy-A*0.35-14); ctx.lineTo(cx, cy+A*0.35+14);
+      ctx.strokeStyle='rgba(233,236,234,'+o.axisA+')'; ctx.stroke();
+      ctx.beginPath(); ctx.arc(cx,cy,o.fill?2:2.4,0,Math.PI*2);
+      ctx.fillStyle='rgba(233,236,234,'+o.dotA+')'; ctx.fill();
+
+      for(var k=0;k<parts.length;k++){
+        var p=parts[k];
+        var q=at(now*0.042*p.v + p.off*total);
+        var c=chan(q.t);
+        ctx.beginPath(); ctx.arc(q.x,q.y,o.halo,0,Math.PI*2);
+        ctx.fillStyle=c; ctx.globalAlpha=o.haloA; ctx.fill();
+        ctx.beginPath(); ctx.arc(q.x,q.y,o.core,0,Math.PI*2);
+        ctx.fillStyle=c; ctx.globalAlpha=o.coreA; ctx.fill();
+      }
+      ctx.globalAlpha=1;
+
+      if(o.labels){
+        label('DRY', cx-A*0.62, cy, DRY);
+        label('WET', cx+A*0.62, cy, WET);
+        label('RUBRIC \u00D7 TASK ID', cx, cy+A*0.35+32, INK3);
+      }
+
+      if(!reduce) raf = requestAnimationFrame(frame);
     }
-    ctx.globalAlpha=1;
 
-    /* the crossing the two channels share */
-    ctx.beginPath();
-    ctx.moveTo(cx, cy-A*0.35-14); ctx.lineTo(cx, cy+A*0.35+14);
-    ctx.strokeStyle='rgba(233,236,234,.14)'; ctx.stroke();
-    ctx.beginPath(); ctx.arc(cx,cy,2.4,0,Math.PI*2);
-    ctx.fillStyle='rgba(233,236,234,.6)'; ctx.fill();
-
-    for(var k=0;k<parts.length;k++){
-      var p=parts[k];
-      var q=at(now*0.042*p.v + p.off*total);
-      var c=chan(q.t);
-      ctx.beginPath(); ctx.arc(q.x,q.y,5.5,0,Math.PI*2);
-      ctx.fillStyle=c; ctx.globalAlpha=.1; ctx.fill();
-      ctx.beginPath(); ctx.arc(q.x,q.y,1.7,0,Math.PI*2);
-      ctx.fillStyle=c; ctx.globalAlpha=.95; ctx.fill();
-    }
-    ctx.globalAlpha=1;
-
-    label('DRY', cx-A*0.62, cy, DRY);
-    label('WET', cx+A*0.62, cy, WET);
-    label('RUBRIC \u00D7 TASK ID', cx, cy+A*0.35+32, INK3);
-
-    if(!reduce) raf = requestAnimationFrame(frame);
-  }
-
-  function start(){
-    cancelAnimationFrame(raf);
-    build();
-    if(reduce) frame(3600); else raf = requestAnimationFrame(frame);
-  }
-  start();
-
-  var rt;
-  addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(start,160); });
-
-  /* only draw while the figure is on screen */
-  new IntersectionObserver(function(es){
-    if(reduce) return;
-    es.forEach(function(e){
+    function start(){
       cancelAnimationFrame(raf);
-      if(e.isIntersecting) raf = requestAnimationFrame(frame);
-    });
-  },{threshold:0}).observe(cv);
+      build();
+      if(reduce) frame(3600); else raf = requestAnimationFrame(frame);
+    }
+    start();
+
+    var rt;
+    addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(start,160); });
+
+    /* only draw while the figure is on screen */
+    new IntersectionObserver(function(es){
+      if(reduce) return;
+      es.forEach(function(e){
+        cancelAnimationFrame(raf);
+        if(e.isIntersecting) raf = requestAnimationFrame(frame);
+      });
+    },{threshold:0}).observe(cv);
+  }
+
+  /* section 02: the figure, at the weights it was tuned at */
+  makeLoop(document.getElementById('loop'), {
+    labels:true, count:26,
+    track:1, trackA:.2, axisA:.14, dotA:.6,
+    halo:5.5, haloA:.1, core:1.7, coreA:.95
+  });
+
+  /* the hero: same curve, wider, off-centre to the right so the headline sits
+     on quiet ground, and dim enough to stay behind the type */
+  makeLoop(document.getElementById('heroloop'), {
+    fill:true, labels:false, count:34,
+    ax:0.36, ay:0.62, cxf:0.60, cyf:0.42,
+    track:1, trackA:.13, axisA:.06, dotA:.28,
+    halo:9, haloA:.07, core:1.9, coreA:.55
+  });
+
 })();
 </script>
 </body>
