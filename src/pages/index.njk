@@ -21,7 +21,7 @@ eleventyComputed:
   </div>
   <div class="shell hero__copy">
     <p class="eyebrow">{{ t.hero.eyebrow }}</p>
-    <h1 class="display display--hero">{{ t.hero.title }}</h1>
+    <h1 class="display display--hero">{{ t.hero.title | stagger(lang) | safe }}</h1>
     <p class="subtitle">{{ t.hero.subtitle }}</p>
     <p class="lede">{{ t.hero.lede }}</p>
     <p class="actions">
@@ -38,26 +38,24 @@ eleventyComputed:
   {%- endif %}
 </section>
 
-<section class="sec sec--pillars" id="pillars">
-  <div class="shell">
-    <ol class="pillars">
-      {%- for p in t.pillars %}
-      <li>
-        <p class="eyebrow"><span class="num">0{{ loop.index }}</span>{{ p.label }}</p>
-        <h2>{{ p.title }}</h2>
-        <p>{{ p.body }}</p>
-      </li>
-      {%- endfor %}
-    </ol>
-  </div>
-</section>
-
+{#- The launch leads: DFM as chapter 01 directly under the plate, with the
+    dateline row whose hollow dots turn amber once site.json carries the hrefs. -#}
 <section class="sec sec--dfm-teaser" id="dfm">
   <div class="shell split split--figure">
     <div>
-      <p class="eyebrow">{{ t.dfm_teaser.eyebrow }}</p>
+      <p class="eyebrow"><span class="num">01</span>{{ t.dfm_teaser.eyebrow }}</p>
       <h2 class="display-2">{{ t.dfm_teaser.title }}</h2>
       <p class="lede">{{ t.dfm_teaser.body }}</p>
+      <ul class="dateline">
+        <li{% if not site.links.dfm_report %} class="is-pending"{% endif %}>
+          {%- if site.links.dfm_report %}<a href="{{ site.links.dfm_report }}">{{ 'DFM 技术报告' if lang == 'zh' else 'DFM technical report' }} ↗</a>
+          {%- else %}<span>{{ 'DFM 技术报告' if lang == 'zh' else 'DFM technical report' }}</span><small>{{ s.pending }}</small>{% endif %}
+        </li>
+        <li{% if not site.links.dfm_github %} class="is-pending"{% endif %}>
+          {%- if site.links.dfm_github %}<a href="{{ site.links.dfm_github }}">GitHub ↗</a>
+          {%- else %}<span>GitHub</span><small>{{ s.pending }}</small>{% endif %}
+        </li>
+      </ul>
       <p class="actions"><a class="btn" href="{{ '/tech/' | localeUrl(lang) }}#dfm">{{ t.dfm_teaser.link_label }}</a></p>
     </div>
     <figure class="figure figure--dfm">
@@ -68,9 +66,11 @@ eleventyComputed:
   </div>
 </section>
 
+{#- The module ladder. Amber marks only what has actually shipped; pending
+    states render muted with a hollow dot, decided by data, not by editors. -#}
 <section class="sec sec--modules" id="modules">
   <div class="shell">
-    <p class="eyebrow">{{ t.modules_teaser.title }}</p>
+    <p class="eyebrow"><span class="num">02</span>{{ t.modules_teaser.title }}</p>
     <ol class="modules-list">
       {%- for m in t.modules_teaser.items %}
       {%- set href = ['#sciencebuddy', '#scixxx', '#jepa'][loop.index0] -%}
@@ -79,8 +79,23 @@ eleventyComputed:
           <span class="num">0{{ loop.index }}</span>
           <span class="modules-list__name">{{ m.name }}</span>
           <span class="modules-list__tag">{{ m.tagline }}</span>
-          <span class="modules-list__status">{{ m.status }}</span>
+          <span class="modules-list__status" data-state="{{ m.state or 'pending' }}"><i></i>{{ m.status }}</span>
         </a>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec--pillars" id="pillars">
+  <div class="shell">
+    <p class="eyebrow"><span class="num">03</span>{{ 'PhAI Labs' }}</p>
+    <ol class="pillars">
+      {%- for p in t.pillars %}
+      <li>
+        <p class="eyebrow">{{ p.label }}</p>
+        <h2>{{ p.title }}</h2>
+        <p>{{ p.body }}</p>
       </li>
       {%- endfor %}
     </ol>
@@ -90,7 +105,7 @@ eleventyComputed:
 <section class="sec sec--collab" id="collaborate">
   <div class="shell split">
     <div>
-      <p class="eyebrow">{{ t.collab_teaser.eyebrow }}</p>
+      <p class="eyebrow"><span class="num">04</span>{{ t.collab_teaser.eyebrow }}</p>
       <h2 class="display-2">{{ t.collab_teaser.title }}</h2>
     </div>
     <div>
@@ -106,7 +121,7 @@ eleventyComputed:
 {%- if latest.length %}
 <section class="sec sec--news" id="news">
   <div class="shell">
-    <p class="eyebrow">{{ t.news_teaser.title }}<a class="eyebrow__link" href="{{ '/news/' | localeUrl(lang) }}">{{ t.news_teaser.link_label }}</a></p>
+    <p class="eyebrow"><span class="num">05</span>{{ t.news_teaser.title }}<a class="eyebrow__link" href="{{ '/news/' | localeUrl(lang) }}">{{ t.news_teaser.link_label }}</a></p>
     <ol class="timeline timeline--compact">
       {%- for a in latest %}
       <li class="entry{% if a.draft %} entry--draft{% endif %}">

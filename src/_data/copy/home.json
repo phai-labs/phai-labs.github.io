@@ -38,17 +38,20 @@
         {
           "name": "ScienceBuddy · AI 科研搭档",
           "tagline": "科学家可以直接使用的智能研究工作环境",
-          "status": "可访问"
+          "status": "可访问",
+          "state": "live"
         },
         {
           "name": "SciXXX · 科学加速框架",
           "tagline": "把真实科学代码库变成可运行、可验证的研究环境",
-          "status": "任务提案开放"
+          "status": "任务提案开放",
+          "state": "open"
         },
         {
           "name": "JEPA Anything",
           "tagline": "DFM 后续模块，具体信息待补充",
-          "status": "即将公布"
+          "status": "即将公布",
+          "state": "pending"
         }
       ]
     },
@@ -102,17 +105,20 @@
         {
           "name": "ScienceBuddy · AI Research Partner",
           "tagline": "A research workspace scientists can use directly",
-          "status": "Available"
+          "status": "Available",
+          "state": "live"
         },
         {
           "name": "SciXXX · Scientific Acceleration Framework",
           "tagline": "Turns real scientific codebases into runnable, verifiable research environments",
-          "status": "Open for task proposals"
+          "status": "Open for task proposals",
+          "state": "open"
         },
         {
           "name": "JEPA Anything",
           "tagline": "A forthcoming module under DFM",
-          "status": "Details to follow"
+          "status": "Details to follow",
+          "state": "pending"
         }
       ]
     },

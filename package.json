@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "eleventy --serve --port=8081",
     "build": "eleventy",
-    "clean": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\""
+    "clean": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\"",
+    "fonts": "python scripts/subset-cjk.py"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6"

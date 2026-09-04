@@ -22,7 +22,7 @@ eleventyComputed:
   </div>
   <div class="shell hero__copy">
     <p class="eyebrow"><span class="num">01</span>{{ t.hero.eyebrow }}</p>
-    <h1 class="display">{{ t.hero.title }}</h1>
+    <h1 class="display">{{ t.hero.title | stagger(lang) | safe }}</h1>
     <p class="subtitle">{{ t.hero.subtitle }}</p>
     <p class="lede">{{ t.hero.body }}</p>
     <p class="actions">

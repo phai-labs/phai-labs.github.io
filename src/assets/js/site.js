@@ -102,8 +102,11 @@
 
   /* ---------------- key visual ---------------- */
   // <img class="kv__img" src="static.webp" data-anim="animated.gif">
+  // The animated file is a 24-frame WebP whose first frame matches the still,
+  // so the swap is seamless. Skipped for reduced motion, Save-Data, and phones.
+  const saveData = navigator.connection && navigator.connection.saveData;
   $$('img[data-anim]').forEach((img) => {
-    if (reduce) return;
+    if (reduce || saveData || innerWidth < 768) return;
     const swap = () => {
       const anim = new Image();
       anim.onload = () => { img.src = img.dataset.anim; img.classList.add('is-animated'); };

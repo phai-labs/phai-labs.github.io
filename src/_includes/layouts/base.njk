@@ -33,12 +33,19 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/IBMPlexSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
+  {% if lang == 'zh' %}<link rel="preload" href="/assets/fonts/NotoSerifSC-Display.woff2" as="font" type="font/woff2" crossorigin>{% endif %}
 <link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/pulse.css">
 {%- block head %}{% endblock %}
 </head>
 <body class="page-{{ pageKey }}">
 <a class="skip" href="#main">{{ s.skip }}</a>
 <div class="progress" aria-hidden="true"><i></i></div>
+{#- crosshair edge rails: a drafting-table register, amber at the intersections -#}
+<div class="rails" aria-hidden="true">
+  <div class="rail rail--l"><i></i><b>+</b><i></i><b>+</b><i></i></div>
+  <div class="rail rail--r"><i></i><b>+</b><i></i><b>+</b><i></i></div>
+</div>
 
 <header class="mast" data-mast>
   <a class="mast__brand" href="{{ '/' | localeUrl(lang) }}" aria-label="{{ s.site_name }}">
@@ -91,7 +98,7 @@
   </div>
   <div class="foot__base">
     <span>{{ s.footer_rights }}</span>
-    <span class="foot__domain">phai-labs.com</span>
+    <span class="foot__domain">{% include "components/pulse.njk" %}phai-labs.com</span>
     <a class="foot__top" href="#top">{{ s.back_to_top }} ↑</a>
   </div>
 </footer>

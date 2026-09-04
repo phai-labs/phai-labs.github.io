@@ -1,0 +1,55 @@
+/* generated: dot-matrix activity glyph (see scripts/README in git history) */
+.pulse{width:16px;height:16px;flex:none;overflow:visible}
+.pulse circle{fill:var(--blue);opacity:.28}
+.pulse circle.amber{fill:var(--amber)}
+@media(prefers-reduced-motion:reduce){.pulse circle{animation:none!important;opacity:.55}}
+.pulse .d00{animation:pulse-00 2.8s steps(1,end) infinite}
+@keyframes pulse-00{0.0%{opacity:1}7.143%{opacity:1}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:1}}
+.pulse .d01{animation:pulse-01 2.8s steps(1,end) infinite}
+@keyframes pulse-01{0.0%{opacity:.28}7.143%{opacity:1}14.286%{opacity:1}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d02{animation:pulse-02 2.8s steps(1,end) infinite}
+@keyframes pulse-02{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:1}21.429%{opacity:1}28.571%{opacity:.28}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d03{animation:pulse-03 2.8s steps(1,end) infinite}
+@keyframes pulse-03{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:1}28.571%{opacity:1}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d04{animation:pulse-04 2.8s steps(1,end) infinite}
+@keyframes pulse-04{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:1}35.714%{opacity:1}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d10{animation:pulse-10 2.8s steps(1,end) infinite}
+@keyframes pulse-10{0.0%{opacity:.28}7.143%{opacity:1}14.286%{opacity:1}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d11{animation:pulse-11 2.8s steps(1,end) infinite}
+@keyframes pulse-11{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:1}21.429%{opacity:1}28.571%{opacity:.28}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d12{animation:pulse-12 2.8s steps(1,end) infinite}
+@keyframes pulse-12{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:1}28.571%{opacity:1}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d13{animation:pulse-13 2.8s steps(1,end) infinite}
+@keyframes pulse-13{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:1}35.714%{opacity:1}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d14{animation:pulse-14 2.8s steps(1,end) infinite}
+@keyframes pulse-14{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:1}42.857%{opacity:1}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d20{animation:pulse-20 2.8s steps(1,end) infinite}
+@keyframes pulse-20{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:1}21.429%{opacity:1}28.571%{opacity:.28}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d21{animation:pulse-21 2.8s steps(1,end) infinite}
+@keyframes pulse-21{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:1}28.571%{opacity:1}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d22{animation:pulse-22 2.8s steps(1,end) infinite}
+@keyframes pulse-22{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:1}35.714%{opacity:1}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d23{animation:pulse-23 2.8s steps(1,end) infinite}
+@keyframes pulse-23{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:1}42.857%{opacity:1}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d24{animation:pulse-24 2.8s steps(1,end) infinite}
+@keyframes pulse-24{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:.28}42.857%{opacity:1}50.0%{opacity:1}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d30{animation:pulse-30 2.8s steps(1,end) infinite}
+@keyframes pulse-30{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:1}28.571%{opacity:1}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d31{animation:pulse-31 2.8s steps(1,end) infinite}
+@keyframes pulse-31{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:1}35.714%{opacity:1}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d32{animation:pulse-32 2.8s steps(1,end) infinite}
+@keyframes pulse-32{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:1}42.857%{opacity:1}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d33{animation:pulse-33 2.8s steps(1,end) infinite}
+@keyframes pulse-33{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:.28}42.857%{opacity:1}50.0%{opacity:1}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d34{animation:pulse-34 2.8s steps(1,end) infinite}
+@keyframes pulse-34{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:1}57.143%{opacity:1}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d40{animation:pulse-40 2.8s steps(1,end) infinite}
+@keyframes pulse-40{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:1}35.714%{opacity:1}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d41{animation:pulse-41 2.8s steps(1,end) infinite}
+@keyframes pulse-41{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:1}42.857%{opacity:1}50.0%{opacity:.28}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d42{animation:pulse-42 2.8s steps(1,end) infinite}
+@keyframes pulse-42{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:.28}42.857%{opacity:1}50.0%{opacity:1}57.143%{opacity:.28}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d43{animation:pulse-43 2.8s steps(1,end) infinite}
+@keyframes pulse-43{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:1}57.143%{opacity:1}64.286%{opacity:.28}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}
+.pulse .d44{animation:pulse-44 2.8s steps(1,end) infinite}
+@keyframes pulse-44{0.0%{opacity:.28}7.143%{opacity:.28}14.286%{opacity:.28}21.429%{opacity:.28}28.571%{opacity:.28}35.714%{opacity:.28}42.857%{opacity:.28}50.0%{opacity:.28}57.143%{opacity:1}64.286%{opacity:1}71.429%{opacity:.28}78.571%{opacity:.28}85.714%{opacity:.28}92.857%{opacity:.28}100.0%{opacity:.28}}

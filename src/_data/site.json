@@ -15,9 +15,10 @@
   },
   "kv": {
     "static": "/assets/img/kv-static.webp",
-    "animated": "/assets/img/kv-breathing.gif",
+    "animated": "/assets/img/kv-anim.webp",
     "width": 1586,
-    "height": 992
+    "height": 992,
+    "mobile": "/assets/img/kv-static.webp"
   },
   "og_image": "/assets/img/kv-static.webp"
 }

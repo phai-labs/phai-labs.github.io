@@ -62,6 +62,24 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter("pad2", (n) => String(n).padStart(2, "0"));
 
+  // Headline stagger, done at build time so the page needs no split library.
+  // English staggers by word; Chinese by character, keeping trailing CJK
+  // punctuation attached to its character so line-start punctuation cannot
+  // occur. Delay index is capped so the whole headline lands within ~0.8s.
+  const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  eleventyConfig.addFilter("stagger", (text, lang) => {
+    const t = esc(text);
+    // Chinese headlines rise as one block: per-character stagger reads as a
+    // gimmick in hanzi and fights the line-breaking rules. English staggers by word.
+    if (lang === "zh") return t;
+    const tokens = t.split(/(\s+)/);
+    let i = 0;
+    return tokens.map((tok) => {
+      if (!tok || /^\s+$/.test(tok)) return tok;
+      return `<span class="w" style="--i:${Math.min(i++, 16)}">${tok}</span>`;
+    }).join("");
+  });
+
   // -- dev server ----------------------------------------------------------
   eleventyConfig.setServerOptions({ showAllHosts: false, port: 8081 });
 
