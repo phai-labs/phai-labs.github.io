@@ -1,0 +1,65 @@
+{
+  "_readme": "One entry per open position. To add a role, copy an entry and edit; set status to closed to hide it without deleting. placeholder: true marks roles that still need confirmation from the lab before publishing -- the page shows them with a 待确认 / TBC mark. Applications go to site.email unless apply_url is set.",
+  "positions": [
+    {
+      "id": "research-scientist-post-training",
+      "status": "open",
+      "placeholder": true,
+      "type": { "zh": "全职", "en": "Full-time" },
+      "location": { "zh": "上海 / 远程【待确认】", "en": "Shanghai / remote [TBC]" },
+      "apply_url": "",
+      "zh": {
+        "title": "研究科学家 · 大模型与智能体后训练",
+        "summary": "围绕 DFM 蓝图，研究面向科学发现的强化学习、智能体训练与验证机制。",
+        "responsibilities": ["设计并实现面向科学任务的后训练与强化学习方法", "构建可验证的奖励、评测与反馈机制", "与科学家合作，把真实问题转化为可训练的任务"],
+        "requirements": ["大模型、强化学习或智能体方向的研究经历", "扎实的工程能力，熟悉分布式训练", "对科学发现过程有真实兴趣"]
+      },
+      "en": {
+        "title": "Research Scientist · LLM and agent post-training",
+        "summary": "Reinforcement learning, agent training and verification for scientific discovery, within the DFM blueprint.",
+        "responsibilities": ["Design and implement post-training and RL methods for scientific tasks", "Build verifiable reward, evaluation and feedback mechanisms", "Work with scientists to turn real questions into trainable tasks"],
+        "requirements": ["Research experience in LLMs, reinforcement learning or agents", "Strong engineering, including distributed training", "Genuine interest in how discovery actually happens"]
+      }
+    },
+    {
+      "id": "research-engineer-scientific-environments",
+      "status": "open",
+      "placeholder": true,
+      "type": { "zh": "全职", "en": "Full-time" },
+      "location": { "zh": "上海 / 远程【待确认】", "en": "Shanghai / remote [TBC]" },
+      "apply_url": "",
+      "zh": {
+        "title": "研究工程师 · 科学环境与工具",
+        "summary": "把真实科学代码库、数据与实验流程封装为可运行、可测量、可复现的研究环境。",
+        "responsibilities": ["构建与维护科学任务环境与评测", "为智能体接入科学工具、数据与实验接口", "与领域专家共同固定依赖、定义任务与成功标准"],
+        "requirements": ["熟悉 Python 科学计算生态与容器化", "有科学软件、数据流程或实验系统经验者优先", "重视可复现性"]
+      },
+      "en": {
+        "title": "Research Engineer · Scientific environments and tools",
+        "summary": "Turn real scientific codebases, data and experimental workflows into runnable, measurable, reproducible research environments.",
+        "responsibilities": ["Build and maintain scientific task environments and evaluations", "Connect agents to scientific tools, data and experimental interfaces", "Pin dependencies, define tasks and success criteria with domain experts"],
+        "requirements": ["Fluent in the Python scientific stack and containers", "Experience with scientific software, data pipelines or lab systems preferred", "Cares about reproducibility"]
+      }
+    },
+    {
+      "id": "scientist-life-science",
+      "status": "open",
+      "placeholder": true,
+      "type": { "zh": "全职 / 合作【待确认】", "en": "Full-time / collaboration [TBC]" },
+      "location": { "zh": "上海【待确认】", "en": "Shanghai [TBC]" },
+      "apply_url": "",
+      "zh": {
+        "title": "科学家 · 生命科学与生物医学",
+        "summary": "把领域判断、数据与验证条件带进发现链路，与 AI 研究者共同定义值得探索的问题。",
+        "responsibilities": ["提出并评估具有真实科学价值的问题", "设计可验证的实验与分析方案", "对模型输出给出专业判断与反馈"],
+        "requirements": ["生命科学或生物医学相关博士学位", "有组学、单细胞、疾病机制或实验设计经验", "愿意与 AI 系统协作而非只使用工具"]
+      },
+      "en": {
+        "title": "Scientist · Life science and biomedicine",
+        "summary": "Bring domain judgement, data and verification conditions into the discovery loop, and define with AI researchers which questions are worth exploring.",
+        "responsibilities": ["Propose and evaluate questions with real scientific value", "Design verifiable experiments and analyses", "Judge and give feedback on model outputs"],
+        "requirements": ["PhD in life science or biomedicine", "Experience in omics, single-cell, disease mechanisms or experiment design", "Willing to work with AI systems rather than only use tools"]
+      }
+    }
+  ]
+}

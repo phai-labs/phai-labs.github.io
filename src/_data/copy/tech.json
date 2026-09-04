@@ -1,0 +1,276 @@
+{
+  "zh": {
+    "hero": {
+      "eyebrow": "PhAI Labs · 技术",
+      "title": "面向科学发现的技术体系",
+      "lede": "PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的技术框架与系统蓝图；ScienceBuddy、SciXXX 与 JEPA Anything 是这一蓝图下逐步实现、持续发布的具体模块。"
+    },
+    "direction": {
+      "title": "PhAI 的技术方向",
+      "body": [
+        "今天的 AI 已经能够检索文献、生成代码、处理数据并辅助完成部分科研任务。但真正的科学发现，往往始于一个尚未被清晰定义的问题，并经历假设形成、证据组织、工具调用、实验验证以及持续修正。这些过程无法只在标准数据集或封闭任务中完成。",
+        "公开数据已经见底。模型训练最缺的不是更多文本，而是带有真实结果的科学数据：一个假设被验证或被推翻，一个实验成功或失败。这样的数据无法从网上抓取，只能在真实科研过程中产生。",
+        "因此我们把方向定在科学智能本身：让系统从真实任务和环境反馈中持续学习、验证并改进。数据训练模型，模型设计下一个实验；实验返回的每一个结果，包括失败，都成为下一轮训练的信号。这是 PhAI Labs 长期关注大模型、强化学习、智能体与科学智能的原因，也是 DFM 的出发点。"
+      ]
+    },
+    "dfm": {
+      "title": "DFM · Discovery Foundation Models",
+      "what_it_is": "DFM，全称 Discovery Foundation Models，是 PhAI Labs 面向科学发现提出的技术框架与系统蓝图。它定义了从识别有价值的未知、形成可研究的问题、构建并修正假设，到调用工具与实验、获取外部反馈并验证新知识的完整发现过程。围绕这一蓝图，各项能力将通过具体模块逐步实现并陆续发布。",
+      "blueprint": [
+        "DFM 不是一个模型，也不是一个单一产品。它是一张系统蓝图，规定了科学发现过程中各个环节如何相互连接，以及哪些能力需要被逐一建设。",
+        "在这张蓝图中，科学问题是起点。系统从一个部分理解的世界出发，识别有价值的未知，把它转化为可研究的问题，再围绕问题构建假设。假设不停留在文本里：系统调用科研工具、数据和实验环境去执行，从数据分析、实验结果和专家判断中获取外部证据，并据此验证、修正或推翻自己的判断。",
+        "模型训练嵌在这个过程之中。每一次工具调用、每一次实验反馈，都是对模型判断的一次检验，也是一份带有真实结果的训练信号。经过验证的新知识、可复用的问题、工具与验证机制沉淀下来，成为下一次发现的起点。",
+        "围绕这张蓝图，DFM 的各项能力将通过具体模块逐步实现并陆续发布。ScienceBuddy 承接科学家与长程科研工作流的连接，SciXXX 提供真实科学代码与可验证的任务环境。它们是 DFM 的两条具体落地路径，而不是与 DFM 并列的独立方向。"
+      ],
+      "modules_title": "DFM 的关键能力",
+      "modules": [
+        {
+          "name": "识别有价值的未知",
+          "body": "从尚未解释的现象、方法失效的地方和数据中的异常出发，判断哪些未知值得投入。"
+        },
+        {
+          "name": "将未知转化为可研究的问题",
+          "body": "把一个模糊的未知收敛为有边界、可切入、可检验的研究问题，并说明什么结果算作进展。"
+        },
+        {
+          "name": "构建并修正研究假设",
+          "body": "围绕问题提出假设，组织已有证据，并在新证据到来时修正或放弃假设。"
+        },
+        {
+          "name": "调用科研工具、数据和实验环境",
+          "body": "让假设离开文本：调用文献、代码、数据分析工具与实验环境，把判断变成可以执行的动作。"
+        },
+        {
+          "name": "根据外部证据验证和更新判断",
+          "body": "让系统的输出接受数据、实验、专家判断与现实环境的检验，并根据结果更新自己的判断。"
+        },
+        {
+          "name": "沉淀可复用的研究结构与发现能力",
+          "body": "把经过验证的问题、工具、数据与验证机制沉淀为可复用的结构，让每一次探索成为下一次发现的起点。"
+        }
+      ],
+      "links": {
+        "report_label": "DFM 技术报告",
+        "github_label": "GitHub",
+        "pending_label": "9 月 15 日开放"
+      }
+    },
+    "projects": [
+      {
+        "name": "ScienceBuddy",
+        "subtitle": "AI 科研搭档",
+        "body": "ScienceBuddy 是 DFM 框架下重点展示的具体产品形态，也是科学家可以直接接触和使用的 AI 科研搭档。它将递归式科研智能体与 Science IDE 连接起来，把科学问题、文献、数据、代码、工具和实验方案纳入同一个课题工作区，沿着“探索—执行—评估—改进”的循环推进长程科研任务。科学家可以随时查看、介入并复核研究过程。",
+        "bullets": [
+          "承接并结构化科学问题、数据需求与研究材料",
+          "文献、代码与科研工具调用",
+          "假设形成与验证",
+          "为后续科研工作流准备所需信息",
+          "当前已提供可访问的产品入口，具体能力范围和开放方式以实际版本为准"
+        ],
+        "links": [
+          {
+            "label": "访问 ScienceBuddy →",
+            "href": "http://115.191.37.16:8099/",
+            "pending": false
+          },
+          {
+            "label": "技术报告",
+            "href": "",
+            "pending": true
+          },
+          {
+            "label": "GitHub",
+            "href": "",
+            "pending": true
+          }
+        ]
+      },
+      {
+        "name": "SciXXX",
+        "subtitle": "科学加速框架",
+        "body": "SciXXX 是 DFM 中面向真实科学代码库与研究任务的科学加速框架。它把真实科学代码库封装成可运行、可测量、可复现的研究环境：固定依赖、构建运行环境、定义研究任务，并设置可检查的成功标准。研究者可以提交自己熟悉的代码库，定义希望 AI agent 完成的任务，并说明什么结果算成功；项目再与领域专家一起完成依赖固定、环境构建和任务评测。它的价值在于，把真实科学软件、领域判断、任务目标和可验证反馈组织到同一个环境中，为 AI agent、模型训练和科学发现研究提供可运行的基础设施。",
+        "bullets": [
+          "当前任务形态：加速、发现、修复、复现、集成",
+          "当前开放任务提案",
+          "与领域专家共同完成依赖固定、环境构建和任务评测"
+        ],
+        "links": [
+          {
+            "label": "项目主页 →",
+            "href": "https://aitonomy.org/projects/sciworld",
+            "pending": false
+          },
+          {
+            "label": "技术报告",
+            "href": "",
+            "pending": true
+          },
+          {
+            "label": "GitHub",
+            "href": "",
+            "pending": true
+          }
+        ]
+      },
+      {
+        "name": "JEPA Anything",
+        "subtitle": "DFM 后续模块",
+        "body": "具体信息待补充。",
+        "bullets": [],
+        "links": [
+          {
+            "label": "技术报告",
+            "href": "",
+            "pending": true
+          },
+          {
+            "label": "GitHub",
+            "href": "",
+            "pending": true
+          }
+        ]
+      }
+    ],
+    "roadmap": {
+      "title": "逐步实现，持续发布",
+      "body": "DFM 是一张蓝图，不是一个已经完成的模型。围绕它的各项能力将通过具体模块逐步实现并陆续发布。技术报告、GitHub 仓库、各模块的开放范围和后续路线，会在内部确认后陆续补充；每一次发布都会在新闻动态中同步。"
+    }
+  },
+  "en": {
+    "hero": {
+      "eyebrow": "PhAI Labs · Tech",
+      "title": "Technology for scientific discovery",
+      "lede": "Our technical work turns on one question: how can an AI system take part in real scientific discovery? DFM is the technical framework and system blueprint we propose for this. ScienceBuddy, SciXXX and JEPA Anything are the concrete modules under that blueprint, implemented step by step and released as they mature."
+    },
+    "direction": {
+      "title": "Our technical direction",
+      "body": [
+        "AI can already retrieve literature, generate code, process data and assist with parts of the research workflow. But discovery usually begins with a question that is not yet well defined, and advances through hypotheses, evidence, tools, experiments and continuous revision. That process cannot happen only on static benchmarks or closed tasks.",
+        "Intelligence has run out of internet. Published data is static and already trained on. What the frontier is short of is scientific data with a verified outcome attached: a hypothesis confirmed or rejected, an experiment that worked or failed. That data cannot be scraped. It has to be produced, inside real research.",
+        "So our direction is scientific intelligence itself: systems that keep learning, verifying and improving through real tasks and environmental feedback. Data trains the model; the model designs the next experiment; what comes back, including every failure, is the signal for the next round. This is why PhAI Labs works on foundation models, reinforcement learning, agents and scientific intelligence, and it is where DFM starts."
+      ]
+    },
+    "dfm": {
+      "title": "DFM · Discovery Foundation Models",
+      "what_it_is": "Discovery Foundation Models (DFM) is PhAI Labs’ technical framework and system blueprint for scientific discovery. It defines an end-to-end discovery process: identifying valuable unknowns, formulating researchable questions, constructing and revising hypotheses, using tools and experiments, gathering external feedback, and validating new knowledge. The capabilities described by this blueprint will be progressively implemented and released as concrete modules.",
+      "blueprint": [
+        "DFM is not a model, and not a single product. It is a system blueprint: a description of how the stages of discovery connect to one another, and of which capabilities have to be built, one by one, to run that process.",
+        "In this blueprint, the scientific question comes first. Starting from a partially understood world, the system identifies a valuable unknown, turns it into a researchable problem, and builds hypotheses around it. A hypothesis does not stay on paper. The system calls research tools, data and experimental environments to act on it, gathers external evidence from analysis, experiments and expert judgement, and uses that evidence to confirm, revise or reject its own position.",
+        "Model training sits inside this process rather than in front of it. Every tool call and every experimental result is both a test of the model’s judgement and a training signal with a real outcome attached. Validated knowledge, reusable questions, tools and verifiers accumulate, and become the starting point for the next discovery.",
+        "Around this blueprint, DFM’s capabilities will be progressively implemented and released as concrete modules. ScienceBuddy connects scientists to long-running research workflows; SciXXX provides real scientific code and verifiable task environments. They are two concrete paths by which DFM enters practice, not parallel directions alongside it."
+      ],
+      "modules_title": "Key capabilities in DFM",
+      "modules": [
+        {
+          "name": "Identify valuable unknowns",
+          "body": "Start from unexplained phenomena, places where methods fail, and anomalies in data, and judge which unknowns are worth pursuing."
+        },
+        {
+          "name": "Turn unknowns into researchable questions",
+          "body": "Narrow a vague unknown into a bounded question with a way in and a way to check it, and state what would count as progress."
+        },
+        {
+          "name": "Build and revise hypotheses",
+          "body": "Propose hypotheses around the question, organize the existing evidence, and revise or drop a hypothesis when new evidence arrives."
+        },
+        {
+          "name": "Call tools, data and experimental environments",
+          "body": "Take the hypothesis off the page: call literature, code, analysis tools and experimental environments, and turn judgement into actions that can be executed."
+        },
+        {
+          "name": "Validate and update against external evidence",
+          "body": "Subject the system’s outputs to data, experiments, expert judgement and the physical world, and update its position according to what comes back."
+        },
+        {
+          "name": "Accumulate reusable research structure",
+          "body": "Turn validated questions, tools, data and verifiers into reusable structure, so that each exploration becomes the starting point for the next discovery."
+        }
+      ],
+      "links": {
+        "report_label": "DFM technical report",
+        "github_label": "GitHub",
+        "pending_label": "Available Sep 15"
+      }
+    },
+    "projects": [
+      {
+        "name": "ScienceBuddy",
+        "subtitle": "AI Research Partner",
+        "body": "ScienceBuddy is the product form of DFM shown in this release, and the AI research partner scientists can use directly. It connects a recursive research agent with a Science IDE, bringing scientific questions, literature, data, code, tools and experiment plans into one workspace, and advances long-running research through an explore–execute–evaluate–improve loop. Scientists can inspect, intervene and verify each step.",
+        "bullets": [
+          "Takes in and structures scientific questions, data needs and research materials",
+          "Literature, code and research tool calls",
+          "Hypothesis formation and validation",
+          "Prepares the information later research workflows need",
+          "A product entry point is available now; the scope of capabilities and access follow the current version"
+        ],
+        "links": [
+          {
+            "label": "Open ScienceBuddy →",
+            "href": "http://115.191.37.16:8099/",
+            "pending": false
+          },
+          {
+            "label": "Technical report",
+            "href": "",
+            "pending": true
+          },
+          {
+            "label": "GitHub",
+            "href": "",
+            "pending": true
+          }
+        ]
+      },
+      {
+        "name": "SciXXX",
+        "subtitle": "Scientific Acceleration Framework",
+        "body": "SciXXX is the scientific acceleration framework within DFM for real scientific codebases and research tasks. It packages a real codebase into a runnable, measurable and reproducible research environment: dependencies pinned, the environment built, the research task defined, and success criteria that can be checked. Researchers submit a codebase they know, define what an AI agent should accomplish, and specify what success looks like; the project then works with domain experts to pin dependencies, build the environment and evaluate the task. The point is to bring real scientific software, domain judgement, task goals and verifiable feedback into one environment, as working infrastructure for AI agents, model training and discovery research.",
+        "bullets": [
+          "Current task forms: acceleration, discovery, repair, reproduction, integration",
+          "Open for task proposals now",
+          "Dependencies, environments and evaluation are built together with domain experts"
+        ],
+        "links": [
+          {
+            "label": "Project page →",
+            "href": "https://aitonomy.org/projects/sciworld",
+            "pending": false
+          },
+          {
+            "label": "Technical report",
+            "href": "",
+            "pending": true
+          },
+          {
+            "label": "GitHub",
+            "href": "",
+            "pending": true
+          }
+        ]
+      },
+      {
+        "name": "JEPA Anything",
+        "subtitle": "A forthcoming DFM module",
+        "body": "Details to follow.",
+        "bullets": [],
+        "links": [
+          {
+            "label": "Technical report",
+            "href": "",
+            "pending": true
+          },
+          {
+            "label": "GitHub",
+            "href": "",
+            "pending": true
+          }
+        ]
+      }
+    ],
+    "roadmap": {
+      "title": "One module at a time",
+      "body": "DFM is a blueprint, not a finished model. Its capabilities will be implemented and released as concrete modules, one at a time. The technical report, GitHub repositories, the scope of each module and the roadmap beyond will be added as they are confirmed internally, and each release will be announced under News."
+    }
+  }
+}

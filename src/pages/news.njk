@@ -1,0 +1,41 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+permalink: "{{ '/news/' | localeUrl(lang) }}index.html"
+layout: layouts/base.njk
+pageKey: news
+eleventyComputed:
+  title: "{{ i18n[lang].nav[1].label }}"
+---
+{%- set s = i18n[lang] -%}
+{%- set list = articles if showDrafts else (articles | published) -%}
+
+<section class="hero hero--page" id="top">
+  <div class="shell">
+    <p class="eyebrow">{{ s.nav[1].label }}</p>
+    <h1 class="display">{{ '技术发布、合作计划与项目进展' if lang == 'zh' else 'Releases, programs and progress' }}</h1>
+    <p class="lede">{{ '官网长期更新入口：DFM 及各模块的发布、科学家合作计划、项目进展与团队动态。' if lang == 'zh' else 'The running record: DFM and module releases, the Scientist Collaboration Program, project progress and team news.' }}</p>
+  </div>
+</section>
+
+<section class="sec sec--timeline">
+  <div class="shell">
+    <ol class="timeline">
+      {%- for a in list %}
+      {%- set c = a[lang] -%}
+      <li class="entry{% if a.draft %} entry--draft{% endif %}">
+        <p class="entry__meta">
+          <time datetime="{{ a.date }}">{{ a.date | fmtDate(lang) }}</time>
+          <span class="entry__cat">{{ s.category[a.category] }}</span>
+          {%- if a.draft %}<span class="entry__badge">{{ s.draft_badge }}</span>{% endif %}
+        </p>
+        <h2 class="entry__title"><a href="{{ ('/news/' + a.slug + '/') | localeUrl(lang) }}">{{ c.title }}</a></h2>
+        <p class="entry__summary">{{ c.summary }}</p>
+        <a class="entry__more" href="{{ ('/news/' + a.slug + '/') | localeUrl(lang) }}">{{ s.read_more }} →</a>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>

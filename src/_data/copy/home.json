@@ -1,0 +1,130 @@
+{
+  "zh": {
+    "hero": {
+      "eyebrow": "PhAI Labs · 面向真实科学发现",
+      "title": "让 AI 参与科学发现",
+      "subtitle": "第三条 Scaling Law，是科学智能",
+      "lede": "PhAI Labs 面向真实科学发现。我们让真实的科学问题、数据与实验反馈进入下一代 AI 系统，探索从辅助科研到参与科学发现的路径。DFM 是这条路径上的技术框架与系统蓝图。",
+      "cta_apply": "立即申请",
+      "cta_tech": "了解 DFM",
+      "kv_alt": "PhAI Labs 主视觉：网络粒子图"
+    },
+    "pillars": [
+      {
+        "label": "真实科学发现",
+        "title": "从真实问题出发",
+        "body": "科学发现往往始于一个尚未被清晰定义的问题。我们从科学家面对的未知、瓶颈与异常现象出发，而不是从已经形式化的任务出发。"
+      },
+      {
+        "label": "真实反馈",
+        "title": "让数据与实验进入系统",
+        "body": "公开数据已经见底。模型真正缺的，是带有真实结果的科学数据。我们让真实的科学问题、数据与实验反馈进入下一代 AI 系统，让模型的输出接受数据、实验和专家判断的检验。"
+      },
+      {
+        "label": "参与发现",
+        "title": "从辅助科研，走向参与发现",
+        "body": "今天的 AI 可以检索文献、生成代码、处理数据。我们希望系统进入更完整的发现过程：识别未知、提出问题、修正假设、调用工具与实验，并在外部证据中更新判断。"
+      }
+    ],
+    "dfm_teaser": {
+      "eyebrow": "DFM · Discovery Foundation Models",
+      "title": "面向科学发现的技术框架",
+      "body": "DFM，全称 Discovery Foundation Models，是 PhAI Labs 面向科学发现提出的技术框架与系统蓝图。它定义了从识别有价值的未知、形成可研究的问题、构建并修正假设，到调用工具与实验、获取外部反馈并验证新知识的完整发现过程。围绕这一蓝图，各项能力将通过具体模块逐步实现并陆续发布。",
+      "link_label": "了解 DFM →"
+    },
+    "modules_teaser": {
+      "title": "DFM 首批建设模块",
+      "items": [
+        {
+          "name": "ScienceBuddy · AI 科研搭档",
+          "tagline": "科学家可以直接使用的智能研究工作环境",
+          "status": "可访问"
+        },
+        {
+          "name": "SciXXX · 科学加速框架",
+          "tagline": "把真实科学代码库变成可运行、可验证的研究环境",
+          "status": "任务提案开放"
+        },
+        {
+          "name": "JEPA Anything",
+          "tagline": "DFM 后续模块，具体信息待补充",
+          "status": "即将公布"
+        }
+      ]
+    },
+    "collab_teaser": {
+      "eyebrow": "DFM科学家合作计划",
+      "title": "与科学家共同进入未知",
+      "body": "首期重点关注生命科学与生物医学，同时面向化学、材料及其他前沿领域开放。我们寻找有明确科学问题的科学家、拥有高价值数据或实验环境的实验室、可以提供真实验证条件的湿实验团队，以及希望共同探索 DFM 的青年 PI、博士后和博士生。",
+      "cta": "立即申请"
+    },
+    "news_teaser": {
+      "title": "新闻动态",
+      "link_label": "查看全部 →"
+    }
+  },
+  "en": {
+    "hero": {
+      "eyebrow": "PhAI Labs · Toward real scientific discovery",
+      "title": "AI that participates in discovery",
+      "subtitle": "The third scaling law is scientific intelligence.",
+      "lede": "PhAI Labs works toward real scientific discovery. We bring real scientific questions, data and experimental feedback into next-generation AI systems, and explore how AI can move from assisting research to participating in discovery. DFM is the technical framework and system blueprint for that path.",
+      "cta_apply": "Apply now",
+      "cta_tech": "Explore DFM",
+      "kv_alt": "PhAI Labs key visual: a network of particles"
+    },
+    "pillars": [
+      {
+        "label": "Real discovery",
+        "title": "Start with real questions",
+        "body": "Discovery begins with a question that is not yet well defined. We start from the unknowns, bottlenecks and anomalies scientists actually face, not from tasks that are already formalized."
+      },
+      {
+        "label": "Real feedback",
+        "title": "Data and experiments enter the loop",
+        "body": "Public data has run out. What models lack is scientific data with a real outcome attached. We bring real questions, data and experimental feedback into next-generation AI systems, and let model outputs face data, experiments and expert judgement."
+      },
+      {
+        "label": "Participating in discovery",
+        "title": "From assisting to participating",
+        "body": "AI can already retrieve literature, write code and process data. We want systems to enter the fuller process of discovery: identify unknowns, pose questions, revise hypotheses, run tools and experiments, and update their judgement against external evidence."
+      }
+    ],
+    "dfm_teaser": {
+      "eyebrow": "DFM · Discovery Foundation Models",
+      "title": "A framework for scientific discovery",
+      "body": "Discovery Foundation Models (DFM) is PhAI Labs’ technical framework and system blueprint for scientific discovery. It defines an end-to-end discovery process: identifying valuable unknowns, formulating researchable questions, constructing and revising hypotheses, using tools and experiments, gathering external feedback, and validating new knowledge. The capabilities described by this blueprint will be progressively implemented and released as concrete modules.",
+      "link_label": "Explore DFM →"
+    },
+    "modules_teaser": {
+      "title": "Initial modules for DFM",
+      "items": [
+        {
+          "name": "ScienceBuddy · AI Research Partner",
+          "tagline": "A research workspace scientists can use directly",
+          "status": "Available"
+        },
+        {
+          "name": "SciXXX · Scientific Acceleration Framework",
+          "tagline": "Turns real scientific codebases into runnable, verifiable research environments",
+          "status": "Open for task proposals"
+        },
+        {
+          "name": "JEPA Anything",
+          "tagline": "A forthcoming module under DFM",
+          "status": "Details to follow"
+        }
+      ]
+    },
+    "collab_teaser": {
+      "eyebrow": "DFM Scientist Collaboration Program",
+      "title": "Bring your question into the loop",
+      "body": "The first cohort prioritizes life science and biomedicine, while remaining open to chemistry, materials and other frontier fields. We are looking for scientists with clear questions, laboratories with high-value data or experimental environments, wet-lab teams able to provide real-world validation, and early-career PIs, postdocs and PhD students who want to explore DFM with us.",
+      "cta": "Apply now"
+    },
+    "news_teaser": {
+      "title": "News",
+      "link_label": "All news →"
+    }
+  }
+}

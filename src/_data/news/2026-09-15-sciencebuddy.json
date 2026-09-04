@@ -1,0 +1,60 @@
+{
+  "slug": "sciencebuddy",
+  "date": "2026-09-15",
+  "draft": true,
+  "category": "release",
+  "cover": "",
+  "links": [
+    {
+      "label": {
+        "zh": "访问 ScienceBuddy",
+        "en": "Open ScienceBuddy"
+      },
+      "href": "http://115.191.37.16:8099/",
+      "pending": false
+    },
+    {
+      "label": {
+        "zh": "技术报告（9 月 15 日开放）",
+        "en": "Technical report (available Sep 15)"
+      },
+      "href": "",
+      "pending": true
+    },
+    {
+      "label": {
+        "zh": "GitHub（9 月 15 日开放）",
+        "en": "GitHub (available Sep 15)"
+      },
+      "href": "",
+      "pending": true
+    }
+  ],
+  "related": [
+    "dfm-launch",
+    "scixxx",
+    "scientist-collaboration"
+  ],
+  "zh": {
+    "title": "ScienceBuddy · AI 科研搭档：DFM 框架下的智能研究工作环境",
+    "summary": "ScienceBuddy 将递归式科研智能体与 Science IDE 连接起来，把科学问题、文献、数据、代码、工具和实验方案纳入同一个课题工作区。当前已提供可访问的产品入口。",
+    "body": [
+      "ScienceBuddy 是 DFM 框架下重点展示的具体产品形态，也是科学家可以直接接触和使用的 AI 科研搭档。",
+      "它将递归式科研智能体与 Science IDE 连接起来，把科学问题、文献、数据、代码、工具和实验方案纳入同一个课题工作区。系统沿着“探索—执行—评估—改进”的循环推进长程科研任务，科学家可以随时查看、介入并复核研究过程。",
+      "ScienceBuddy 主要用于承接和结构化科学问题、数据需求、研究材料、文献和代码、科研工具调用、假设形成与验证，以及后续科研工作流所需的信息。",
+      "ScienceBuddy 是 DFM 框架下科学家能够直接使用的智能研究工作环境，也是本次发布中展示 DFM 如何进入真实科研过程的重要模块。它不是独立于 DFM 的另一个技术方向。",
+      "当前已提供可访问的产品入口，具体能力范围和开放方式以实际版本为准。真实案例将在获得相关研究者授权后逐步公开。"
+    ]
+  },
+  "en": {
+    "title": "ScienceBuddy · AI Research Partner: a research workspace under DFM",
+    "summary": "ScienceBuddy connects a recursive research agent with a Science IDE, bringing scientific questions, literature, data, code, tools and experiment plans into one workspace. A product entry point is available now.",
+    "body": [
+      "ScienceBuddy is the product form of DFM shown in this release, and the AI research partner scientists can reach and use directly.",
+      "It connects a recursive research agent with a Science IDE, bringing scientific questions, literature, data, code, tools and experiment plans into one workspace. The system advances long-running research through an explore–execute–evaluate–improve loop, and scientists can inspect, intervene and verify each step.",
+      "ScienceBuddy takes in and structures scientific questions, data needs, research materials, literature and code, research tool calls, hypothesis formation and validation, and the information later research workflows need.",
+      "ScienceBuddy is the research environment under DFM that scientists can use directly, and the module in this release that shows how DFM enters real research. It is not a separate technical direction beside DFM.",
+      "A product entry point is available now; the scope of capabilities and access follow the current version. Real cases will be shared as the researchers involved give their permission."
+    ]
+  }
+}

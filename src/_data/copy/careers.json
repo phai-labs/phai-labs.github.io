@@ -1,0 +1,122 @@
+{
+  "zh": {
+    "hero": {
+      "eyebrow": "加入我们",
+      "title": "能做实验，也能训模型",
+      "lede": "PhAI Labs 同时做模型训练和真实科研。我们在寻找愿意把 AI 带进科学发现过程的研究者和工程师：不只是让模型跑分更高，而是让它在真实问题、真实数据和真实实验中被检验。"
+    },
+    "why": {
+      "title": "为什么加入 PhAI",
+      "body": "这里的问题是真的。你训练的模型会进入科学家的课题，你写的环境会跑真实的科学代码库，你设计的评测会被实验结果检验。你能在同一个地方看到从科学定义、模型训练到真实执行、持续改进的完整链路，而不是其中的一段。"
+    },
+    "directions": {
+      "title": "当前研究与工程方向",
+      "items": [
+        {
+          "name": "基础模型",
+          "body": "面向科学任务的大模型训练与后训练：推理、长程规划、多模态理解。"
+        },
+        {
+          "name": "强化学习",
+          "body": "以真实结果为奖励的后训练：把实验结果、评测反馈和专家判断变成训练信号。"
+        },
+        {
+          "name": "科研智能体",
+          "body": "递归式科研智能体与 Science IDE：长程课题的探索、执行、评估与改进。"
+        },
+        {
+          "name": "科学工具与研究环境",
+          "body": "把真实科学代码库封装为可运行、可测量、可复现的研究环境，定义任务与可检查的成功标准。"
+        },
+        {
+          "name": "AI for 生命科学与生物医学",
+          "body": "组学与单细胞分析、疾病机制与生物标志物、分子与蛋白质、实验设计与可验证假设。"
+        },
+        {
+          "name": "系统与基础设施",
+          "body": "训练与推理系统、数据管线、实验环境的调度与复现。"
+        }
+      ]
+    },
+    "fit": {
+      "title": "适合的人",
+      "items": [
+        "对某个科学问题有真实的好奇，而不只是对模型本身",
+        "能把模糊的问题收敛成可以执行、可以验证的方案",
+        "既能读论文也能读实验记录，既能写训练代码也能调环境",
+        "对自己的结果诚实：失败的实验和失败的假设同样值得记录",
+        "习惯和不同背景的人一起工作：科学家、工程师、临床医生"
+      ]
+    },
+    "how_we_work": {
+      "title": "工作方式",
+      "body": "我们围绕真实课题组织工作，而不是围绕职能。一个问题从科学家手里进来，经过问题建模、模型训练、工具调用和实验验证，再回到科学家手里，中间每一步都有人负责、可以复核。写下来的比说出来的多，能验证的比能演示的重要。我们与高校、科研机构和实验室的科学家长期合作，团队成员会直接参与这些合作。"
+    },
+    "apply": {
+      "title": "投递方式",
+      "body": "目前没有固定的职位列表。如果上面的方向里有你想做的事，请直接发邮件：说明你想解决的问题、做过的最相关的工作，并附上简历或个人主页、代码仓库或论文链接。",
+      "email": "wuyc@phai-labs.com",
+      "note": "职位列表【待确认】：具体职位将在此页持续更新。"
+    }
+  },
+  "en": {
+    "hero": {
+      "eyebrow": "Careers at PhAI Labs",
+      "title": "Run the experiment, train the model",
+      "lede": "PhAI Labs does model training and real research at the same time. We are looking for researchers and engineers who want to bring AI into the process of discovery: not to push a benchmark score, but to have a model tested against real questions, real data and real experiments."
+    },
+    "why": {
+      "title": "Why PhAI",
+      "body": "The problems here are real. The model you train goes into a scientist’s research; the environment you build runs a real scientific codebase; the evaluation you design gets checked against an experimental result. You see the whole chain in one place, from scientific definition and model training to real execution and continuous improvement, rather than one segment of it."
+    },
+    "directions": {
+      "title": "Research and engineering directions",
+      "items": [
+        {
+          "name": "Foundation models",
+          "body": "Training and post-training foundation models for scientific tasks: reasoning, long-horizon planning, multimodal understanding."
+        },
+        {
+          "name": "Reinforcement learning",
+          "body": "Post-training where the reward is a real outcome: turning experimental results, evaluation feedback and expert judgement into training signals."
+        },
+        {
+          "name": "Research agents",
+          "body": "Recursive research agents and the Science IDE: exploring, executing, evaluating and improving long-running research."
+        },
+        {
+          "name": "Scientific tools and environments",
+          "body": "Packaging real scientific codebases into runnable, measurable, reproducible environments, with defined tasks and checkable success criteria."
+        },
+        {
+          "name": "AI for life science and biomedicine",
+          "body": "Omics and single-cell analysis, disease mechanisms and biomarkers, molecules and proteins, experiment design and testable hypotheses."
+        },
+        {
+          "name": "Systems and infrastructure",
+          "body": "Training and inference systems, data pipelines, and the scheduling and reproduction of experimental environments."
+        }
+      ]
+    },
+    "fit": {
+      "title": "Who fits",
+      "items": [
+        "Genuinely curious about a scientific question, not only about the model",
+        "Able to narrow a vague problem into a plan that can be executed and verified",
+        "Comfortable reading a paper and a lab notebook, writing training code and debugging an environment",
+        "Honest about results: a failed experiment and a failed hypothesis are both worth recording",
+        "Used to working with people from other backgrounds: scientists, engineers, clinicians"
+      ]
+    },
+    "how_we_work": {
+      "title": "How we work",
+      "body": "We organize work around real research problems, not around functions. A question comes in from a scientist, passes through problem formulation, model training, tool use and experimental verification, and goes back to the scientist; every step in between has an owner and can be checked. We write more than we say. What can be verified matters more than what can be demoed. We collaborate with scientists in universities, institutes and laboratories over the long term, and team members take part in those collaborations directly."
+    },
+    "apply": {
+      "title": "How to apply",
+      "body": "There is no fixed list of openings at the moment. If one of the directions above is something you want to work on, write to us directly: say what problem you want to work on and the most relevant work you have done, and attach a CV or profile page, a code repository or papers.",
+      "email": "wuyc@phai-labs.com",
+      "note": "Openings [TBC]: specific positions will be listed on this page as they open."
+    }
+  }
+}

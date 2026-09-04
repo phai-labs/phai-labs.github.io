@@ -1,0 +1,59 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+permalink: "{{ '/about/' | localeUrl(lang) }}index.html"
+layout: layouts/base.njk
+pageKey: about
+eleventyComputed:
+  title: "{{ copy.about[lang].hero.title }}"
+  description: "{{ copy.about[lang].hero.lede }}"
+---
+{%- set t = copy.about[lang] -%}
+{%- set s = i18n[lang] -%}
+
+<section class="hero hero--page hero--about" id="top">
+  <div class="shell">
+    <p class="eyebrow">{{ t.hero.eyebrow }}</p>
+    <h1 class="display">{{ t.hero.title }}</h1>
+    <p class="lede">{{ t.hero.lede }}</p>
+  </div>
+</section>
+
+{%- for sct in t.sections %}
+<section class="sec sec--chapter" id="about-{{ loop.index }}">
+  <div class="shell split split--chapter">
+    <div class="chapter__head">
+      <p class="eyebrow"><span class="num">0{{ loop.index }}</span></p>
+      <h2 class="display-2">{{ sct.title }}</h2>
+    </div>
+    <div class="prose prose--lg">{% for p in sct.body %}<p>{{ p }}</p>{% endfor %}</div>
+  </div>
+</section>
+{%- endfor %}
+
+<section class="sec sec--milestones" id="milestones">
+  <div class="shell">
+    <p class="eyebrow"><span class="num">0{{ t.sections.length + 1 }}</span>{{ '发展节点' if lang == 'zh' else 'Milestones' }}</p>
+    <ol class="milestones">
+      {%- for m in t.milestones %}
+      <li>
+        <time datetime="{{ m.date }}">{{ m.date | replace('-', '.') }}</time>
+        <h3>{{ m.title }}</h3>
+        <p>{{ m.body }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec--join">
+  <div class="shell split">
+    <h2 class="display-2">{{ '团队与加入我们' if lang == 'zh' else 'Team and careers' }}</h2>
+    <p class="actions">
+      <a class="btn" href="{{ '/team/' | localeUrl(lang) }}">{{ s.nav[3].label }} →</a>
+      <a class="btn" href="{{ '/careers/' | localeUrl(lang) }}">{{ s.nav[4].label }} →</a>
+    </p>
+  </div>
+</section>

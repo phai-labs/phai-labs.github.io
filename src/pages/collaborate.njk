@@ -1,0 +1,216 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+permalink: "{{ '/collaborate/' | localeUrl(lang) }}index.html"
+layout: layouts/base.njk
+pageKey: collaborate
+eleventyComputed:
+  title: "{{ collab[lang].hero.title }}"
+  description: "{{ collab[lang].hero.body }}"
+  ogImage: "/assets/img/kv-static.webp"
+---
+{%- set t = collab[lang] -%}
+{%- set form = collab.formUrl -%}
+{%- macro br(text) %}{{ text | replace("\n", "<br>") | safe }}{% endmacro -%}
+
+<section class="hero hero--program" id="top">
+  <div class="hero__kv kv" data-no-reveal>
+    <img class="kv__img" src="{{ site.kv.static }}" data-anim="{{ site.kv.animated }}"
+         width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="{{ t.hero.kv }}" fetchpriority="high">
+  </div>
+  <div class="shell hero__copy">
+    <p class="eyebrow"><span class="num">01</span>{{ t.hero.eyebrow }}</p>
+    <h1 class="display">{{ t.hero.title }}</h1>
+    <p class="subtitle">{{ t.hero.subtitle }}</p>
+    <p class="lede">{{ t.hero.body }}</p>
+    <p class="actions">
+      <a class="btn btn--primary" href="{{ form }}">{{ t.hero.primary }} <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="#dfm">{{ t.hero.secondary }}</a>
+    </p>
+    <p class="note"><i class="dot" aria-hidden="true"></i>{{ t.hero.note }}</p>
+  </div>
+  <a class="scroll-cue" href="#why">{{ t.hero.scroll }}</a>
+</section>
+
+<nav class="subnav" aria-label="{{ '页内导航' if lang == 'zh' else 'On this page' }}" data-subnav data-no-reveal>
+  <div class="shell subnav__inner">
+    {%- for item in t.nav %}<a href="#{{ item[1] }}">{{ item[0] }}</a>{% endfor %}
+  </div>
+</nav>
+
+<section class="sec sec--statement" id="why">
+  <div class="shell">
+    <p class="eyebrow"><span class="num">02</span>{{ t.why.label }}</p>
+    <div class="split">
+      <h2 class="display-2">{{ br(t.why.title) }}</h2>
+      <div class="prose">{% for p in t.why.body %}<p>{{ p }}</p>{% endfor %}</div>
+    </div>
+    <ol class="principles">
+      {%- for pr in t.why.principles %}
+      <li><span class="num">0{{ loop.index }}</span><h3>{{ pr[0] }}</h3><p>{{ pr[1] }}</p></li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec--dfm" id="dfm">
+  <div class="shell">
+    <p class="eyebrow"><span class="num">03</span>{{ t.dfm.label }}</p>
+    <div class="split split--figure">
+      <div>
+        <h2 class="display-2">{{ br(t.dfm.title) }}</h2>
+        <div class="prose"><p>{{ t.dfm.body }}</p><p class="prose__note">{{ t.dfm.note }}</p></div>
+        <p class="links">
+          <span class="link link--pending"><span>{{ t.dfm.report }}</span><small>{{ t.dfm.pending }}</small></span>
+          <span class="link link--pending"><span>{{ t.dfm.github }}</span><small>{{ t.dfm.pending }}</small></span>
+        </p>
+      </div>
+      <figure class="figure figure--dfm">
+        <a href="/assets/img/dfm-diagram-{{ lang }}.png" target="_blank" rel="noopener">
+          <img src="/assets/img/dfm-diagram-{{ lang }}.webp" width="1543" height="1019" loading="lazy" alt="{{ 'DFM 发现基座模型技术示意图' if lang == 'zh' else 'Discovery Foundation Models technical diagram' }}">
+        </a>
+        <figcaption>{{ t.dfm.loopCaption }} · {{ t.dfm.loop | join(' → ') }}</figcaption>
+      </figure>
+    </div>
+    <div class="modules">
+      <p class="modules__title">{{ t.dfm.modulesTitle }}</p>
+      <div class="modules__grid">
+        {%- for m in t.dfm.modules %}
+        <article class="module">
+          <span class="num">0{{ loop.index }}</span>
+          <h3>{{ m[0] }}</h3>
+          <p>{{ m[1] }}</p>
+          <a class="link" href="{{ m[3] }}">{{ m[2] }}</a>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="questions">
+  <div class="shell">
+    <p class="eyebrow"><span class="num">04</span>{{ t.questions.label }}</p>
+    <div class="split"><h2 class="display-2">{{ br(t.questions.title) }}</h2><p class="lede">{{ t.questions.intro }}</p></div>
+    <ol class="criteria">
+      {%- for c in t.questions.cards %}
+      <li><span class="num">0{{ loop.index }}</span><h3>{{ c[0] }}</h3><p>{{ c[1] }}</p></li>
+      {%- endfor %}
+    </ol>
+    <div class="prompts" data-reveal>
+      <p class="prompts__title">{{ t.questions.promptTitle }}</p>
+      <ol>{% for q in t.questions.prompts %}<li><span class="num">0{{ loop.index }}</span>{{ q }}</li>{% endfor %}</ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="who">
+  <div class="shell">
+    <p class="eyebrow"><span class="num">05</span>{{ t.who.label }}</p>
+    <div class="split"><h2 class="display-2">{{ br(t.who.title) }}</h2><p class="lede">{{ t.who.intro }}</p></div>
+    <div class="focus">
+      <div class="focus__main">
+        <h3>{{ t.who.focusTitle }}</h3>
+        <p>{{ t.who.focusBody }}</p>
+        <ul class="tags">{% for tag in t.who.focusTags %}<li>{{ tag }}</li>{% endfor %}</ul>
+      </div>
+      <aside class="focus__aside"><h3>{{ t.who.openTitle }}</h3><p>{{ t.who.openBody }}</p></aside>
+    </div>
+    <p class="subhead">{{ t.who.audienceTitle }}</p>
+    <ol class="audience">
+      {%- for a in t.who.types %}
+      <li><span class="num">0{{ loop.index }}</span><h3>{{ a[0] }}</h3><p>{{ a[1] }}</p></li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="collaboration">
+  <div class="shell">
+    <p class="eyebrow"><span class="num">06</span>{{ t.collaboration.label }}</p>
+    <h2 class="display-2">{{ br(t.collaboration.title) }}</h2>
+    <div class="exchange">
+      <div class="exchange__col">
+        <h3>{{ t.collaboration.phaiTitle }}</h3>
+        <dl class="offer">
+          {%- for o in t.collaboration.phai %}<div><dt>{{ o[0] }}</dt><dd>{{ o[1] }}</dd></div>{% endfor %}
+        </dl>
+      </div>
+      <div class="exchange__col">
+        <h3>{{ t.collaboration.scientistTitle }}</h3>
+        <ul class="checks">{% for c in t.collaboration.scientist %}<li>{{ c }}</li>{% endfor %}</ul>
+      </div>
+    </div>
+    <div class="governance" data-reveal>
+      <p><strong>{{ t.collaboration.governanceTitle }}</strong>{{ t.collaboration.governanceBody }}</p>
+      <ul>{% for g in t.collaboration.governanceItems %}<li>{{ g }}</li>{% endfor %}</ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="cases">
+  <div class="shell">
+    <p class="eyebrow"><span class="num">07</span>{{ t.cases.label }}</p>
+    <div class="split"><h2 class="display-2">{{ t.cases.title }}</h2><div class="prose"><p>{{ t.cases.body }}</p><p class="prose__note">{{ t.cases.note }}</p></div></div>
+    <div class="cases">
+      {%- for n in [1,2,3] %}
+      <article class="case" data-reveal>
+        <p class="case__head"><span>{{ t.cases.caseTitle }} 0{{ n }}</span><small>{{ t.cases.pending }}</small></p>
+        <dl>{% for f in t.cases.fields %}<div><dt>{{ f }}</dt><dd><i></i></dd></div>{% endfor %}</dl>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="process">
+  <div class="shell">
+    <p class="eyebrow"><span class="num">08</span>{{ t.process.label }}</p>
+    <h2 class="display-2">{{ t.process.title }}</h2>
+    <ol class="steps">
+      {%- for st in t.process.steps %}
+      <li><span class="num">{{ st[0] }}</span><h3>{{ st[1] }}</h3><p>{{ st[2] }}</p></li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="shell split">
+    <div>
+      <p class="eyebrow"><span class="num">09</span>{{ t.faq.label }}</p>
+      <h2 class="display-2">{{ br(t.faq.title) }}</h2>
+    </div>
+    <div class="faq" data-accordion data-reveal>
+      {%- for f in t.faq.items %}
+      <details{% if loop.first %} open{% endif %}>
+        <summary><span class="num">0{{ loop.index }}</span>{{ f[0] }}</summary>
+        <p>{{ f[1] }}</p>
+      </details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--apply" id="apply">
+  <div class="shell">
+    <p class="eyebrow"><span class="num">10</span>{{ t.apply.label }}</p>
+    <div class="split">
+      <div>
+        <h2 class="display-2">{{ t.apply.title }}</h2>
+        <p class="lede">{{ t.apply.body }}</p>
+        <p class="actions">
+          <a class="btn btn--primary btn--lg" href="{{ form }}">{{ t.apply.cta }} <span aria-hidden="true">↗</span></a>
+          <span class="actions__note">{{ t.apply.pending }}</span>
+        </p>
+        <p class="privacy">{{ t.apply.privacy }}</p>
+      </div>
+      <aside class="materials" data-reveal>
+        <h3>{{ t.apply.materialsTitle }}</h3>
+        <ol>{% for m in t.apply.materials %}<li><span class="num">0{{ loop.index }}</span>{{ m }}</li>{% endfor %}</ol>
+      </aside>
+    </div>
+  </div>
+</section>

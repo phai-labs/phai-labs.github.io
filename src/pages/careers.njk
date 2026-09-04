@@ -1,0 +1,102 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+permalink: "{{ '/careers/' | localeUrl(lang) }}index.html"
+layout: layouts/base.njk
+pageKey: careers
+eleventyComputed:
+  title: "{{ copy.careers[lang].hero.title }}"
+  description: "{{ copy.careers[lang].hero.lede }}"
+---
+{%- set t = copy.careers[lang] -%}
+{%- set s = i18n[lang] -%}
+{%- set open = [] -%}
+{%- for j in jobs.positions %}{% if j.status == 'open' %}{% set open = (open.push(j), open) %}{% endif %}{% endfor -%}
+
+<section class="hero hero--page" id="top">
+  <div class="shell">
+    <p class="eyebrow">{{ t.hero.eyebrow }}</p>
+    <h1 class="display">{{ t.hero.title }}</h1>
+    <p class="lede">{{ t.hero.lede }}</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="shell split">
+    <h2 class="display-2">{{ t.why.title }}</h2>
+    <div class="prose">{% if t.why.body is string %}<p>{{ t.why.body }}</p>{% else %}{% for p in t.why.body %}<p>{{ p }}</p>{% endfor %}{% endif %}</div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="shell">
+    <p class="eyebrow">{{ t.directions.title }}</p>
+    <ol class="directions">
+      {%- for d in t.directions.items %}
+      <li><span class="num">0{{ loop.index }}</span><h3>{{ d.name }}</h3><p>{{ d.body }}</p></li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="shell split">
+    <div>
+      <h2 class="display-2">{{ t.fit.title }}</h2>
+      <ul class="checks">{% for f in t.fit.items %}<li>{{ f }}</li>{% endfor %}</ul>
+    </div>
+    <div>
+      <h2 class="display-2">{{ t.how_we_work.title }}</h2>
+      <div class="prose">{% if t.how_we_work.body is string %}<p>{{ t.how_we_work.body }}</p>{% else %}{% for p in t.how_we_work.body %}<p>{{ p }}</p>{% endfor %}{% endif %}</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--positions" id="positions">
+  <div class="shell">
+    <p class="eyebrow">{{ '开放职位' if lang == 'zh' else 'Open positions' }}<span class="count">{{ open.length }}</span></p>
+    {%- if open.length %}
+    <ol class="positions" data-accordion>
+      {%- for j in open %}
+      {%- set p = j[lang] -%}
+      <li class="position{% if j.placeholder %} position--tbc{% endif %}">
+        <details>
+          <summary>
+            <span class="position__title">{{ p.title }}</span>
+            <span class="position__meta">{{ j.type[lang] }} · {{ j.location[lang] }}</span>
+          </summary>
+          <div class="position__body">
+            <p class="lede">{{ p.summary }}</p>
+            <div class="split">
+              <div><h3>{{ '你将负责' if lang == 'zh' else 'What you will do' }}</h3><ul class="checks">{% for r in p.responsibilities %}<li>{{ r }}</li>{% endfor %}</ul></div>
+              <div><h3>{{ '我们希望你' if lang == 'zh' else 'What we look for' }}</h3><ul class="checks">{% for r in p.requirements %}<li>{{ r }}</li>{% endfor %}</ul></div>
+            </div>
+            <p class="actions">
+              <a class="btn btn--primary" href="{{ j.apply_url or ('mailto:' + t.apply.email + '?subject=' + (p.title | urlencode)) }}">{{ '投递简历' if lang == 'zh' else 'Apply' }} ↗</a>
+              {%- if j.placeholder %}<span class="actions__note">{{ '职位信息待确认' if lang == 'zh' else 'Details to be confirmed' }}</span>{% endif %}
+            </p>
+          </div>
+        </details>
+      </li>
+      {%- endfor %}
+    </ol>
+    {%- else %}
+    <p class="lede">{{ '目前没有公开招聘的职位。欢迎直接来信。' if lang == 'zh' else 'No positions are open right now. You are welcome to write to us directly.' }}</p>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="sec sec--apply" id="apply">
+  <div class="shell split">
+    <div>
+      <h2 class="display-2">{{ t.apply.title }}</h2>
+      <p class="lede">{{ t.apply.body }}</p>
+    </div>
+    <div>
+      <p class="actions"><a class="btn btn--primary btn--lg" href="mailto:{{ t.apply.email }}">{{ t.apply.email }} ↗</a></p>
+      {%- if t.apply.note %}<p class="note">{{ t.apply.note }}</p>{% endif %}
+    </div>
+  </div>
+</section>

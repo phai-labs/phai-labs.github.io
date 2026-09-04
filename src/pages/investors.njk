@@ -1,0 +1,33 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+permalink: "{{ '/investors/' | localeUrl(lang) }}index.html"
+layout: layouts/base.njk
+pageKey: investors
+eleventyComputed:
+  title: "{{ copy.investors[lang].hero.title }}"
+  description: "{{ copy.investors[lang].hero.lede }}"
+---
+{%- set t = copy.investors[lang] -%}
+{#- Investor Relations: structure reserved, no financing information published. -#}
+
+<section class="hero hero--page" id="top">
+  <div class="shell">
+    <p class="eyebrow">{{ t.hero.eyebrow }}</p>
+    <h1 class="display">{{ t.hero.title }}</h1>
+    <p class="lede">{{ t.hero.lede }}</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="shell">
+    <ol class="directions directions--quiet">
+      {%- for sct in t.sections %}
+      <li id="ir-{{ loop.index }}"><span class="num">0{{ loop.index }}</span><h2>{{ sct.title }}</h2><p>{{ sct.body }}</p></li>
+      {%- endfor %}
+    </ol>
+    <p class="actions"><a class="btn" href="mailto:{{ site.email }}">{{ i18n[lang].footer_contact }} · {{ site.email }}</a></p>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+---
+pagination:
+  data: articlePages
+  size: 1
+  alias: ap
+permalink: "{{ ('/news/' + ap.article.slug + '/') | localeUrl(ap.lang) }}index.html"
+layout: layouts/base.njk
+pageKey: news
+eleventyComputed:
+  lang: "{{ ap.lang }}"
+  title: "{{ ap.article[ap.lang].title }}"
+  description: "{{ ap.article[ap.lang].summary }}"
+  ogImage: "{{ ap.article.cover or site.og_image }}"
+---
+{%- set a = ap.article -%}
+{%- set lang = ap.lang -%}
+{%- set s = i18n[lang] -%}
+{%- set c = a[lang] -%}
+
+<article class="article" id="top">
+  <header class="hero hero--article">
+    <div class="shell shell--narrow">
+      <p class="eyebrow"><a href="{{ '/news/' | localeUrl(lang) }}">{{ s.nav[1].label }}</a><span class="sep">/</span>{{ s.category[a.category] }}</p>
+      <h1 class="display">{{ c.title }}</h1>
+      <p class="lede">{{ c.summary }}</p>
+      <p class="article__meta">
+        <time datetime="{{ a.date }}">{{ s.published_on }} {{ a.date | fmtDate(lang) }}</time>
+        {%- if a.draft %}<span class="entry__badge">{{ s.draft_badge }}</span>{% endif %}
+      </p>
+    </div>
+  </header>
+
+  {%- if a.cover %}
+  <figure class="article__cover kv"><img src="{{ a.cover }}" alt="" loading="lazy"></figure>
+  {%- endif %}
+
+  <div class="shell shell--narrow article__body prose">
+    {%- for p in c.body %}<p>{{ p }}</p>{% endfor %}
+  </div>
+
+  {%- if a.links and a.links.length %}
+  <aside class="shell shell--narrow article__links">
+    <ul class="links">
+      {%- for l in a.links %}
+      {%- set label = l.label[lang] if (l.label and l.label[lang]) else l.label %}
+      <li>{% if l.pending or not l.href %}<span class="link link--pending"><span>{{ label }}</span><small>{{ s.pending }}</small></span>{% else %}<a class="link" href="{{ l.href }}">{{ label }} ↗</a>{% endif %}</li>
+      {%- endfor %}
+    </ul>
+  </aside>
+  {%- endif %}
+
+  {%- set rel = [] -%}
+  {%- for slug in a.related or [] %}{% for other in articles %}{% if other.slug == slug %}{% set rel = (rel.push(other), rel) %}{% endif %}{% endfor %}{% endfor -%}
+  {%- if rel.length %}
+  <aside class="shell shell--narrow article__related">
+    <p class="eyebrow">{{ s.related }}</p>
+    <ul>{% for r in rel %}<li><a href="{{ ('/news/' + r.slug + '/') | localeUrl(lang) }}">{{ r[lang].title }}</a><time datetime="{{ r.date }}">{{ r.date | fmtDate(lang) }}</time></li>{% endfor %}</ul>
+  </aside>
+  {%- endif %}
+
+  <p class="shell shell--narrow article__back"><a href="{{ '/news/' | localeUrl(lang) }}">← {{ s.all_news }}</a></p>
+</article>

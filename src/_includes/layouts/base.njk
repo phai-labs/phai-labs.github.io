@@ -1,0 +1,102 @@
+{#-
+  Base layout. Every page paginates over `langs` and sets:
+    lang       "zh" | "en"
+    pageKey    nav key for the active state ("home", "tech", "news", ...)
+    title      page title in the current language
+    description
+  Chinese lives at "/", English under "/en/". The switch link maps to the
+  sibling URL so a reader never loses their place.
+-#}
+{%- set s = i18n[lang] -%}
+{%- set otherLang = "en" if lang == "zh" else "zh" -%}
+{%- set fullTitle = (title + " — " + s.site_name) if title else (s.site_name + " — " + s.site_tagline) -%}
+<!DOCTYPE html>
+<html lang="{{ s.lang }}" data-lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ fullTitle }}</title>
+<meta name="description" content="{{ description or s.site_tagline }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" hreflang="zh-CN" href="{{ site.url }}{{ page.url | switchUrl(lang) if lang == 'en' else site.url + page.url }}">
+<link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url if lang == 'en' else page.url | switchUrl(lang) }}">
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | switchUrl(lang) if lang == 'en' else site.url + page.url }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ s.site_name }}">
+<meta property="og:title" content="{{ fullTitle }}">
+<meta property="og:description" content="{{ description or s.site_tagline }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ site.url }}{{ ogImage or site.og_image }}">
+<meta property="og:locale" content="{{ 'zh_CN' if lang == 'zh' else 'en_US' }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/IBMPlexSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+{%- block head %}{% endblock %}
+</head>
+<body class="page-{{ pageKey }}">
+<a class="skip" href="#main">{{ s.skip }}</a>
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<header class="mast" data-mast>
+  <a class="mast__brand" href="{{ '/' | localeUrl(lang) }}" aria-label="{{ s.site_name }}">
+    {% include "components/mark.njk" %}
+    <span class="mast__word">PhAI<b>Labs</b></span>
+  </a>
+  <nav class="mast__nav" aria-label="{{ '主导航' if lang == 'zh' else 'Primary' }}" data-nav>
+    {%- for item in s.nav %}
+    <a href="{{ item.href | localeUrl(lang) }}"{% if pageKey == item.key %} aria-current="page"{% endif %}>{{ item.label }}</a>
+    {%- endfor %}
+  </nav>
+  <div class="mast__tools">
+    <a class="mast__lang" href="{{ page.url | switchUrl(lang) }}" hreflang="{{ 'en' if lang == 'zh' else 'zh-CN' }}" aria-label="{{ s.switch_aria }}">{{ s.switch_label }}</a>
+    <a class="mast__cta" href="{{ site.links.apply_form }}" target="_blank" rel="noopener">{{ s.apply }}<span aria-hidden="true">↗</span></a>
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
+      <span class="mast__menu-label">{{ s.menu }}</span><i></i><i></i>
+    </button>
+  </div>
+</header>
+<nav class="drawer" id="mobile-nav" aria-label="{{ '移动端导航' if lang == 'zh' else 'Mobile' }}" data-drawer hidden>
+  {%- for item in s.nav %}
+  <a href="{{ item.href | localeUrl(lang) }}"{% if pageKey == item.key %} aria-current="page"{% endif %}>{{ item.label }}</a>
+  {%- endfor %}
+  <a class="drawer__lang" href="{{ page.url | switchUrl(lang) }}">{{ s.switch_label }}</a>
+  <a class="drawer__cta" href="{{ site.links.apply_form }}" target="_blank" rel="noopener">{{ s.apply }} ↗</a>
+</nav>
+
+<main id="main" class="main">
+{{ content | safe }}
+</main>
+
+<footer class="foot" data-reveal-scope>
+  <div class="foot__inner">
+    <div class="foot__brand">
+      {% include "components/mark.njk" %}
+      <p class="foot__line">{{ s.footer_line }}</p>
+    </div>
+    <nav class="foot__nav" aria-label="{{ '页脚导航' if lang == 'zh' else 'Footer' }}">
+      {%- for item in s.nav %}
+      <a href="{{ item.href | localeUrl(lang) }}">{{ item.label }}</a>
+      {%- endfor %}
+      <a href="{{ '/investors/' | localeUrl(lang) }}">{{ s.footer_investors }}</a>
+    </nav>
+    <div class="foot__contact">
+      <span class="foot__label">{{ s.footer_contact }}</span>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      {%- if site.links.x %}<a href="{{ site.links.x }}" rel="noopener" target="_blank">X</a>{% endif %}
+      {%- if site.links.linkedin %}<a href="{{ site.links.linkedin }}" rel="noopener" target="_blank">LinkedIn</a>{% endif %}
+    </div>
+  </div>
+  <div class="foot__base">
+    <span>{{ s.footer_rights }}</span>
+    <span class="foot__domain">phai-labs.com</span>
+    <a class="foot__top" href="#top">{{ s.back_to_top }} ↑</a>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+{%- block scripts %}{% endblock %}
+</body>
+</html>

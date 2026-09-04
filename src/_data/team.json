@@ -1,0 +1,121 @@
+{
+  "_readme": "One entry per person. photo: path under /assets/img/team/ or empty string to show the reserved circular slot. Titles marked 待确认 / TBC are placeholders pending the founders' confirmation. Links: leave empty strings for ones not to be shown.",
+  "spine": {
+    "zh": {
+      "eyebrow": "团队",
+      "title": "既能做实验，也能训模型",
+      "lede": "临床医学与前沿 AI 研究出身的团队：把科学问题、数据与实验反馈，接进同一条发现链路。",
+      "spine_label": "团队的工作主线",
+      "nodes": [
+        ["科学定义", "从真实的未知出发，把问题转化为可研究、可验证的形式。"],
+        ["模型训练", "围绕 DFM 蓝图，让模型在科学任务与真实反馈中学习。"],
+        ["真实执行", "调用工具、数据与实验环境，让判断接受现实检验。"],
+        ["持续改进", "把每一次结果沉淀为下一次发现的起点。"]
+      ],
+      "founders_label": "创始团队",
+      "join_title": "和我们一起工作",
+      "join_body": "我们在寻找既关心科学问题、也愿意亲手构建系统的研究者与工程师。"
+    },
+    "en": {
+      "eyebrow": "Team",
+      "title": "People who can run the experiment and train the model",
+      "lede": "A team from clinical medicine and frontier AI research, connecting scientific questions, data and experimental feedback into one discovery loop.",
+      "spine_label": "How the team works",
+      "nodes": [
+        ["Scientific definition", "Start from a real unknown and turn it into a researchable, verifiable question."],
+        ["Model training", "Within the DFM blueprint, let models learn from scientific tasks and real feedback."],
+        ["Real execution", "Call tools, data and experimental environments so judgements meet reality."],
+        ["Continuous improvement", "Turn every result into the starting point of the next discovery."]
+      ],
+      "founders_label": "Founding team",
+      "join_title": "Work with us",
+      "join_body": "We are looking for researchers and engineers who care about scientific questions and want to build the systems themselves."
+    }
+  },
+  "members": [
+    {
+      "id": "yingcheng-wu",
+      "photo": "",
+      "order": 1,
+      "links": {
+        "homepage": "https://charles-wu.com",
+        "scholar": "",
+        "orcid": "",
+        "linkedin": "",
+        "x": ""
+      },
+      "zh": {
+        "name": "吴英成",
+        "name_latin": "Yingcheng Wu",
+        "title": "联合创始人【待确认】",
+        "affiliation": "斯坦福大学 AI 博士后 · 复旦大学临床医学",
+        "bio": "临床医学出身，在斯坦福从事人工智能与病理学交叉研究，以第一作者身份在 Cell、Nature、Science 发表工作。关注如何让真实的科学问题、实验数据与验证条件进入下一代智能系统。",
+        "research": ["AI for 生命科学与生物医学", "科学数据与实验反馈", "肿瘤微环境与患者响应建模"]
+      },
+      "en": {
+        "name": "Yingcheng Wu",
+        "name_latin": "Yingcheng Wu",
+        "title": "Co-founder [TBC]",
+        "affiliation": "AI postdoctoral scholar, Stanford · Clinical medicine, Fudan",
+        "bio": "Trained in clinical medicine, now working at the intersection of AI and pathology at Stanford, with first-author papers in Cell, Nature and Science. Focused on bringing real scientific questions, experimental data and verification conditions into next-generation intelligent systems.",
+        "research": ["AI for life science and biomedicine", "Scientific data and experimental feedback", "Tumour microenvironment and patient-response modelling"]
+      }
+    },
+    {
+      "id": "ling-yang",
+      "photo": "",
+      "order": 2,
+      "links": {
+        "homepage": "https://yangling0818.github.io/",
+        "scholar": "",
+        "orcid": "",
+        "linkedin": "",
+        "x": ""
+      },
+      "zh": {
+        "name": "杨灵",
+        "name_latin": "Ling Yang",
+        "title": "联合创始人【待确认】",
+        "affiliation": "普林斯顿大学博士后 · 北京大学（即将入职）",
+        "bio": "普林斯顿大学 ECE 博士后，即将加入北京大学任助理教授。研究大模型与智能体后训练、强化学习系统、递归自我改进与 AI for Discovery。创建开源社区 Gen-Verse，代表工作包括 Buffer of Thoughts、ReasonFlux、MMaDA。",
+        "research": ["大模型 / 智能体后训练", "强化学习系统与基础设施", "递归自我改进", "AI for Discovery"]
+      },
+      "en": {
+        "name": "Ling Yang",
+        "name_latin": "Ling Yang",
+        "title": "Co-founder [TBC]",
+        "affiliation": "Postdoctoral researcher, Princeton · Incoming faculty, Peking University",
+        "bio": "Postdoctoral researcher in ECE at Princeton and incoming assistant professor at Peking University. Works on LLM and agent post-training, reinforcement-learning systems, recursive self-improvement and AI for discovery. Founded the Gen-Verse open-source community; representative work includes Buffer of Thoughts, ReasonFlux and MMaDA.",
+        "research": ["LLM and agent post-training", "RL systems and infrastructure", "Recursive self-improvement", "AI for discovery"]
+      }
+    },
+    {
+      "id": "zhenfei-yin",
+      "photo": "",
+      "order": 3,
+      "links": {
+        "homepage": "",
+        "scholar": "",
+        "orcid": "",
+        "linkedin": "",
+        "x": ""
+      },
+      "zh": {
+        "name": "尹臻非",
+        "name_latin": "Zhenfei Yin",
+        "title": "联合创始人【待确认】",
+        "affiliation": "牛津大学博士后 · 曾任职上海人工智能实验室、商汤科技",
+        "bio": "牛津大学博士后研究员，曾任上海人工智能实验室研究员、商汤科技研究经理。长期从事多模态与具身智能研究，构建了多个被机器人、推理与多模态学习社区广泛使用的开放系统。",
+        "research": ["多模态学习", "具身智能与智能体", "开放系统与基准"]
+      },
+      "en": {
+        "name": "Zhenfei Yin",
+        "name_latin": "Zhenfei Yin",
+        "title": "Co-founder [TBC]",
+        "affiliation": "Postdoctoral researcher, Oxford · formerly Shanghai AI Laboratory and SenseTime",
+        "bio": "Postdoctoral researcher at the University of Oxford; previously a researcher at Shanghai AI Laboratory and a research manager at SenseTime. Works on multimodal and embodied intelligence, and has built open systems used across robotics, reasoning and multimodal learning.",
+        "research": ["Multimodal learning", "Embodied intelligence and agents", "Open systems and benchmarks"]
+      }
+    }
+  ]
+}

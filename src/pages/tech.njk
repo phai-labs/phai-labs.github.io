@@ -1,0 +1,108 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+permalink: "{{ '/tech/' | localeUrl(lang) }}index.html"
+layout: layouts/base.njk
+pageKey: tech
+eleventyComputed:
+  title: "{{ copy.tech[lang].hero.title }}"
+  description: "{{ copy.tech[lang].hero.lede }}"
+  ogImage: "/assets/img/dfm-diagram-{{ lang }}.webp"
+---
+{%- set t = copy.tech[lang] -%}
+{%- set s = i18n[lang] -%}
+{%- set anchors = [
+  ['direction', '技术方向' if lang == 'zh' else 'Direction'],
+  ['dfm', 'DFM'],
+  ['sciencebuddy', 'ScienceBuddy'],
+  ['scixxx', 'SciXXX'],
+  ['jepa', 'JEPA Anything'],
+  ['roadmap', '路线' if lang == 'zh' else 'Roadmap']
+] -%}
+{%- set ids = ['sciencebuddy', 'scixxx', 'jepa'] -%}
+
+<section class="hero hero--page hero--tech" id="top">
+  <div class="shell">
+    <p class="eyebrow">{{ t.hero.eyebrow }}</p>
+    <h1 class="display">{{ t.hero.title }}</h1>
+    <p class="lede">{{ t.hero.lede }}</p>
+  </div>
+</section>
+
+<nav class="subnav" aria-label="{{ '页内导航' if lang == 'zh' else 'On this page' }}" data-subnav data-no-reveal>
+  <div class="shell subnav__inner">{% for a in anchors %}<a href="#{{ a[0] }}">{{ a[1] }}</a>{% endfor %}</div>
+</nav>
+
+<section class="sec sec--statement" id="direction">
+  <div class="shell split">
+    <div><p class="eyebrow"><span class="num">01</span>{{ t.direction.title }}</p></div>
+    <div class="prose prose--lg">{% for p in t.direction.body %}<p>{{ p }}</p>{% endfor %}</div>
+  </div>
+</section>
+
+<section class="sec sec--dfm" id="dfm">
+  <div class="shell">
+    <p class="eyebrow"><span class="num">02</span>{{ t.dfm.title }}</p>
+    <div class="split">
+      <h2 class="display-2">{{ '面向科学发现的技术框架与系统蓝图' if lang == 'zh' else 'A technical framework and system blueprint for discovery' }}</h2>
+      <p class="lede">{{ t.dfm.what_it_is }}</p>
+    </div>
+
+    <figure class="figure figure--dfm figure--wide">
+      <a href="/assets/img/dfm-diagram-{{ lang }}.png" target="_blank" rel="noopener">
+        <img src="/assets/img/dfm-diagram-{{ lang }}.webp" width="1543" height="1019" loading="lazy"
+             alt="{{ 'DFM 发现基座模型技术示意图：智能扩展的三个阶段、当前基座模型与发现基座模型的对比、递归发现闭环' if lang == 'zh' else 'DFM technical diagram: three stages of intelligence, current foundation models versus discovery foundation models, and the recursive discovery loop' }}">
+      </a>
+      <figcaption>{{ 'DFM 技术示意图 · 点击查看大图' if lang == 'zh' else 'DFM technical diagram · click to open full size' }}</figcaption>
+    </figure>
+
+    <div class="prose prose--cols">{% for p in t.dfm.blueprint %}<p>{{ p }}</p>{% endfor %}</div>
+
+    <p class="subhead">{{ t.dfm.modules_title }}</p>
+    <ol class="capabilities">
+      {%- for m in t.dfm.modules %}
+      <li><span class="num">0{{ loop.index }}</span><h3>{{ m.name }}</h3><p>{{ m.body }}</p></li>
+      {%- endfor %}
+    </ol>
+
+    <p class="links">
+      {%- if site.links.dfm_report %}<a class="link" href="{{ site.links.dfm_report }}">{{ t.dfm.links.report_label }} ↗</a>
+      {%- else %}<span class="link link--pending"><span>{{ t.dfm.links.report_label }}</span><small>{{ t.dfm.links.pending_label }}</small></span>{% endif %}
+      {%- if site.links.dfm_github %}<a class="link" href="{{ site.links.dfm_github }}">{{ t.dfm.links.github_label }} ↗</a>
+      {%- else %}<span class="link link--pending"><span>{{ t.dfm.links.github_label }}</span><small>{{ t.dfm.links.pending_label }}</small></span>{% endif %}
+    </p>
+  </div>
+</section>
+
+{%- for pr in t.projects %}
+<section class="sec sec--project{% if loop.last %} sec--project-tbc{% endif %}" id="{{ ids[loop.index0] }}">
+  <div class="shell split split--project">
+    <div>
+      <p class="eyebrow"><span class="num">0{{ loop.index + 2 }}</span>{{ 'DFM 模块' if lang == 'zh' else 'DFM module' }}</p>
+      <h2 class="display-2">{{ pr.name }}<span class="display-2__sub">{{ pr.subtitle }}</span></h2>
+    </div>
+    <div>
+      <p class="lede">{{ pr.body }}</p>
+      {%- if pr.bullets.length %}<ul class="checks">{% for b in pr.bullets %}<li>{{ b }}</li>{% endfor %}</ul>{% endif %}
+      <p class="links">
+        {%- for l in pr.links %}
+        {%- if l.pending or not l.href %}<span class="link link--pending"><span>{{ l.label }}</span><small>{{ t.dfm.links.pending_label }}</small></span>
+        {%- else %}<a class="link link--live" href="{{ l.href }}">{{ l.label }}</a>{% endif %}
+        {%- endfor %}
+      </p>
+    </div>
+  </div>
+</section>
+{%- endfor %}
+
+<section class="sec sec--roadmap" id="roadmap">
+  <div class="shell split">
+    <h2 class="display-2">{{ t.roadmap.title }}</h2>
+    <div>
+      <p class="lede">{{ t.roadmap.body }}</p>
+      <p class="actions"><a class="btn" href="{{ '/news/' | localeUrl(lang) }}">{{ s.all_news }} →</a></p>
+    </div>
+  </div>
+</section>

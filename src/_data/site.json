@@ -1,0 +1,23 @@
+{
+  "url": "https://phai-labs.com",
+  "email": "wuyc@phai-labs.com",
+  "launch_date": "2026-09-15",
+  "links": {
+    "apply_form": "https://ecnvakadbq0t.feishu.cn/share/base/form/shrcnIRIZQov7zSIuE5jcvH3sEh",
+    "sciencebuddy": "http://115.191.37.16:8099/",
+    "scixxx": "https://aitonomy.org/projects/sciworld",
+    "aitonomy": "https://aitonomy.org/",
+    "dfm_report": "",
+    "dfm_github": "",
+    "x": "",
+    "linkedin": "",
+    "wechat": ""
+  },
+  "kv": {
+    "static": "/assets/img/kv-static.webp",
+    "animated": "/assets/img/kv-breathing.gif",
+    "width": 1586,
+    "height": 992
+  },
+  "og_image": "/assets/img/kv-static.webp"
+}

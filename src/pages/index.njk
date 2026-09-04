@@ -1,0 +1,121 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+permalink: "{{ '/' | localeUrl(lang) }}index.html"
+layout: layouts/base.njk
+pageKey: home
+eleventyComputed:
+  title: ""
+  description: "{{ copy.home[lang].hero.lede }}"
+---
+{%- set t = copy.home[lang] -%}
+{%- set s = i18n[lang] -%}
+{%- set latest = (articles if showDrafts else (articles | published)) | take(3) -%}
+
+<section class="hero hero--home" id="top">
+  <div class="hero__kv kv" data-no-reveal>
+    <img class="kv__img" src="{{ site.kv.static }}" data-anim="{{ site.kv.animated }}"
+         width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="{{ t.hero.kv_alt }}" fetchpriority="high">
+  </div>
+  <div class="shell hero__copy">
+    <p class="eyebrow">{{ t.hero.eyebrow }}</p>
+    <h1 class="display display--hero">{{ t.hero.title }}</h1>
+    <p class="subtitle">{{ t.hero.subtitle }}</p>
+    <p class="lede">{{ t.hero.lede }}</p>
+    <p class="actions">
+      <a class="btn btn--primary btn--lg" href="{{ site.links.apply_form }}">{{ t.hero.cta_apply }} <span aria-hidden="true">↗</span></a>
+      <a class="btn btn--lg" href="{{ '/tech/' | localeUrl(lang) }}">{{ t.hero.cta_tech }} →</a>
+    </p>
+  </div>
+  {%- if latest.length %}
+  <a class="hero__latest" href="{{ ('/news/' + latest[0].slug + '/') | localeUrl(lang) }}" data-no-reveal>
+    <span class="hero__latest-label">{{ s.category[latest[0].category] }}</span>
+    <span class="hero__latest-title">{{ latest[0][lang].title }}</span>
+    <time datetime="{{ latest[0].date }}">{{ latest[0].date | fmtDate(lang) }}</time>
+  </a>
+  {%- endif %}
+</section>
+
+<section class="sec sec--pillars" id="pillars">
+  <div class="shell">
+    <ol class="pillars">
+      {%- for p in t.pillars %}
+      <li>
+        <p class="eyebrow"><span class="num">0{{ loop.index }}</span>{{ p.label }}</p>
+        <h2>{{ p.title }}</h2>
+        <p>{{ p.body }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec--dfm-teaser" id="dfm">
+  <div class="shell split split--figure">
+    <div>
+      <p class="eyebrow">{{ t.dfm_teaser.eyebrow }}</p>
+      <h2 class="display-2">{{ t.dfm_teaser.title }}</h2>
+      <p class="lede">{{ t.dfm_teaser.body }}</p>
+      <p class="actions"><a class="btn" href="{{ '/tech/' | localeUrl(lang) }}#dfm">{{ t.dfm_teaser.link_label }}</a></p>
+    </div>
+    <figure class="figure figure--dfm">
+      <a href="{{ '/tech/' | localeUrl(lang) }}#dfm">
+        <img src="/assets/img/dfm-diagram-{{ lang }}.webp" width="1543" height="1019" loading="lazy" alt="{{ 'DFM 技术示意图' if lang == 'zh' else 'DFM technical diagram' }}">
+      </a>
+    </figure>
+  </div>
+</section>
+
+<section class="sec sec--modules" id="modules">
+  <div class="shell">
+    <p class="eyebrow">{{ t.modules_teaser.title }}</p>
+    <ol class="modules-list">
+      {%- for m in t.modules_teaser.items %}
+      {%- set href = ['#sciencebuddy', '#scixxx', '#jepa'][loop.index0] -%}
+      <li>
+        <a href="{{ '/tech/' | localeUrl(lang) }}{{ href }}">
+          <span class="num">0{{ loop.index }}</span>
+          <span class="modules-list__name">{{ m.name }}</span>
+          <span class="modules-list__tag">{{ m.tagline }}</span>
+          <span class="modules-list__status">{{ m.status }}</span>
+        </a>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec--collab" id="collaborate">
+  <div class="shell split">
+    <div>
+      <p class="eyebrow">{{ t.collab_teaser.eyebrow }}</p>
+      <h2 class="display-2">{{ t.collab_teaser.title }}</h2>
+    </div>
+    <div>
+      <p class="lede">{{ t.collab_teaser.body }}</p>
+      <p class="actions">
+        <a class="btn btn--primary" href="{{ site.links.apply_form }}">{{ t.collab_teaser.cta }} <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="{{ '/collaborate/' | localeUrl(lang) }}">{{ s.nav[5].label }} →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+{%- if latest.length %}
+<section class="sec sec--news" id="news">
+  <div class="shell">
+    <p class="eyebrow">{{ t.news_teaser.title }}<a class="eyebrow__link" href="{{ '/news/' | localeUrl(lang) }}">{{ t.news_teaser.link_label }}</a></p>
+    <ol class="timeline timeline--compact">
+      {%- for a in latest %}
+      <li class="entry{% if a.draft %} entry--draft{% endif %}">
+        <p class="entry__meta"><time datetime="{{ a.date }}">{{ a.date | fmtDate(lang) }}</time><span class="entry__cat">{{ s.category[a.category] }}</span>{% if a.draft %}<span class="entry__badge">{{ s.draft_badge }}</span>{% endif %}</p>
+        <h3 class="entry__title"><a href="{{ ('/news/' + a.slug + '/') | localeUrl(lang) }}">{{ a[lang].title }}</a></h3>
+        <p class="entry__summary">{{ a[lang].summary }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+{%- endif %}

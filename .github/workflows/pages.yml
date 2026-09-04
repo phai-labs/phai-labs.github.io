@@ -1,0 +1,54 @@
+# Build the Eleventy site and publish it to GitHub Pages.
+#
+# One-time setup in the repository settings: Pages -> Build and deployment ->
+# Source: "GitHub Actions". After that every push to main deploys.
+#
+# Drafts (news items dated for launch day) are hidden in production builds by
+# HIDE_DRAFTS=1; remove that line on launch day, or flip draft: false in the
+# article files.
+
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+        env:
+          HIDE_DRAFTS: "1"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

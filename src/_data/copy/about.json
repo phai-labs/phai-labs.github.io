@@ -1,0 +1,132 @@
+{
+  "zh": {
+    "hero": {
+      "eyebrow": "关于我们",
+      "title": "面向下一代智能系统的 Neo Lab",
+      "lede": "PhAI Labs 专注于下一代人工智能前沿研究，长期关注大模型、强化学习、智能体与科学智能。我们的长期目标是推动 Recursive Self-Improvement，构建能够从真实任务与环境反馈中持续学习、验证并改进的智能系统。"
+    },
+    "sections": [
+      {
+        "title": "PhAI Labs 是什么",
+        "body": [
+          "PhAI Labs 是一家面向真实科学发现的 AI 研究机构。我们同时做两件事：训练模型，和把模型放进真实的科研过程里检验。",
+          "团队由能做实验、也能训模型的人组成：临床医学出身，AI 研究经历覆盖斯坦福、牛津、普林斯顿与北京大学，有 Cell、Nature、Science 的一作工作，也有在机器人、推理和多模态学习中被广泛使用的开源系统。具体成员见团队页。"
+        ]
+      },
+      {
+        "title": "我们为什么关注真实科学发现",
+        "body": [
+          "公开数据已经见底。互联网上的文本是静态的，而且已经被训练过；合成推理只能复述模型已知的东西。前沿模型真正短缺的输入，是带有真实结果的科学数据。它无法被抓取，只能被生产出来。",
+          "科学发现正是生产这种数据的过程。一个假设被验证或被推翻，一个实验成功或失败，都是模型此前没有见过的信号。这是我们把科学智能称为第三条 Scaling Law 的原因：让模型在真实科研中学习，比再喂一遍互联网更有价值。",
+          "所以我们不满足于让 AI 更快地完成既有的科研任务。我们希望系统参与更完整的发现过程，并在这个过程中形成新的能力。"
+        ]
+      },
+      {
+        "title": "从模型能力到问题、实验与知识生产",
+        "body": [
+          "模型能力本身不会自动变成科学发现。中间缺的是连接：把科学家关心的问题变成系统可以研究的问题，把系统的判断变成可以执行的工具调用和实验，再把实验结果变成可以检验判断的证据。",
+          "我们的工作就是建这些连接。数据训练模型，模型设计下一个实验；实验返回的结果，包括每一次失败，都变成奖励、变成更难的评测、变成下一轮的问题。两个方向同时转动，每一轮都降低下一份有效数据的成本。",
+          "在这条链路上，科学家不是旁观者。领域判断、数据、验证条件都来自真实的实验室，这也是我们发起 DFM科学家合作计划的原因。"
+        ]
+      },
+      {
+        "title": "DFM 在技术路线中的位置",
+        "body": [
+          "DFM，全称 Discovery Foundation Models，是 PhAI Labs 面向科学发现提出的技术框架与系统蓝图。它定义了从识别有价值的未知、形成可研究的问题、构建并修正假设，到调用工具与实验、获取外部反馈并验证新知识的完整发现过程。围绕这一蓝图，各项能力将通过具体模块逐步实现并陆续发布。",
+          "DFM 是 PhAI Labs 技术路线的总框架。ScienceBuddy 提供科学家可以直接使用的智能研究环境，SciXXX 提供真实科学代码、任务和可验证的研究环境，JEPA Anything 等后续模块将陆续公布。它们都是 DFM 蓝图下的具体模块，而不是并列的独立方向。",
+          "DFM 的各项能力将通过具体模块逐步实现并陆续发布。我们不把它描述为一个已经完成的模型。"
+        ]
+      },
+      {
+        "title": "长期愿景与价值观",
+        "body": [
+          "我们的长期目标是 Recursive Self-Improvement：构建能够从真实任务与环境反馈中持续学习、验证并改进的智能系统。科学是检验这一目标最严格的场景，因为现实不会迁就模型。",
+          "我们的做事方式很简单：从真实问题出发，在真实反馈中验证，在合作中持续演进。不夸大尚未开放的能力，不把规划说成结果。数据只在授权范围内使用，成果按贡献和协议确定。",
+          "我们希望，每一次探索都成为下一次发现的起点。"
+        ]
+      }
+    ],
+    "milestones": [
+      {
+        "date": "2026-05",
+        "title": "官网上线",
+        "body": "PhAI Labs 官网首次上线。"
+      },
+      {
+        "date": "2026-08",
+        "title": "首页围绕 AI for Science 重构",
+        "body": "首页围绕 AI for Science 的模型与数据基础设施重新组织：科学智能是第三条 Scaling Law，数据训练模型，模型设计下一个实验。"
+      },
+      {
+        "date": "2026-09-15",
+        "title": "发布 DFM，启动科学家合作计划",
+        "body": "发布面向科学发现的 DFM 技术框架，启动 DFM科学家合作计划。ScienceBuddy 与 SciXXX 作为首批模块同步展示。"
+      }
+    ]
+  },
+  "en": {
+    "hero": {
+      "eyebrow": "About PhAI Labs",
+      "title": "A Neo Lab for next-generation intelligence",
+      "lede": "PhAI Labs is focused on frontier research in foundation models, reinforcement learning, agents and scientific intelligence. Our long-term goal is Recursive Self-Improvement: intelligent systems that keep learning, verifying and improving through real tasks and environmental feedback."
+    },
+    "sections": [
+      {
+        "title": "What PhAI Labs is",
+        "body": [
+          "PhAI Labs is an AI research lab working toward real scientific discovery. We do two things at once: train models, and put those models inside real research where their outputs get tested.",
+          "The team is built by people who can run the experiment and train the model: clinical medicine at Fudan; AI research at Stanford, Oxford, Princeton and Peking University; first-author work in Cell, Nature and Science; open systems used across robotics, reasoning and multimodal learning. Individual profiles are on the Team page."
+        ]
+      },
+      {
+        "title": "Why real scientific discovery",
+        "body": [
+          "Intelligence has run out of internet. Published text is static and already trained on; synthetic reasoning only restates what a model already knows. The one input the frontier is short of is scientific data with a verified outcome attached. It cannot be scraped. It has to be produced.",
+          "Scientific discovery is the process that produces it. A hypothesis confirmed or rejected, an experiment that worked or failed: each is a signal the model has never seen. That is why we call scientific intelligence the third scaling law. A model that learns inside real research gains more than one fed the internet a second time.",
+          "So we are not content to make AI faster at existing research tasks. We want systems to take part in the fuller process of discovery, and to form new capabilities by doing so."
+        ]
+      },
+      {
+        "title": "From model capability to questions, experiments and knowledge",
+        "body": [
+          "Model capability does not turn into discovery on its own. What is missing is the connection: turning the questions scientists care about into questions a system can research, turning the system’s judgement into tool calls and experiments that can be executed, and turning what the experiment returns into evidence that can test the judgement.",
+          "Our work is building those connections. Data trains the model; the model designs the next experiment; what comes back from the bench, including every failure, returns as reward, as a harder benchmark and as the next question. The two directions turn together, and each cycle lowers the cost of the next unit of valid data.",
+          "Scientists are not spectators in this loop. Domain judgement, data and verification conditions come from real laboratories, which is why we started the DFM Scientist Collaboration Program."
+        ]
+      },
+      {
+        "title": "Where DFM sits",
+        "body": [
+          "Discovery Foundation Models (DFM) is PhAI Labs’ technical framework and system blueprint for scientific discovery. It defines an end-to-end discovery process: identifying valuable unknowns, formulating researchable questions, constructing and revising hypotheses, using tools and experiments, gathering external feedback, and validating new knowledge. The capabilities described by this blueprint will be progressively implemented and released as concrete modules.",
+          "DFM is the overall framework of PhAI Labs’ technical roadmap. ScienceBuddy provides the research environment scientists can use directly; SciXXX provides real scientific code, tasks and verifiable research environments; JEPA Anything and further modules will follow. Each is a concrete module under the DFM blueprint, not a separate direction beside it.",
+          "DFM’s capabilities will be progressively implemented and released as concrete modules. We do not describe it as a finished model."
+        ]
+      },
+      {
+        "title": "Long-term vision and values",
+        "body": [
+          "Our long-term goal is Recursive Self-Improvement: intelligent systems that keep learning, verifying and improving through real tasks and environmental feedback. Science is the strictest test of that goal, because reality does not accommodate the model.",
+          "How we work is simple. Start with real questions. Verify through real feedback. Improve through collaboration. We do not overstate capabilities that are not yet released, and we do not describe plans as results. Data is used only within an authorized scope, and outcomes are determined by contribution and written agreement.",
+          "We want each exploration to become the starting point for the next discovery."
+        ]
+      }
+    ],
+    "milestones": [
+      {
+        "date": "2026-05",
+        "title": "Website launched",
+        "body": "The PhAI Labs website went live."
+      },
+      {
+        "date": "2026-08",
+        "title": "Homepage rebuilt around AI for Science",
+        "body": "The homepage was rebuilt around model and data infrastructure for AI for Science: the third scaling law is scientific intelligence; data trains the model, and the model designs the next experiment."
+      },
+      {
+        "date": "2026-09-15",
+        "title": "DFM and the Scientist Collaboration Program",
+        "body": "Release of the DFM technical framework for scientific discovery and launch of the DFM Scientist Collaboration Program, with ScienceBuddy and SciXXX shown as the first modules."
+      }
+    ]
+  }
+}

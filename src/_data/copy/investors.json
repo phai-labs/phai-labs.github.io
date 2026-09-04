@@ -1,0 +1,52 @@
+{
+  "zh": {
+    "hero": {
+      "eyebrow": "PhAI Labs · 投资者关系",
+      "title": "投资者关系",
+      "lede": "投资者关系相关内容将在此发布。现阶段 PhAI Labs 的对外沟通以技术与研究进展为主。"
+    },
+    "sections": [
+      {
+        "title": "投资者信息",
+        "body": "相关信息待发布。"
+      },
+      {
+        "title": "公告与新闻",
+        "body": "相关公告待发布。"
+      },
+      {
+        "title": "公司治理",
+        "body": "相关信息待发布。"
+      },
+      {
+        "title": "投资者联系方式",
+        "body": "联系方式待发布。"
+      }
+    ]
+  },
+  "en": {
+    "hero": {
+      "eyebrow": "PhAI Labs · Investor Relations",
+      "title": "Investor Relations",
+      "lede": "Investor relations content will be published here. For now, PhAI Labs’ public communication focuses on technical and research progress."
+    },
+    "sections": [
+      {
+        "title": "Investor information",
+        "body": "To be published."
+      },
+      {
+        "title": "Announcements and news",
+        "body": "To be published."
+      },
+      {
+        "title": "Corporate governance",
+        "body": "To be published."
+      },
+      {
+        "title": "Investor contact",
+        "body": "To be published."
+      }
+    ]
+  }
+}

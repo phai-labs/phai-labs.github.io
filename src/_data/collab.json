@@ -1,0 +1,613 @@
+{
+  "zh": {
+    "nav": [
+      [
+        "为什么发起",
+        "why"
+      ],
+      [
+        "什么是 DFM",
+        "dfm"
+      ],
+      [
+        "科学问题",
+        "questions"
+      ],
+      [
+        "合作对象",
+        "who"
+      ],
+      [
+        "合作方式",
+        "collaboration"
+      ],
+      [
+        "探索案例",
+        "cases"
+      ],
+      [
+        "推进流程",
+        "process"
+      ],
+      [
+        "常见问题",
+        "faq"
+      ]
+    ],
+    "hero": {
+      "eyebrow": "PhAI Labs · 面向真实科学发现",
+      "title": "DFM科学家合作计划",
+      "subtitle": "寻找值得被 AI 重新探索的科学问题",
+      "body": "让真实的科学问题、数据与实验反馈进入下一代 AI 系统，共同探索从辅助科研到参与科学发现的路径。",
+      "primary": "立即申请",
+      "secondary": "了解 DFM",
+      "note": "首期重点关注生命科学与生物医学，同时面向化学、材料及其他前沿领域开放。",
+      "scroll": "向下探索",
+      "kv": "DFM 科学家合作计划主视觉"
+    },
+    "why": {
+      "label": "为什么发起这个计划",
+      "title": "科学发现需要的，\n不只是一个更快的工具",
+      "body": [
+        "今天的 AI 已经能够检索文献、生成代码、处理数据并辅助完成部分科研任务。但真正的科学发现，往往始于一个尚未被清晰定义的问题，并经历假设形成、证据组织、工具调用、实验验证以及持续修正。",
+        "这些过程无法只在标准数据集或封闭任务中完成。AI 需要进入真实科研环境，接触科学家真正关心的问题，理解不完整的数据与约束，并从实验和现实反馈中持续学习。"
+      ],
+      "principles": [
+        [
+          "从真实问题出发",
+          "不预设所有问题都已被形式化，而是从科学家面对的未知、瓶颈与异常现象出发。"
+        ],
+        [
+          "在真实反馈中验证",
+          "让模型输出接受数据、实验、专家判断与现实环境的检验。"
+        ],
+        [
+          "在合作中持续演进",
+          "沉淀可复用的问题、工具、数据与验证机制，让每一次探索成为下一次发现的起点。"
+        ]
+      ]
+    },
+    "dfm": {
+      "label": "什么是 DFM",
+      "title": "从完成科研任务，\n走向参与科学发现",
+      "body": "DFM，全称 Discovery Foundation Models，是 PhAI Labs 面向科学发现提出的技术框架与系统蓝图。它定义了从识别有价值的未知、形成可研究的问题、构建并修正假设，到调用工具与实验、获取外部反馈并验证新知识的完整发现过程。围绕这一蓝图，各项能力将通过具体模块逐步实现并陆续发布。",
+      "note": "DFM科学家合作计划将为这些模块引入真实科学问题、数据与验证环境，让系统能力在持续研究与真实反馈中逐步形成。",
+      "loop": [
+        "部分理解的世界",
+        "有价值的未知",
+        "可研究的问题",
+        "解释与干预",
+        "经验证的新知识"
+      ],
+      "loopCaption": "递归科学发现闭环",
+      "report": "DFM 技术报告",
+      "github": "GitHub",
+      "pending": "9 月 15 日开放",
+      "modulesTitle": "DFM 首批建设模块",
+      "modules": [
+        [
+          "ScienceBuddy · AI 科研搭档",
+          "作为 DFM 面向科学家的入口，ScienceBuddy 将递归式科研智能体与 Science IDE 连接起来，把文献、数据、代码、工具和实验方案纳入同一课题工作区。它沿着“探索—执行—评估—改进”的循环推进长程课题，科学家可以随时查看、介入与复核。",
+          "访问 ScienceBuddy →",
+          "http://115.191.37.16:8099/"
+        ],
+        [
+          "SciWorld · 科学加速框架",
+          "SciWorld 面向真实科学代码库与研究任务，构建可运行、可测量、可复现的科学环境。研究者可以提交自己熟悉的代码库，定义希望 AI agent 完成的任务，并说明什么结果算成功；项目将与领域专家一起固定依赖、构建运行环境，并设置可检查的评测标准。当前任务形态包括加速、发现、修复、复现与集成。",
+          "访问 SciWorld 项目页 →",
+          "https://aitonomy.org/projects/sciworld"
+        ]
+      ]
+    },
+    "questions": {
+      "label": "我们寻找什么",
+      "title": "什么样的问题值得共同探索？",
+      "intro": "相比一个已被完整定义、只需要调用现成方法完成的任务，我们更关注那些具有真实科学价值、仍存在关键未知，并且能够获得数据或实验反馈的问题。",
+      "cards": [
+        [
+          "一个真正重要的未知",
+          "它可能帮助我们理解尚未解释的现象、发现新的机制或规律，或形成新的研究方法，而不只是对既有流程的小幅优化。"
+        ],
+        [
+          "一个尚未解决的瓶颈",
+          "现有理论、模型、数据分析或实验方法还不能令人满意地回答它，并且失败原因本身值得研究。"
+        ],
+        [
+          "一个可以进入的起点",
+          "已经存在一定的数据、文献、工具、实验条件或领域知识，使双方可以建立第一步探索。"
+        ],
+        [
+          "一个可以验证的反馈",
+          "系统提出的判断或假设，能够通过数据分析、实验、专家判断或真实环境被支持、修正或推翻。"
+        ]
+      ],
+      "promptTitle": "可以从这些问题开始思考",
+      "prompts": [
+        "你在研究中观察到了什么无法解释的现象？",
+        "当前方法为什么还不能解决这个问题？",
+        "已经具备哪些数据、工具或实验条件？",
+        "什么结果会被视为实质性进展？"
+      ]
+    },
+    "who": {
+      "label": "首期重点与合作对象",
+      "title": "让领域判断、数据与验证条件，\n进入同一条发现链路",
+      "intro": "计划面向高校、科研机构、实验室和产业研发团队中的科学家及研究人员。问题可以处于早期构思、数据积累、方法受阻或实验验证阶段。",
+      "focusTitle": "首期重点：生命科学与生物医学",
+      "focusBody": "这些领域已经积累了大量多模态数据、专业工具和实验验证条件，同时仍存在大量复杂、开放且具有重要影响的科学问题。",
+      "focusTags": [
+        "组学与单细胞分析",
+        "疾病机制与生物标志物",
+        "分子、蛋白质与生物系统",
+        "实验设计与可验证假设"
+      ],
+      "openTitle": "同时面向更多前沿领域开放",
+      "openBody": "对于具有重要科学价值、可获得数据或真实反馈，并适合通过模型推理、工具调用和持续验证推进的问题，我们同样欢迎来自化学、材料及其他领域的申请。",
+      "audienceTitle": "我们希望与这样的研究者共同探索",
+      "types": [
+        [
+          "有明确科学问题但缺少 AI 系统能力的科学家",
+          "积累了较深的领域知识，知道哪些问题真正重要，也了解现有研究方法的瓶颈，但缺少大模型、Agent、自动化实验设计或复杂工程系统的支持。"
+        ],
+        [
+          "拥有高价值数据、实验环境的实验室（干实验）",
+          "真正的科学发现需要系统与环境交互，并获得新的外部证据。"
+        ],
+        [
+          "可以提供真实验证条件的湿实验团队",
+          "湿实验合作方能够检验模型提出的假设是否在真实环境中成立。"
+        ],
+        [
+          "希望共同探索 DFM 的青年 PI、博士后和博士生",
+          "希望把 AI 深度带入科研过程，并共同探索新的科学发现范式。"
+        ]
+      ]
+    },
+    "collaboration": {
+      "label": "合作方式",
+      "title": "不是提交一个需求，\n而是共同推进一项研究",
+      "phaiTitle": "PhAI Labs 可以提供",
+      "scientistTitle": "科学家提供与参与",
+      "phai": [
+        [
+          "AI 研究与工程支持",
+          "围绕大模型、智能体、强化学习、工具调用与科学智能提供算法和工程支持。"
+        ],
+        [
+          "模型、工具与计算资源",
+          "根据项目需要讨论相关模型、数据处理工具与计算资源。"
+        ],
+        [
+          "问题建模与联合验证",
+          "共同把开放问题转化为可以探索、可以反馈并可以验证的研究路径。"
+        ],
+        [
+          "成果沉淀与对外传播",
+          "对形成实质成果的项目，进一步探索联合研究、论文发表或开源发布。"
+        ],
+        [
+          "长期共研与资金支持",
+          "对于经过早期验证、双方目标与投入匹配且具备持续研究价值的项目，可进一步探索长期联合研究及相应资金支持。具体方式由双方根据项目进展共同确定。"
+        ]
+      ],
+      "scientist": [
+        "解释问题的重要性与现有方法的局限",
+        "提供必要的领域知识与已有研究材料",
+        "在授权范围内提供数据、工具或实验条件",
+        "对分析、假设与结果提供专业判断和验证反馈"
+      ],
+      "governanceTitle": "数据与知识产权",
+      "governanceBody": "进入实质性合作前，双方将通过书面协议明确数据使用范围、保密要求、成果发布、署名方式及知识产权安排。",
+      "governanceItems": [
+        "数据仅在明确授权范围内使用",
+        "是否用于模型训练或系统改进另行确认",
+        "未公开数据与结果按约定保护",
+        "论文、代码、模型与专利按贡献及协议确定"
+      ]
+    },
+    "cases": {
+      "label": "探索案例",
+      "title": "从真实的科学问题出发",
+      "body": "首批种子用户正在将真实科研问题带入测试。我们将在获得相关研究者授权后，逐步公开具有代表性的探索过程、阶段结果与经验。",
+      "note": "与其只展示最终答案，我们更希望呈现问题如何被定义、AI 参与了哪些环节、科学家如何判断和反馈，以及研究如何因此向前推进。",
+      "caseTitle": "探索案例",
+      "pending": "案例素材待后台导出与公开授权",
+      "fields": [
+        "研究问题",
+        "已有条件",
+        "AI 参与方式",
+        "阶段进展"
+      ]
+    },
+    "process": {
+      "label": "后续推进流程",
+      "title": "从申请到共同研究",
+      "steps": [
+        [
+          "01",
+          "提交申请",
+          "说明科学问题、已有进展、关键瓶颈，以及可以提供的数据或验证条件。"
+        ],
+        [
+          "02",
+          "评估筛选",
+          "综合科学价值、AI 参与空间、数据与验证条件，以及双方资源匹配度进行判断。"
+        ],
+        [
+          "03",
+          "初步沟通",
+          "PhAI Labs 与申请方进一步理解问题背景、合作诉求与现有研究基础。"
+        ],
+        [
+          "04",
+          "共同设计",
+          "明确研究目标、工作路径、人员投入、数据使用方式和阶段验证标准。"
+        ],
+        [
+          "05",
+          "开展合作",
+          "进入早期验证或深入共研，并根据真实反馈持续迭代和推进。"
+        ]
+      ]
+    },
+    "faq": {
+      "label": "常见问题",
+      "title": "你可能还想了解",
+      "items": [
+        [
+          "什么样的问题更适合进入首期合作？",
+          "我们优先关注具有明确科学价值、仍存在关键未知、AI 有实质参与空间，并能够获得数据、实验或专家反馈的问题。问题不需要已经完全形式化，但应当能够说明为什么重要，以及第一步可以从哪里开始。"
+        ],
+        [
+          "问题还比较早期，尚未形成完整方案，可以申请吗？",
+          "可以。识别有价值的未知并把它转化为可研究的问题，本身就是 DFM 希望参与的环节。申请时请尽量说明观察到的现象、现有方法的局限，以及目前掌握的线索或条件。"
+        ],
+        [
+          "合作通常会从多大范围开始？",
+          "我们倾向于先围绕一个边界清晰的子问题开展早期验证，确认问题建模、数据条件、AI 参与方式和验证路径是否成立，再决定是否进入更深入的联合研究。具体范围和节奏由双方共同设计。"
+        ],
+        [
+          "PhAI Labs 如何判断是否适合合作？",
+          "主要考虑科学问题的重要性、DFM 与科研 Agent 能否带来新的研究增量、数据或验证条件是否可行，以及双方在当前阶段能否投入匹配的研究与工程资源。"
+        ],
+        [
+          "合作可能形成哪些成果？",
+          "成果不预设为单一形式，可能包括经过验证的新假设、可复用的研究流程、工具或数据资产、模型与 Agent 能力改进，也可能进一步形成论文、开源项目或其他联合成果。"
+        ],
+        [
+          "首次申请时，哪些内容不应直接提交？",
+          "请勿直接上传患者隐私、临床敏感信息、受第三方限制的数据、未确认授权的材料或其他需要保密审查的内容。进入进一步沟通后，双方再确认合适的数据交换和保护方式。"
+        ]
+      ]
+    },
+    "apply": {
+      "label": "立即申请",
+      "title": "从一个尚未被充分理解的问题开始",
+      "body": "不需要先把问题整理成完整的项目方案。请先告诉我们：你真正想理解的未知是什么，为什么它重要，目前的研究进展和主要困难是什么，以及已经具备哪些数据、工具或验证条件。",
+      "cta": "立即申请",
+      "pending": "飞书问卷",
+      "materialsTitle": "申请信息",
+      "materials": [
+        "填写 DFM科学家合作计划申请表",
+        "简要说明 1–2 个最希望推进的问题，以及当前进展、关键瓶颈与可用验证条件",
+        "个人简历或研究主页，并附 1–2 项代表性成果",
+        "申请截止时间：待确认"
+      ],
+      "privacy": "请勿在首次申请中直接上传患者隐私、临床敏感信息、受第三方限制的数据或其他尚未确认使用权限的材料。"
+    },
+    "about": {
+      "label": "关于 PhAI Labs",
+      "title": "面向下一代智能系统的 Neo Lab",
+      "body": "PhAI Labs 专注于下一代人工智能前沿研究，长期关注大模型、强化学习、智能体与科学智能。我们的长期目标是推动 Recursive Self-Improvement，构建能够从真实任务与环境反馈中持续学习、验证并改进的智能系统。",
+      "website": "PhAI Labs 官网",
+      "aitonomy": "AItonomy",
+      "rights": "© 2026 PhAI Labs. All rights reserved."
+    }
+  },
+  "en": {
+    "nav": [
+      [
+        "Why",
+        "why"
+      ],
+      [
+        "What is DFM",
+        "dfm"
+      ],
+      [
+        "Questions",
+        "questions"
+      ],
+      [
+        "Who",
+        "who"
+      ],
+      [
+        "Collaboration",
+        "collaboration"
+      ],
+      [
+        "Cases",
+        "cases"
+      ],
+      [
+        "Process",
+        "process"
+      ],
+      [
+        "FAQ",
+        "faq"
+      ]
+    ],
+    "hero": {
+      "eyebrow": "PhAI Labs · Toward real scientific discovery",
+      "title": "DFM Scientist Collaboration Program",
+      "subtitle": "Bring frontier questions into the loop of intelligence",
+      "body": "Connect real scientific questions, data and experimental feedback with next-generation AI—and explore how AI can move from assisting research to participating in discovery.",
+      "primary": "Apply now",
+      "secondary": "Explore DFM",
+      "note": "The first cohort prioritizes life science and biomedicine, while remaining open to chemistry, materials and other frontier fields.",
+      "scroll": "Explore the program",
+      "kv": "DFM Scientist Collaboration Program key visual"
+    },
+    "why": {
+      "label": "Why this program",
+      "title": "Discovery needs more\nthan a faster tool",
+      "body": [
+        "AI can already retrieve literature, generate code, process data and assist with parts of the research workflow. But discovery often begins with a question that is not yet well defined—and advances through hypotheses, evidence, tools, experiments and continuous revision.",
+        "That process cannot happen only on static benchmarks or closed tasks. AI must enter real research environments, confront incomplete data and constraints, and learn from experiments and reality."
+      ],
+      "principles": [
+        [
+          "Start with real questions",
+          "Begin with the unknowns, bottlenecks and anomalies scientists actually face."
+        ],
+        [
+          "Verify through real feedback",
+          "Subject model outputs to data, experiments, expert judgement and the physical world."
+        ],
+        [
+          "Improve through collaboration",
+          "Turn questions, tools, data and verifiers into reusable infrastructure for the next discovery."
+        ]
+      ]
+    },
+    "dfm": {
+      "label": "What is DFM",
+      "title": "From completing tasks\nto participating in discovery",
+      "body": "Discovery Foundation Models (DFM) is PhAI Labs’ technical framework and system blueprint for scientific discovery. It defines an end-to-end discovery process: identifying valuable unknowns, formulating researchable questions, constructing and revising hypotheses, using tools and experiments, gathering external feedback, and validating new knowledge. The capabilities described by this blueprint will be progressively implemented and released as concrete modules.",
+      "note": "The DFM Scientist Collaboration Program brings real scientific questions, data and verification environments into that process, allowing system capabilities to emerge through sustained research and real-world feedback.",
+      "loop": [
+        "Partially understood world",
+        "Valuable unknown",
+        "Researchable problem",
+        "Explanation & intervention",
+        "Validated new knowledge"
+      ],
+      "loopCaption": "Recursive discovery loop",
+      "report": "DFM technical report",
+      "github": "GitHub",
+      "pending": "Available Sep 15",
+      "modulesTitle": "Initial modules for DFM",
+      "modules": [
+        [
+          "ScienceBuddy · AI Research Partner",
+          "As the scientist-facing entry point to DFM, ScienceBuddy connects a recursive research agent with a Science IDE—bringing literature, data, code, tools and experiment plans into one workspace. It advances long-running research through an explore–execute–evaluate–improve loop, while scientists can inspect, intervene and verify each step.",
+          "Open ScienceBuddy →",
+          "http://115.191.37.16:8099/"
+        ],
+        [
+          "SciWorld · Scientific Acceleration Framework",
+          "SciWorld builds runnable, measurable and reproducible environments from real scientific codebases and research tasks. Researchers can submit a codebase they know, define what an AI agent should accomplish, and specify what success looks like; the project works with domain experts to pin dependencies, build the environment and establish checkable evaluation criteria. Current task forms include acceleration, discovery, repair, reproduction and integration.",
+          "Visit SciWorld project →",
+          "https://aitonomy.org/projects/sciworld"
+        ]
+      ]
+    },
+    "questions": {
+      "label": "What we look for",
+      "title": "What questions are worth exploring together?",
+      "intro": "We are most interested in questions with real scientific value, a consequential unknown, and a path to data or experimental feedback—not tasks already fully specified and solved by an existing workflow.",
+      "cards": [
+        [
+          "A consequential unknown",
+          "A question that could explain an unresolved phenomenon, reveal a new mechanism or pattern, or lead to a new way of doing research."
+        ],
+        [
+          "A real bottleneck",
+          "Current theory, models, data analysis or experiments do not provide a satisfying answer—and the failure itself is informative."
+        ],
+        [
+          "A workable starting point",
+          "Some combination of data, literature, tools, experimental conditions or domain knowledge makes a first exploration possible."
+        ],
+        [
+          "A verifiable signal",
+          "A hypothesis can be supported, corrected or rejected through data, experiments, expert judgement or the real world."
+        ]
+      ],
+      "promptTitle": "Questions to begin with",
+      "prompts": [
+        "What phenomenon in your research remains unexplained?",
+        "Why do current methods fail to resolve it?",
+        "What data, tools or experimental conditions already exist?",
+        "What outcome would count as meaningful progress?"
+      ]
+    },
+    "who": {
+      "label": "First cohort & who should join",
+      "title": "Bring judgement, data and verification\ninto one discovery loop",
+      "intro": "The program is open to researchers in universities, institutes, laboratories and industrial R&D teams. Questions may be at the stage of early conception, data accumulation, methodological bottleneck or experimental validation.",
+      "focusTitle": "Initial focus: life science and biomedicine",
+      "focusBody": "These fields combine rich multimodal data, specialized tools and experimental verification with a large number of open, consequential scientific questions.",
+      "focusTags": [
+        "Omics & single-cell analysis",
+        "Disease mechanisms & biomarkers",
+        "Molecules, proteins & biological systems",
+        "Experiment design & testable hypotheses"
+      ],
+      "openTitle": "Open to other frontier fields",
+      "openBody": "We also welcome questions in chemistry, materials and other fields when they carry clear scientific value, have access to data or real feedback, and can benefit from reasoning, tool use and iterative verification.",
+      "audienceTitle": "The collaborators we hope to explore with",
+      "types": [
+        [
+          "Scientists with clear questions but limited AI systems capacity",
+          "Deep domain expertise and a clear view of consequential questions and methodological bottlenecks, but limited support in foundation models, agents, automated experiment design or complex engineering systems."
+        ],
+        [
+          "Dry-lab teams with high-value data or computational environments",
+          "Discovery requires an intelligent system to interact with an environment and obtain new external evidence."
+        ],
+        [
+          "Wet-lab teams able to provide real-world validation",
+          "Wet-lab partners can test whether model-generated hypotheses hold in the real world."
+        ],
+        [
+          "Early-career PIs, postdocs and PhD students exploring DFM",
+          "Researchers who want to integrate AI deeply into scientific practice and co-create a new discovery paradigm."
+        ]
+      ]
+    },
+    "collaboration": {
+      "label": "Collaboration",
+      "title": "Not a request queue—\na research partnership",
+      "phaiTitle": "What PhAI Labs brings",
+      "scientistTitle": "What scientists bring",
+      "phai": [
+        [
+          "AI research & engineering",
+          "Support across foundation models, agents, reinforcement learning, tool use and scientific intelligence."
+        ],
+        [
+          "Models, tools & compute",
+          "Project-specific access to relevant models, data tools and compute resources."
+        ],
+        [
+          "Problem formulation & validation",
+          "Turn an open question into an explorable and verifiable research path."
+        ],
+        [
+          "Research outputs & communication",
+          "Explore joint research, publications or open-source releases for substantive outcomes."
+        ],
+        [
+          "Long-term co-research & funding support",
+          "Projects that demonstrate early validity, aligned goals and sustained research value may progress into longer-term joint research with corresponding funding support. The form of support will be determined together as the project develops."
+        ]
+      ],
+      "scientist": [
+        "Explain why the question matters and where current methods fail",
+        "Contribute essential domain knowledge and existing research context",
+        "Provide authorized access to data, tools or experimental conditions",
+        "Judge analyses and hypotheses, and provide verification feedback"
+      ],
+      "governanceTitle": "Data & intellectual property",
+      "governanceBody": "Before substantive work begins, the parties will document data scope, confidentiality, publication, authorship and IP arrangements for the specific project.",
+      "governanceItems": [
+        "Use data only within an explicitly authorized scope",
+        "Clarify separately whether data may improve or train models",
+        "Protect unpublished data and results under agreed terms",
+        "Determine papers, code, models and patents through contribution and written agreement"
+      ]
+    },
+    "cases": {
+      "label": "Exploration cases",
+      "title": "Begin with real scientific questions",
+      "body": "The first seed users are bringing real research questions into testing. With their permission, we will share representative exploration processes, intermediate outcomes and lessons.",
+      "note": "Rather than display only a final answer, we want to show how a problem was framed, where AI participated, how scientists judged the output, and how the research moved forward.",
+      "caseTitle": "Exploration case",
+      "pending": "Case material pending export and publication consent",
+      "fields": [
+        "Research question",
+        "Starting conditions",
+        "How AI participated",
+        "Current progress"
+      ]
+    },
+    "process": {
+      "label": "Collaboration process",
+      "title": "From application to joint research",
+      "steps": [
+        [
+          "01",
+          "Apply",
+          "Describe the scientific question, current progress, key bottlenecks, and available data or verification."
+        ],
+        [
+          "02",
+          "Evaluate & select",
+          "Assess scientific value, the role for AI, verification feasibility and mutual resource fit."
+        ],
+        [
+          "03",
+          "Initial conversation",
+          "Clarify the scientific context, collaboration goals and current research foundation together."
+        ],
+        [
+          "04",
+          "Co-design",
+          "Define goals, workflow, contributions, data use and stage-gate criteria together."
+        ],
+        [
+          "05",
+          "Collaborate",
+          "Move into early validation or deeper joint research and iterate through real feedback."
+        ]
+      ]
+    },
+    "faq": {
+      "label": "Frequently asked questions",
+      "title": "What you may\nwant to know",
+      "items": [
+        [
+          "What questions are the strongest fit for the first cohort?",
+          "We prioritize consequential scientific unknowns where AI can make a substantive contribution and where data, experiments or expert feedback can support verification. The question need not be fully formalized, but its importance and a viable starting point should be clear."
+        ],
+        [
+          "Can I apply with an early-stage question rather than a complete proposal?",
+          "Yes. Identifying a valuable unknown and turning it into a researchable problem is itself part of the DFM agenda. Share the observation, the limits of current methods, and the evidence or conditions already available."
+        ],
+        [
+          "How large is an initial collaboration?",
+          "We prefer to begin with a bounded subproblem and test the problem formulation, data conditions, role for AI and verification path before considering deeper joint research. Scope and pace are co-designed."
+        ],
+        [
+          "How does PhAI Labs evaluate fit?",
+          "We consider scientific importance, whether DFM or the Research Agent can create genuine research leverage, the feasibility of data and verification, and whether both sides can commit the right research and engineering resources."
+        ],
+        [
+          "What outcomes can a collaboration produce?",
+          "Outcomes may include a validated hypothesis, reusable research workflow, tool or data asset, model or Agent improvements, and where appropriate, papers, open-source releases or other joint outputs."
+        ],
+        [
+          "What should not be included in the first application?",
+          "Do not upload patient-identifiable, clinically sensitive, third-party restricted or otherwise unauthorized or confidential material. Appropriate data exchange and protection can be discussed later."
+        ]
+      ]
+    },
+    "apply": {
+      "label": "Apply now",
+      "title": "Start with a question not yet fully understood",
+      "body": "You do not need a complete project proposal. Tell us what you want to understand, why it matters, where the current work is blocked, and what data, tools or verification conditions already exist.",
+      "cta": "Apply now",
+      "pending": "Feishu form",
+      "materialsTitle": "What to prepare",
+      "materials": [
+        "Complete the DFM Scientist Collaboration Program form",
+        "Briefly describe one or two questions you most want to advance, including current progress, bottlenecks and available validation conditions",
+        "CV or research profile, plus one or two representative works",
+        "Application deadline: to be confirmed"
+      ],
+      "privacy": "Please do not upload patient-identifiable, clinically sensitive, third-party restricted or otherwise unauthorized material in the initial submission."
+    },
+    "about": {
+      "label": "About PhAI Labs",
+      "title": "A Neo Lab for next-generation intelligence",
+      "body": "PhAI Labs is focused on frontier research in foundation models, reinforcement learning, agents and scientific intelligence. Our long-term goal is Recursive Self-Improvement: intelligent systems that keep learning, verifying and improving through real tasks and environmental feedback.",
+      "website": "PhAI Labs website",
+      "aitonomy": "AItonomy",
+      "rights": "© 2026 PhAI Labs. All rights reserved."
+    }
+  },
+  "formUrl": "https://ecnvakadbq0t.feishu.cn/share/base/form/shrcnIRIZQov7zSIuE5jcvH3sEh"
+}
