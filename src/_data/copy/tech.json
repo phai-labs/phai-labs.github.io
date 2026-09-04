@@ -2,7 +2,7 @@
   "zh": {
     "hero": {
       "eyebrow": "PhAI Labs · 技术",
-      "title": "面向科学发现的技术体系",
+      "title": "面向*科学发现*的技术体系",
       "lede": "PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的技术框架与系统蓝图；ScienceBuddy、SciXXX 与 JEPA Anything 是这一蓝图下逐步实现、持续发布的具体模块。"
     },
     "direction": {
@@ -134,12 +134,24 @@
     "roadmap": {
       "title": "逐步实现，持续发布",
       "body": "DFM 是一张蓝图，不是一个已经完成的模型。围绕它的各项能力将通过具体模块逐步实现并陆续发布。技术报告、GitHub 仓库、各模块的开放范围和后续路线，会在内部确认后陆续补充；每一次发布都会在新闻动态中同步。"
+    },
+    "loop": {
+      "title": "DFM 连接什么",
+      "nodes": [
+        "科学问题",
+        "模型训练",
+        "工具调用",
+        "真实实验",
+        "外部证据",
+        "能力提升"
+      ],
+      "amber": 4
     }
   },
   "en": {
     "hero": {
       "eyebrow": "PhAI Labs · Tech",
-      "title": "Technology for scientific discovery",
+      "title": "Technology for scientific *discovery*",
       "lede": "Our technical work turns on one question: how can an AI system take part in real scientific discovery? DFM is the technical framework and system blueprint we propose for this. ScienceBuddy, SciXXX and JEPA Anything are the concrete modules under that blueprint, implemented step by step and released as they mature."
     },
     "direction": {
@@ -271,6 +283,18 @@
     "roadmap": {
       "title": "One module at a time",
       "body": "DFM is a blueprint, not a finished model. Its capabilities will be implemented and released as concrete modules, one at a time. The technical report, GitHub repositories, the scope of each module and the roadmap beyond will be added as they are confirmed internally, and each release will be announced under News."
+    },
+    "loop": {
+      "title": "What DFM connects",
+      "nodes": [
+        "Scientific question",
+        "Model training",
+        "Tool use",
+        "Real experiments",
+        "External evidence",
+        "Capability growth"
+      ],
+      "amber": 4
     }
   }
 }

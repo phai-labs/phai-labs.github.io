@@ -26,8 +26,10 @@ eleventyComputed:
 <section class="hero hero--page hero--tech" id="top">
   <div class="shell">
     <p class="eyebrow">{{ t.hero.eyebrow }}</p>
-    <h1 class="display">{{ t.hero.title }}</h1>
+    <h1 class="display">{{ t.hero.title | stagger(lang) | safe }}</h1>
     <p class="lede">{{ t.hero.lede }}</p>
+    {%- set nodes = t.loop.nodes %}{% set amber = t.loop.amber %}
+    {%- include "components/loop.njk" %}
   </div>
 </section>
 

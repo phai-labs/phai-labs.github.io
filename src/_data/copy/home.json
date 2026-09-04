@@ -2,7 +2,7 @@
   "zh": {
     "hero": {
       "eyebrow": "PhAI Labs · 面向真实科学发现",
-      "title": "让 AI 参与科学发现",
+      "title": "让 *AI* 参与科学发现",
       "subtitle": "第三条 Scaling Law，是科学智能",
       "lede": "PhAI Labs 面向真实科学发现。我们让真实的科学问题、数据与实验反馈进入下一代 AI 系统，探索从辅助科研到参与科学发现的路径。DFM 是这条路径上的技术框架与系统蓝图。",
       "cta_apply": "立即申请",
@@ -64,12 +64,24 @@
     "news_teaser": {
       "title": "新闻动态",
       "link_label": "查看全部 →"
+    },
+    "loop": {
+      "title": "DFM 发现闭环",
+      "nodes": [
+        "有价值的未知",
+        "可研究的问题",
+        "假设",
+        "工具与实验",
+        "外部证据",
+        "新知识"
+      ],
+      "amber": 4
     }
   },
   "en": {
     "hero": {
       "eyebrow": "PhAI Labs · Toward real scientific discovery",
-      "title": "AI that participates in discovery",
+      "title": "*AI* that participates in discovery",
       "subtitle": "The third scaling law is scientific intelligence.",
       "lede": "PhAI Labs works toward real scientific discovery. We bring real scientific questions, data and experimental feedback into next-generation AI systems, and explore how AI can move from assisting research to participating in discovery. DFM is the technical framework and system blueprint for that path.",
       "cta_apply": "Apply now",
@@ -131,6 +143,18 @@
     "news_teaser": {
       "title": "News",
       "link_label": "All news →"
+    },
+    "loop": {
+      "title": "The DFM discovery loop",
+      "nodes": [
+        "A valuable unknown",
+        "A researchable question",
+        "Hypothesis",
+        "Tools and experiments",
+        "External evidence",
+        "New knowledge"
+      ],
+      "amber": 4
     }
   }
 }

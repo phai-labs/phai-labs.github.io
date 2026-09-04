@@ -32,6 +32,8 @@ eleventyComputed:
 
   {%- if a.cover %}
   <figure class="article__cover kv"><img src="{{ a.cover }}" alt="" loading="lazy"></figure>
+  {%- else %}
+  <figure class="article__cover article__cover--cst">{{ a.slug | constellation(1200, 360, 34) | safe }}</figure>
   {%- endif %}
 
   <div class="shell shell--narrow article__body prose">

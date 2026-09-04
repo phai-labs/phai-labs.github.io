@@ -41,10 +41,10 @@ eleventyComputed:
 <section class="sec sec--people">
   <div class="shell">
     <p class="eyebrow">{{ sp.founders_label }}</p>
-    <ul class="people">
+    <ul class="people" data-reveal>
       {%- for m in team.members | sort(false, false, 'order') %}
       {%- set p = m[lang] -%}
-      <li class="person" id="{{ m.id }}">
+      <li class="person" id="{{ m.id }}" style="--k:{{ loop.index0 }}">
         <div class="person__portrait{% if not m.photo %} person__portrait--empty{% endif %}" aria-hidden="{{ 'true' if not m.photo else 'false' }}">
           {%- if m.photo %}<img src="{{ m.photo }}" width="240" height="240" loading="lazy" alt="{{ p.name }}">{% endif %}
         </div>

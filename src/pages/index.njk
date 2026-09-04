@@ -38,6 +38,15 @@ eleventyComputed:
   {%- endif %}
 </section>
 
+{#- The discovery loop as a strip of nodes under the plate -#}
+<section class="sec sec--loop" id="loop">
+  <div class="shell">
+    <p class="eyebrow">{{ t.loop.title }}</p>
+    {%- set nodes = t.loop.nodes %}{% set amber = t.loop.amber %}
+    {%- include "components/loop.njk" %}
+  </div>
+</section>
+
 {#- The launch leads: DFM as chapter 01 directly under the plate, with the
     dateline row whose hollow dots turn amber once site.json carries the hrefs. -#}
 <section class="sec sec--dfm-teaser" id="dfm">
