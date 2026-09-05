@@ -24,7 +24,9 @@
   // ?field=off compares a page without the substrate; ?field=static freezes it
   const query = new URLSearchParams(location.search).get('field');
   if (query === 'off') return;
-  if (!(max > 0) || saveData || html.dataset.field === 'off' || (main && main.dataset.field === 'off')) return;
+  if (!(max > 0) || saveData || html.dataset.field === 'off') return;
+  // article pages: the substrate stays off, only the click response remains
+  const fieldOff = !!(main && main.dataset.field === 'off');
 
   const colour = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
   const BG = colour('--bg', '#0a0a0b');
@@ -97,9 +99,9 @@
     still: { drift: 0.25, dx: 0.003, dy: -0.002, speed: 0.15, alpha: 0.7, lattice: 0 },
     off:   { drift: 0.0, dx: 0, dy: 0, speed: 0, alpha: 0, lattice: 0 },
   };
-  const live = Object.assign({}, STATES.calm);
-  let target = STATES[document.querySelector('.hero--home, .hero--program') ? 'hero' : 'calm'];
-  const tuned = document.querySelectorAll('[data-field]');
+  const live = Object.assign({}, fieldOff ? STATES.off : STATES.calm);
+  let target = fieldOff ? STATES.off : STATES[document.querySelector('.hero--home, .hero--program') ? 'hero' : 'calm'];
+  const tuned = fieldOff ? [] : document.querySelectorAll('[data-field]');
   if (tuned.length && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((es) => {
       es.forEach((e) => { if (e.isIntersecting) target = STATES[e.target.dataset.field] || STATES.calm; });
@@ -112,8 +114,23 @@
   let motes = [];
   const seedMotes = () => {
     const r = seeded(7); motes = [];
-    for (let i = 0; i < N(); i++) motes.push({ x: r(), y: r(), r: 0.9 + r() * 1.1, ph: r() * 6.28, v: r() < 0.25 ? BLUE2 : BLUE });
+    for (let i = 0; i < N(); i++) motes.push({ x: r(), y: r(), r: 0.9 + r() * 1.1, ph: r() * 6.28, v: r() < 0.25 ? BLUE2 : BLUE, ix: 0, iy: 0 });
   };
+
+  /* ---------------- touch ---------------- */
+  // A click is answered once, quietly: one thin ring widens from the point and
+  // fades, and the motes within reach are nudged aside before the flow takes
+  // them back. Nothing on reduced motion.
+  let taps = [];
+  addEventListener('pointerdown', (e) => {
+    if (reduce || e.button > 0) return;
+    taps.push({ x: e.clientX, y: e.clientY, t: 0 });
+    for (const m of motes) {
+      const dx = m.x * W - e.clientX, dy = m.y * H - e.clientY, d = Math.hypot(dx, dy) || 1;
+      if (d < 150) { const k = (1 - d / 150) * 0.11; m.ix += (dx / d) * k; m.iy += (dy / d) * k; }
+    }
+    if (!running && !reduce) start();
+  }, { passive: true });
 
   /* ---------------- copy shelter ---------------- */
   // the decks thin out under display headings so the type reads
@@ -206,7 +223,8 @@
     for (const m of motes) {
       const vx = live.dx + 0.028 * Math.sin(m.y * 9.4 + t * 0.09 + m.ph);
       const vy = live.dy + 0.020 * Math.cos(m.x * 6.3 + t * 0.07 + m.ph);
-      m.x += vx * live.speed * dt; m.y += vy * live.speed * dt;
+      m.x += vx * live.speed * dt + m.ix * dt; m.y += vy * live.speed * dt + m.iy * dt * (W / H);
+      const decay = Math.exp(-dt / 0.55); m.ix *= decay; m.iy *= decay;
       if (live.lattice > 0.02) {
         const gx = Math.round(m.x / cell) * cell, gy = Math.round(m.y / cellY) * cellY;
         m.x += (gx - m.x) * live.lattice * 0.9 * dt; m.y += (gy - m.y) * live.lattice * 0.9 * dt;
@@ -214,6 +232,7 @@
       if (m.x < -0.02) m.x += 1.04; if (m.x > 1.02) m.x -= 1.04;
       if (m.y < -0.02) m.y += 1.04; if (m.y > 1.02) m.y -= 1.04;
     }
+    taps.forEach((tp) => (tp.t += dt)); taps = taps.filter((tp) => tp.t < 0.75);
     if (kc && kvSeen) {
       for (const l of lines) for (const q of l.packets) { q.t += q.sp * dt; if (q.t > 1) { q.t = -0.2 - rs() * 0.8; focusFlash = 0.6; } }
       focusFlash = Math.max(0, focusFlash - dt);
@@ -295,6 +314,7 @@
   const drawClouds = () => {
     const w = clouds.width, h = clouds.height;
     cg.clearRect(0, 0, w, h);
+    if (live.alpha < 0.01) return;
     const breathe = 0.85 + 0.15 * Math.sin(t / 9);
     for (const d of [deckA, deckB]) {
       cg.globalAlpha = Math.min(1, d.alpha * max * live.alpha * breathe);
@@ -328,6 +348,13 @@
       if (a <= 0.005) continue;
       fg.globalAlpha = a; fg.fillStyle = m.v;
       fg.beginPath(); fg.arc(m.x * w, m.y * h, m.r * S, 0, 6.2832); fg.fill();
+    }
+    // the click ring
+    for (const tp of taps) {
+      const u = tp.t / 0.75, x = tp.x * S, y = tp.y * S;
+      fg.globalAlpha = 0.5 * (1 - u) * (1 - u); fg.strokeStyle = BLUE2; fg.lineWidth = 1 * S;
+      fg.beginPath(); fg.arc(x, y, (3 + 46 * (1 - Math.pow(1 - u, 3))) * S, 0, 6.2832); fg.stroke();
+      if (u < 0.35) { fg.globalAlpha = 0.6 * (1 - u / 0.35); fg.fillStyle = BLUE2; fg.beginPath(); fg.arc(x, y, 1.6 * S, 0, 6.2832); fg.fill(); }
     }
     fg.globalAlpha = 1;
   };
