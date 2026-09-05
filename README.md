@@ -81,7 +81,7 @@ src/
 
 三层，都不依赖任何库。
 
-**计算场**（`src/assets/js/field.js`）。所有页面底下两层固定 canvas：低分辨率的蓝 / 紫蓝密度云缓慢漂移，加少量呼吸的光点；首页与合作页的 hero 区另有一层流入汇聚点的光线、环绕的尘埃，以及每 7 秒一次的琥珀色涟漪。章节到达视口中线时，场按 `data-field` 换档：`calm`（默认）、`flow`（DFM 章节，定向流动）、`grid`（模块、岗位等列表，光点向 96px 网格收拢）、`still`（团队）、`hero`、`off`（文章页，`<main data-field="off">`）。
+**计算场**（`src/assets/js/field.js`）。所有页面底下两层固定 canvas：低分辨率的蓝 / 紫蓝密度云缓慢漂移，加少量呼吸的光点；首页与合作页的 KV 图上另有一层画在图上面的 canvas：图里的琥珀枢纽各自呼吸发光，蓝色信号沿六条流入线汇入汇聚点、在枢纽之间沿穹顶的同心弧传递，到达时琥珀环扩散一次，穹顶边缘每隔几秒闪过一道光。节点坐标存在 `site.json` 的 `kv.geometry`（按图的比例，从静态图检测得到），换 KV 图时要重新标。章节到达视口中线时，场按 `data-field` 换档：`calm`（默认）、`flow`（DFM 章节，定向流动）、`grid`（模块、岗位等列表，光点向 96px 网格收拢）、`still`（团队）、`hero`、`off`（文章页，`<main data-field="off">`）。
 
 - 整体关掉：CSS 里把 `--field-max` 设为 0，或 `<html data-field="off">`。
 - 调试：URL 加 `?field=off` 看无场对比，`?field=static` 冻结成一帧，`?field=bench` 在控制台打印每帧耗时。

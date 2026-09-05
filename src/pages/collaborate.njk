@@ -19,6 +19,7 @@ eleventyComputed:
   <div class="hero__kv kv" data-no-reveal>
     <img class="kv__img" src="{{ site.kv.static }}" data-anim="{{ site.kv.animated }}"
          width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="{{ t.hero.kv }}" fetchpriority="high">
+    <script type="application/json" id="kv-geometry">{{ site.kv.geometry | dump | safe }}</script>
   </div>
   <div class="shell hero__copy">
     <p class="eyebrow"><span class="num">01</span>{{ t.hero.eyebrow }}</p>
