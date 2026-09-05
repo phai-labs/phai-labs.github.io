@@ -1,0 +1,57 @@
+{
+  "slug": "scienceide",
+  "date": "2026-09-17",
+  "draft": true,
+  "category": "release",
+  "cover": "",
+  "links": [
+    {
+      "label": {
+        "zh": "项目主页",
+        "en": "Project page"
+      },
+      "key": "scienceide_page"
+    },
+    {
+      "label": {
+        "zh": "技术报告",
+        "en": "Technical report"
+      },
+      "key": "scienceide_report"
+    },
+    {
+      "label": {
+        "zh": "GitHub",
+        "en": "GitHub"
+      },
+      "key": "scienceide_github"
+    }
+  ],
+  "related": [
+    "dfm-launch",
+    "sciencebuddy",
+    "jepa-anything"
+  ],
+  "zh": {
+    "title": "ScienceIDE · 科学加速框架：把真实科学代码变成可验证的科学环境",
+    "summary": "ScienceIDE 把真实科学代码、研究流程、任务目标和验证标准转化为可运行、可测量、可复现的科学环境。当前任务形态包括加速、发现、修复、复现与集成，并开放任务提案。",
+    "body": [
+      "ScienceIDE 是一项面向真实科学代码库、研究任务和可验证科学经验的独立基础设施探索。",
+      "它把真实科学代码、研究流程、任务目标和验证标准转化为可运行、可测量、可复现的科学环境，让研究者能够在真实科学场景中开展 Agent 执行、模型训练和强化学习研究。",
+      "它的核心价值在于，把真实科学软件、领域判断、任务目标和可验证反馈组织到同一个可执行环境中，为科研 Agent、模型训练、强化学习和科学发现研究提供经验基础。ScienceIDE 不要求接入 ScienceBuddy 才能使用，也不依赖 JEPA Anything 才能成立。",
+      "当前任务形态包括加速、发现、修复、复现和集成。ScienceIDE 可以独立服务于科学代码、科学任务、环境构建、任务验证和强化学习训练等场景。",
+      "ScienceIDE 当前开放任务提案。项目主页、任务提交页面和代码仓库于 9 月 17 日按最终准备情况公开。"
+    ]
+  },
+  "en": {
+    "title": "ScienceIDE · science acceleration framework: turning real scientific code into verifiable environments",
+    "summary": "ScienceIDE turns real scientific code, research procedures, task goals and verification criteria into scientific environments that run, measure and reproduce. Current task forms are accelerate, discover, repair, reproduce and integrate, and task proposals are open.",
+    "body": [
+      "ScienceIDE is an independent infrastructure exploration for real scientific codebases, research tasks and verifiable scientific experience.",
+      "It turns real scientific code, research procedures, task goals and verification criteria into scientific environments that run, measure and reproduce, so that researchers can do agent execution, model training and reinforcement-learning research in real scientific settings.",
+      "Its value is in organising real scientific software, domain judgement, task goals and verifiable feedback into one executable environment, an experiential base for research agents, model training, reinforcement learning and discovery research. ScienceIDE does not require ScienceBuddy to be used, and does not depend on JEPA Anything to stand.",
+      "Current task forms are accelerate, discover, repair, reproduce and integrate. ScienceIDE serves scientific code, scientific tasks, environment building, task verification and reinforcement-learning training on its own.",
+      "ScienceIDE is open for task proposals. Whether the project page, submission page and repository go public on 17 September follows final readiness."
+    ]
+  }
+}

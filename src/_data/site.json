@@ -5,13 +5,20 @@
   "links": {
     "apply_form": "https://ecnvakadbq0t.feishu.cn/share/base/form/shrcnIRIZQov7zSIuE5jcvH3sEh",
     "sciencebuddy": "http://115.191.37.16:8099/",
-    "scixxx": "https://aitonomy.org/projects/sciworld",
     "aitonomy": "https://aitonomy.org/",
     "dfm_report": "",
     "dfm_github": "",
     "x": "",
     "linkedin": "",
-    "wechat": ""
+    "wechat": "",
+    "sciencebuddy_report": "",
+    "sciencebuddy_github": "",
+    "scienceide_page": "",
+    "scienceide_report": "",
+    "scienceide_github": "",
+    "jepa_paper": "",
+    "jepa_code": "",
+    "jepa_demo": ""
   },
   "kv": {
     "static": "/assets/img/kv-static.webp",
@@ -156,5 +163,28 @@
       ]
     }
   },
-  "og_image": "/assets/img/kv-static.webp"
+  "og_image": "/assets/img/kv-static.webp",
+  "releases": {
+    "dfm": {
+      "date": "2026-09-15",
+      "live": false,
+      "url": ""
+    },
+    "sciencebuddy": {
+      "date": "2026-09-16",
+      "live": false,
+      "url": "http://115.191.37.16:8099/"
+    },
+    "scienceide": {
+      "date": "2026-09-17",
+      "live": false,
+      "url": ""
+    },
+    "jepa": {
+      "date": "2026-09-18",
+      "live": false,
+      "url": ""
+    }
+  },
+  "_releases_readme": "Flip live to true on each release day. A project's product/page url is shown only when live; every other link key in links stays a pending row until it has an href."
 }

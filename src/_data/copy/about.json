@@ -32,9 +32,9 @@
       {
         "title": "DFM 在技术路线中的位置",
         "body": [
-          "DFM，全称 Discovery Foundation Models，是 PhAI Labs 面向科学发现提出的技术框架与系统蓝图。它定义了从识别有价值的未知、形成可研究的问题、构建并修正假设，到调用工具与实验、获取外部反馈并验证新知识的完整发现过程。围绕这一蓝图，各项能力将通过具体模块逐步实现并陆续发布。",
-          "DFM 是 PhAI Labs 技术路线的总框架。ScienceBuddy 提供科学家可以直接使用的智能研究环境，SciXXX 提供真实科学代码、任务和可验证的研究环境，JEPA Anything 等后续模块将陆续公布。它们都是 DFM 蓝图下的具体模块，而不是并列的独立方向。",
-          "DFM 的各项能力将通过具体模块逐步实现并陆续发布。我们不把它描述为一个已经完成的模型。"
+          "DFM（Discovery Foundation Models）不是一个单一模型，也不是要求所有系统按同一套流程运行的软件框架，而是 PhAI Labs 围绕 Discovery Intelligence 提出的一套研究范式、能力定义和系统组织方式。它通过形式化定义、流程图示、系统实例和真实科学案例，把“发现”从一个模糊概念具体化为一种可学习、可执行、可评测的模型系统能力。",
+          "DFM 是 PhAI Labs 技术路线的总范式。围绕它，我们从三个彼此独立的方向展开研究与工程：ScienceBuddy 关注科学家反馈与智能体工作环境的持续演化，ScienceIDE 关注真实科学代码、任务与环境，JEPA Anything 关注跨领域的世界状态预测。ScienceBuddy、ScienceIDE 和 JEPA Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。",
+          "从未来愿景上看，三者可以形成一条“反馈—环境—预测”的组合路径。这是一种未来可能的研究路径，不代表三者当前已经完成集成，也不改变它们各自独立的定位。DFM 关注的能力通过这些工作逐步实现并陆续发布，它不是一个已经完成的模型。"
         ]
       },
       {
@@ -60,7 +60,7 @@
       {
         "date": "2026-09-15",
         "title": "发布 DFM，启动科学家合作计划",
-        "body": "发布面向科学发现的 DFM 技术框架，启动 DFM科学家合作计划。ScienceBuddy 与 SciXXX 作为首批模块同步展示。"
+        "body": "提出面向科学发现的 DFM 研究范式，启动 DFM科学家合作计划。ScienceBuddy 与 SciXXX 作为首批模块同步展示。"
       }
     ]
   },
@@ -97,9 +97,9 @@
       {
         "title": "Where DFM sits",
         "body": [
-          "Discovery Foundation Models (DFM) is PhAI Labs’ technical framework and system blueprint for scientific discovery. It defines an end-to-end discovery process: identifying valuable unknowns, formulating researchable questions, constructing and revising hypotheses, using tools and experiments, gathering external feedback, and validating new knowledge. The capabilities described by this blueprint will be progressively implemented and released as concrete modules.",
-          "DFM is the overall framework of PhAI Labs’ technical roadmap. ScienceBuddy provides the research environment scientists can use directly; SciXXX provides real scientific code, tasks and verifiable research environments; JEPA Anything and further modules will follow. Each is a concrete module under the DFM blueprint, not a separate direction beside it.",
-          "DFM’s capabilities will be progressively implemented and released as concrete modules. We do not describe it as a finished model."
+          "DFM (Discovery Foundation Models) is neither a single model nor a software framework that forces every system through one pipeline. It is the research paradigm, capability definition and system organisation that PhAI Labs proposes around Discovery Intelligence: through formal definitions, process diagrams, system instances and real scientific cases, it turns “discovery” from a vague notion into a capability of model systems that can be learned, executed and evaluated.",
+          "DFM is the overall paradigm of PhAI Labs' technical route. Around it we work in three independent directions: ScienceBuddy on scientists' feedback and a continually evolving agent workspace, ScienceIDE on real scientific code, tasks and environments, JEPA Anything on cross-domain world-state prediction. ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them.",
+          "Looking ahead, the three could form a “feedback – environment – prediction” path. That is a possible future research route, not an integration that exists today, and it does not change their independent standing. The capabilities DFM is about arrive progressively through these works; it is not a finished model."
         ]
       },
       {
@@ -125,7 +125,7 @@
       {
         "date": "2026-09-15",
         "title": "DFM and the Scientist Collaboration Program",
-        "body": "Release of the DFM technical framework for scientific discovery and launch of the DFM Scientist Collaboration Program, with ScienceBuddy and SciXXX shown as the first modules."
+        "body": "The DFM research paradigm for scientific discovery is proposed and launch of the DFM Scientist Collaboration Program, with ScienceBuddy and SciXXX shown as the first modules."
       }
     ]
   }

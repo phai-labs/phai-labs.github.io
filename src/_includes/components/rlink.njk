@@ -1,0 +1,13 @@
+{#- A link that knows the release calendar. Expects `rl` = {label, key?, href?}.
+    key "sciencebuddy" -> that project's product url, live only on its day;
+    key "scienceide_page" etc. -> site.links[key], shown once it has an href AND the
+    project's day has come; plain href -> a normal link. -#}
+{%- set base = (rl.key.split('_')[0]) if rl.key else '' -%}
+{%- set r = site.releases[base] if base and site.releases[base] else null -%}
+{%- if rl.key and site.links[rl.key] is defined %}{% set href = site.links[rl.key] %}
+{%- elif r and rl.key == base %}{% set href = r.url %}
+{%- else %}{% set href = rl.href %}{% endif -%}
+{%- set gated = r and not r.live -%}
+{%- if href and not gated %}<a class="link link--live" href="{{ href }}">{{ rl.label }} ↗</a>
+{%- elif r %}<span class="link link--pending"><span>{{ rl.label }}</span><small>{{ r.date | releaseLabel(lang) }}</small></span>
+{%- else %}<span class="link link--pending"><span>{{ rl.label }}</span><small>{{ s.pending }}</small></span>{% endif -%}

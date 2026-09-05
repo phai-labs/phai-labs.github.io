@@ -83,17 +83,18 @@ eleventyComputed:
     <p class="eyebrow"><span class="num">02</span>{{ t.modules_teaser.title }}</p>
     <ol class="modules-list">
       {%- for m in t.modules_teaser.items %}
-      {%- set href = ['#sciencebuddy', '#scixxx', '#jepa'][loop.index0] -%}
+      {%- set r = site.releases[m.key] -%}
       <li>
-        <a href="{{ '/tech/' | localeUrl(lang) }}{{ href }}">
-          <span class="num">0{{ loop.index }}</span>
+        <a href="{{ '/tech/' | localeUrl(lang) }}#{{ m.key }}">
+          <span class="num">{{ r.date | dateShort(lang) }}</span>
           <span class="modules-list__name">{{ m.name }}</span>
           <span class="modules-list__tag">{{ m.tagline }}</span>
-          <span class="modules-list__status" data-state="{{ m.state or 'pending' }}"><i></i>{{ m.status }}</span>
+          <span class="modules-list__status" data-state="{{ 'live' if r.live else 'pending' }}"><i></i>{{ s.live if r.live else (r.date | releaseLabel(lang)) }}</span>
         </a>
       </li>
       {%- endfor %}
     </ol>
+    <p class="modules-list__note">{{ t.modules_teaser.note }}</p>
   </div>
 </section>
 

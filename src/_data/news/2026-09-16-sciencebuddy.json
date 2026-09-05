@@ -1,0 +1,57 @@
+{
+  "slug": "sciencebuddy",
+  "date": "2026-09-16",
+  "draft": true,
+  "category": "release",
+  "cover": "",
+  "links": [
+    {
+      "label": {
+        "zh": "访问 ScienceBuddy",
+        "en": "Open ScienceBuddy"
+      },
+      "key": "sciencebuddy"
+    },
+    {
+      "label": {
+        "zh": "技术报告",
+        "en": "Technical report"
+      },
+      "key": "sciencebuddy_report"
+    },
+    {
+      "label": {
+        "zh": "GitHub",
+        "en": "GitHub"
+      },
+      "key": "sciencebuddy_github"
+    }
+  ],
+  "related": [
+    "dfm-launch",
+    "scienceide",
+    "jepa-anything"
+  ],
+  "zh": {
+    "title": "ScienceBuddy · AI 科研搭档：探索交互式 Science RSI",
+    "summary": "ScienceBuddy 是一项围绕科学家交互、科研反馈和智能体持续改进展开的独立研究与工程探索：科学家的追问、修改、采纳、否定和重新运行形成反馈，推动科研智能体的工作环境持续演化。",
+    "body": [
+      "ScienceBuddy 是一项围绕科学家交互、科研反馈和智能体持续改进展开的独立研究与工程探索，与 DFM 所关注的 Discovery Intelligence 方向一致。",
+      "它重点探索一种交互式 Science RSI 形态：用户提出科学问题，智能体调用工具并给出回应；科学家的追问、修改、采纳、否定和重新运行形成反馈，进而推动科研智能体工作环境和 Harness 的持续演化。",
+      "ScienceBuddy 的产出不只是一次性的问答结果，也包括交互过程中的反馈、研究轨迹、工具调用和任务状态。这些信息未来可以进一步整理为可复用的科学任务和环境，用于强化学习或其他模型训练。",
+      "ScienceBuddy 主要用于承接和结构化科学问题、数据需求、研究材料、文献和代码、科研工具调用、假设形成与验证，以及后续科研工作流所需的信息。",
+      "当前为早期产品 / 研究预览形态，具体开放能力、演示方式和使用入口以实际版本为准。产品入口于 9 月 16 日开放。"
+    ]
+  },
+  "en": {
+    "title": "ScienceBuddy · AI research partner: exploring interactive Science RSI",
+    "summary": "ScienceBuddy is an independent research and engineering exploration built around interaction with scientists, research feedback and the continual improvement of agents: follow-ups, edits, acceptances, rejections and re-runs become feedback that keeps the research agent's workspace evolving.",
+    "body": [
+      "ScienceBuddy is an independent research and engineering exploration built around interaction with scientists, research feedback and the continual improvement of agents, in the Discovery Intelligence direction DFM is about.",
+      "It focuses on an interactive form of Science RSI: a user poses a scientific question, the agent calls tools and answers; the scientist's follow-ups, edits, acceptances, rejections and re-runs become feedback that drives the research agent's workspace and harness to keep evolving.",
+      "What ScienceBuddy produces is not only one-off answers but the feedback, research trajectories, tool calls and task states of the interaction. In future these can be organised into reusable scientific tasks and environments for reinforcement learning or other model training.",
+      "ScienceBuddy takes in and structures scientific questions, data needs, research materials, literature and code, scientific tool calls, hypothesis formation and testing, and what the following research workflow needs.",
+      "An early product / research preview: the capabilities opened, demonstrations and entry points follow the actual version. The product entry opens on 16 September."
+    ]
+  }
+}

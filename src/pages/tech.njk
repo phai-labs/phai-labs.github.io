@@ -17,11 +17,10 @@ eleventyComputed:
   ['direction', '技术方向' if lang == 'zh' else 'Direction'],
   ['dfm', 'DFM'],
   ['sciencebuddy', 'ScienceBuddy'],
-  ['scixxx', 'SciXXX'],
+  ['scienceide', 'ScienceIDE'],
   ['jepa', 'JEPA Anything'],
   ['roadmap', '路线' if lang == 'zh' else 'Roadmap']
 ] -%}
-{%- set ids = ['sciencebuddy', 'scixxx', 'jepa'] -%}
 
 <section class="hero hero--page hero--tech" id="top" data-field="flow">
   <div class="shell">
@@ -48,7 +47,7 @@ eleventyComputed:
   <div class="shell">
     <p class="eyebrow"><span class="num">02</span>{{ t.dfm.title }}</p>
     <div class="split">
-      <h2 class="display-2">{{ '面向科学发现的技术框架与系统蓝图' if lang == 'zh' else 'A technical framework and system blueprint for discovery' }}</h2>
+      <h2 class="display-2">{{ t.dfm.heading }}</h2>
       <p class="lede">{{ t.dfm.what_it_is }}</p>
     </div>
 
@@ -75,35 +74,66 @@ eleventyComputed:
       {%- if site.links.dfm_github %}<a class="link" href="{{ site.links.dfm_github }}">{{ t.dfm.links.github_label }} ↗</a>
       {%- else %}<span class="link link--pending"><span>{{ t.dfm.links.github_label }}</span><small>{{ t.dfm.links.pending_label }}</small></span>{% endif %}
     </p>
+    <p class="prose__note prose__note--wide">{{ t.dfm.github_note }}</p>
+  </div>
+</section>
+
+<section class="sec sec--statement" id="works">
+  <div class="shell split">
+    <div><p class="eyebrow"><span class="num">03</span>{{ '三个独立的研究与工程方向' if lang == 'zh' else 'Three independent directions' }}</p></div>
+    <div class="prose prose--lg"><p>{{ t.projects_intro }}</p></div>
   </div>
 </section>
 
 {%- for pr in t.projects %}
-<section class="sec sec--project{% if loop.last %} sec--project-tbc{% endif %}" data-field="grid" id="{{ ids[loop.index0] }}">
+{%- set r = site.releases[pr.key] %}
+<section class="sec sec--project" data-field="grid" id="{{ pr.key }}">
   <div class="shell split split--project">
     <div>
-      <p class="eyebrow"><span class="num">0{{ loop.index + 2 }}</span>{{ 'DFM 模块' if lang == 'zh' else 'DFM module' }}</p>
+      <p class="eyebrow"><span class="num">0{{ loop.index + 3 }}</span>{{ s.independent }}<span class="sep">·</span>{{ r.date | dateShort(lang) }}</p>
       <h2 class="display-2">{{ pr.name }}<span class="display-2__sub">{{ pr.subtitle }}</span></h2>
+      <p class="project__role">{{ pr.role }}</p>
     </div>
     <div>
-      <p class="lede">{{ pr.body }}</p>
-      {%- if pr.bullets.length %}<ul class="checks">{% for b in pr.bullets %}<li>{{ b }}</li>{% endfor %}</ul>{% endif %}
+      <div class="prose">{% for p in pr.body %}<p>{{ p }}</p>{% endfor %}</div>
+      {%- if pr.bullets.length %}
+      <p class="subhead">{{ pr.bullets_title }}</p>
+      <ul class="checks">{% for b in pr.bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+      {%- endif %}
+      <p class="prose__note">{{ pr.status }}</p>
       <p class="links">
-        {%- for l in pr.links %}
-        {%- if l.pending or not l.href %}<span class="link link--pending"><span>{{ l.label }}</span><small>{{ t.dfm.links.pending_label }}</small></span>
-        {%- else %}<a class="link link--live" href="{{ l.href }}">{{ l.label }}</a>{% endif %}
-        {%- endfor %}
+        {%- for rl in pr.links %}{% include "components/rlink.njk" %}{% endfor %}
       </p>
     </div>
   </div>
 </section>
 {%- endfor %}
 
+<section class="sec sec--composition" data-field="flow" id="composition">
+  <div class="shell">
+    <p class="eyebrow"><span class="num">07</span>{{ t.composition.eyebrow }}</p>
+    <div class="split">
+      <h2 class="display-2">{{ t.composition.title }}</h2>
+      <p class="lede">{{ t.composition.body }}</p>
+    </div>
+    {%- set nodes = t.composition.nodes %}{% set amber = t.composition.amber %}
+    {%- include "components/loop.njk" %}
+    <p class="prose__note prose__note--wide">{{ t.composition.note }}</p>
+  </div>
+</section>
+
 <section class="sec sec--roadmap" data-field="calm" id="roadmap">
   <div class="shell split">
     <h2 class="display-2">{{ t.roadmap.title }}</h2>
     <div>
       <p class="lede">{{ t.roadmap.body }}</p>
+      {%- set cal = copy.home[lang].calendar %}
+      <p class="subhead">{{ cal.title }}</p>
+      <ol class="calendar">
+        {%- for c in cal.items %}{% set r = site.releases[c.key] %}
+        <li{% if r.live %} class="is-live"{% endif %}><time datetime="{{ r.date }}">{{ r.date | dateShort(lang) }}</time><span>{{ c.name }}</span></li>
+        {%- endfor %}
+      </ol>
       <p class="actions"><a class="btn" href="{{ '/news/' | localeUrl(lang) }}">{{ s.all_news }} →</a></p>
     </div>
   </div>

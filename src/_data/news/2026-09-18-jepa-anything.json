@@ -1,0 +1,57 @@
+{
+  "slug": "jepa-anything",
+  "date": "2026-09-18",
+  "draft": true,
+  "category": "release",
+  "cover": "",
+  "links": [
+    {
+      "label": {
+        "zh": "论文",
+        "en": "Paper"
+      },
+      "key": "jepa_paper"
+    },
+    {
+      "label": {
+        "zh": "代码",
+        "en": "Code"
+      },
+      "key": "jepa_code"
+    },
+    {
+      "label": {
+        "zh": "演示",
+        "en": "Demo"
+      },
+      "key": "jepa_demo"
+    }
+  ],
+  "related": [
+    "dfm-launch",
+    "sciencebuddy",
+    "scienceide"
+  ],
+  "zh": {
+    "title": "JEPA Anything · 科学世界模型：面向潜在世界模型的正交预测因子分解",
+    "summary": "JEPA Anything 探索在视觉、生物、临床、分子、控制和物理等领域学习能预测世界状态变化的潜在表示，为干预预测、状态合成和科学诊断提供统一接口。",
+    "body": [
+      "JEPA Anything 是一项面向潜在世界模型和正交预测因子分解的独立模型方法研究。",
+      "它探索如何在视觉、生物、临床、分子、控制和物理等不同领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。",
+      "在未来的研究愿景中，JEPA Anything 可以被理解为面向多个科学环境的统一预测模型或科学世界模拟器：当研究者提出某种科学行为或干预时，模型预先预测可能的状态变化、结果和风险，帮助筛选无效或代价较高的方案。这是希望探索的能力方向：目前它并不能模拟所有科学环境，也尚未接入 ScienceBuddy 或 ScienceIDE。",
+      "在整体研究图景中，它关注如何表示复杂系统中的多种可预测因素、如何预测不同干预带来的状态变化、如何为实验选择和科学诊断提供预测依据，以及如何在跨领域场景中复用潜在世界状态接口。",
+      "论文、代码、模型权重和演示链接于 9 月 18 日按最终确认的开放范围公开。"
+    ]
+  },
+  "en": {
+    "title": "JEPA Anything · science world model: orthogonal predictive factorisation for latent world models",
+    "summary": "JEPA Anything explores latent representations that predict changes of world state across vision, biology, the clinic, molecules, control and physics, with one interface for intervention prediction, state synthesis and scientific diagnosis.",
+    "body": [
+      "JEPA Anything is an independent model-method study of latent world models and orthogonal predictive factorisation.",
+      "It explores how to learn, across vision, biology, the clinic, molecules, control and physics, latent representations that predict changes of world state, and to offer one interface for intervention prediction, state synthesis and scientific diagnosis.",
+      "In the research vision, JEPA Anything can be read as a unified predictive model or science world simulator over many scientific environments: when a researcher proposes an action or intervention, the model predicts the likely state changes, outcomes and risks in advance, helping screen out ineffective or costly plans. That is a direction to explore: today it does not simulate every scientific environment, and it is not connected to ScienceBuddy or ScienceIDE.",
+      "In the wider research picture it asks how to represent the many predictable factors of a complex system, how to predict the state changes different interventions bring, how to ground experiment selection and scientific diagnosis in prediction, and how to reuse a latent world-state interface across domains.",
+      "Paper, code, model weights and demo links go public on 18 September within the confirmed scope."
+    ]
+  }
+}

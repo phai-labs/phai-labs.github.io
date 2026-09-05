@@ -4,7 +4,7 @@
       "eyebrow": "PhAI Labs · 面向真实科学发现",
       "title": "让 *AI* 参与科学发现",
       "subtitle": "第三条 Scaling Law，是科学智能",
-      "lede": "PhAI Labs 面向真实科学发现。我们让真实的科学问题、数据与实验反馈进入下一代 AI 系统，探索从辅助科研到参与科学发现的路径。DFM 是这条路径上的技术框架与系统蓝图。",
+      "lede": "PhAI Labs 面向真实科学发现。我们让真实的科学问题、数据与实验反馈进入下一代 AI 系统，探索从辅助科研到参与科学发现的路径。DFM 是我们围绕 Discovery Intelligence 提出的研究范式。",
       "cta_apply": "立即申请",
       "cta_tech": "了解 DFM",
       "kv_alt": "PhAI Labs 主视觉：网络粒子图"
@@ -28,32 +28,30 @@
     ],
     "dfm_teaser": {
       "eyebrow": "DFM · Discovery Foundation Models",
-      "title": "面向科学发现的技术框架",
-      "body": "DFM，全称 Discovery Foundation Models，是 PhAI Labs 面向科学发现提出的技术框架与系统蓝图。它定义了从识别有价值的未知、形成可研究的问题、构建并修正假设，到调用工具与实验、获取外部反馈并验证新知识的完整发现过程。围绕这一蓝图，各项能力将通过具体模块逐步实现并陆续发布。",
+      "title": "面向科学发现的研究范式",
+      "body": "DFM（Discovery Foundation Models）不是一个单一模型，也不是要求所有系统按同一套流程运行的软件框架，而是 PhAI Labs 围绕 Discovery Intelligence 提出的一套研究范式、能力定义和系统组织方式。它通过形式化定义、流程图示、系统实例和真实科学案例，把“发现”从一个模糊概念具体化为一种可学习、可执行、可评测的模型系统能力。",
       "link_label": "了解 DFM →"
     },
     "modules_teaser": {
-      "title": "DFM 首批建设模块",
+      "title": "三个独立的研究与工程方向 · 9 月 16–18 日连续发布",
       "items": [
         {
+          "key": "sciencebuddy",
           "name": "ScienceBuddy · AI 科研搭档",
-          "tagline": "科学家可以直接使用的智能研究工作环境",
-          "status": "可访问",
-          "state": "live"
+          "tagline": "探索交互式 Science RSI"
         },
         {
-          "name": "SciXXX · 科学加速框架",
-          "tagline": "把真实科学代码库变成可运行、可验证的研究环境",
-          "status": "任务提案开放",
-          "state": "open"
+          "key": "scienceide",
+          "name": "ScienceIDE · 科学加速框架",
+          "tagline": "构建可执行、可复用的科学经验基础设施"
         },
         {
-          "name": "JEPA Anything",
-          "tagline": "DFM 后续模块，具体信息待补充",
-          "status": "即将公布",
-          "state": "pending"
+          "key": "jepa",
+          "name": "JEPA Anything · 科学世界模型",
+          "tagline": "探索跨领域科学世界模型"
         }
-      ]
+      ],
+      "note": "ScienceBuddy、ScienceIDE 和 JEPA Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一条“反馈—环境—预测”的组合路径。这是一种未来可能的研究路径，不代表三者当前已经完成集成，也不改变它们各自独立的定位。"
     },
     "collab_teaser": {
       "eyebrow": "DFM科学家合作计划",
@@ -76,6 +74,27 @@
         "新知识"
       ],
       "amber": 4
+    },
+    "calendar": {
+      "title": "四日发布日历",
+      "items": [
+        {
+          "key": "dfm",
+          "name": "DFM 研究范式与 DFM 科学家合作计划"
+        },
+        {
+          "key": "sciencebuddy",
+          "name": "ScienceBuddy · AI 科研搭档"
+        },
+        {
+          "key": "scienceide",
+          "name": "ScienceIDE · 科学加速框架"
+        },
+        {
+          "key": "jepa",
+          "name": "JEPA Anything · 科学世界模型"
+        }
+      ]
     }
   },
   "en": {
@@ -83,7 +102,7 @@
       "eyebrow": "PhAI Labs · Toward real scientific discovery",
       "title": "*AI* that participates in discovery",
       "subtitle": "The third scaling law is scientific intelligence.",
-      "lede": "PhAI Labs works toward real scientific discovery. We bring real scientific questions, data and experimental feedback into next-generation AI systems, and explore how AI can move from assisting research to participating in discovery. DFM is the technical framework and system blueprint for that path.",
+      "lede": "PhAI Labs works toward real scientific discovery: real scientific problems, data and experimental feedback enter next-generation AI systems, on a path from assisting research to taking part in discovery. DFM is the research paradigm we propose around Discovery Intelligence.",
       "cta_apply": "Apply now",
       "cta_tech": "Explore DFM",
       "kv_alt": "PhAI Labs key visual: a network of particles"
@@ -107,32 +126,30 @@
     ],
     "dfm_teaser": {
       "eyebrow": "DFM · Discovery Foundation Models",
-      "title": "A framework for scientific discovery",
-      "body": "Discovery Foundation Models (DFM) is PhAI Labs’ technical framework and system blueprint for scientific discovery. It defines an end-to-end discovery process: identifying valuable unknowns, formulating researchable questions, constructing and revising hypotheses, using tools and experiments, gathering external feedback, and validating new knowledge. The capabilities described by this blueprint will be progressively implemented and released as concrete modules.",
+      "title": "A research paradigm for discovery",
+      "body": "DFM (Discovery Foundation Models) is neither a single model nor a software framework that forces every system through one pipeline. It is the research paradigm, capability definition and system organisation that PhAI Labs proposes around Discovery Intelligence: through formal definitions, process diagrams, system instances and real scientific cases, it turns “discovery” from a vague notion into a capability of model systems that can be learned, executed and evaluated.",
       "link_label": "Explore DFM →"
     },
     "modules_teaser": {
-      "title": "Initial modules for DFM",
+      "title": "Three independent directions · released 16–18 September",
       "items": [
         {
-          "name": "ScienceBuddy · AI Research Partner",
-          "tagline": "A research workspace scientists can use directly",
-          "status": "Available",
-          "state": "live"
+          "key": "sciencebuddy",
+          "name": "ScienceBuddy · AI research partner",
+          "tagline": "Exploring interactive Science RSI"
         },
         {
-          "name": "SciXXX · Scientific Acceleration Framework",
-          "tagline": "Turns real scientific codebases into runnable, verifiable research environments",
-          "status": "Open for task proposals",
-          "state": "open"
+          "key": "scienceide",
+          "name": "ScienceIDE · science acceleration framework",
+          "tagline": "Building executable, reusable infrastructure for scientific experience"
         },
         {
-          "name": "JEPA Anything",
-          "tagline": "A forthcoming module under DFM",
-          "status": "Details to follow",
-          "state": "pending"
+          "key": "jepa",
+          "name": "JEPA Anything · science world model",
+          "tagline": "Exploring cross-domain science world models"
         }
-      ]
+      ],
+      "note": "ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a “feedback – environment – prediction” path. That is a possible future research route, not an integration that exists today, and it does not change their independent standing."
     },
     "collab_teaser": {
       "eyebrow": "DFM Scientist Collaboration Program",
@@ -155,6 +172,27 @@
         "New knowledge"
       ],
       "amber": 4
+    },
+    "calendar": {
+      "title": "Four-day release calendar",
+      "items": [
+        {
+          "key": "dfm",
+          "name": "The DFM paradigm and the DFM Scientist Collaboration Program"
+        },
+        {
+          "key": "sciencebuddy",
+          "name": "ScienceBuddy · AI research partner"
+        },
+        {
+          "key": "scienceide",
+          "name": "ScienceIDE · science acceleration framework"
+        },
+        {
+          "key": "jepa",
+          "name": "JEPA Anything · science world model"
+        }
+      ]
     }
   }
 }

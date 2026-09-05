@@ -70,8 +70,8 @@
     "dfm": {
       "label": "什么是 DFM",
       "title": "从完成科研任务，\n走向参与科学发现",
-      "body": "DFM，全称 Discovery Foundation Models，是 PhAI Labs 面向科学发现提出的技术框架与系统蓝图。它定义了从识别有价值的未知、形成可研究的问题、构建并修正假设，到调用工具与实验、获取外部反馈并验证新知识的完整发现过程。围绕这一蓝图，各项能力将通过具体模块逐步实现并陆续发布。",
-      "note": "DFM科学家合作计划将为这些模块引入真实科学问题、数据与验证环境，让系统能力在持续研究与真实反馈中逐步形成。",
+      "body": "DFM（Discovery Foundation Models）不是一个单一模型，也不是要求所有系统按同一套流程运行的软件框架，而是 PhAI Labs 围绕 Discovery Intelligence 提出的一套研究范式、能力定义和系统组织方式。它通过形式化定义、流程图示、系统实例和真实科学案例，把“发现”从一个模糊概念具体化为一种可学习、可执行、可评测的模型系统能力。",
+      "note": "DFM 科学家合作计划为这一范式引入真实科学问题、数据与验证条件，让系统在真实研究中形成判断。",
       "loop": [
         "部分理解的世界",
         "有价值的未知",
@@ -82,22 +82,35 @@
       "loopCaption": "递归科学发现闭环",
       "report": "DFM 技术报告",
       "github": "GitHub",
-      "pending": "9 月 15 日开放",
-      "modulesTitle": "DFM 首批建设模块",
+      "pending": "9 月 15 日公开",
+      "modulesTitle": "三个独立的研究与工程方向",
       "modules": [
-        [
-          "ScienceBuddy · AI 科研搭档",
-          "作为 DFM 面向科学家的入口，ScienceBuddy 将递归式科研智能体与 Science IDE 连接起来，把文献、数据、代码、工具和实验方案纳入同一课题工作区。它沿着“探索—执行—评估—改进”的循环推进长程课题，科学家可以随时查看、介入与复核。",
-          "访问 ScienceBuddy →",
-          "http://115.191.37.16:8099/"
-        ],
-        [
-          "SciWorld · 科学加速框架",
-          "SciWorld 面向真实科学代码库与研究任务，构建可运行、可测量、可复现的科学环境。研究者可以提交自己熟悉的代码库，定义希望 AI agent 完成的任务，并说明什么结果算成功；项目将与领域专家一起固定依赖、构建运行环境，并设置可检查的评测标准。当前任务形态包括加速、发现、修复、复现与集成。",
-          "访问 SciWorld 项目页 →",
-          "https://aitonomy.org/projects/sciworld"
-        ]
-      ]
+        {
+          "key": "sciencebuddy",
+          "name": "ScienceBuddy · AI 科研搭档",
+          "tagline": "探索交互式 Science RSI",
+          "body": "它重点探索一种交互式 Science RSI 形态：用户提出科学问题，智能体调用工具并给出回应；科学家的追问、修改、采纳、否定和重新运行形成反馈，进而推动科研智能体工作环境和 Harness 的持续演化。",
+          "link_label": "访问 ScienceBuddy",
+          "link_key": "sciencebuddy"
+        },
+        {
+          "key": "scienceide",
+          "name": "ScienceIDE · 科学加速框架",
+          "tagline": "构建可执行、可复用的科学经验基础设施",
+          "body": "它把真实科学代码、研究流程、任务目标和验证标准转化为可运行、可测量、可复现的科学环境，让研究者能够在真实科学场景中开展 Agent 执行、模型训练和强化学习研究。",
+          "link_label": "ScienceIDE 项目主页",
+          "link_key": "scienceide_page"
+        },
+        {
+          "key": "jepa",
+          "name": "JEPA Anything · 科学世界模型",
+          "tagline": "探索跨领域科学世界模型",
+          "body": "它探索如何在视觉、生物、临床、分子、控制和物理等不同领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。",
+          "link_label": "JEPA Anything 论文",
+          "link_key": "jepa_paper"
+        }
+      ],
+      "modulesNote": "ScienceBuddy、ScienceIDE 和 JEPA Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一条“反馈—环境—预测”的组合路径。这是一种未来可能的研究路径，不代表三者当前已经完成集成，也不改变它们各自独立的定位。"
     },
     "questions": {
       "label": "我们寻找什么",
@@ -375,8 +388,8 @@
     "dfm": {
       "label": "What is DFM",
       "title": "From completing tasks\nto participating in discovery",
-      "body": "Discovery Foundation Models (DFM) is PhAI Labs’ technical framework and system blueprint for scientific discovery. It defines an end-to-end discovery process: identifying valuable unknowns, formulating researchable questions, constructing and revising hypotheses, using tools and experiments, gathering external feedback, and validating new knowledge. The capabilities described by this blueprint will be progressively implemented and released as concrete modules.",
-      "note": "The DFM Scientist Collaboration Program brings real scientific questions, data and verification environments into that process, allowing system capabilities to emerge through sustained research and real-world feedback.",
+      "body": "DFM (Discovery Foundation Models) is neither a single model nor a software framework that forces every system through one pipeline. It is the research paradigm, capability definition and system organisation that PhAI Labs proposes around Discovery Intelligence: through formal definitions, process diagrams, system instances and real scientific cases, it turns “discovery” from a vague notion into a capability of model systems that can be learned, executed and evaluated.",
+      "note": "The DFM Scientist Collaboration Program brings real scientific problems, data and verification conditions into this paradigm, so systems form their judgement in real research.",
       "loop": [
         "Partially understood world",
         "Valuable unknown",
@@ -387,22 +400,35 @@
       "loopCaption": "Recursive discovery loop",
       "report": "DFM technical report",
       "github": "GitHub",
-      "pending": "Available Sep 15",
-      "modulesTitle": "Initial modules for DFM",
+      "pending": "Public 15 Sept",
+      "modulesTitle": "Three independent research and engineering directions",
       "modules": [
-        [
-          "ScienceBuddy · AI Research Partner",
-          "As the scientist-facing entry point to DFM, ScienceBuddy connects a recursive research agent with a Science IDE—bringing literature, data, code, tools and experiment plans into one workspace. It advances long-running research through an explore–execute–evaluate–improve loop, while scientists can inspect, intervene and verify each step.",
-          "Open ScienceBuddy →",
-          "http://115.191.37.16:8099/"
-        ],
-        [
-          "SciWorld · Scientific Acceleration Framework",
-          "SciWorld builds runnable, measurable and reproducible environments from real scientific codebases and research tasks. Researchers can submit a codebase they know, define what an AI agent should accomplish, and specify what success looks like; the project works with domain experts to pin dependencies, build the environment and establish checkable evaluation criteria. Current task forms include acceleration, discovery, repair, reproduction and integration.",
-          "Visit SciWorld project →",
-          "https://aitonomy.org/projects/sciworld"
-        ]
-      ]
+        {
+          "key": "sciencebuddy",
+          "name": "ScienceBuddy · AI research partner",
+          "tagline": "Exploring interactive Science RSI",
+          "body": "It focuses on an interactive form of Science RSI: a user poses a scientific question, the agent calls tools and answers; the scientist's follow-ups, edits, acceptances, rejections and re-runs become feedback that drives the research agent's workspace and harness to keep evolving.",
+          "link_label": "Open ScienceBuddy",
+          "link_key": "sciencebuddy"
+        },
+        {
+          "key": "scienceide",
+          "name": "ScienceIDE · science acceleration framework",
+          "tagline": "Building executable, reusable infrastructure for scientific experience",
+          "body": "It turns real scientific code, research procedures, task goals and verification criteria into scientific environments that run, measure and reproduce, so that researchers can do agent execution, model training and reinforcement-learning research in real scientific settings.",
+          "link_label": "ScienceIDE project page",
+          "link_key": "scienceide_page"
+        },
+        {
+          "key": "jepa",
+          "name": "JEPA Anything · science world model",
+          "tagline": "Exploring cross-domain science world models",
+          "body": "It explores how to learn, across vision, biology, the clinic, molecules, control and physics, latent representations that predict changes of world state, and to offer one interface for intervention prediction, state synthesis and scientific diagnosis.",
+          "link_label": "JEPA Anything paper",
+          "link_key": "jepa_paper"
+        }
+      ],
+      "modulesNote": "ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a “feedback – environment – prediction” path. That is a possible future research route, not an integration that exists today, and it does not change their independent standing."
     },
     "questions": {
       "label": "What we look for",

@@ -46,7 +46,8 @@ eleventyComputed:
     <ul class="links">
       {%- for l in a.links %}
       {%- set label = l.label[lang] if (l.label and l.label[lang]) else l.label %}
-      <li>{% if l.pending or not l.href %}<span class="link link--pending"><span>{{ label }}</span><small>{{ s.pending }}</small></span>{% else %}<a class="link" href="{{ l.href }}">{{ label }} ↗</a>{% endif %}</li>
+      {%- set rl = {label: label, key: l.key, href: (l.href | localeUrl(lang)) if (l.href and l.href[0] == '/') else l.href} %}
+      <li>{% include "components/rlink.njk" %}</li>
       {%- endfor %}
     </ul>
   </aside>

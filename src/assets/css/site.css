@@ -377,7 +377,7 @@ html[lang="zh-CN"] .prompts li{font-weight:400}
 
 /* home: module list rows */
 .modules-list{margin-top:.5rem;border-top:1px solid var(--rule)}
-.modules-list li a{display:grid;grid-template-columns:3rem minmax(0,4fr) minmax(0,6fr) auto;gap:1.2rem;align-items:baseline;padding:1.3rem 0;border-bottom:1px solid var(--rule-soft);transition:background .25s,padding .25s}
+.modules-list li a{display:grid;grid-template-columns:5.6rem minmax(0,4fr) minmax(0,6fr) auto;gap:1.2rem;align-items:baseline;padding:1.3rem 0;border-bottom:1px solid var(--rule-soft);transition:background .25s,padding .25s}
 .modules-list li a:hover{padding-left:.6rem;background:linear-gradient(90deg,rgba(155,167,255,.06),transparent 60%)}
 .modules-list__name{font-family:var(--serif);font-weight:400;font-size:var(--t-3);color:var(--ink)}
 html[lang="zh-CN"] .modules-list__name{font-weight:400}
@@ -386,6 +386,17 @@ html[lang="zh-CN"] .modules-list__name{font-weight:400}
 .modules-list__status i{display:inline-block;width:.5rem;height:.5rem;margin-right:.6rem;border-radius:50%;border:1px solid currentColor;vertical-align:.02em}
 .modules-list__status[data-state=live],.modules-list__status[data-state=open]{color:var(--amber)}
 .modules-list__status[data-state=live] i,.modules-list__status[data-state=open] i{background:currentColor;box-shadow:0 0 10px var(--amber-glow)}
+.modules-list__note{margin-top:1.2rem;max-width:60em;font-size:var(--t-small);color:var(--ink-3);line-height:1.7}
+.project__role{margin-top:.9rem;font-size:var(--t-small);color:var(--ink-2);line-height:1.6;max-width:24em}
+.prose__note--wide{max-width:60em;margin-top:1.2rem}
+.module__tag{color:var(--ink);font-size:var(--t-small);margin-bottom:.4rem}
+.modules__note{margin:.6rem 0 1.4rem;max-width:60em;font-size:var(--t-small);color:var(--ink-3);line-height:1.7}
+.modules__grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* the four-day calendar */
+.calendar{margin-top:.6rem;border-top:1px solid var(--rule);max-width:34em}
+.calendar li{display:grid;grid-template-columns:5.6rem minmax(0,1fr);gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--rule-soft);font-size:var(--t-small)}
+.calendar time{font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;color:var(--blue)}
+.calendar li.is-live time{color:var(--amber)}
 /* dateline: report / GitHub rows under the DFM chapter; hollow until the link is live */
 .dateline{margin-top:clamp(1.4rem,3vh,2rem);border-top:1px solid var(--rule);max-width:34em}
 .dateline li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:1rem;align-items:baseline;padding:.75rem 0;border-bottom:1px solid var(--rule-soft);font-size:var(--t-small)}
@@ -640,7 +651,8 @@ html[lang="zh-CN"] .hero .eyebrow{letter-spacing:.12em}
   .milestones li::before{left:-1.8rem;top:.35rem}
   .entry{grid-template-columns:1fr}
   .entry__title,.entry__summary,.entry__more{grid-column:1}
-  .modules-list li a{grid-template-columns:2.4rem minmax(0,1fr);row-gap:.2rem}
+  .modules-list li a{grid-template-columns:5.2rem minmax(0,1fr);row-gap:.2rem}
+  .modules__grid--3{grid-template-columns:1fr}
   .modules-list__tag{grid-column:2}
   .modules-list__status{grid-column:2;justify-self:start}
   .position summary{grid-template-columns:minmax(0,1fr) 1.5rem}

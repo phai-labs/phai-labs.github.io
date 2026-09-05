@@ -7,62 +7,73 @@
   "links": [
     {
       "label": {
-        "zh": "DFM 技术报告（9 月 15 日开放）",
-        "en": "DFM technical report (available Sep 15)"
+        "zh": "DFM 技术报告",
+        "en": "DFM technical report"
       },
-      "href": "",
-      "pending": true
+      "key": "dfm_report"
     },
     {
       "label": {
-        "zh": "GitHub（9 月 15 日开放）",
-        "en": "GitHub (available Sep 15)"
+        "zh": "DFM 技术研究版图（GitHub）",
+        "en": "DFM research map (GitHub)"
       },
-      "href": "",
-      "pending": true
+      "key": "dfm_github"
     },
     {
       "label": {
-        "zh": "访问 ScienceBuddy",
-        "en": "Open ScienceBuddy"
+        "zh": "DFM 科学家合作计划",
+        "en": "DFM Scientist Collaboration Program"
       },
-      "href": "http://115.191.37.16:8099/",
-      "pending": false
+      "href": "/collaborate/"
     },
     {
       "label": {
-        "zh": "SciXXX 项目主页",
-        "en": "SciXXX project page"
+        "zh": "ScienceBuddy · 9 月 16 日",
+        "en": "ScienceBuddy · 16 Sept"
       },
-      "href": "https://aitonomy.org/projects/sciworld",
-      "pending": false
+      "key": "sciencebuddy"
+    },
+    {
+      "label": {
+        "zh": "ScienceIDE · 9 月 17 日",
+        "en": "ScienceIDE · 17 Sept"
+      },
+      "key": "scienceide_page"
+    },
+    {
+      "label": {
+        "zh": "JEPA Anything · 9 月 18 日",
+        "en": "JEPA Anything · 18 Sept"
+      },
+      "key": "jepa_paper"
     }
   ],
   "related": [
     "scientist-collaboration",
     "sciencebuddy",
-    "scixxx"
+    "scienceide",
+    "jepa-anything"
   ],
   "zh": {
-    "title": "从完成科研任务到参与科学发现：PhAI Labs 发布 DFM 技术框架",
-    "summary": "DFM，全称 Discovery Foundation Models，是 PhAI Labs 面向科学发现提出的技术框架与系统蓝图。围绕这一蓝图，各项能力将通过具体模块逐步实现并陆续发布。",
+    "title": "从完成科研任务到参与科学发现：PhAI Labs 提出 DFM 研究范式",
+    "summary": "PhAI Labs 提出 DFM，一套围绕 Discovery Intelligence 的研究范式和系统化表达，并启动 DFM 科学家合作计划。随后三天，ScienceBuddy、ScienceIDE 和 JEPA Anything 三个独立工作将分别发布。",
     "body": [
-      "2026 年 9 月 15 日，PhAI Labs 发布面向科学发现的 DFM 技术框架，并同步启动 DFM科学家合作计划。",
-      "DFM 全称 Discovery Foundation Models，是 PhAI Labs 面向科学发现提出的技术框架与系统蓝图。DFM 关注的不只是让 AI 更快地完成既有科研任务，而是让系统参与更完整的科学发现过程：识别有价值的未知；将未知转化为可研究的问题；构建并修正研究假设；调用科研工具、数据和实验环境；根据外部证据验证和更新判断；沉淀可复用的研究结构与发现能力。",
-      "围绕这一框架，相关能力将通过具体模块逐步实现并陆续发布。本次发布同步展示 DFM 框架下的两个模块：ScienceBuddy · AI 科研搭档，科学家可以直接使用的智能研究工作环境；SciXXX · 科学加速框架，面向真实科学代码库与研究任务的可验证研究环境。JEPA Anything 等后续模块将陆续公布。",
-      "DFM 技术报告与 GitHub 仓库将于 9 月 15 日开放。技术报告、开源清单、模块开放范围和后续路线，将在内部确认后陆续补充。",
-      "DFM科学家合作计划同日启动，为 DFM 引入真实且重要的科学问题、高价值研究数据、可交互的科研环境、实验和专家反馈，以及能够检验系统判断的真实验证条件。首期重点关注生命科学与生物医学，同时面向化学、材料及其他前沿领域开放。"
+      "DFM（Discovery Foundation Models）不是一个单一模型，也不是要求所有系统按同一套流程运行的软件框架，而是 PhAI Labs 围绕 Discovery Intelligence 提出的一套研究范式、能力定义和系统组织方式。它通过形式化定义、流程图示、系统实例和真实科学案例，把“发现”从一个模糊概念具体化为一种可学习、可执行、可评测的模型系统能力。",
+      "DFM 关注的不只是让 AI 更快地完成既有科研任务，而是让系统参与更完整的科学发现过程：识别有价值的未知；将未知转化为可研究的问题；构建并修正研究假设；调用科研工具、数据和实验环境；根据外部证据验证和更新判断；沉淀可复用的研究结构与发现能力。",
+      "本次发布公开 DFM 技术报告与 DFM 技术研究版图仓库（GitHub）。仓库呈现 Discovery Loop 的概念结构、研究方向、开源计划、Demo 和开发者协作机会；其中的研究目录和方向标记，是对未来研究范围的公开预留，不代表对应实现均已完成或发布。",
+      "随后三天，PhAI Labs 将分别发布三个独立工作：9 月 16 日 ScienceBuddy，探索交互式 Science RSI；9 月 17 日 ScienceIDE，构建可执行、可复用的科学经验基础设施；9 月 18 日 JEPA Anything，探索跨领域科学世界模型。ScienceBuddy、ScienceIDE 和 JEPA Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一条“反馈—环境—预测”的组合路径。这是一种未来可能的研究路径，不代表三者当前已经完成集成，也不改变它们各自独立的定位。",
+      "同日启动的 DFM 科学家合作计划，为这一范式引入真实且重要的科学问题、高价值研究数据、可交互的科研环境、实验和专家反馈，以及能够检验系统判断的真实验证条件。首期重点关注生命科学与生物医学，同时面向化学、材料及其他前沿领域开放。"
     ]
   },
   "en": {
-    "title": "From completing tasks to participating in discovery: PhAI Labs releases the DFM technical framework",
-    "summary": "Discovery Foundation Models (DFM) is PhAI Labs’ technical framework and system blueprint for scientific discovery. Its capabilities will be progressively implemented and released as concrete modules.",
+    "title": "From solving research tasks to taking part in discovery: PhAI Labs proposes the DFM paradigm",
+    "summary": "PhAI Labs proposes DFM, a research paradigm and systematic account of Discovery Intelligence, and opens the DFM Scientist Collaboration Program. Over the following three days ScienceBuddy, ScienceIDE and JEPA Anything, three independent works, are released in turn.",
     "body": [
-      "On 15 September 2026, PhAI Labs releases DFM, its technical framework for scientific discovery, and launches the DFM Scientist Collaboration Program.",
-      "Discovery Foundation Models (DFM) is PhAI Labs’ technical framework and system blueprint for scientific discovery. DFM is concerned not only with making AI faster at existing research tasks, but with letting a system take part in the fuller process of discovery: identifying valuable unknowns; turning them into researchable questions; building and revising hypotheses; calling research tools, data and experimental environments; validating and updating its judgement against external evidence; and accumulating reusable research structure and the capacity to discover.",
-      "Around this framework, the capabilities will be progressively implemented and released as concrete modules. This release shows two modules under DFM: ScienceBuddy · AI Research Partner, a research workspace scientists can use directly; and SciXXX · Scientific Acceleration Framework, verifiable research environments built from real scientific codebases and tasks. JEPA Anything and further modules will follow.",
-      "The DFM technical report and GitHub repositories open on 15 September. The report, the open-source inventory, the scope of each module and the roadmap beyond will be added as they are confirmed internally.",
-      "The DFM Scientist Collaboration Program launches the same day. It brings DFM real and consequential scientific questions, high-value research data, interactive research environments, experimental and expert feedback, and real verification conditions that can test the system’s judgement. The first cohort prioritizes life science and biomedicine, while remaining open to chemistry, materials and other frontier fields."
+      "DFM (Discovery Foundation Models) is neither a single model nor a software framework that forces every system through one pipeline. It is the research paradigm, capability definition and system organisation that PhAI Labs proposes around Discovery Intelligence: through formal definitions, process diagrams, system instances and real scientific cases, it turns “discovery” from a vague notion into a capability of model systems that can be learned, executed and evaluated.",
+      "DFM is not about making AI finish existing research tasks faster; it is about systems taking part in a fuller discovery process: identifying valuable unknowns, turning them into researchable problems, building and revising hypotheses, calling research tools, data and experimental environments, testing and updating judgement against external evidence, and consolidating reusable research structure and discovery capability.",
+      "This release makes the DFM technical report and the DFM research-map repository (GitHub) public. The repository carries the conceptual structure of the Discovery Loop, research directions, the open-source plan, demos and how to collaborate; its directories and direction markers reserve future scope in public and do not mean the implementations are finished or released.",
+      "Over the next three days PhAI Labs releases three independent works: on 16 September ScienceBuddy, exploring interactive Science RSI; on 17 September ScienceIDE, building executable and reusable infrastructure for scientific experience; on 18 September JEPA Anything, exploring cross-domain science world models. ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a “feedback – environment – prediction” path. That is a possible future research route, not an integration that exists today, and it does not change their independent standing.",
+      "The DFM Scientist Collaboration Program, opened the same day, brings real and important scientific problems, high-value research data, interactive research environments, experimental and expert feedback, and real verification conditions into the paradigm. The first round concentrates on life science and biomedicine and is open to chemistry, materials and other frontier fields."
     ]
   }
 }

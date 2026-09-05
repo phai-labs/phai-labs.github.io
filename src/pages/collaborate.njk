@@ -64,8 +64,8 @@ eleventyComputed:
         <h2 class="display-2">{{ br(t.dfm.title) }}</h2>
         <div class="prose"><p>{{ t.dfm.body }}</p><p class="prose__note">{{ t.dfm.note }}</p></div>
         <p class="links">
-          <span class="link link--pending"><span>{{ t.dfm.report }}</span><small>{{ t.dfm.pending }}</small></span>
-          <span class="link link--pending"><span>{{ t.dfm.github }}</span><small>{{ t.dfm.pending }}</small></span>
+          {%- set rl = {label: t.dfm.report, key: 'dfm_report'} %}{% include "components/rlink.njk" %}
+          {%- set rl = {label: t.dfm.github, key: 'dfm_github'} %}{% include "components/rlink.njk" %}
         </p>
       </div>
       <figure class="figure figure--dfm">
@@ -77,13 +77,15 @@ eleventyComputed:
     </div>
     <div class="modules">
       <p class="modules__title">{{ t.dfm.modulesTitle }}</p>
-      <div class="modules__grid">
-        {%- for m in t.dfm.modules %}
+      <p class="modules__note">{{ t.dfm.modulesNote }}</p>
+      <div class="modules__grid modules__grid--3">
+        {%- for m in t.dfm.modules %}{% set r = site.releases[m.key] %}
         <article class="module">
-          <span class="num">0{{ loop.index }}</span>
-          <h3>{{ m[0] }}</h3>
-          <p>{{ m[1] }}</p>
-          <a class="link" href="{{ m[3] }}">{{ m[2] }}</a>
+          <span class="num">{{ r.date | dateShort(lang) }}</span>
+          <h3>{{ m.name }}</h3>
+          <p class="module__tag">{{ m.tagline }}</p>
+          <p>{{ m.body }}</p>
+          {%- set rl = {label: m.link_label, key: m.link_key} %}{% include "components/rlink.njk" %}
         </article>
         {%- endfor %}
       </div>

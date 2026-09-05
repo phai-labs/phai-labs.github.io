@@ -93,6 +93,22 @@ src/
 
 **显现**。标题、段落、图表进入视口时上浮显现，中文标题整块上浮，英文按词错开。
 
+## 四日发布与链接门控
+
+发布节奏来自 PR Brief：9 月 15 日 DFM 与科学家合作计划，16 日 ScienceBuddy，17 日 ScienceIDE，18 日 JEPA Anything。站点按这个节奏门控链接，数据都在 `src/_data/site.json`：
+
+```json
+"releases": {
+  "sciencebuddy": { "date": "2026-09-16", "live": false, "url": "http://115.191.37.16:8099/" },
+  ...
+}
+```
+
+- **每个发布日把对应项目的 `live` 改成 `true` 再构建**。`live` 为 false 时，该项目的产品入口 / 项目主页在所有页面都显示为"9 月 16 日发布"的待发布行，不出现链接，即使 `url` 已经填了。
+- 技术报告、GitHub、论文这类链接放在 `links` 里（`sciencebuddy_report`、`scienceide_page`、`jepa_paper` 等），填上 href 并且项目已 `live` 才会变成可点的链接。
+- 新闻文章里的链接用 `key` 引用同一套数据（见 `src/_data/news/*.json`），不用改文章。
+- 首页模块列表、技术页项目段、合作页模块卡、文章链接区都由 `src/_includes/components/rlink.njk` 统一渲染。
+
 ## 部署
 
 推送到 `main` 后，`.github/workflows/pages.yml` 自动构建并发布。仓库设置里需要一次性把 Pages 的 Source 设为 **GitHub Actions**。自定义域名由 `src/CNAME` 提供。
