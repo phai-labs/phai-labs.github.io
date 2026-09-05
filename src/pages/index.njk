@@ -14,7 +14,7 @@ eleventyComputed:
 {%- set s = i18n[lang] -%}
 {%- set latest = (articles if showDrafts else (articles | published)) | take(3) -%}
 
-<section class="hero hero--home" id="top">
+<section class="hero hero--home" id="top" data-field="hero">
   <div class="hero__kv kv" data-no-reveal>
     <img class="kv__img" src="{{ site.kv.static }}" data-anim="{{ site.kv.animated }}"
          width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="{{ t.hero.kv_alt }}" fetchpriority="high">
@@ -49,7 +49,7 @@ eleventyComputed:
 
 {#- The launch leads: DFM as chapter 01 directly under the plate, with the
     dateline row whose hollow dots turn amber once site.json carries the hrefs. -#}
-<section class="sec sec--dfm-teaser" id="dfm">
+<section class="sec sec--dfm-teaser" id="dfm" data-field="flow">
   <div class="shell split split--figure">
     <div>
       <p class="eyebrow"><span class="num">01</span>{{ t.dfm_teaser.eyebrow }}</p>
@@ -77,7 +77,7 @@ eleventyComputed:
 
 {#- The module ladder. Amber marks only what has actually shipped; pending
     states render muted with a hollow dot, decided by data, not by editors. -#}
-<section class="sec sec--modules" id="modules">
+<section class="sec sec--modules" id="modules" data-field="grid">
   <div class="shell">
     <p class="eyebrow"><span class="num">02</span>{{ t.modules_teaser.title }}</p>
     <ol class="modules-list">
@@ -96,7 +96,7 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="sec sec--pillars" id="pillars">
+<section class="sec sec--pillars" id="pillars" data-field="grid">
   <div class="shell">
     <p class="eyebrow"><span class="num">03</span>{{ 'PhAI Labs' }}</p>
     <ol class="pillars">
@@ -111,7 +111,7 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="sec sec--collab" id="collaborate">
+<section class="sec sec--collab" id="collaborate" data-field="calm">
   <div class="shell split">
     <div>
       <p class="eyebrow"><span class="num">04</span>{{ t.collab_teaser.eyebrow }}</p>
@@ -128,7 +128,7 @@ eleventyComputed:
 </section>
 
 {%- if latest.length %}
-<section class="sec sec--news" id="news">
+<section class="sec sec--news" id="news" data-field="calm">
   <div class="shell">
     <p class="eyebrow"><span class="num">05</span>{{ t.news_teaser.title }}<a class="eyebrow__link" href="{{ '/news/' | localeUrl(lang) }}">{{ t.news_teaser.link_label }}</a></p>
     <ol class="timeline timeline--compact">

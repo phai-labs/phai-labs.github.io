@@ -22,7 +22,7 @@ eleventyComputed:
 </section>
 
 {%- for sct in t.sections %}
-<section class="sec sec--chapter" id="about-{{ loop.index }}">
+<section class="sec sec--chapter" data-field="calm" id="about-{{ loop.index }}">
   <div class="shell split split--chapter">
     <div class="chapter__head">
       <p class="eyebrow"><span class="num">0{{ loop.index }}</span></p>
@@ -33,7 +33,7 @@ eleventyComputed:
 </section>
 {%- endfor %}
 
-<section class="sec sec--milestones" id="milestones">
+<section class="sec sec--milestones" data-field="grid" id="milestones">
   <div class="shell">
     <p class="eyebrow"><span class="num">0{{ t.sections.length + 1 }}</span>{{ '发展节点' if lang == 'zh' else 'Milestones' }}</p>
     <ol class="milestones">

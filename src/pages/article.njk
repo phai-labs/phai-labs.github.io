@@ -5,6 +5,7 @@ pagination:
   alias: ap
 permalink: "{{ ('/news/' + ap.article.slug + '/') | localeUrl(ap.lang) }}index.html"
 layout: layouts/base.njk
+fieldOff: true
 pageKey: news
 eleventyComputed:
   lang: "{{ ap.lang }}"

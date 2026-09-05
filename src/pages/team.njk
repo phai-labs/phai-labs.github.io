@@ -23,9 +23,9 @@ eleventyComputed:
 {#- The visual spine the requirements ask to keep: scientific definition ->
     model training -> real execution -> continuous improvement. Drawn as a line
     of four nodes; the stroke extends on reveal. -#}
-<section class="sec sec--spine" aria-label="{{ sp.spine_label }}">
+<section class="sec sec--spine" data-field="still" aria-label="{{ sp.spine_label }}">
   <div class="shell">
-    <ol class="spine" data-reveal>
+    <ol class="spine" style="--amber-x:50%" data-reveal>
       {%- for node in sp.nodes %}
       <li class="spine__node{% if loop.index == 3 %} spine__node--amber{% endif %}">
         <i class="spine__dot" aria-hidden="true"></i>
@@ -38,10 +38,10 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="sec sec--people">
+<section class="sec sec--people" data-field="still">
   <div class="shell">
     <p class="eyebrow">{{ sp.founders_label }}</p>
-    <ul class="people" data-reveal>
+    <ul class="people" data-reveal style="--amber-x:66.4%">
       {%- for m in team.members | sort(false, false, 'order') %}
       {%- set p = m[lang] -%}
       <li class="person" id="{{ m.id }}" style="--k:{{ loop.index0 }}">

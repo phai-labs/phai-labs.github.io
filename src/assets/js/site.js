@@ -79,6 +79,30 @@
     }));
   }
 
+  /* ---------------- chapters ---------------- */
+  // a section learns it is on stage: its top hairline draws, its strip's bead runs
+  if ('IntersectionObserver' in window) {
+    const so = new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); so.unobserve(e.target); }
+    }), { threshold: 0.04 });
+    $$('.sec, .hero').forEach((s) => so.observe(s));
+  } else $$('.sec, .hero').forEach((s) => s.classList.add('is-in'));
+
+  /* ---------------- news timeline: fills as you read ---------------- */
+  const tl = $('.timeline--nodes');
+  if (tl) {
+    const entries = $$('.entry', tl);
+    const fill = () => {
+      const r = tl.getBoundingClientRect(), line = innerHeight * 0.62;
+      const p = Math.min(1, Math.max(0, (line - r.top) / r.height));
+      tl.style.setProperty('--p', reduce ? 1 : p.toFixed(3));
+      entries.forEach((en) => en.classList.toggle('is-lit', reduce || en.getBoundingClientRect().top + 24 < line));
+    };
+    let tk = false;
+    addEventListener('scroll', () => { if (!tk) { requestAnimationFrame(() => { fill(); tk = false; }); tk = true; } }, { passive: true });
+    addEventListener('resize', fill); fill();
+  }
+
   /* ---------------- scroll-spy ---------------- */
   const subnav = $('[data-subnav]');
   if (subnav) {

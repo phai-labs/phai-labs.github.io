@@ -73,7 +73,7 @@
   <a class="drawer__cta" href="{{ site.links.apply_form }}" target="_blank" rel="noopener">{{ s.apply }} ↗</a>
 </nav>
 
-<main id="main" class="main">
+<main id="main" class="main"{% if fieldOff %} data-field="off"{% endif %}>
 {{ content | safe }}
 </main>
 
@@ -104,6 +104,7 @@
 </footer>
 
 <script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/field.js" defer></script>
 {%- block scripts %}{% endblock %}
 </body>
 </html>

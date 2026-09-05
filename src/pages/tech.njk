@@ -23,7 +23,7 @@ eleventyComputed:
 ] -%}
 {%- set ids = ['sciencebuddy', 'scixxx', 'jepa'] -%}
 
-<section class="hero hero--page hero--tech" id="top">
+<section class="hero hero--page hero--tech" id="top" data-field="flow">
   <div class="shell">
     <p class="eyebrow">{{ t.hero.eyebrow }}</p>
     <h1 class="display">{{ t.hero.title | stagger(lang) | safe }}</h1>
@@ -44,7 +44,7 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="sec sec--dfm" id="dfm">
+<section class="sec sec--dfm" data-field="flow" id="dfm">
   <div class="shell">
     <p class="eyebrow"><span class="num">02</span>{{ t.dfm.title }}</p>
     <div class="split">
@@ -79,7 +79,7 @@ eleventyComputed:
 </section>
 
 {%- for pr in t.projects %}
-<section class="sec sec--project{% if loop.last %} sec--project-tbc{% endif %}" id="{{ ids[loop.index0] }}">
+<section class="sec sec--project{% if loop.last %} sec--project-tbc{% endif %}" data-field="grid" id="{{ ids[loop.index0] }}">
   <div class="shell split split--project">
     <div>
       <p class="eyebrow"><span class="num">0{{ loop.index + 2 }}</span>{{ 'DFM 模块' if lang == 'zh' else 'DFM module' }}</p>
@@ -99,7 +99,7 @@ eleventyComputed:
 </section>
 {%- endfor %}
 
-<section class="sec sec--roadmap" id="roadmap">
+<section class="sec sec--roadmap" data-field="calm" id="roadmap">
   <div class="shell split">
     <h2 class="display-2">{{ t.roadmap.title }}</h2>
     <div>

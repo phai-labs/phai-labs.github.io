@@ -1,6 +1,6 @@
 {#- A line of nodes that draws itself on reveal. Expects `nodes` (labels) and
     `amber` (index of the node that carries the amber). -#}
-<ol class="loop" data-reveal>
+<ol class="loop" data-reveal style="--amber-x:{{ (amber / (nodes | length) * 100) | round(1) }}%">
   {%- for n in nodes %}
   <li class="loop__node{% if loop.index0 == amber %} loop__node--amber{% endif %}" style="--k:{{ loop.index0 }}"><i></i><span>{{ n }}</span></li>
   {%- endfor %}

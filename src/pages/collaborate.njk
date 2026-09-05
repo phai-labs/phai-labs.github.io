@@ -15,7 +15,7 @@ eleventyComputed:
 {%- set form = collab.formUrl -%}
 {%- macro br(text) %}{{ text | replace("\n", "<br>") | safe }}{% endmacro -%}
 
-<section class="hero hero--program" id="top">
+<section class="hero hero--program" id="top" data-field="hero">
   <div class="hero__kv kv" data-no-reveal>
     <img class="kv__img" src="{{ site.kv.static }}" data-anim="{{ site.kv.animated }}"
          width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="{{ t.hero.kv }}" fetchpriority="high">
@@ -55,7 +55,7 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="sec sec--dfm" id="dfm">
+<section class="sec sec--dfm" data-field="flow" id="dfm">
   <div class="shell">
     <p class="eyebrow"><span class="num">03</span>{{ t.dfm.label }}</p>
     <div class="split split--figure">

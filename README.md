@@ -77,6 +77,20 @@ src/
 
 `src/_data/site.json` 的 `kv` 字段指定静态图与动态图。页面先加载静态 WebP，进入视口后再换成 GIF；用户开启「减少动态效果」时保持静态。
 
+## 动效
+
+三层，都不依赖任何库。
+
+**计算场**（`src/assets/js/field.js`）。所有页面底下两层固定 canvas：低分辨率的蓝 / 紫蓝密度云缓慢漂移，加少量呼吸的光点；首页与合作页的 hero 区另有一层流入汇聚点的光线、环绕的尘埃，以及每 7 秒一次的琥珀色涟漪。章节到达视口中线时，场按 `data-field` 换档：`calm`（默认）、`flow`（DFM 章节，定向流动）、`grid`（模块、岗位等列表，光点向 96px 网格收拢）、`still`（团队）、`hero`、`off`（文章页，`<main data-field="off">`）。
+
+- 整体关掉：CSS 里把 `--field-max` 设为 0，或 `<html data-field="off">`。
+- 调试：URL 加 `?field=off` 看无场对比，`?field=static` 冻结成一帧，`?field=bench` 在控制台打印每帧耗时。
+- 自动降级：`prefers-reduced-motion` 只画一帧不动；Save-Data、标签页隐藏时不运行；桌面 30 fps、手机 24 fps 上限；标题下方的云会自动变淡以保证可读。
+
+**章节编排**（CSS 与 `site.js`）。章节顶部细线进入视口时从左向右画出；节点线画完后一颗光点沿线跑到琥珀节点（位置由 `--amber-x` 指定）；主 CTA 进入视野时琥珀环扩散两次后静止；关于页的章节序号随滚动上浮；新闻时间轴随阅读进度填充、节点依次点亮；logo 在整页加载时描线；页面切换用 View Transitions 交叉淡入，不支持的浏览器直接跳转。
+
+**显现**。标题、段落、图表进入视口时上浮显现，中文标题整块上浮，英文按词错开。
+
 ## 部署
 
 推送到 `main` 后，`.github/workflows/pages.yml` 自动构建并发布。仓库设置里需要一次性把 Pages 的 Source 设为 **GitHub Actions**。自定义域名由 `src/CNAME` 提供。
