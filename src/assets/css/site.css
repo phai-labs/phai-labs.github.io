@@ -158,6 +158,7 @@ body.drawer-open{overflow:hidden}
   .loop__node i,.loop__node span,.person,.person::after,.cst__n{opacity:1;transform:none;transition:none}
   .cst__e{stroke-dashoffset:0;transition:none}.cst__n--amber{animation:none}
   .dg__draw{stroke-dashoffset:0;animation:none}.dg__mv,.dg__ring{display:none}.dg__blink{animation:none;opacity:1}
+  .dg__fade{opacity:var(--o,1);animation:none}.dg__breathe,.dg__frg{animation:none;opacity:1}.dg__mv--fade,.dg__mv--burst{display:none}
   .rv,.w{opacity:1;transform:none;filter:none;transition:none}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
@@ -470,6 +471,77 @@ html[lang="en"] .dg__t--k{letter-spacing:.04em}
 .article__cover--dg{max-width:var(--shell);margin:0 auto;padding:0 var(--pad);aspect-ratio:1200/450}
 .feature__art .dg{position:absolute;inset:0}
 
+/* -- the five work drawings: shared grammar (see diagrams/*.njk) -- */
+.in .dg__draw{animation-delay:var(--d,0s)}
+.in .dg__draw--slow{animation-duration:2.6s}
+.dg__fade{opacity:0}
+.in .dg__fade{animation:dgfade .6s var(--ease) forwards;animation-delay:var(--d,0s)}
+@keyframes dgfade{to{opacity:var(--o,1)}}
+.dg__dash{stroke-dasharray:3 5}
+.dg__ray{fill:none;stroke:var(--rule);stroke-width:1;stroke-dasharray:2 5;transition:stroke .25s}
+.dg__ray--solid{stroke-dasharray:none}
+.dg__chord{fill:none;stroke:var(--rule);stroke-width:1;stroke-dasharray:1 5;opacity:0;transition:opacity .25s}
+.dg__n--dim{opacity:.45;transition:opacity .25s}
+.dg__ringh{fill:none;stroke:var(--amber);stroke-width:1;opacity:.7}
+.dg__tick--blue{stroke:var(--blue);stroke-width:1.4}
+.dg__box{transition:stroke .25s}
+.dg__mv--fade{animation-name:dgmove-fade}
+@keyframes dgmove-fade{0%{offset-distance:0%;opacity:0}5%{opacity:1}95%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.dg__mv--burst{animation-name:dgmove-burst}
+@keyframes dgmove-burst{0%{offset-distance:0%;opacity:1}25%{offset-distance:100%;opacity:1}27%,100%{offset-distance:100%;opacity:0}}
+.dg__breathe{animation:dgbreathe 4s ease-in-out infinite}
+.dg__frg{animation:dgbreathe 6s ease-in-out infinite}
+@keyframes dgbreathe{0%{opacity:.55}25%{opacity:1}45%{opacity:1}75%{opacity:.55}100%{opacity:.55}}
+.dg__fr{fill:var(--blue);opacity:var(--o,1);transition:opacity .3s}
+.dg__note,.dg__tag{opacity:0;transition:opacity .25s}
+.dg__hit{fill:none;stroke:transparent;stroke-width:26;pointer-events:stroke}
+.dg__hitf,.dg__facefill{fill:transparent;stroke:none;pointer-events:fill;transition:fill .25s}
+.dg__half,.dg__rowov{fill:none;stroke:transparent;stroke-width:1.4;transition:stroke .25s}
+.dg__hov text,.dg__hov .dg__p,.dg__hov .dg__n{transition:fill .25s,stroke .25s,opacity .25s}
+.dg__hov:hover .dg__p{stroke:var(--blue)}
+.dg__hov:hover text{fill:var(--ink)}
+.dg__hov:hover .dg__n{fill:var(--blue-2)}
+.dg__hov:hover .dg__n--amber{fill:var(--amber-2)}
+.dg__hov:hover .dg__n--dim{opacity:1}
+.dg__hov:hover .dg__tag,.dg__hov:hover .dg__chord{opacity:1}
+.dg__hov:hover .dg__ray{stroke:var(--blue-line);stroke-dasharray:none}
+.dg__hov:hover .dg__dash{stroke:var(--blue-line)}
+.dg__lobe:hover .dg__half,.dg__row:hover .dg__rowov{stroke:var(--blue-2)}
+.dg__lobe:hover > text{fill:var(--ink)}
+.dg__lobe--ag:hover .dg__box{stroke:var(--blue-line)}
+.dg__face:hover .dg__facefill{fill:rgba(155,167,255,.08)}
+.dg__cross:hover .dg__ring{animation-duration:2s}
+.dg__bs:hover .dg__ring{animation-duration:1.8s}
+.dg__armA:hover ~ .dg__det .dg__fr,.dg__armB:hover ~ .dg__det .dg__fr{opacity:.12}
+.dg__armA:hover ~ .dg__det .dg__note,.dg__armB:hover ~ .dg__det .dg__note{opacity:1}
+.dg__det:hover .dg__fr{opacity:1}
+.dg__cross:hover ~ .dg__base .dg__p{stroke:var(--blue-line)}
+.dg:has(.dg__hov:hover) .dg__mv{animation-play-state:paused}
+.dg__fut:has(.dg__w:hover) .dg__w:not(:hover){opacity:.35;transition:opacity .25s}
+.dg:has(.dg__face--code:hover) .dg__wall line:nth-child(n+16):nth-child(-n+23),.dg:has(.dg__face--code:hover) .dg__wallcode line{stroke:var(--blue-line)}
+.dg:has(.dg__face--goal:hover) .dg__rowov{stroke:var(--blue-line)}
+.dg:has(.dg__face--fb:hover) .dg__blink{opacity:1;animation-play-state:paused}
+a.dgfig__link{display:block;cursor:pointer}
+a.dgfig__link:focus-visible .dg__n--amber{fill:var(--amber-2)}
+
+/* the figure around a drawing: drawing, three attributes, the claim */
+.dgfig{display:grid;grid-template-columns:minmax(0,1fr) 13rem;grid-template-areas:'art attrs' 'cap cap';column-gap:var(--gap);align-items:center;max-width:none;margin-top:clamp(2rem,4vh,3rem)}
+.dgfig__art{grid-area:art;aspect-ratio:1200/450}
+.dgfig__attrs{grid-area:attrs;align-self:center}
+.dgfig__attrs ul{list-style:none;margin:0;padding:0;display:grid;gap:1.1rem}
+.dgfig__attrs li{display:grid;grid-template-columns:auto 1fr;column-gap:.7rem;align-items:baseline}
+.dgfig__attrs i{width:6px;height:6px;border-radius:50%;background:var(--blue);display:inline-block;transform:translateY(-2px)}
+.dgfig__attrs b{font-family:var(--serif);font-weight:400;font-size:var(--t-2);color:var(--ink);letter-spacing:-.01em}
+html[lang="zh-CN"] .dgfig__attrs b{letter-spacing:0}
+.dgfig__attrs span{grid-column:2;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.dgfig__cap{grid-area:cap;margin-top:.9rem;display:flex;justify-content:space-between;gap:var(--gap);align-items:baseline}
+.dgfig__claim{margin:0;font-family:var(--serif);font-size:var(--t-3);line-height:1.5;color:var(--ink-2);max-width:34em}
+.dgfig__hint{margin:0;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);white-space:nowrap}
+.checks--dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.6rem 2rem;margin-top:1rem}
+.sec--instrument{padding-top:0}
+.sec--instrument .actions{margin-top:1.4rem}
+.article__cover--dg figcaption{margin-top:.6rem;text-align:center}
+
 /* news: one featured entry, then the timeline with nodes */
 .feature{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--gap);align-items:end;padding-bottom:clamp(2rem,4vh,3rem);border-bottom:1px solid var(--rule)}
 .feature__art{display:block;margin:0;position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:4px;background:radial-gradient(80% 90% at 60% 40%,rgba(155,167,255,.09),transparent 70%)}
@@ -695,6 +767,9 @@ html[lang="zh-CN"] .hero .eyebrow{letter-spacing:.12em}
   .hero__kv::after{background:linear-gradient(180deg,rgba(10,10,11,.35) 0%,transparent 28%,transparent 60%,var(--bg) 100%)}
   .hero--home .hero__copy::before,.hero--program .hero__copy::before{display:none}
   .people::before,.person::after,.people::after,.spine::after{display:none}
+  .dgfig{grid-template-columns:1fr;grid-template-areas:'art' 'cap' 'attrs'}
+  .dgfig__attrs ul{grid-template-columns:repeat(3,1fr)}
+  .dgfig__hint{display:none}
   .feature{grid-template-columns:1fr}
   .display{font-weight:400}
   .case{grid-template-columns:1fr}

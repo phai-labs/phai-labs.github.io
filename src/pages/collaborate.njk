@@ -56,6 +56,13 @@ eleventyComputed:
   </div>
 </section>
 
+<section class="sec sec--instrument" data-field="calm" id="instrument">
+  <div class="shell">
+    {%- set dg = 'program' %}{% set dg_href = site.links.apply_form %}{% include "components/dgfig.njk" %}
+    <p class="actions"><a class="btn btn--primary" href="{{ site.links.apply_form }}">{{ i18n[lang].apply }} <span aria-hidden="true">↗</span></a></p>
+  </div>
+</section>
+
 <section class="sec sec--dfm" data-field="flow" id="dfm">
   <div class="shell">
     <p class="eyebrow"><span class="num">03</span>{{ t.dfm.label }}</p>

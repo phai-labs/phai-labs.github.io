@@ -34,7 +34,7 @@ eleventyComputed:
   {%- if a.cover %}
   <figure class="article__cover kv"><img src="{{ a.cover }}" alt="" loading="lazy"></figure>
   {%- elif a.art %}
-  <figure class="article__cover article__cover--dg">{% set dg = a.art %}{% include "components/diagram.njk" %}</figure>
+  <figure class="article__cover article__cover--dg">{% set dg = a.art %}{% include "components/diagram.njk" %}<figcaption>{{ diagrams[a.art].claim[lang] }}</figcaption></figure>
   {%- else %}
   <figure class="article__cover article__cover--cst">{{ a.slug | constellation(1200, 360, 34) | safe }}</figure>
   {%- endif %}

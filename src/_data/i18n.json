@@ -60,7 +60,8 @@
       "update": "项目进展"
     },
     "live": "可访问",
-    "independent": "独立研究方向"
+    "independent": "独立研究方向",
+    "hover_hint": "把光标移到图上"
   },
   "en": {
     "lang": "en",
@@ -123,6 +124,7 @@
       "update": "Update"
     },
     "live": "Live",
-    "independent": "Independent direction"
+    "independent": "Independent direction",
+    "hover_hint": "Move the cursor over the drawing"
   }
 }

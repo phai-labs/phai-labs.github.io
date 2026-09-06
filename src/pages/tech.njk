@@ -61,6 +61,8 @@ eleventyComputed:
 
     <div class="prose prose--cols">{% for p in t.dfm.blueprint %}<p>{{ p }}</p>{% endfor %}</div>
 
+    {%- set dg = 'dfm' %}{% set dg_href = '' %}{% include "components/dgfig.njk" %}
+
     <p class="subhead">{{ t.dfm.modules_title }}</p>
     <ol class="capabilities">
       {%- for m in t.dfm.modules %}
@@ -96,17 +98,19 @@ eleventyComputed:
     </div>
     <div>
       <div class="prose">{% for p in pr.body %}<p>{{ p }}</p>{% endfor %}</div>
-      {%- if pr.bullets.length %}
-      <p class="subhead">{{ pr.bullets_title }}</p>
-      <ul class="checks">{% for b in pr.bullets %}<li>{{ b }}</li>{% endfor %}</ul>
-      {%- endif %}
       <p class="prose__note">{{ pr.status }}</p>
       <p class="links">
         {%- for rl in pr.links %}{% include "components/rlink.njk" %}{% endfor %}
       </p>
     </div>
   </div>
-  <div class="shell"><figure class="figure figure--dg figure--wide">{% set dg = pr.key %}{% include "components/diagram.njk" %}</figure></div>
+  <div class="shell">
+    {%- set dg = pr.key %}{% set dg_href = '' %}{% include "components/dgfig.njk" %}
+    {%- if pr.bullets.length %}
+    <p class="subhead">{{ pr.bullets_title }}</p>
+    <ul class="checks checks--dg">{% for b in pr.bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+    {%- endif %}
+  </div>
 </section>
 {%- endfor %}
 

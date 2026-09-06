@@ -1,0 +1,14 @@
+{#- VoiceMem-style figure: the drawing, three attributes beside it, the claim
+    beneath. Expects `dg` (diagram key); optional `dg_href` wraps the drawing in
+    a link (the collaboration program: the beam splitter is the entry). -#}
+{%- set meta = diagrams[dg] -%}
+<figure class="figure figure--wide dgfig dgfig--{{ dg }}">
+  <div class="dgfig__art">{% if dg_href %}<a class="dgfig__link" href="{{ dg_href }}" aria-label="{{ i18n[lang].apply }}">{% endif %}{% include "components/diagram.njk" %}{% if dg_href %}</a>{% endif %}</div>
+  <aside class="dgfig__attrs">
+    <ul>{% for a in meta.attrs %}<li><i></i><b>{{ a.zh if lang == 'zh' else a.en }}</b><span>{{ a.en if lang == 'zh' else a.zh }}</span></li>{% endfor %}</ul>
+  </aside>
+  <figcaption class="dgfig__cap">
+    <p class="dgfig__claim">{{ meta.claim[lang] }}</p>
+    <p class="dgfig__hint">{{ i18n[lang].hover_hint }}</p>
+  </figcaption>
+</figure>

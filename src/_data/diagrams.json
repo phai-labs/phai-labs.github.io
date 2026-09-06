@@ -1,0 +1,122 @@
+{
+  "dfm": {
+    "claim": {
+      "zh": "DFM 是一套范式：把「发现」具体化为可学习、可执行、可评测的能力。",
+      "en": "DFM is a paradigm: discovery made learnable, executable and evaluable."
+    },
+    "attrs": [
+      {
+        "zh": "可学习",
+        "en": "Learnable"
+      },
+      {
+        "zh": "可执行",
+        "en": "Executable"
+      },
+      {
+        "zh": "可评测",
+        "en": "Evaluable"
+      }
+    ]
+  },
+  "sciencebuddy": {
+    "claim": {
+      "zh": "科学家的追问、修改、采纳、否定与重新运行形成反馈，推动科研智能体工作环境持续演化。",
+      "en": "A scientist's follow-ups, edits, acceptances, rejections and re-runs become feedback, and the feedback keeps the agent's workspace evolving."
+    },
+    "attrs": [
+      {
+        "zh": "反馈",
+        "en": "Feedback"
+      },
+      {
+        "zh": "研究轨迹",
+        "en": "Research trajectories"
+      },
+      {
+        "zh": "工作环境演化",
+        "en": "An evolving harness"
+      }
+    ]
+  },
+  "scienceide": {
+    "claim": {
+      "zh": "把真实科学代码、任务目标与验证标准，组织成可运行、可测量、可复现的科学环境。",
+      "en": "Real scientific code, task goals and verification criteria, organised into runnable, measurable, reproducible environments."
+    },
+    "attrs": [
+      {
+        "zh": "可运行",
+        "en": "Runnable"
+      },
+      {
+        "zh": "可测量",
+        "en": "Measurable"
+      },
+      {
+        "zh": "可复现",
+        "en": "Reproducible"
+      }
+    ]
+  },
+  "jepa": {
+    "claim": {
+      "zh": "在行动之前，预测一个干预会把世界状态带向哪里。",
+      "en": "Before acting, predict where an intervention takes the world state."
+    },
+    "attrs": [
+      {
+        "zh": "干预预测",
+        "en": "Intervention prediction"
+      },
+      {
+        "zh": "状态合成",
+        "en": "State synthesis"
+      },
+      {
+        "zh": "科学诊断",
+        "en": "Scientific diagnosis"
+      }
+    ]
+  },
+  "program": {
+    "claim": {
+      "zh": "两条光路缺一不可：科学家的真实问题与验证条件，遇上能被检验的下一代 AI 系统。",
+      "en": "Two arms, one pattern: real problems and real verification meet a next-generation AI system that can be tested."
+    },
+    "attrs": [
+      {
+        "zh": "真实问题",
+        "en": "Real problems"
+      },
+      {
+        "zh": "高价值数据与环境",
+        "en": "High-value data and environments"
+      },
+      {
+        "zh": "真实验证",
+        "en": "Real verification"
+      }
+    ]
+  },
+  "site": {
+    "claim": {
+      "zh": "官网重构：中英双语，结构化数据维护。",
+      "en": "The site rebuilt: bilingual, data-driven."
+    },
+    "attrs": [
+      {
+        "zh": "双语",
+        "en": "Bilingual"
+      },
+      {
+        "zh": "结构化数据",
+        "en": "Data-driven"
+      },
+      {
+        "zh": "全页动效",
+        "en": "Full-page motion"
+      }
+    ]
+  }
+}
