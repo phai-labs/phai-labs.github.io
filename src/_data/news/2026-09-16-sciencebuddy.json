@@ -53,5 +53,6 @@
       "ScienceBuddy takes in and structures scientific questions, data needs, research materials, literature and code, scientific tool calls, hypothesis formation and testing, and what the following research workflow needs.",
       "An early product / research preview: the capabilities opened, demonstrations and entry points follow the actual version. The product entry opens on 16 September."
     ]
-  }
+  },
+  "art": "sciencebuddy"
 }

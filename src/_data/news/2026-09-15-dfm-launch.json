@@ -75,5 +75,6 @@
       "Over the next three days PhAI Labs releases three independent works: on 16 September ScienceBuddy, exploring interactive Science RSI; on 17 September ScienceIDE, building executable and reusable infrastructure for scientific experience; on 18 September JEPA Anything, exploring cross-domain science world models. ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a “feedback – environment – prediction” path. That is a possible future research route, not an integration that exists today, and it does not change their independent standing.",
       "The DFM Scientist Collaboration Program, opened the same day, brings real and important scientific problems, high-value research data, interactive research environments, experimental and expert feedback, and real verification conditions into the paradigm. The first round concentrates on life science and biomedicine and is open to chemistry, materials and other frontier fields."
     ]
-  }
+  },
+  "art": "dfm"
 }

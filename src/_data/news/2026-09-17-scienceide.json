@@ -53,5 +53,6 @@
       "Current task forms are accelerate, discover, repair, reproduce and integrate. ScienceIDE serves scientific code, scientific tasks, environment building, task verification and reinforcement-learning training on its own.",
       "ScienceIDE is open for task proposals. Whether the project page, submission page and repository go public on 17 September follows final readiness."
     ]
-  }
+  },
+  "art": "scienceide"
 }

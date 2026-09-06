@@ -27,14 +27,14 @@ eleventyComputed:
     <article class="feature{% if a.draft %} entry--draft{% endif %}">
       <figure class="feature__art">
         <a href="{{ ('/news/' + a.slug + '/') | localeUrl(lang) }}" aria-hidden="true" tabindex="-1">
-          {%- if a.cover %}<img src="{{ a.cover }}" alt="" loading="lazy">{% else %}{{ a.slug | constellation(800, 450) | safe }}{% endif %}
+          {%- if a.cover %}<img src="{{ a.cover }}" alt="" loading="lazy">{% elif a.art %}{% set dg = a.art %}{% include "components/diagram.njk" %}{% else %}{{ a.slug | constellation(800, 450) | safe }}{% endif %}
         </a>
       </figure>
       <div class="feature__body">
         <p class="entry__meta">
           <time datetime="{{ a.date }}">{{ a.date | fmtDate(lang) }}</time>
           <span class="entry__cat">{{ s.category[a.category] }}</span>
-          {%- if a.draft %}<span class="entry__badge">{{ s.draft_badge }}</span>{% endif %}
+          {%- if a.draft %}<span class="entry__badge">{{ a.date | releaseLabel(lang) }}</span>{% endif %}
         </p>
         <h2 class="feature__title"><a href="{{ ('/news/' + a.slug + '/') | localeUrl(lang) }}">{{ c.title }}</a></h2>
         <p class="entry__summary">{{ c.summary }}</p>
@@ -49,7 +49,7 @@ eleventyComputed:
         <p class="entry__meta">
           <time datetime="{{ a.date }}">{{ a.date | fmtDate(lang) }}</time>
           <span class="entry__cat">{{ s.category[a.category] }}</span>
-          {%- if a.draft %}<span class="entry__badge">{{ s.draft_badge }}</span>{% endif %}
+          {%- if a.draft %}<span class="entry__badge">{{ a.date | releaseLabel(lang) }}</span>{% endif %}
         </p>
         <h2 class="entry__title"><a href="{{ ('/news/' + a.slug + '/') | localeUrl(lang) }}">{{ c.title }}</a></h2>
         <p class="entry__summary">{{ c.summary }}</p>

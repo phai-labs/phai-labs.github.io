@@ -26,13 +26,15 @@ eleventyComputed:
       <p class="lede">{{ c.summary }}</p>
       <p class="article__meta">
         <time datetime="{{ a.date }}">{{ s.published_on }} {{ a.date | fmtDate(lang) }}</time>
-        {%- if a.draft %}<span class="entry__badge">{{ s.draft_badge }}</span>{% endif %}
+        {%- if a.draft %}<span class="entry__badge">{{ a.date | releaseLabel(lang) }}</span>{% endif %}
       </p>
     </div>
   </header>
 
   {%- if a.cover %}
   <figure class="article__cover kv"><img src="{{ a.cover }}" alt="" loading="lazy"></figure>
+  {%- elif a.art %}
+  <figure class="article__cover article__cover--dg">{% set dg = a.art %}{% include "components/diagram.njk" %}</figure>
   {%- else %}
   <figure class="article__cover article__cover--cst">{{ a.slug | constellation(1200, 360, 34) | safe }}</figure>
   {%- endif %}

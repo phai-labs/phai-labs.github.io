@@ -157,6 +157,7 @@ body.drawer-open{overflow:hidden}
   .loop::before,.people::before{transform:none;transition:none}
   .loop__node i,.loop__node span,.person,.person::after,.cst__n{opacity:1;transform:none;transition:none}
   .cst__e{stroke-dashoffset:0;transition:none}.cst__n--amber{animation:none}
+  .dg__draw{stroke-dashoffset:0;animation:none}.dg__mv,.dg__ring{display:none}.dg__blink{animation:none;opacity:1}
   .rv,.w{opacity:1;transform:none;filter:none;transition:none}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
@@ -439,6 +440,35 @@ html[lang="zh-CN"] .modules-list__name{font-weight:400}
 .cst__n--amber{fill:var(--amber);filter:drop-shadow(0 0 6px var(--amber));animation:cst-pulse 4.2s ease-in-out 1.5s infinite}
 .in .cst__e{stroke-dashoffset:0}.in .cst__n{opacity:1}
 @keyframes cst-pulse{0%,100%{opacity:1}50%{opacity:.45}}
+
+/* project diagrams: hairline SVG drawings that draw themselves in and keep a
+   few signals moving; labels in the page fonts; one amber point each */
+.dg{display:block;width:100%;height:100%;font-family:var(--sans);font-size:16px}
+.dg__t{fill:var(--ink-2)}
+.dg__t--s{fill:var(--ink-3);font-size:13.5px}
+.dg__t--k{fill:var(--ink-3);font-family:var(--mono);font-size:12px;letter-spacing:.08em}
+html[lang="en"] .dg__t--k{letter-spacing:.04em}
+.dg__n{fill:var(--blue)}
+.dg__n--amber{fill:var(--amber)}
+.dg__p{fill:none;stroke:var(--blue-line);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.dg__faint{stroke:var(--rule);stroke-width:1}
+.dg__box{fill:none;stroke:var(--rule);stroke-width:1}
+.dg__tick{fill:none;stroke:#141008;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.dg__draw{stroke-dasharray:1;stroke-dashoffset:1}
+.in .dg__draw{animation:dgdraw 1.6s var(--ease) forwards}
+@keyframes dgdraw{to{stroke-dashoffset:0}}
+.dg__mv{fill:var(--blue-2);offset-rotate:0deg;opacity:0;animation:dgmove var(--dur,6s) linear infinite;animation-delay:var(--delay,0s)}
+.dg__mv--amber{fill:var(--amber)}
+.in .dg__mv{opacity:1}
+@keyframes dgmove{from{offset-distance:0%}to{offset-distance:100%}}
+.dg__ring{fill:none;stroke:var(--amber);stroke-width:1;transform-box:fill-box;transform-origin:center;animation:dgring 3.6s ease-out infinite}
+.dg__ring--slow{stroke:var(--blue-line);animation-duration:6s}
+@keyframes dgring{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.9);opacity:0}}
+.dg__blink{opacity:0;animation:dgblink var(--dur,6s) linear infinite;animation-delay:var(--delay,0s)}
+@keyframes dgblink{0%,12%{opacity:0}20%,80%{opacity:1}100%{opacity:0}}
+.figure--dg{margin-top:clamp(1.5rem,3vh,2.4rem);aspect-ratio:1200/450;max-width:60rem}
+.article__cover--dg{max-width:var(--shell);margin:0 auto;padding:0 var(--pad);aspect-ratio:1200/450}
+.feature__art .dg{position:absolute;inset:0}
 
 /* news: one featured entry, then the timeline with nodes */
 .feature{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--gap);align-items:end;padding-bottom:clamp(2rem,4vh,3rem);border-bottom:1px solid var(--rule)}

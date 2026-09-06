@@ -36,5 +36,6 @@
       "The homepage describes this as a loop: data trains the model, and the model designs the next experiment. A model’s failures are the hypotheses worth testing; what comes back from the bench, including every failure, returns as reward, as a harder benchmark and as the next task.",
       "This rebuild is the second version of the site, and the base on which the coming technical releases will land."
     ]
-  }
+  },
+  "art": "site"
 }
