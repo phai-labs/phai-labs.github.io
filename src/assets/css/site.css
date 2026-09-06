@@ -158,7 +158,7 @@ body.drawer-open{overflow:hidden}
   .loop__node i,.loop__node span,.person,.person::after,.cst__n{opacity:1;transform:none;transition:none}
   .cst__e{stroke-dashoffset:0;transition:none}.cst__n--amber{animation:none}
   .dg__draw{stroke-dashoffset:0;animation:none}.dg__mv,.dg__ring{display:none}.dg__blink{animation:none;opacity:1}
-  .dg__fade{opacity:var(--o,1);animation:none}.dg__breathe,.dg__frg{animation:none;opacity:1}.dg__mv--fade,.dg__mv--burst{display:none}
+  .dg__fade{opacity:var(--o,1);animation:none}.dg__breathe,.dg__frg{animation:none;opacity:1}.dg__grow{animation:none;width:460px}.dg__mv--fade,.dg__mv--burst{display:none}
   .rv,.w{opacity:1;transform:none;filter:none;transition:none}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
@@ -521,6 +521,10 @@ html[lang="en"] .dg__t--k{letter-spacing:.04em}
 .dg:has(.dg__face--code:hover) .dg__wall line:nth-child(n+16):nth-child(-n+23),.dg:has(.dg__face--code:hover) .dg__wallcode line{stroke:var(--blue-line)}
 .dg:has(.dg__face--goal:hover) .dg__rowov{stroke:var(--blue-line)}
 .dg:has(.dg__face--fb:hover) .dg__blink{opacity:1;animation-play-state:paused}
+.dg__num{fill:var(--blue);font-family:var(--mono);font-size:12px}
+.dg__grow{fill:var(--blue-line);width:0;animation:dggrow 9s ease-in-out infinite}
+@keyframes dggrow{0%{width:180px;opacity:.6}70%{width:460px;opacity:1}100%{width:460px;opacity:.6}}
+.dg__bub:hover .dg__box{stroke:var(--blue-line)}
 a.dgfig__link{display:block;cursor:pointer}
 a.dgfig__link:focus-visible .dg__n--amber{fill:var(--amber-2)}
 

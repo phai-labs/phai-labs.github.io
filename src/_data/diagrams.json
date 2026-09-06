@@ -1,8 +1,8 @@
 {
   "dfm": {
     "claim": {
-      "zh": "DFM 是一套范式：把「发现」具体化为可学习、可执行、可评测的能力。",
-      "en": "DFM is a paradigm: discovery made learnable, executable and evaluable."
+      "zh": "DFM 让 AI 走完一整圈发现：从找到值得研究的问题，到用真实证据检验，再到把方法留给下一次。",
+      "en": "DFM takes an AI through a whole turn of discovery: find a question worth asking, test it against real evidence, keep what worked for next time."
     },
     "attrs": [
       {
@@ -21,8 +21,8 @@
   },
   "sciencebuddy": {
     "claim": {
-      "zh": "科学家的追问、修改、采纳、否定与重新运行形成反馈，推动科研智能体工作环境持续演化。",
-      "en": "A scientist's follow-ups, edits, acceptances, rejections and re-runs become feedback, and the feedback keeps the agent's workspace evolving."
+      "zh": "科学家和 AI 搭档一问一答，追问、修改、采纳都被记下来，AI 的工作环境在一轮轮反馈里变好。",
+      "en": "A scientist and an AI partner talk it through; every follow-up, edit and acceptance is written down, and the AI's workspace gets better round by round."
     },
     "attrs": [
       {
@@ -31,18 +31,18 @@
       },
       {
         "zh": "研究轨迹",
-        "en": "Research trajectories"
+        "en": "Research trail"
       },
       {
         "zh": "工作环境演化",
-        "en": "An evolving harness"
+        "en": "A workspace that improves"
       }
     ]
   },
   "scienceide": {
     "claim": {
-      "zh": "把真实科学代码、任务目标与验证标准，组织成可运行、可测量、可复现的科学环境。",
-      "en": "Real scientific code, task goals and verification criteria, organised into runnable, measurable, reproducible environments."
+      "zh": "把一个真实的科研代码库变成一排可以运行、可以打分、可以重复的工作台，让 AI 在真实科学任务里做事并被检验。",
+      "en": "Turn a real scientific codebase into a row of workbenches that run, get scored and can be repeated, so an AI can work on real scientific tasks and be checked."
     },
     "attrs": [
       {
@@ -50,39 +50,39 @@
         "en": "Runnable"
       },
       {
-        "zh": "可测量",
-        "en": "Measurable"
+        "zh": "可打分",
+        "en": "Scorable"
       },
       {
-        "zh": "可复现",
-        "en": "Reproducible"
+        "zh": "可重复",
+        "en": "Repeatable"
       }
     ]
   },
   "jepa": {
     "claim": {
-      "zh": "在行动之前，预测一个干预会把世界状态带向哪里。",
-      "en": "Before acting, predict where an intervention takes the world state."
+      "zh": "在动手之前先预测：如果这样做，世界会变成什么样，哪条路值得走。",
+      "en": "Predict before acting: if we do this, what does the world look like, and which option is worth taking."
     },
     "attrs": [
       {
-        "zh": "干预预测",
-        "en": "Intervention prediction"
+        "zh": "预测干预的结果",
+        "en": "Predict what an action does"
       },
       {
-        "zh": "状态合成",
-        "en": "State synthesis"
+        "zh": "合成可能的状态",
+        "en": "Picture possible states"
       },
       {
-        "zh": "科学诊断",
-        "en": "Scientific diagnosis"
+        "zh": "辅助科学诊断",
+        "en": "Help with diagnosis"
       }
     ]
   },
   "program": {
     "claim": {
-      "zh": "两条光路缺一不可：科学家的真实问题与验证条件，遇上能被检验的下一代 AI 系统。",
-      "en": "Two arms, one pattern: real problems and real verification meet a next-generation AI system that can be tested."
+      "zh": "科学家带来真实问题、数据和实验反馈，PhAI 带来模型、工具和分析，在真实实验里一起验证，结果回到科学家手里。",
+      "en": "Scientists bring real problems, data and experimental feedback; PhAI brings models, tools and analysis; results are tested together in real experiments and go back to the scientist."
     },
     "attrs": [
       {
@@ -90,12 +90,12 @@
         "en": "Real problems"
       },
       {
-        "zh": "高价值数据与环境",
-        "en": "High-value data and environments"
+        "zh": "真实数据与实验",
+        "en": "Real data and experiments"
       },
       {
-        "zh": "真实验证",
-        "en": "Real verification"
+        "zh": "一起验证",
+        "en": "Tested together"
       }
     ]
   },

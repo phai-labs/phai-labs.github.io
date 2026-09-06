@@ -18,9 +18,9 @@
 <title>{{ fullTitle }}</title>
 <meta name="description" content="{{ description or s.site_tagline }}">
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-<link rel="alternate" hreflang="zh-CN" href="{{ site.url }}{{ page.url | switchUrl(lang) if lang == 'en' else site.url + page.url }}">
-<link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url if lang == 'en' else page.url | switchUrl(lang) }}">
-<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | switchUrl(lang) if lang == 'en' else site.url + page.url }}">
+<link rel="alternate" hreflang="zh-CN" href="{{ site.url }}{{ (page.url | switchUrl(lang)) if lang == 'en' else page.url }}">
+<link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url if lang == 'en' else (page.url | switchUrl(lang)) }}">
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ (page.url | switchUrl(lang)) if lang == 'en' else page.url }}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ s.site_name }}">
 <meta property="og:title" content="{{ fullTitle }}">
