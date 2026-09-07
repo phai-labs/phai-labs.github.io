@@ -28,10 +28,12 @@ export default function (eleventyConfig) {
   eleventyConfig.addGlobalData("buildTime", () => new Date().toISOString());
   // Drafts (the 15-Sept items) are shown while previewing so they can be
   // reviewed; set HIDE_DRAFTS=1 for the production build before launch day.
-  eleventyConfig.addGlobalData("showDrafts", process.env.HIDE_DRAFTS !== "1");
+  const showDrafts = process.env.HIDE_DRAFTS !== "1";
+  eleventyConfig.addGlobalData("showDrafts", showDrafts);
 
-  // all articles, newest first; and the article x language cross product
-  const articles = loadArticles();
+  // all articles, newest first; and the article x language cross product.
+  // Hidden drafts are dropped here so their pages are never written either.
+  const articles = loadArticles().filter((a) => showDrafts || !a.draft);
   eleventyConfig.addGlobalData("articles", articles);
   eleventyConfig.addGlobalData("articlePages", () =>
     LANGS.flatMap((lang) => articles.map((article) => ({ lang, article })))

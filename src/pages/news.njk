@@ -42,6 +42,7 @@ eleventyComputed:
       </div>
     </article>
     {%- endif %}
+    {%- if list.length > 1 %}
     <ol class="timeline timeline--nodes">
       {%- for a in list | take(999) %}{% if not loop.first %}
       {%- set c = a[lang] -%}
@@ -57,5 +58,6 @@ eleventyComputed:
       </li>
       {%- endif %}{% endfor %}
     </ol>
+    {%- endif %}
   </div>
 </section>

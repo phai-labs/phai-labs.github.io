@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "eleventy --serve --port=8081",
     "build": "eleventy",
+    "deploy": "node scripts/deploy.mjs",
     "clean": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\"",
     "fonts": "python scripts/subset-cjk.py"
   },

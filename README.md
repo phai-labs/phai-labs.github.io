@@ -127,7 +127,9 @@ src/
 
 ## 部署
 
-推送到 `main` 后，`.github/workflows/pages.yml` 自动构建并发布。仓库设置里需要一次性把 Pages 的 Source 设为 **GitHub Actions**。自定义域名由 `src/CNAME` 提供。
+`pnpm deploy`：以 `HIDE_DRAFTS=1` 构建，把产物推送到 `main` 分支。GitHub Pages 按仓库设置（Source: Deploy from a branch，main / root）直接发布 `main` 上的静态文件，自定义域名由 `src/CNAME` 提供，`.nojekyll` 让 GitHub 不再做 Jekyll 处理。
+
+源码在 `rebuild` 分支，`main` 只放构建产物。改完源码：先在 `rebuild` 上 commit 并 push，再 `pnpm deploy`。发布日当天把对应项目的 `live` 改为 `true`（新闻则把 `draft` 改为 `false`），再 `pnpm deploy` 一次。
 
 ## 字体
 
