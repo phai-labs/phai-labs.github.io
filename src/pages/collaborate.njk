@@ -143,7 +143,7 @@ eleventyComputed:
     <h2 class="display-2">{{ br(t.collaboration.title) }}</h2>
     <div class="exchange">
       <div class="exchange__col">
-        <h3>{{ t.collaboration.phaiTitle }}</h3>
+        <h3>{{ t.collaboration.phaiTitle | brand | safe }}</h3>
         <dl class="offer">
           {%- for o in t.collaboration.phai %}<div><dt>{{ o[0] }}</dt><dd>{{ o[1] }}</dd></div>{% endfor %}
         </dl>

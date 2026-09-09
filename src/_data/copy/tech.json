@@ -62,7 +62,7 @@
         "key": "sciencebuddy",
         "name": "ScienceBuddy",
         "subtitle": "AI 科研搭档",
-        "role": "交互式 Science RSI：关注科学家反馈、研究轨迹和智能体工作环境的持续演化。",
+        "role": "可交互的 Scientific Agent：关注真实科研交互中的递归式自我改进，重点探索 Recursive-in-Recursive Self-Improvement（RSI in RSI）。",
         "body": [
           "ScienceBuddy 是一项围绕科学家交互、科研反馈和智能体持续改进展开的独立研究与工程探索，与 DFM 所关注的 Discovery Intelligence 方向一致。",
           "它重点探索一种交互式 Science RSI 形态：用户提出科学问题，智能体调用工具并给出回应；科学家的追问、修改、采纳、否定和重新运行形成反馈，进而推动科研智能体工作环境和 Harness 的持续演化。",
@@ -132,7 +132,7 @@
         "key": "jepa",
         "name": "JEPA Anything",
         "subtitle": "跨领域统一科学世界模型",
-        "role": "科学世界模型：关注跨领域状态预测、干预模拟和科学诊断。",
+        "role": "跨领域统一科学世界模型：面向跨领域状态预测、干预模拟和科学诊断。",
         "body": [
           "JEPA Anything 是一项面向潜在世界模型和正交预测因子分解的独立模型方法研究。",
           "它探索如何在视觉、生物、临床、分子、控制和物理等不同领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。",
@@ -180,7 +180,7 @@
     },
     "projects_intro": "ScienceBuddy、ScienceIDE 和 JEPA Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。",
     "composition": {
-      "eyebrow": "反馈 — 环境 — 预测",
+      "eyebrow": "可组合的研究路径",
       "title": "未来可能的组合路径",
       "body": "从未来愿景上看，三者可以形成一种可组合的研究路径：ScienceBuddy 通过科学家与智能体的交互收集反馈和研究轨迹；ScienceIDE 将这些数据和经验进一步组织为可复用的科学环境，用于任务执行、强化学习和模型训练；JEPA Anything 则探索对多个科学环境和干预结果进行统一的状态预测和模拟。这是一种未来可能的组合方式，不代表三者当前已经完成集成，也不改变它们各自独立的定位。",
       "nodes": [
@@ -256,7 +256,7 @@
         "key": "sciencebuddy",
         "name": "ScienceBuddy",
         "subtitle": "AI research partner",
-        "role": "Interactive Science RSI: scientists' feedback, research trajectories and a continually evolving agent workspace.",
+        "role": "An interactive Scientific Agent: recursive self-improvement in real research interaction, exploring Recursive-in-Recursive Self-Improvement (RSI in RSI).",
         "body": [
           "ScienceBuddy is an independent research and engineering exploration built around interaction with scientists, research feedback and the continual improvement of agents, in the Discovery Intelligence direction DFM is about.",
           "It focuses on an interactive form of Science RSI: a user poses a scientific question, the agent calls tools and answers; the scientist's follow-ups, edits, acceptances, rejections and re-runs become feedback that drives the research agent's workspace and harness to keep evolving.",
@@ -326,7 +326,7 @@
         "key": "jepa",
         "name": "JEPA Anything",
         "subtitle": "Cross-domain unified science world model",
-        "role": "A science world model: cross-domain state prediction, intervention simulation and scientific diagnosis.",
+        "role": "A cross-domain unified science world model: cross-domain state prediction, intervention simulation and scientific diagnosis.",
         "body": [
           "JEPA Anything is an independent model-method study of latent world models and orthogonal predictive factorisation.",
           "It explores how to learn, across vision, biology, the clinic, molecules, control and physics, latent representations that predict changes of world state, and to offer one interface for intervention prediction, state synthesis and scientific diagnosis.",
@@ -374,7 +374,7 @@
     },
     "projects_intro": "ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them.",
     "composition": {
-      "eyebrow": "Feedback — environment — prediction",
+      "eyebrow": "A composable research path",
       "title": "A possible future path",
       "body": "Looking ahead, the three could form a composable research path: ScienceBuddy collects feedback and research trajectories from the interaction between scientists and agents; ScienceIDE organises that data and experience into reusable scientific environments for task execution, reinforcement learning and model training; JEPA Anything explores unified state prediction and simulation across multiple scientific environments and interventions. That is a possible future combination, not an integration that exists today, and it does not change their independent standing.",
       "nodes": [

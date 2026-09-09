@@ -33,7 +33,7 @@
     "jepa-anything"
   ],
   "zh": {
-    "title": "ScienceBuddy · AI 科研搭档：探索交互式 Science RSI",
+    "title": "ScienceBuddy · AI 科研搭档：可交互的 Scientific Agent 与真实科研交互中的递归式自我改进",
     "summary": "ScienceBuddy 是一项围绕科学家交互、科研反馈和智能体持续改进展开的独立研究与工程探索：科学家的追问、修改、采纳、否定和重新运行形成反馈，推动科研智能体的工作环境持续演化。",
     "body": [
       "ScienceBuddy 是一项围绕科学家交互、科研反馈和智能体持续改进展开的独立研究与工程探索，与 DFM 所关注的 Discovery Intelligence 方向一致。",
@@ -44,7 +44,7 @@
     ]
   },
   "en": {
-    "title": "ScienceBuddy · AI research partner: exploring interactive Science RSI",
+    "title": "ScienceBuddy · AI research partner: an interactive Scientific Agent and recursive self-improvement in real research",
     "summary": "ScienceBuddy is an independent research and engineering exploration built around interaction with scientists, research feedback and the continual improvement of agents: follow-ups, edits, acceptances, rejections and re-runs become feedback that keeps the research agent's workspace evolving.",
     "body": [
       "ScienceBuddy is an independent research and engineering exploration built around interaction with scientists, research feedback and the continual improvement of agents, in the Discovery Intelligence direction DFM is about.",

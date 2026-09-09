@@ -178,7 +178,7 @@
   function remap() {   // image fractions -> canvas pixels, through object-fit: cover and object-position
     if (!kc) return;
     const kr = kv.getBoundingClientRect(), ir = kvImg.getBoundingClientRect();
-    const nw = kvImg.naturalWidth || 1586, nh = kvImg.naturalHeight || 992;
+    const nw = kvImg.naturalWidth || 1672, nh = kvImg.naturalHeight || 941;
     const sc = Math.max(ir.width / nw, ir.height / nh), dw = nw * sc, dh = nh * sc;
     const op = (getComputedStyle(kvImg).objectPosition || '50% 50%').split(' ').map((v) => parseFloat(v) / 100);
     const px = isNaN(op[0]) ? 0.5 : op[0], py = isNaN(op[1]) ? 0.5 : op[1];

@@ -190,7 +190,7 @@ body.drawer-open{overflow:hidden}
 html[lang="zh-CN"] .eyebrow{letter-spacing:.16em}
 .eyebrow .num,.num{font-family:var(--mono);font-weight:500;font-size:.8rem;letter-spacing:.08em;color:var(--blue)}
 .brand{text-transform:none}
-.hero__program{margin-top:1.4rem;max-width:44em;font-size:var(--t-small);line-height:1.7;color:var(--ink-3)}
+.hero__program{margin-top:1.4rem;max-width:44em;font-size:var(--t-small);line-height:1.7;color:var(--ink-2)}
 .hero__program a{margin-left:.4rem;color:var(--blue);white-space:nowrap;border-bottom:1px solid transparent}
 .hero__program a:hover{border-bottom-color:currentColor}
 .eyebrow__link{margin-left:auto;text-transform:none;letter-spacing:.02em;font-family:var(--sans);font-size:.86rem;color:var(--ink-2)}
@@ -566,7 +566,7 @@ a.dgfig__link:focus-visible .dg__n--amber{fill:var(--amber-2)}
 .dgfig__attrs b{font-family:var(--serif);font-weight:400;font-size:var(--t-2);color:var(--ink);letter-spacing:-.01em}
 html[lang="zh-CN"] .dgfig__attrs b{letter-spacing:0}
 .dgfig__attrs span{grid-column:2;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
-.dgfig__cap{grid-area:cap;margin-top:.9rem;display:flex;justify-content:space-between;gap:var(--gap);align-items:baseline}
+.dgfig .dgfig__cap{grid-area:cap;text-transform:none;margin-top:.9rem;display:flex;justify-content:space-between;gap:var(--gap);align-items:baseline}
 .dgfig__claim{margin:0;font-family:var(--serif);font-size:var(--t-3);line-height:1.5;color:var(--ink-2);max-width:34em}
 .dgfig__hint{margin:0;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);white-space:nowrap}
 .checks--dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.6rem 2rem;margin-top:1rem}

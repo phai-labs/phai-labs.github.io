@@ -21,7 +21,7 @@ export default function (eleventyConfig) {
   // -- static passthrough --------------------------------------------------
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
-  eleventyConfig.addPassthroughCopy({ "src/assets/img/favicon.svg": "favicon.svg" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/img/favicon.png": "favicon.png" });
 
   // -- global data ---------------------------------------------------------
   eleventyConfig.addGlobalData("langs", LANGS);
