@@ -125,24 +125,58 @@
   }
 
   /* ---------------- key visual ---------------- */
-  // <img class="kv__img" src="static.webp" data-anim="animated.gif">
-  // The animated file is a 24-frame WebP whose first frame matches the still,
-  // so the swap is seamless. Skipped for reduced motion, Save-Data, and phones.
+  // The hero still is the base layer and the fallback. Over it sits a muted,
+  // looping video of the same artwork; its first frame matches the still, so the
+  // fade-in is seamless. Nothing is fetched until it is worth fetching: no bytes
+  // for reduced motion, Save-Data, phones, or a hero that never comes into view.
   const saveData = navigator.connection && navigator.connection.saveData;
-  $$('img[data-anim]').forEach((img) => {
-    if (reduce || saveData || innerWidth < 768) return;
-    const swap = () => {
-      const anim = new Image();
-      anim.onload = () => { img.src = img.dataset.anim; img.classList.add('is-animated'); };
-      anim.src = img.dataset.anim;
+  const kvVideo = $('video[data-kv-video]');
+  if (kvVideo && !reduce && !saveData && innerWidth >= 768) {
+    const box = kvVideo.closest('.hero__kv');
+    let started = false;
+    const start = () => {
+      if (started) return;
+      started = true;
+      const add = (src, type) => {
+        if (!src) return;
+        const s = document.createElement('source');
+        s.src = src; s.type = type; kvVideo.appendChild(s);
+      };
+      add(kvVideo.dataset.webm, 'video/webm');
+      add(kvVideo.dataset.mp4, 'video/mp4');
+      kvVideo.load();
+      const p = kvVideo.play();
+      if (p) p.catch(() => {});   // autoplay refused: the still simply stays
+    };
+    kvVideo.addEventListener('playing', () => {
+      kvVideo.classList.add('is-playing');
+      if (box) box.classList.add('has-video');
+    }, { once: true });
+    kvVideo.addEventListener('error', () => {
+      kvVideo.classList.remove('is-playing');
+      if (box) box.classList.remove('has-video');
+    });
+    // wait for the page to finish loading, then for an idle moment: the video is
+    // decoration and must never compete with the still, the fonts or the first paint
+    const whenIdle = (fn) => {
+      const go = () => (window.requestIdleCallback ? requestIdleCallback(fn, { timeout: 2000 }) : setTimeout(fn, 400));
+      if (document.readyState === 'complete') go();
+      else addEventListener('load', go, { once: true });
     };
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((es) => {
-        if (es.some((e) => e.isIntersecting)) { swap(); io.disconnect(); }
-      }, { threshold: 0.1 });
-      io.observe(img);
-    } else swap();
-  });
+        if (es.some((e) => e.isIntersecting)) { whenIdle(start); io.disconnect(); }
+      }, { threshold: 0.05 });
+      io.observe(kvVideo);
+    } else whenIdle(start);
+    document.addEventListener('visibilitychange', () => {
+      if (!started) return;
+      if (document.hidden) kvVideo.pause();
+      else { const p = kvVideo.play(); if (p) p.catch(() => {}); }
+    });
+  } else if (kvVideo) {
+    kvVideo.remove();
+  }
 
   /* ---------------- external links ---------------- */
   $$('a[href^="http"]').forEach((a) => {

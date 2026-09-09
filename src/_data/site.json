@@ -22,7 +22,6 @@
   },
   "kv": {
     "static": "/assets/img/kv-static.webp",
-    "animated": "",
     "width": 1672,
     "height": 941,
     "mobile": "/assets/img/kv-static.webp",
@@ -158,6 +157,10 @@
           0.529
         ]
       ]
+    },
+    "video": {
+      "webm": "/assets/video/kv-particles.webm",
+      "mp4": "/assets/video/kv-particles.mp4"
     }
   },
   "og_image": "/assets/img/kv-static.webp",

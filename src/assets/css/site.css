@@ -717,10 +717,15 @@ html[lang="zh-CN"] .position__title{font-weight:400}
    network on the right. It extends left under the headline and is thinned
    there, so the type reads and the lines show through. No rectangle edge:
    the image's own ground is the page colour, and the mask feathers every side. */
-.hero__kv .kv__img{position:absolute;right:-2%;top:-4%;width:96%;height:108%;object-fit:cover;object-position:50% 46%;opacity:.95;
+.hero__kv .kv__img,.hero__kv .kv__video{position:absolute;right:-2%;top:-4%;width:96%;height:108%;object-fit:cover;object-position:50% 46%;opacity:.95;
   -webkit-mask-image:radial-gradient(ellipse 78% 82% at 58% 46%,#000 34%,transparent 78%),linear-gradient(180deg,transparent 0%,#000 12%,#000 66%,transparent 100%);
   mask-image:radial-gradient(ellipse 78% 82% at 58% 46%,#000 34%,transparent 78%),linear-gradient(180deg,transparent 0%,#000 12%,#000 66%,transparent 100%);
   -webkit-mask-composite:source-in;mask-composite:intersect}
+/* The animation sits exactly on the still and fades in once it is playing.
+   While it plays it carries the motion, so the canvas overlay stands down. */
+.hero__kv .kv__video{opacity:0;transition:opacity .9s var(--ease)}
+.hero__kv .kv__video.is-playing{opacity:.95}
+.hero__kv.has-video .kv__fx{opacity:0;transition:opacity .6s linear}
 .hero__kv::after{content:'';position:absolute;inset:0;
   background:linear-gradient(90deg,rgba(10,10,11,.72) 0%,rgba(10,10,11,.42) 30%,transparent 58%),
              linear-gradient(180deg,rgba(10,10,11,.45) 0%,transparent 26%,transparent 58%,rgba(10,10,11,.7) 82%,var(--bg) 100%)}
@@ -794,7 +799,7 @@ html[lang="zh-CN"] .hero .eyebrow{letter-spacing:.12em}
   /* the KV re-crops to a band above the copy instead of squashing */
   .hero--home,.hero--program{min-height:auto;padding-top:calc(54svh + 1.5rem)}
   .hero__kv{inset:0 0 auto 0;height:54svh}
-  .hero__kv .kv__img{right:0;left:0;top:0;width:100%;height:100%;object-position:68% 50%;opacity:.9;
+  .hero__kv .kv__img,.hero__kv .kv__video{right:0;left:0;top:0;width:100%;height:100%;object-position:68% 50%;opacity:.9;
     -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 68%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 68%,transparent 100%)}
   .hero__kv::after{background:linear-gradient(180deg,rgba(10,10,11,.35) 0%,transparent 28%,transparent 60%,var(--bg) 100%)}
   .hero--home .hero__copy::before,.hero--program .hero__copy::before{display:none}

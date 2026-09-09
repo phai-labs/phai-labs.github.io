@@ -246,6 +246,8 @@
     if (!kg || !map) return;
     const w = kc.width, h = kc.height;
     kg.clearRect(0, 0, w, h);
+    // the hero video animates the same artwork; two motion layers fight each other
+    if (kv.classList.contains('has-video')) return;
     if (!kvSeen) return;
     kg.globalCompositeOperation = 'lighter';
     // hubs breathe, each at its own pace

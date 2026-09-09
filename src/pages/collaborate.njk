@@ -17,8 +17,13 @@ eleventyComputed:
 
 <section class="hero hero--program" id="top" data-field="hero">
   <div class="hero__kv kv" data-no-reveal>
-    <img class="kv__img" src="{{ site.kv.static }}"{% if site.kv.animated %} data-anim="{{ site.kv.animated }}"{% endif %}
+    <img class="kv__img" src="{{ site.kv.static }}"
          width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="{{ t.hero.kv }}" fetchpriority="high">
+    {%- if site.kv.video %}
+    <video class="kv__video" data-kv-video muted loop playsinline preload="none"
+           aria-hidden="true" tabindex="-1"
+           data-webm="{{ site.kv.video.webm }}" data-mp4="{{ site.kv.video.mp4 }}"></video>
+    {%- endif %}
     <script type="application/json" id="kv-geometry">{{ site.kv.geometry | dump | safe }}</script>
   </div>
   <div class="shell hero__copy">

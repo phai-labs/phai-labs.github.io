@@ -109,6 +109,16 @@ src/
 
 图的一句话主张与三项属性在 `src/_data/diagrams.json`，由 `components/dgfig.njk` 渲染成"图 + 三属性 + 主张"的版式，用于技术页各项目段与合作页；新闻列表头条和文章头图只放裸图。文章用哪张图由新闻 JSON 里的 `art` 字段指定。
 
+## 首页主视觉
+
+静态图 `src/assets/img/kv-static.webp` 是底层，也是所有降级情况下的兜底。它上面叠了一层同一画面的循环动画 `src/assets/video/kv-particles.{webm,mp4}`（1280×720，30 fps，8 秒无缝循环，首帧与静态图一致，所以淡入时看不出接缝）。
+
+加载策略：只在桌面端（≥768px）、未开启「减少动态效果」、未开启 Save-Data 时加载；等页面 load 完成并进入空闲后才开始请求，首屏加载期间不占带宽；浏览器只会取 WebM 或 MP4 其中一个。标签页切到后台自动暂停。
+
+动画播放时，`.hero__kv` 会加上 `has-video`，叠加动效画布 `kv__fx` 随之淡出并停止绘制——画面本身已经有粒子流动，两层动效叠加会互相打架。
+
+换画面时要同时更新三样：静态图、视频，以及 `src/_data/site.json` 里 `kv.geometry` 的坐标（会聚点、光带、球体左缘、亮节点），后者是叠加动效的标定，换图不重标会画错位置。
+
 ## 四日发布与链接门控
 
 发布节奏来自 PR Brief：9 月 15 日 DFM 与科学家合作计划，16 日 ScienceBuddy，17 日 ScienceIDE，18 日 JEPA Anything。站点按这个节奏门控链接，数据都在 `src/_data/site.json`：
