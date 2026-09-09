@@ -97,7 +97,7 @@
       {
         "key": "scienceide",
         "name": "ScienceIDE",
-        "subtitle": "科学加速框架",
+        "subtitle": "科学集成开发平台",
         "role": "科学经验基础设施：关注真实科学代码、任务、环境和强化学习训练。",
         "body": [
           "ScienceIDE 是一项面向真实科学代码库、研究任务和可验证科学经验的独立基础设施探索。",
@@ -131,7 +131,7 @@
       {
         "key": "jepa",
         "name": "JEPA Anything",
-        "subtitle": "科学世界模型",
+        "subtitle": "跨领域统一科学世界模型",
         "role": "科学世界模型：关注跨领域状态预测、干预模拟和科学诊断。",
         "body": [
           "JEPA Anything 是一项面向潜在世界模型和正交预测因子分解的独立模型方法研究。",
@@ -182,7 +182,7 @@
     "composition": {
       "eyebrow": "反馈 — 环境 — 预测",
       "title": "未来可能的组合路径",
-      "body": "从未来愿景上看，三者可以形成一条“反馈—环境—预测”的组合路径。这是一种未来可能的研究路径，不代表三者当前已经完成集成，也不改变它们各自独立的定位。",
+      "body": "从未来愿景上看，三者可以形成一种可组合的研究路径：ScienceBuddy 通过科学家与智能体的交互收集反馈和研究轨迹；ScienceIDE 将这些数据和经验进一步组织为可复用的科学环境，用于任务执行、强化学习和模型训练；JEPA Anything 则探索对多个科学环境和干预结果进行统一的状态预测和模拟。这是一种未来可能的组合方式，不代表三者当前已经完成集成，也不改变它们各自独立的定位。",
       "nodes": [
         "ScienceBuddy 与科学家持续交互，产生反馈、任务状态和科研轨迹",
         "ScienceIDE 把部分交互经验组织成可复用的科学环境，用于执行、训练和评估模型",
@@ -291,7 +291,7 @@
       {
         "key": "scienceide",
         "name": "ScienceIDE",
-        "subtitle": "Science acceleration framework",
+        "subtitle": "Science integrated development platform",
         "role": "Infrastructure for scientific experience: real scientific code, tasks, environments and reinforcement-learning training.",
         "body": [
           "ScienceIDE is an independent infrastructure exploration for real scientific codebases, research tasks and verifiable scientific experience.",
@@ -325,7 +325,7 @@
       {
         "key": "jepa",
         "name": "JEPA Anything",
-        "subtitle": "Science world model",
+        "subtitle": "Cross-domain unified science world model",
         "role": "A science world model: cross-domain state prediction, intervention simulation and scientific diagnosis.",
         "body": [
           "JEPA Anything is an independent model-method study of latent world models and orthogonal predictive factorisation.",
@@ -376,7 +376,7 @@
     "composition": {
       "eyebrow": "Feedback — environment — prediction",
       "title": "A possible future path",
-      "body": "Looking ahead, the three could form a “feedback – environment – prediction” path. That is a possible future research route, not an integration that exists today, and it does not change their independent standing.",
+      "body": "Looking ahead, the three could form a composable research path: ScienceBuddy collects feedback and research trajectories from the interaction between scientists and agents; ScienceIDE organises that data and experience into reusable scientific environments for task execution, reinforcement learning and model training; JEPA Anything explores unified state prediction and simulation across multiple scientific environments and interventions. That is a possible future combination, not an integration that exists today, and it does not change their independent standing.",
       "nodes": [
         "ScienceBuddy keeps interacting with scientists, producing feedback, task states and research trajectories",
         "ScienceIDE organises some of that experience into reusable scientific environments for executing, training and evaluating models",

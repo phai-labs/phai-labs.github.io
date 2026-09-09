@@ -33,7 +33,7 @@
     "scienceide"
   ],
   "zh": {
-    "title": "JEPA Anything · 科学世界模型：面向潜在世界模型的正交预测因子分解",
+    "title": "JEPA Anything · 跨领域统一科学世界模型：面向潜在世界模型的正交预测因子分解",
     "summary": "JEPA Anything 探索在视觉、生物、临床、分子、控制和物理等领域学习能预测世界状态变化的潜在表示，为干预预测、状态合成和科学诊断提供统一接口。",
     "body": [
       "JEPA Anything 是一项面向潜在世界模型和正交预测因子分解的独立模型方法研究。",
@@ -44,7 +44,7 @@
     ]
   },
   "en": {
-    "title": "JEPA Anything · science world model: orthogonal predictive factorisation for latent world models",
+    "title": "JEPA Anything · cross-domain unified science world model: orthogonal predictive factorisation for latent world models",
     "summary": "JEPA Anything explores latent representations that predict changes of world state across vision, biology, the clinic, molecules, control and physics, with one interface for intervention prediction, state synthesis and scientific diagnosis.",
     "body": [
       "JEPA Anything is an independent model-method study of latent world models and orthogonal predictive factorisation.",

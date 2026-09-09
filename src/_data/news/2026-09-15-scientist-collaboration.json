@@ -18,8 +18,8 @@
         "zh": "立即申请（飞书问卷）",
         "en": "Apply now (Feishu form)"
       },
-      "href": "https://ecnvakadbq0t.feishu.cn/share/base/form/shrcnIRIZQov7zSIuE5jcvH3sEh",
-      "pending": false
+      "pending": false,
+      "key": "apply_form"
     }
   ],
   "related": [

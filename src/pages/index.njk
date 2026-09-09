@@ -12,16 +12,17 @@ eleventyComputed:
 ---
 {%- set t = copy.home[lang] -%}
 {%- set s = i18n[lang] -%}
-{%- set latest = (articles if showDrafts else (articles | published)) | take(3) -%}
+{%- set allArticles = articles if showDrafts else (articles | published) -%}
+{%- set latest = allArticles | take(3) -%}
 
 <section class="hero hero--home" id="top" data-field="hero">
   <div class="hero__kv kv" data-no-reveal>
-    <img class="kv__img" src="{{ site.kv.static }}" data-anim="{{ site.kv.animated }}"
+    <img class="kv__img" src="{{ site.kv.static }}"{% if site.kv.animated %} data-anim="{{ site.kv.animated }}"{% endif %}
          width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="{{ t.hero.kv_alt }}" fetchpriority="high">
     <script type="application/json" id="kv-geometry">{{ site.kv.geometry | dump | safe }}</script>
   </div>
   <div class="shell hero__copy">
-    <p class="eyebrow">{{ t.hero.eyebrow }}</p>
+    <p class="eyebrow">{{ t.hero.eyebrow | brand | safe }}</p>
     <h1 class="display display--hero">{{ t.hero.title | stagger(lang) | safe }}</h1>
     <p class="subtitle">{{ t.hero.subtitle }}</p>
     <p class="lede">{{ t.hero.lede }}</p>
@@ -29,12 +30,15 @@ eleventyComputed:
       <a class="btn btn--primary btn--lg" href="{{ site.links.apply_form }}">{{ t.hero.cta_apply }} <span aria-hidden="true">↗</span></a>
       <a class="btn btn--lg" href="{{ '/tech/' | localeUrl(lang) }}">{{ t.hero.cta_tech }} →</a>
     </p>
+    <p class="hero__program">{{ t.hero.program_note }}
+      <a href="{{ '/collaborate/' | localeUrl(lang) }}">{{ t.hero.program_link }} →</a></p>
   </div>
-  {%- if latest.length %}
-  <a class="hero__latest" href="{{ ('/news/' + latest[0].slug + '/') | localeUrl(lang) }}" data-no-reveal>
-    <span class="hero__latest-label">{{ s.category[latest[0].category] }}</span>
-    <span class="hero__latest-title">{{ latest[0][lang].title }}</span>
-    <time datetime="{{ latest[0].date }}">{{ latest[0].date | fmtDate(lang) }}</time>
+  {%- set feature = allArticles | imminent %}
+  {%- if feature %}
+  <a class="hero__latest" href="{{ ('/news/' + feature.slug + '/') | localeUrl(lang) }}" data-no-reveal>
+    <span class="hero__latest-label">{{ s.category[feature.category] }}</span>
+    <span class="hero__latest-title">{{ feature[lang].title }}</span>
+    <time datetime="{{ feature.date }}">{{ feature.date | fmtDate(lang) }}</time>
   </a>
   {%- endif %}
 </section>
@@ -100,7 +104,7 @@ eleventyComputed:
 
 <section class="sec sec--pillars" id="pillars" data-field="grid">
   <div class="shell">
-    <p class="eyebrow"><span class="num">03</span>{{ 'PhAI Labs' }}</p>
+    <p class="eyebrow"><span class="num">03</span>{{ 'PhAI Labs' | brand | safe }}</p>
     <ol class="pillars">
       {%- for p in t.pillars %}
       <li>

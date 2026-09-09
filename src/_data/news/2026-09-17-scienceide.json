@@ -33,7 +33,7 @@
     "jepa-anything"
   ],
   "zh": {
-    "title": "ScienceIDE · 科学加速框架：把真实科学代码变成可验证的科学环境",
+    "title": "ScienceIDE · 科学集成开发平台：把真实科学代码变成可验证的科学环境",
     "summary": "ScienceIDE 把真实科学代码、研究流程、任务目标和验证标准转化为可运行、可测量、可复现的科学环境。当前任务形态包括加速、发现、修复、复现与集成，并开放任务提案。",
     "body": [
       "ScienceIDE 是一项面向真实科学代码库、研究任务和可验证科学经验的独立基础设施探索。",
@@ -44,7 +44,7 @@
     ]
   },
   "en": {
-    "title": "ScienceIDE · science acceleration framework: turning real scientific code into verifiable environments",
+    "title": "ScienceIDE · science integrated development platform: turning real scientific code into verifiable environments",
     "summary": "ScienceIDE turns real scientific code, research procedures, task goals and verification criteria into scientific environments that run, measure and reproduce. Current task forms are accelerate, discover, repair, reproduce and integrate, and task proposals are open.",
     "body": [
       "ScienceIDE is an independent infrastructure exploration for real scientific codebases, research tasks and verifiable scientific experience.",

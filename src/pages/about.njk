@@ -15,7 +15,7 @@ eleventyComputed:
 
 <section class="hero hero--page hero--about" id="top">
   <div class="shell">
-    <p class="eyebrow">{{ t.hero.eyebrow }}</p>
+    <p class="eyebrow">{{ t.hero.eyebrow | brand | safe }}</p>
     <h1 class="display">{{ t.hero.title }}</h1>
     <p class="lede">{{ t.hero.lede }}</p>
   </div>

@@ -52,7 +52,25 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("t", (obj, lang) =>
     obj && typeof obj === "object" && lang in obj ? obj[lang] : obj
   );
+  // The brand is "PhAI Labs" - never "PHAI LABS". Eyebrows and other mono labels
+  // are uppercased in CSS, so wrap the brand token and let .brand opt out.
+  eleventyConfig.addFilter("brand", (text) => {
+    const esc = String(text ?? "")
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    return esc.replace(/PhAI(\s+Labs)?/g, (m) => `<span class="brand">${m}</span>`);
+  });
   eleventyConfig.addFilter("published", (list) => list.filter((a) => !a.draft));
+  // The hero strip should point at the release the reader can act on next: the
+  // earliest item still ahead of today, or the newest published one if none is.
+  eleventyConfig.addFilter("imminent", (list) => {
+    if (!list || !list.length) return null;
+    const today = new Date().toISOString().slice(0, 10);
+    const rank = (a) => (a.category === "release" ? 0 : 1);
+    const ahead = list
+      .filter((a) => a.date >= today)
+      .sort((a, b) => (a.date === b.date ? rank(a) - rank(b) : a.date < b.date ? -1 : 1));
+    return ahead.length ? ahead[0] : list[0];
+  });
   eleventyConfig.addFilter("take", (list, n) => list.slice(0, n));
   eleventyConfig.addFilter("fmtDate", (iso, lang) => {
     const [y, m, d] = iso.split("-").map(Number);

@@ -7,7 +7,9 @@
       "lede": "PhAI Labs 面向真实科学发现。我们让真实的科学问题、数据与实验反馈进入下一代 AI 系统，探索从辅助科研到参与科学发现的路径。DFM 是我们围绕 Discovery Intelligence 提出的研究范式。",
       "cta_apply": "立即申请",
       "cta_tech": "了解 DFM",
-      "kv_alt": "PhAI Labs 主视觉：网络粒子图"
+      "kv_alt": "PhAI Labs 主视觉：网络粒子图",
+      "program_note": "「立即申请」进入 DFM 科学家合作计划：我们邀请科学家、研究团队与实验平台，把真实的科学问题、专业数据与实验反馈带入 DFM。",
+      "program_link": "了解合作计划"
     },
     "pillars": [
       {
@@ -38,20 +40,20 @@
         {
           "key": "sciencebuddy",
           "name": "ScienceBuddy · AI 科研搭档",
-          "tagline": "探索交互式 Science RSI"
+          "tagline": "可交互的 Scientific Agent，探索真实科研交互中的 RSI in RSI"
         },
         {
           "key": "scienceide",
-          "name": "ScienceIDE · 科学加速框架",
-          "tagline": "构建可执行、可复用的科学经验基础设施"
+          "name": "ScienceIDE · 科学集成开发平台",
+          "tagline": "集成科学环境、代码、工具与训练流程的科学集成开发平台"
         },
         {
           "key": "jepa",
-          "name": "JEPA Anything · 科学世界模型",
-          "tagline": "探索跨领域科学世界模型"
+          "name": "JEPA Anything · 跨领域统一科学世界模型",
+          "tagline": "面向跨领域状态预测、干预模拟和科学诊断的统一科学世界模型"
         }
       ],
-      "note": "ScienceBuddy、ScienceIDE 和 JEPA Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一条“反馈—环境—预测”的组合路径。这是一种未来可能的研究路径，不代表三者当前已经完成集成，也不改变它们各自独立的定位。"
+      "note": "ScienceBuddy、ScienceIDE 和 JEPA Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一种可组合的研究路径：ScienceBuddy 通过科学家与智能体的交互收集反馈和研究轨迹；ScienceIDE 将这些数据和经验进一步组织为可复用的科学环境，用于任务执行、强化学习和模型训练；JEPA Anything 则探索对多个科学环境和干预结果进行统一的状态预测和模拟。这是一种未来可能的组合方式，不代表三者当前已经完成集成，也不改变它们各自独立的定位。"
     },
     "collab_teaser": {
       "eyebrow": "DFM科学家合作计划",
@@ -88,11 +90,11 @@
         },
         {
           "key": "scienceide",
-          "name": "ScienceIDE · 科学加速框架"
+          "name": "ScienceIDE · 科学集成开发平台"
         },
         {
           "key": "jepa",
-          "name": "JEPA Anything · 科学世界模型"
+          "name": "JEPA Anything · 跨领域统一科学世界模型"
         }
       ]
     }
@@ -105,7 +107,9 @@
       "lede": "PhAI Labs works toward real scientific discovery: real scientific problems, data and experimental feedback enter next-generation AI systems, on a path from assisting research to taking part in discovery. DFM is the research paradigm we propose around Discovery Intelligence.",
       "cta_apply": "Apply now",
       "cta_tech": "Explore DFM",
-      "kv_alt": "PhAI Labs key visual: a network of particles"
+      "kv_alt": "PhAI Labs key visual: a network of particles",
+      "program_note": "“Apply now” opens the DFM Scientist Collaboration Program: we invite scientists, research groups and experimental platforms to bring real scientific questions, domain data and experimental feedback into DFM.",
+      "program_link": "About the program"
     },
     "pillars": [
       {
@@ -136,20 +140,20 @@
         {
           "key": "sciencebuddy",
           "name": "ScienceBuddy · AI research partner",
-          "tagline": "Exploring interactive Science RSI"
+          "tagline": "An interactive Scientific Agent, exploring RSI in RSI in real research interaction"
         },
         {
           "key": "scienceide",
-          "name": "ScienceIDE · science acceleration framework",
-          "tagline": "Building executable, reusable infrastructure for scientific experience"
+          "name": "ScienceIDE · science integrated development platform",
+          "tagline": "A platform integrating scientific environments, code, tools and training pipelines"
         },
         {
           "key": "jepa",
-          "name": "JEPA Anything · science world model",
-          "tagline": "Exploring cross-domain science world models"
+          "name": "JEPA Anything · cross-domain unified science world model",
+          "tagline": "A unified science world model for cross-domain state prediction, intervention simulation and scientific diagnosis"
         }
       ],
-      "note": "ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a “feedback – environment – prediction” path. That is a possible future research route, not an integration that exists today, and it does not change their independent standing."
+      "note": "ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a composable research path: ScienceBuddy collects feedback and research trajectories from the interaction between scientists and agents; ScienceIDE organises that data and experience into reusable scientific environments for task execution, reinforcement learning and model training; JEPA Anything explores unified state prediction and simulation across multiple scientific environments and interventions. That is a possible future combination, not an integration that exists today, and it does not change their independent standing."
     },
     "collab_teaser": {
       "eyebrow": "DFM Scientist Collaboration Program",
@@ -186,11 +190,11 @@
         },
         {
           "key": "scienceide",
-          "name": "ScienceIDE · science acceleration framework"
+          "name": "ScienceIDE · science integrated development platform"
         },
         {
           "key": "jepa",
-          "name": "JEPA Anything · science world model"
+          "name": "JEPA Anything · cross-domain unified science world model"
         }
       ]
     }

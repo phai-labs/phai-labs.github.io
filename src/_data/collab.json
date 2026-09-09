@@ -88,29 +88,29 @@
         {
           "key": "sciencebuddy",
           "name": "ScienceBuddy · AI 科研搭档",
-          "tagline": "探索交互式 Science RSI",
+          "tagline": "可交互的 Scientific Agent，探索真实科研交互中的 RSI in RSI",
           "body": "它重点探索一种交互式 Science RSI 形态：用户提出科学问题，智能体调用工具并给出回应；科学家的追问、修改、采纳、否定和重新运行形成反馈，进而推动科研智能体工作环境和 Harness 的持续演化。",
           "link_label": "访问 ScienceBuddy",
           "link_key": "sciencebuddy"
         },
         {
           "key": "scienceide",
-          "name": "ScienceIDE · 科学加速框架",
-          "tagline": "构建可执行、可复用的科学经验基础设施",
+          "name": "ScienceIDE · 科学集成开发平台",
+          "tagline": "集成科学环境、代码、工具与训练流程的科学集成开发平台",
           "body": "它把真实科学代码、研究流程、任务目标和验证标准转化为可运行、可测量、可复现的科学环境，让研究者能够在真实科学场景中开展 Agent 执行、模型训练和强化学习研究。",
           "link_label": "ScienceIDE 项目主页",
           "link_key": "scienceide_page"
         },
         {
           "key": "jepa",
-          "name": "JEPA Anything · 科学世界模型",
-          "tagline": "探索跨领域科学世界模型",
+          "name": "JEPA Anything · 跨领域统一科学世界模型",
+          "tagline": "面向跨领域状态预测、干预模拟和科学诊断的统一科学世界模型",
           "body": "它探索如何在视觉、生物、临床、分子、控制和物理等不同领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。",
           "link_label": "JEPA Anything 论文",
           "link_key": "jepa_paper"
         }
       ],
-      "modulesNote": "ScienceBuddy、ScienceIDE 和 JEPA Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一条“反馈—环境—预测”的组合路径。这是一种未来可能的研究路径，不代表三者当前已经完成集成，也不改变它们各自独立的定位。"
+      "modulesNote": "ScienceBuddy、ScienceIDE 和 JEPA Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一种可组合的研究路径：ScienceBuddy 通过科学家与智能体的交互收集反馈和研究轨迹；ScienceIDE 将这些数据和经验进一步组织为可复用的科学环境，用于任务执行、强化学习和模型训练；JEPA Anything 则探索对多个科学环境和干预结果进行统一的状态预测和模拟。这是一种未来可能的组合方式，不代表三者当前已经完成集成，也不改变它们各自独立的定位。"
     },
     "questions": {
       "label": "我们寻找什么",
@@ -223,13 +223,62 @@
       "title": "从真实的科学问题出发",
       "body": "首批种子用户正在将真实科研问题带入测试。我们将在获得相关研究者授权后，逐步公开具有代表性的探索过程、阶段结果与经验。",
       "note": "与其只展示最终答案，我们更希望呈现问题如何被定义、AI 参与了哪些环节、科学家如何判断和反馈，以及研究如何因此向前推进。",
-      "caseTitle": "探索案例",
+      "caseTitle": "案例",
       "pending": "案例素材待后台导出与公开授权",
       "fields": [
         "研究问题",
         "已有条件",
         "AI 参与方式",
         "阶段进展"
+      ],
+      "items": [
+        {
+          "no": "01",
+          "name": "GALILEO",
+          "title": "具身 AI 科学家的自主治疗发现",
+          "full": "Generalizable Agentic Laboratory Intelligence for Learning, Experimentation, and Optimization",
+          "intro": "GALILEO 是 DFM 理念在生命科学领域的一次具象化实践：AI 不再是完成单个任务的工具，而是进入真实科研环境，从真实问题出发，在实验反馈中持续学习，参与科学发现的全过程。相关成果以预印本形式发于 bioRxiv（2026 年 6 月）。",
+          "fields": [
+            [
+              "研究问题",
+              [
+                "现有 AI 系统在生物医学中大多停留在“预测”阶段，预测靶点、预测分子性质，却无法走到真实的实验干预。GALILEO 要回答的核心问题是：AI 能否走出预测，在动态膜系统中自主完成“从候选多肽发现到湿实验验证”的完整闭环，找到可干预肿瘤免疫的治疗性靶点与分子？"
+              ]
+            ],
+            [
+              "已有条件",
+              [
+                "临床知情的多肽先验库（CPP），为候选分子提供可追溯的起点",
+                "机器人固相多肽合成平台，支持 AI 设计的分子自动合成",
+                "多模态表型分析能力，涵盖膜电流、代谢通量、T 细胞功能等",
+                "TCGA、CPTAC、GEO、GTEx 等公开组学数据与湿实验验证团队"
+              ]
+            ],
+            [
+              "AI 参与方式",
+              [
+                "GALILEO 以 OTAS（Observation–Thought–Action–Summary，观察–思考–行动–总结）推理循环为核心，自主执行：",
+                "从多肽先验库中检索候选，并通过可审计的局部操作编辑序列",
+                "自主排序靶点分支，优先锁定 LRRC8C 与 SLC25A1 两条通路",
+                "根据湿实验反馈持续更新目标信念、序列策略、检测方案与机制假说",
+                "全过程可追溯、可审计，科学家可随时查看与介入"
+              ]
+            ],
+            [
+              "阶段进展",
+              [
+                "已完成从预测到干预的闭环验证，成果发布于 bioRxiv 预印本",
+                "生成的多肽成功阻断 LRRC8C 电流、扰动渗透压与氧化还原稳态、促进肿瘤依赖性 T 细胞激活",
+                "SLC25A1 方向的多肽破坏柠檬酸输出代谢、降低细胞外酸中毒、增强 CD8+ T 细胞功能",
+                "正在推进成果公开与后续转化，案例细节将在研究者授权后逐步披露"
+              ]
+            ]
+          ],
+          "takeawayLabel": "DFM 视角",
+          "takeaway": "GALILEO 体现了 DFM 的核心主张：从“完成科研任务”走向“参与科学发现”。AI 进入真实科研环境，接触科学家真正关心的问题，理解不完整数据与约束，从实验和现实反馈中持续学习，让每一次探索成为下一次发现的起点。",
+          "linkLabel": "bioRxiv 预印本",
+          "linkHref": "https://www.biorxiv.org/content/10.64898/2026.06.10.731360v1"
+        }
       ]
     },
     "process": {
@@ -303,8 +352,7 @@
       "materials": [
         "填写 DFM科学家合作计划申请表",
         "简要说明 1–2 个最希望推进的问题，以及当前进展、关键瓶颈与可用验证条件",
-        "个人简历或研究主页，并附 1–2 项代表性成果",
-        "申请截止时间：待确认"
+        "个人简历或研究主页，并附 1–2 项代表性成果"
       ],
       "privacy": "请勿在首次申请中直接上传患者隐私、临床敏感信息、受第三方限制的数据或其他尚未确认使用权限的材料。"
     },
@@ -406,29 +454,29 @@
         {
           "key": "sciencebuddy",
           "name": "ScienceBuddy · AI research partner",
-          "tagline": "Exploring interactive Science RSI",
+          "tagline": "An interactive Scientific Agent, exploring RSI in RSI in real research interaction",
           "body": "It focuses on an interactive form of Science RSI: a user poses a scientific question, the agent calls tools and answers; the scientist's follow-ups, edits, acceptances, rejections and re-runs become feedback that drives the research agent's workspace and harness to keep evolving.",
           "link_label": "Open ScienceBuddy",
           "link_key": "sciencebuddy"
         },
         {
           "key": "scienceide",
-          "name": "ScienceIDE · science acceleration framework",
-          "tagline": "Building executable, reusable infrastructure for scientific experience",
+          "name": "ScienceIDE · science integrated development platform",
+          "tagline": "A platform integrating scientific environments, code, tools and training pipelines",
           "body": "It turns real scientific code, research procedures, task goals and verification criteria into scientific environments that run, measure and reproduce, so that researchers can do agent execution, model training and reinforcement-learning research in real scientific settings.",
           "link_label": "ScienceIDE project page",
           "link_key": "scienceide_page"
         },
         {
           "key": "jepa",
-          "name": "JEPA Anything · science world model",
-          "tagline": "Exploring cross-domain science world models",
+          "name": "JEPA Anything · cross-domain unified science world model",
+          "tagline": "A unified science world model for cross-domain state prediction, intervention simulation and scientific diagnosis",
           "body": "It explores how to learn, across vision, biology, the clinic, molecules, control and physics, latent representations that predict changes of world state, and to offer one interface for intervention prediction, state synthesis and scientific diagnosis.",
           "link_label": "JEPA Anything paper",
           "link_key": "jepa_paper"
         }
       ],
-      "modulesNote": "ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a “feedback – environment – prediction” path. That is a possible future research route, not an integration that exists today, and it does not change their independent standing."
+      "modulesNote": "ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a composable research path: ScienceBuddy collects feedback and research trajectories from the interaction between scientists and agents; ScienceIDE organises that data and experience into reusable scientific environments for task execution, reinforcement learning and model training; JEPA Anything explores unified state prediction and simulation across multiple scientific environments and interventions. That is a possible future combination, not an integration that exists today, and it does not change their independent standing."
     },
     "questions": {
       "label": "What we look for",
@@ -541,13 +589,62 @@
       "title": "Begin with real scientific questions",
       "body": "The first seed users are bringing real research questions into testing. With their permission, we will share representative exploration processes, intermediate outcomes and lessons.",
       "note": "Rather than display only a final answer, we want to show how a problem was framed, where AI participated, how scientists judged the output, and how the research moved forward.",
-      "caseTitle": "Exploration case",
+      "caseTitle": "Case",
       "pending": "Case material pending export and publication consent",
       "fields": [
         "Research question",
         "Starting conditions",
         "How AI participated",
         "Current progress"
+      ],
+      "items": [
+        {
+          "no": "01",
+          "name": "GALILEO",
+          "title": "Autonomous therapeutic discovery by an embodied AI scientist",
+          "full": "Generalizable Agentic Laboratory Intelligence for Learning, Experimentation, and Optimization",
+          "intro": "GALILEO is the DFM idea made concrete in the life sciences: AI is no longer a tool that completes a single task but enters a real research environment, starts from a real question, keeps learning from experimental feedback and takes part in the whole process of discovery. The work is available as a bioRxiv preprint (June 2026).",
+          "fields": [
+            [
+              "Research question",
+              [
+                "Most AI systems in biomedicine stop at prediction: predicting targets, predicting molecular properties, without reaching real experimental intervention. GALILEO asks whether AI can move past prediction and close the loop autonomously in a dynamic membrane system, from candidate peptide discovery to wet-lab validation, and find therapeutic targets and molecules that intervene in tumour immunity."
+              ]
+            ],
+            [
+              "What was already in place",
+              [
+                "A clinically informed peptide prior library (CPP) giving candidates a traceable starting point",
+                "A robotic solid-phase peptide synthesis platform that synthesises AI-designed molecules automatically",
+                "Multimodal phenotyping across membrane current, metabolic flux and T-cell function",
+                "Public omics data from TCGA, CPTAC, GEO and GTEx, plus a wet-lab validation team"
+              ]
+            ],
+            [
+              "How AI takes part",
+              [
+                "GALILEO runs on an OTAS reasoning loop (Observation, Thought, Action, Summary) and executes autonomously:",
+                "Retrieving candidates from the peptide prior library and editing sequences through auditable local operations",
+                "Ranking target branches on its own, prioritising the LRRC8C and SLC25A1 pathways",
+                "Updating target beliefs, sequence strategy, assay design and mechanistic hypotheses from wet-lab feedback",
+                "Keeping the whole process traceable and auditable, so scientists can inspect and intervene at any point"
+              ]
+            ],
+            [
+              "Stage of progress",
+              [
+                "The loop from prediction to intervention has been validated and released as a bioRxiv preprint",
+                "Generated peptides blocked LRRC8C current, perturbed osmotic and redox homeostasis and promoted tumour-dependent T-cell activation",
+                "Peptides on the SLC25A1 branch disrupted citrate export metabolism, reduced extracellular acidosis and strengthened CD8+ T-cell function",
+                "Publication and translation are under way; case details will be disclosed progressively once researchers authorise it"
+              ]
+            ]
+          ],
+          "takeawayLabel": "The DFM view",
+          "takeaway": "GALILEO shows what DFM argues for: moving from completing research tasks to taking part in discovery. AI enters a real research environment, meets the questions scientists actually care about, works with incomplete data and real constraints, and keeps learning from experiments and reality, so each exploration becomes the starting point of the next discovery.",
+          "linkLabel": "bioRxiv preprint",
+          "linkHref": "https://www.biorxiv.org/content/10.64898/2026.06.10.731360v1"
+        }
       ]
     },
     "process": {
@@ -621,8 +718,7 @@
       "materials": [
         "Complete the DFM Scientist Collaboration Program form",
         "Briefly describe one or two questions you most want to advance, including current progress, bottlenecks and available validation conditions",
-        "CV or research profile, plus one or two representative works",
-        "Application deadline: to be confirmed"
+        "CV or research profile, plus one or two representative works"
       ],
       "privacy": "Please do not upload patient-identifiable, clinically sensitive, third-party restricted or otherwise unauthorized material in the initial submission."
     },
@@ -634,6 +730,5 @@
       "aitonomy": "AItonomy",
       "rights": "© 2026 PhAI Labs. All rights reserved."
     }
-  },
-  "formUrl": "https://ecnvakadbq0t.feishu.cn/share/base/form/shrcnIRIZQov7zSIuE5jcvH3sEh"
+  }
 }

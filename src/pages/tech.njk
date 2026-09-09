@@ -24,7 +24,7 @@ eleventyComputed:
 
 <section class="hero hero--page hero--tech" id="top" data-field="flow">
   <div class="shell">
-    <p class="eyebrow">{{ t.hero.eyebrow }}</p>
+    <p class="eyebrow">{{ t.hero.eyebrow | brand | safe }}</p>
     <h1 class="display">{{ t.hero.title | stagger(lang) | safe }}</h1>
     <p class="lede">{{ t.hero.lede }}</p>
     {%- set nodes = t.loop.nodes %}{% set amber = t.loop.amber %}
@@ -38,7 +38,7 @@ eleventyComputed:
 
 <section class="sec sec--statement" id="direction">
   <div class="shell split">
-    <div><p class="eyebrow"><span class="num">01</span>{{ t.direction.title }}</p></div>
+    <div><p class="eyebrow"><span class="num">01</span>{{ t.direction.title | brand | safe }}</p></div>
     <div class="prose prose--lg">{% for p in t.direction.body %}<p>{{ p }}</p>{% endfor %}</div>
   </div>
 </section>

@@ -49,8 +49,7 @@
 
 <header class="mast" data-mast>
   <a class="mast__brand" href="{{ '/' | localeUrl(lang) }}" aria-label="{{ s.site_name }}">
-    {% include "components/mark.njk" %}
-    <span class="mast__word">PhAI<b>Labs</b></span>
+    <img class="mast__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="{{ s.site_name }}">
   </a>
   <nav class="mast__nav" aria-label="{{ '主导航' if lang == 'zh' else 'Primary' }}" data-nav>
     {%- for item in s.nav %}
@@ -80,7 +79,7 @@
 <footer class="foot" data-reveal-scope>
   <div class="foot__inner">
     <div class="foot__brand">
-      {% include "components/mark.njk" %}
+      <img class="foot__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="{{ s.site_name }}" loading="lazy">
       <p class="foot__line">{{ s.footer_line }}</p>
     </div>
     <nav class="foot__nav" aria-label="{{ '页脚导航' if lang == 'zh' else 'Footer' }}">

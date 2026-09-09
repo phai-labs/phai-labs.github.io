@@ -12,17 +12,17 @@ eleventyComputed:
   ogImage: "/assets/img/kv-static.webp"
 ---
 {%- set t = collab[lang] -%}
-{%- set form = collab.formUrl -%}
+{%- set form = site.links.apply_form -%}
 {%- macro br(text) %}{{ text | replace("\n", "<br>") | safe }}{% endmacro -%}
 
 <section class="hero hero--program" id="top" data-field="hero">
   <div class="hero__kv kv" data-no-reveal>
-    <img class="kv__img" src="{{ site.kv.static }}" data-anim="{{ site.kv.animated }}"
+    <img class="kv__img" src="{{ site.kv.static }}"{% if site.kv.animated %} data-anim="{{ site.kv.animated }}"{% endif %}
          width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="{{ t.hero.kv }}" fetchpriority="high">
     <script type="application/json" id="kv-geometry">{{ site.kv.geometry | dump | safe }}</script>
   </div>
   <div class="shell hero__copy">
-    <p class="eyebrow"><span class="num">01</span>{{ t.hero.eyebrow }}</p>
+    <p class="eyebrow"><span class="num">01</span>{{ t.hero.eyebrow | brand | safe }}</p>
     <h1 class="display">{{ t.hero.title | stagger(lang) | safe }}</h1>
     <p class="subtitle">{{ t.hero.subtitle }}</p>
     <p class="lede">{{ t.hero.body }}</p>
@@ -128,7 +128,7 @@ eleventyComputed:
       </div>
       <aside class="focus__aside"><h3>{{ t.who.openTitle }}</h3><p>{{ t.who.openBody }}</p></aside>
     </div>
-    <p class="subhead">{{ t.who.audienceTitle }}</p>
+    <p class="subhead subhead--lead">{{ t.who.audienceTitle }}</p>
     <ol class="audience">
       {%- for a in t.who.types %}
       <li><span class="num">0{{ loop.index }}</span><h3>{{ a[0] }}</h3><p>{{ a[1] }}</p></li>
@@ -165,12 +165,45 @@ eleventyComputed:
     <p class="eyebrow"><span class="num">07</span>{{ t.cases.label }}</p>
     <div class="split"><h2 class="display-2">{{ t.cases.title }}</h2><div class="prose"><p>{{ t.cases.body }}</p><p class="prose__note">{{ t.cases.note }}</p></div></div>
     <div class="cases">
+      {%- if t.cases.items and t.cases.items.length %}
+      {%- for c in t.cases.items %}
+      <article class="case case--full" data-reveal>
+        <div class="case__head">
+          <span class="case__no">{{ t.cases.caseTitle }} {{ c.no }}</span>
+          <h3 class="case__name">{{ c.name }}</h3>
+          <p class="case__sub">{{ c.title }}</p>
+          <p class="case__full">{{ c.full }}</p>
+        </div>
+        <div class="case__body">
+          <p class="case__intro">{{ c.intro }}</p>
+          <dl class="case__fields">
+            {%- for f in c.fields %}
+            <div>
+              <dt>{{ f[0] }}</dt>
+              <dd>
+                {%- set lines = f[1] -%}
+                {%- set hasLead = lines.length > 1 and (lines[0].slice(-1) == '：' or lines[0].slice(-1) == ':') -%}
+                {%- if hasLead %}<p>{{ lines[0] }}</p>{% endif %}
+                {%- set rest = lines.slice(1) if hasLead else lines -%}
+                {%- if rest.length > 1 %}<ul>{% for line in rest %}<li>{{ line }}</li>{% endfor %}</ul>
+                {%- elif rest.length == 1 %}<p>{{ rest[0] }}</p>{% endif %}
+              </dd>
+            </div>
+            {%- endfor %}
+          </dl>
+          <p class="case__take"><b>{{ c.takeawayLabel }}</b>{{ c.takeaway }}</p>
+          {%- if c.linkHref %}<p class="case__link"><a href="{{ c.linkHref }}">{{ c.linkLabel }} <span aria-hidden="true">↗</span></a></p>{% endif %}
+        </div>
+      </article>
+      {%- endfor %}
+      {%- else %}
       {%- for n in [1,2,3] %}
       <article class="case" data-reveal>
         <p class="case__head"><span>{{ t.cases.caseTitle }} 0{{ n }}</span><small>{{ t.cases.pending }}</small></p>
         <dl>{% for f in t.cases.fields %}<div><dt>{{ f }}</dt><dd><i></i></dd></div>{% endfor %}</dl>
       </article>
       {%- endfor %}
+      {%- endif %}
     </div>
   </div>
 </section>

@@ -197,7 +197,7 @@
   };
   const bez = (p0, p1, p2, u) => { const v = 1 - u; return [v * v * p0[0] + 2 * v * u * p1[0] + u * u * p2[0], v * v * p0[1] + 2 * v * u * p1[1] + u * u * p2[1]]; };
   // an ingress line: straight from the left edge, then bending into the focus
-  const linePt = (y, u) => (u < 0.75 ? [(u / 0.75) * 0.27, y] : bez([0.27, y], [0.325, y], geo.focus, (u - 0.75) / 0.25));
+  const linePt = (y, u) => bez([0, y], [geo.focus[0] * 0.6, y], geo.focus, u);
   const arcPt = (u) => bez(geo.arc[0], geo.arc[1], geo.arc[2], u);
   const packetPt = (p) => {
     const [fx0, fy0] = geo.focus, u = Math.max(0, p.t);
