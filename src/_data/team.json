@@ -72,24 +72,24 @@
         "name": "吴英成",
         "name_latin": "Yingcheng Wu",
         "title": "联合创始人 · CEO",
-        "affiliation": "斯坦福大学 AI 博士后 · 复旦大学临床医学",
-        "bio": "临床医学出身，在斯坦福从事人工智能与病理学交叉研究，以第一作者身份在 Cell、Nature、Science 发表工作。关注如何让真实的科学问题、实验数据与验证条件进入下一代智能系统。",
+        "affiliation": "斯坦福大学 AI 博士后 · 复旦大学",
+        "bio": "医学背景出身，现在斯坦福从事 AI for Science 研究，方向包括生物医学世界模型与自主实验室，以共同第一作者身份在 Cell、Nature、Science 发表工作。关注如何让真实的科学问题、实验数据与验证条件进入下一代智能系统。",
         "research": [
           "AI for 生命科学与生物医学",
           "科学数据与实验反馈",
-          "肿瘤微环境与患者响应建模"
+          "肿瘤微环境与免疫图谱"
         ]
       },
       "en": {
         "name": "Yingcheng Wu",
         "name_latin": "Yingcheng Wu",
         "title": "Co-founder & CEO",
-        "affiliation": "AI postdoctoral scholar, Stanford · Clinical medicine, Fudan",
-        "bio": "Trained in clinical medicine, now working at the intersection of AI and pathology at Stanford, with first-author papers in Cell, Nature and Science. Focused on bringing real scientific questions, experimental data and verification conditions into next-generation intelligent systems.",
+        "affiliation": "AI postdoctoral scholar, Stanford · Fudan University",
+        "bio": "Trained in medicine, now working on AI for Science at Stanford, on biomedical world models and autonomous labs, with co-first-author papers in Cell, Nature and Science. Focused on bringing real scientific questions, experimental data and verification conditions into next-generation intelligent systems.",
         "research": [
           "AI for life science and biomedicine",
           "Scientific data and experimental feedback",
-          "Tumour microenvironment and patient-response modelling"
+          "Tumour microenvironment and immune atlases"
         ]
       }
     },
@@ -146,23 +146,27 @@
         "name": "尹榛菲",
         "name_latin": "Zhenfei Yin",
         "title": "联合创始人 · President",
-        "affiliation": "牛津大学博士后 · 曾任职上海人工智能实验室、商汤科技",
-        "bio": "牛津大学博士后研究员，曾任上海人工智能实验室研究员、商汤科技研究经理。长期从事多模态与具身智能研究，构建了多个被机器人、推理与多模态学习社区广泛使用的开放系统。",
+        "affiliation": "牛津大学博士后 · 悉尼大学博士",
+        "bio": "牛津大学博士后研究员，博士毕业于悉尼大学；此前是上海人工智能实验室研究员，读博前在商汤科技 AGI 团队工作。研究方向是用基础模型构建能在物理世界与虚拟世界中行动的智能体，覆盖多模态推理、具身智能、多智能体系统，以及面向自动化科学发现的 AI Scientist 系统，代表工作包括开源多智能体机器人框架 MARS。",
         "research": [
-          "多模态学习",
-          "具身智能与智能体",
-          "开放系统与基准"
+          "多模态推理",
+          "具身智能",
+          "多智能体系统",
+          "AI Scientist 与自动化科学发现",
+          "开源系统与基准"
         ]
       },
       "en": {
         "name": "Zhenfei Yin",
         "name_latin": "Zhenfei Yin",
         "title": "Co-founder & President",
-        "affiliation": "Postdoctoral researcher, Oxford · formerly Shanghai AI Laboratory and SenseTime",
-        "bio": "Postdoctoral researcher at the University of Oxford; previously a researcher at Shanghai AI Laboratory and a research manager at SenseTime. Works on multimodal and embodied intelligence, and has built open systems used across robotics, reasoning and multimodal learning.",
+        "affiliation": "Postdoctoral researcher, Oxford · PhD, University of Sydney",
+        "bio": "Postdoctoral researcher at the University of Oxford and a PhD graduate of the University of Sydney; previously a research fellow at Shanghai AI Laboratory, and part of SenseTime's AGI group before the PhD. Works on foundation models that build AI agents for the physical and virtual world, spanning multimodal reasoning, embodied intelligence, multi-agent systems and AI Scientist systems for automated scientific discovery; representative work includes the open-source multi-agent robotics framework MARS.",
         "research": [
-          "Multimodal learning",
-          "Embodied intelligence and agents",
+          "Multimodal reasoning",
+          "Embodied intelligence",
+          "Multi-agent systems",
+          "AI Scientist systems and automated scientific discovery",
           "Open systems and benchmarks"
         ]
       }
