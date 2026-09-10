@@ -29,6 +29,15 @@
     }
   }
 
+  /* ---------------- entrance never leaves a blank page ---------------- */
+  const anim = $$('.ap, .mask > span');
+  anim.forEach((el) => el.addEventListener('animationend', () => el.classList.add('is-in'), { once: true }));
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    const running = anim.some((el) => (el.getAnimations ? el.getAnimations() : [])
+      .some((a) => a.playState === 'running' || a.playState === 'finished'));
+    if (!running) anim.forEach((el) => el.classList.add('is-in'));
+  }));
+
   /* ---------------- reveal on scroll ---------------- */
   const rv = $$('.rv');
   if (reduce || !('IntersectionObserver' in window)) {
@@ -45,7 +54,7 @@
   }
 
   /* ---------------- the hero video ---------------- */
-  const v = $('video[data-kv-video]');
+  const v = $('video[data-kv-video]');   // present only with ?bg=video
   const saveData = navigator.connection && navigator.connection.saveData;
   if (!v) return;
   if (reduce || saveData || innerWidth < 768) { v.remove(); return; }

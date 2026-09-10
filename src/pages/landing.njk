@@ -12,6 +12,8 @@ eleventyComputed:
 {%- set t = copy.landing[lang] -%}
 {%- set s = i18n[lang] -%}
 
+<div class="grain" aria-hidden="true"></div>
+
 <header class="bar">
   <a class="bar__brand ap" style="--d:.05s" href="{{ '/' | localeUrl(lang) }}" aria-label="{{ s.site_name }}">
     <img src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="{{ s.site_name }}">
@@ -25,8 +27,12 @@ eleventyComputed:
 
 {#- ============ 1. the one screen that has to land ============ -#}
 <main class="stage" id="top">
-  <div class="stage__kv" aria-hidden="true">
-    <img class="stage__still" src="{{ site.kv.static }}" width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="">
+  {#- Two backgrounds, one shown at a time. The orb is the default: a canvas we
+      draw ourselves, so it is a few KB and stays sharp at any size. ?bg=video
+      swaps in the particle key visual for comparison. -#}
+  <div class="stage__kv" data-kv aria-hidden="true">
+    <canvas class="stage__orb" data-orb></canvas>
+    <img class="stage__still" src="{{ site.kv.static }}" width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="" hidden>
     {%- if site.kv.video %}
     <video class="stage__video" data-kv-video muted loop playsinline preload="none"
            data-webm="{{ site.kv.video.webm }}" data-mp4="{{ site.kv.video.mp4 }}"></video>
@@ -34,7 +40,7 @@ eleventyComputed:
   </div>
 
   <div class="stage__copy">
-    <p class="badge ap" style="--d:.22s"><i aria-hidden="true"></i>{{ t.badge }}</p>
+    <p class="badge ap" style="--d:.22s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6c.55 0 .88.55 1.08 2.1.62 4.7 1.52 5.6 6.22 6.22 1.55.2 2.1.53 2.1 1.08s-.55.88-2.1 1.08c-4.7.62-5.6 1.52-6.22 6.22-.2 1.55-.53 2.1-1.08 2.1s-.88-.55-1.08-2.1c-.62-4.7-1.52-5.6-6.22-6.22C3.15 12.88 2.6 12.55 2.6 12s.55-.88 2.1-1.08c4.7-.62 5.6-1.52 6.22-6.22C11.12 3.15 11.45 2.6 12 2.6Z"/></svg>{{ t.badge }}</p>
 
     <h1 class="display">
       <span class="mask" style="--d:.42s"><span>{{ t.line1 }}</span></span>
