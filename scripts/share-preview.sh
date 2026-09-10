@@ -3,12 +3,15 @@
 #
 #   bash scripts/share-preview.sh
 #
-# Connects with your SSH key, so localhost.run gives the SAME address every time
-# instead of a new random one, and reconnects by itself when the free tunnel is
-# dropped. Stop it with Ctrl+C.
+# localhost.run only accepts SSH keys that were registered with them, so this
+# uses their anonymous tunnel. Anonymous tunnels get a NEW address every time
+# they reconnect, so every time one comes up the address is printed in a box and
+# written to .preview-url.txt next to the project. Stop with Ctrl+C.
 
 set -u
 PORT="${PORT:-8087}"
+HERE="$(cd "$(dirname "$0")" && pwd)"
+URLFILE="${URLFILE:-$HERE/../.preview-url.txt}"
 
 command -v ssh >/dev/null || { echo "找不到 ssh"; exit 1; }
 
@@ -18,22 +21,7 @@ if ! curl -s -o /dev/null --max-time 5 "http://localhost:${PORT}/"; then
   exit 1
 fi
 
-KEY=""
-for k in "$HOME/.ssh/id_ed25519" "$HOME/.ssh/id_rsa"; do
-  [ -f "$k" ] && { KEY="$k"; break; }
-done
-
-if [ -n "$KEY" ]; then
-  echo "使用密钥 $KEY 连接（地址固定，断线重连不变）"
-  SSH_TARGET="localhost.run"
-  KEY_OPTS=(-i "$KEY" -o IdentitiesOnly=yes -o PubkeyAcceptedKeyTypes=+ssh-rsa -o HostKeyAlgorithms=+ssh-rsa)
-else
-  echo "没有找到 SSH 密钥，改用匿名连接（每次重连地址都会变）"
-  SSH_TARGET="nokey@localhost.run"
-  KEY_OPTS=()
-fi
-
-echo "按 Ctrl+C 结束。断线会自动重连。"
+echo "按 Ctrl+C 结束。断线会自动重连；重连后地址会变，以下方框内始终是当前地址。"
 echo
 
 trap 'echo; echo "已停止。"; exit 0' INT TERM
@@ -44,9 +32,19 @@ while true; do
       -o ServerAliveInterval=30 \
       -o ServerAliveCountMax=3 \
       -o ExitOnForwardFailure=yes \
-      "${KEY_OPTS[@]}" \
-      -R "80:localhost:${PORT}" "$SSH_TARGET"
-  code=$?
-  echo "--- 连接断开（退出码 $code），5 秒后重连 ---"
+      -R "80:localhost:${PORT}" nokey@localhost.run 2>&1 \
+  | while IFS= read -r line; do
+      url=$(printf '%s' "$line" | grep -oE 'https://[a-z0-9]+\.lhr\.life' | head -1)
+      if [ -n "$url" ]; then
+        printf '%s\n' "$url" > "$URLFILE"
+        echo
+        echo "  +------------------------------------------------------+"
+        printf "  |  当前地址  %-42s|\n" "$url"
+        echo   "  |  用户名    phai                                      |"
+        echo "  +------------------------------------------------------+"
+        echo
+      fi
+    done
+  echo "--- 连接断开，5 秒后重连（地址会变，见上方方框）---"
   sleep 5
 done

@@ -3,3 +3,4 @@ _site/
 .cache/
 *.log
 .DS_Store
+.preview-url.txt
