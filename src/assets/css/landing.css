@@ -25,7 +25,9 @@ html,body{background:#08080a!important;color:#f0eee8}
   --rule:rgba(240,238,232,.12);
   --blue:#9ba7ff;
   --blue-line:rgba(155,167,255,.42);
+  --blue-2:#aab4ff;
   --amber:#d29c52;
+  --amber-2:#e0ae66;
   --sans:'Plex Sans',-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif;
   --serif:'Plex Serif','PhAI Serif SC','Songti SC','Noto Serif SC',Georgia,serif;
   --mono:'Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
@@ -204,6 +206,77 @@ ol,ul{list-style:none}
 .ring[data-ring] .ring__nodes circle{opacity:0;transition:opacity .5s var(--ease)}
 .ring[data-ring].in .ring__nodes circle{opacity:1}
 
+/* ---------------------------------------------------- the loop runs
+   One token circulates 01 -> 02 -> 03 -> 04 -> 05 -> 01, once per --ring-t.
+   Five markers all turning at once would read as five pipelines; one token
+   handed from arc to arc is literally the cycle running, and only one small
+   thing moves at a time.
+
+   Geometry: centre (320,250), r=150. Each arc spans 72 - 8 - 8 = 56 degrees,
+   so every arc is 150 * 56 * pi/180 = 146.6077 user units long. All five are
+   identical, which is the whole reason one duration gives one constant speed
+   the whole way round. Each 16-degree gap is 41.8879 units. Trim any arc
+   differently and the five stop being equal -- then each needs its own
+   duration.
+
+   Of every 72-degree stage the token spends 56/72 = 15.5556% of the loop on
+   the arc and 16/72 = 4.4444% crossing the gap, where it is not drawn: it
+   dissolves into the arc's static arrowhead, the node it reached lifts, and it
+   re-forms 8 degrees past that node on the next arc. The trimming is the
+   hand-off, not an obstacle to it.
+
+   At --ring-t:20s -- stage 4.000s = 3.111s on the arc + 0.889s in the gap; the
+   token fades over the first and last 14% of each arc (0.436s). --ring-lead is
+   the entrance's own length (.5s stagger + .8s fade), so the first token leaves
+   node 01 exactly as the last arc finishes arriving. */
+.ring{--ring-t:20s;--ring-lead:1.3s}
+
+.ring__mv{fill:var(--blue-2);opacity:0;offset-rotate:auto}
+.ring__mv--a{fill:var(--amber-2)}
+.ring[data-ring].in .ring__mv{
+  animation:ring-run var(--ring-t) linear infinite;
+  animation-delay:calc(var(--ring-lead) + var(--i) * var(--ring-t) / 5)}
+.ring__mvs path:nth-child(1){--i:0}
+.ring__mvs path:nth-child(2){--i:1}
+.ring__mvs path:nth-child(3){--i:2}
+.ring__mvs path:nth-child(4){--i:3}
+.ring__mvs path:nth-child(5){--i:4}
+
+/* 2.222% = 8/360 (arc start), 17.778% = 64/360 (the arrowhead).
+   14% and 86% are the linearly correct offsets at the fade keyframes. */
+@keyframes ring-run{
+  0%      {offset-distance:0%;   opacity:0}
+  2.222%  {offset-distance:0%;   opacity:0}
+  4.4%    {offset-distance:14%;  opacity:1}
+  15.6%   {offset-distance:86%;  opacity:1}
+  17.778% {offset-distance:100%; opacity:0}
+  100%    {offset-distance:100%; opacity:0}
+}
+
+/* the node the token reaches lifts for 2.8s: 1.2s up, 1.6s back down, peak at
+   local 92%. The negative delay puts that peak on p = 0.2 * --i, the instant of
+   arrival. Only stroke and stroke-width move, so the entrance's own opacity
+   transition above is untouched. */
+.ring[data-ring].in .ring__nodes circle{
+  animation:ring-arrive var(--ring-t) ease-in-out infinite;
+  animation-delay:calc(var(--ring-lead) + var(--i) * var(--ring-t) / 5 - var(--ring-t) * .92)}
+.ring[data-ring].in .ring__nodes .ring__n--a{animation-name:ring-arrive-a}
+.ring__nodes circle:nth-child(1){--i:0}
+.ring__nodes circle:nth-child(2){--i:1}
+.ring__nodes circle:nth-child(3){--i:2}
+.ring__nodes circle:nth-child(4){--i:3}
+.ring__nodes circle:nth-child(5){--i:4}
+@keyframes ring-arrive{
+  0%,86%{stroke:var(--blue);stroke-width:1.4}
+  92%   {stroke:var(--blue-2);stroke-width:2}
+  100%  {stroke:var(--blue);stroke-width:1.4}
+}
+@keyframes ring-arrive-a{
+  0%,86%{stroke:var(--amber);stroke-width:1.4}
+  92%   {stroke:var(--amber-2);stroke-width:2.1}
+  100%  {stroke:var(--amber);stroke-width:1.4}
+}
+
 /* ---------------------------------------------------- responsive */
 @media(min-width:721px) and (max-height:860px){
   .display{font-size:clamp(1.9rem,4vw,3rem)}
@@ -242,5 +315,6 @@ ol,ul{list-style:none}
   .ap,.mask>span{opacity:1!important;transform:none!important}
   .rv{opacity:1;transform:none}
   .ring[data-ring] .ring__arcs path,.ring[data-ring] .ring__nodes circle{opacity:1}
+  .ring__mv{display:none}
   .type__cursor{display:none}
 }
