@@ -129,6 +129,86 @@
     if (a.host !== location.host) { a.target = '_blank'; a.rel = 'noopener'; }
   });
 
+  /* ---------------- lit buttons ---------------- */
+  // The cursor is a light source and an outlined button catches a specular on
+  // the border arc nearest it. The light itself is entirely CSS; this only
+  // says where it is.
+  // Hover does the proximity test, so nothing is measured until a button is
+  // actually under the pointer -- and nothing at all on a page with no buttons.
+  // That matters on home and collaborate, where orb.js's own pointermove
+  // already forces a layout flush beside a 2300-mote loop; a second rect read
+  // per move is the cost the hero cannot carry. It is also why the set is never
+  // measured up front: a .btn inside a closed <details> has a zero rect, and a
+  // hover-driven read can never see one.
+  // The gate mirrors the stylesheet's query rather than its complement, so
+  // there is no state where the script writes properties no rule consumes.
+  // Reduced motion is deliberately NOT read here: the media query is the whole
+  // policy, so an OS toggle takes effect without a reload and without a change
+  // listener, and the two properties written into the void cost nothing.
+  const LIT = '.btn:not(.btn--primary)';
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let lit = null, box = null, cx = 0, cy = 0, queued = false;
+
+    // one rect per hover session, not per frame; a cached box makes the move
+    // path two subtractions and two divides with no layout read at all
+    const write = () => {
+      queued = false;
+      if (!lit) return;
+      if (!box) box = lit.getBoundingClientRect();
+      if (!box.width || !box.height) return;
+      lit.style.setProperty('--lx', (((cx - box.left) / box.width) * 100).toFixed(2) + '%');
+      lit.style.setProperty('--ly', (((cy - box.top) / box.height) * 100).toFixed(2) + '%');
+    };
+    const draw = () => { if (!queued) { requestAnimationFrame(write); queued = true; } };
+    // every .btn is in the reveal set, and .rv holds transform:translateY(12px)
+    // for up to 1430ms after load -- a rect cached mid-reveal is twelve pixels
+    // low for the whole hover. The same listener also catches .btn:hover's own
+    // translateY(-1px), so the box is right once the button has settled.
+    const settled = (e) => { if (e.propertyName === 'transform') { box = null; draw(); } };
+    const dark = () => {
+      if (!lit) return;
+      lit.removeEventListener('transitionend', settled);
+      lit.classList.remove('is-under');
+      lit = null; box = null;
+    };
+
+    document.addEventListener('pointerover', (e) => {
+      const t = e.target.closest(LIT);
+      if (!t || t === lit) return;          // crossing into a child is not a new surface
+      dark();
+      lit = t; box = t.getBoundingClientRect();
+      cx = e.clientX; cy = e.clientY;
+      write();                              // placed before the class, so the light
+      t.addEventListener('transitionend', settled);
+      t.classList.add('is-under');          // arrives where the pointer is, not where it was
+    }, { passive: true });
+
+    document.addEventListener('pointerout', (e) => {
+      // contains(null) is false, so leaving the window unlights correctly
+      if (lit && !lit.contains(e.relatedTarget)) dark();
+    }, { passive: true });
+
+    document.addEventListener('pointermove', (e) => {
+      if (!lit) return;                     // this effect's entire cost when nothing is lit
+      cx = e.clientX; cy = e.clientY;
+      draw();
+    }, { passive: true });
+
+    // a scrolled or resized box has moved under the pointer. Captured on
+    // document because scroll does not bubble to window.
+    const stale = () => { box = null; };
+    document.addEventListener('scroll', stale, { capture: true, passive: true });
+    addEventListener('resize', stale);
+
+    // @view-transition{navigation:auto} captures the outgoing page at pageswap,
+    // which is before pagehide and before any transition of ours could finish
+    // -- so the light is cut on that frame, not faded. pagehide covers the
+    // bfcache case, where nothing would ever unlight it.
+    addEventListener('pageswap', () => { document.documentElement.classList.add('is-leaving'); dark(); });
+    addEventListener('pagehide', dark);
+    addEventListener('pageshow', () => document.documentElement.classList.remove('is-leaving'));
+  }
+
   /* ---------------- FAQ: only one open at a time ---------------- */
   $$('[data-accordion]').forEach((group) => {
     group.addEventListener('toggle', (e) => {

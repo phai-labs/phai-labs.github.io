@@ -319,6 +319,50 @@ html[lang="zh-CN"] .prose--lg{line-height:1.9}
 @keyframes vt-out{to{opacity:0}}
 @keyframes vt-in{from{opacity:0;transform:translateY(6px)}}
 
+/* ---------------- lit buttons ---------------- */
+/* The cursor carries a light and an outlined button is a machined surface: its
+   1px border brightens along the arc nearest the pointer and stays at its
+   resting value everywhere else. The hot-white -> amber -> blue run is the
+   orb's own cursor gradient, so the page and the key visual are lit by one
+   source. Nothing is added: while the light is on, the uniform lift to
+   --ink-3 that .btn:hover carries is withdrawn, so the peak composites to
+   about .38 against today's flat .44 and the rest of the ring sits at .12.
+   Strictly less light than today, redistributed.
+   A 1px line, never an area, and never a box-shadow: on #0a0a0b a soft blob is
+   indistinguishable from a dirty screen, and glow that escapes the box is
+   precisely that blob.
+   The query is the whole motion policy. With no hover hardware, a coarse
+   pointer or reduced motion the pseudo-element does not exist -- which matters,
+   because the blanket transition-duration:.01ms!important above would not
+   remove a hover effect, it would make it snap on under the cursor. It also
+   re-evaluates live, so an OS toggle lands without a reload and the script
+   never has to watch matchMedia. */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  /* without mask compositing the frame paints as a filled disc, which is the
+     smudge this exists to avoid: sit it out rather than approximate it */
+  @supports ((mask-composite:exclude) or (-webkit-mask-composite:xor)){
+    .btn:not(.btn--primary){position:relative;--lx:50%;--ly:50%}
+    /* inset:-1px on a 1px border resolves to the element's own border box, so
+       padding:1px plus an excluded content-box mask lays the specular exactly
+       over the border already drawn there -- no second line, and nothing ever
+       paints outside the box for .hero--home's overflow:hidden to clip */
+    .btn:not(.btn--primary)::before{
+      content:'';position:absolute;inset:-1px;padding:1px;border-radius:inherit;pointer-events:none;
+      opacity:0;transition:opacity .26s var(--ease);
+      background:radial-gradient(circle 90px at var(--lx) var(--ly),
+        rgba(255,240,219,.30) 0%,rgba(255,240,219,.17) 20%,rgba(210,156,82,.10) 48%,rgba(155,167,255,.045) 74%,rgba(155,167,255,0) 100%);
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+              mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude}
+    .btn:not(.btn--primary).is-under::before{opacity:1}
+    /* the budget, kept rather than claimed: the specular replaces .btn:hover's
+       uniform border lift, it does not stack on top of it */
+    .btn:not(.btn--primary).is-under{border-color:var(--rule)}
+    /* @view-transition snapshots the outgoing page at pageswap; kill the light
+       on that frame rather than fading it into ::view-transition-old */
+    :root.is-leaving .btn:not(.btn--primary)::before{transition:none;opacity:0}
+  }
+}
+
 /* ============================================================ 6. components */
 /* numbered lists set as ruled columns, never boxes */
 .principles,.criteria,.audience,.capabilities,.directions,.pillars{display:grid;gap:0 var(--gap);margin-top:clamp(2rem,4vh,3rem);border-top:1px solid var(--rule)}
@@ -384,8 +428,8 @@ html[lang="zh-CN"] .prompts li{font-weight:400}
 
 /* home: module list rows */
 .modules-list{margin-top:.5rem;border-top:1px solid var(--rule)}
-.modules-list li a{display:grid;grid-template-columns:5.6rem minmax(0,4fr) minmax(0,6fr) auto;gap:1.2rem;align-items:baseline;padding:1.3rem 0;border-bottom:1px solid var(--rule-soft);transition:background .25s,padding .25s}
-.modules-list li a:hover{padding-left:.6rem;background:linear-gradient(90deg,rgba(155,167,255,.06),transparent 60%)}
+.modules-list li a{display:grid;grid-template-columns:5.6rem minmax(0,4fr) minmax(0,6fr) auto;gap:1.2rem;align-items:baseline;padding:1.3rem 0;border-bottom:1px solid var(--rule-soft);transition:background .25s}
+.modules-list li a:hover{background:linear-gradient(90deg,rgba(155,167,255,.06),transparent 60%)}
 .modules-list__name{font-family:var(--serif);font-weight:400;font-size:var(--t-3);color:var(--ink)}
 html[lang="zh-CN"] .modules-list__name{font-weight:400}
 .modules-list__tag{color:var(--ink-2);font-size:var(--t-small)}
