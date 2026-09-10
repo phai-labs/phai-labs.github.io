@@ -1,8 +1,7 @@
 /* PhAI Labs · minimal landing
-   Three small jobs: type the accent word, reveal on scroll, and swap in the
-   hero video once the page is settled. Nothing here is required for the page
-   to read: with JS off, the word is already in the markup, everything is
-   visible, and the still stands in for the video. */
+   Two small jobs: type the accent word and reveal on scroll. Neither is
+   required for the page to read: with JS off the word is already in the
+   markup and everything is visible. */
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, r = document) => r.querySelector(s);
@@ -52,40 +51,4 @@
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
     rv.forEach((el) => io.observe(el));
   }
-
-  /* ---------------- the hero video ---------------- */
-  const v = $('video[data-kv-video]');   // present only with ?bg=video
-  const saveData = navigator.connection && navigator.connection.saveData;
-  if (!v) return;
-  if (reduce || saveData || innerWidth < 768) { v.remove(); return; }
-
-  let started = false;
-  const start = () => {
-    if (started) return;
-    started = true;
-    const add = (src, t) => {
-      if (!src) return;
-      const s = document.createElement('source');
-      s.src = src; s.type = t; v.appendChild(s);
-    };
-    add(v.dataset.webm, 'video/webm');
-    add(v.dataset.mp4, 'video/mp4');
-    v.load();
-    const p = v.play();
-    if (p) p.catch(() => {});
-  };
-  v.addEventListener('playing', () => v.classList.add('is-playing'), { once: true });
-
-  const whenIdle = (fn) => {
-    const go = () => (window.requestIdleCallback ? requestIdleCallback(fn, { timeout: 2000 }) : setTimeout(fn, 400));
-    if (document.readyState === 'complete') go();
-    else addEventListener('load', go, { once: true });
-  };
-  whenIdle(start);
-
-  document.addEventListener('visibilitychange', () => {
-    if (!started) return;
-    if (document.hidden) v.pause();
-    else { const p = v.play(); if (p) p.catch(() => {}); }
-  });
 })();

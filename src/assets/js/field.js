@@ -34,7 +34,6 @@
   const DEEP = colour('--blue-deep', '#5d6bd6');
   const BLUE = colour('--blue', '#9ba7ff');
   const BLUE2 = colour('--blue-2', '#aab4ff');
-  const AMBER = colour('--amber', '#d29c52');
 
   /* ---------------- canvases ---------------- */
   const clouds = document.createElement('canvas');
@@ -53,7 +52,6 @@
     clouds.width = 320; clouds.height = Math.max(90, Math.round(320 * H / W));
     fx.width = Math.round(W * S); fx.height = Math.round(H * S);
     cg.imageSmoothingEnabled = true;
-    if (kc) remap();
   };
 
   /* ---------------- noise tiles ---------------- */
@@ -141,72 +139,6 @@
     shelter.forEach((el) => io.observe(el));
   }
 
-  /* ---------------- the key visual, alive ---------------- */
-  // A canvas laid over the KV image inside .hero__kv. The geometry is the
-  // image's own (site.json kv.geometry: hubs and nodes detected from the still,
-  // the ingress lines, the dome's edge arc, the convergence point), mapped
-  // through the image's object-fit box so it stays true at any size. Hubs
-  // breathe; blue signals run the ingress lines into the focus and travel
-  // between hubs along the dome's concentric arcs; an amber ring marks each
-  // arrival; a shimmer runs the dome's edge now and then.
-  const kv = document.querySelector('.hero__kv');
-  const kvImg = kv && kv.querySelector('img');
-  const geoEl = document.getElementById('kv-geometry');
-  const geo = geoEl ? JSON.parse(geoEl.textContent) : null;
-  const rs = seeded(3);
-  let kvSeen = !!kv, kc = null, kg = null, map = null;
-  let hubs = [], lines = [], packets = [], rings = [], focusFlash = 0;
-  const shimmer = { t: -1, wait: 3 };
-  const pol = (hb) => { const [fx0, fy0] = geo.focus; return [Math.hypot((hb.x - fx0) * 1.6, hb.y - fy0), Math.atan2(hb.y - fy0, (hb.x - fx0) * 1.6)]; };
-  const newPacket = () => {   // a signal to a hub: along a concentric arc from a neighbour, or a ray out of the focus
-    const a = hubs[Math.floor(rs() * hubs.length)];
-    if (rs() < 0.4) return { kind: 'ray', to: a, t: -rs() * 0.6, sp: 0.32 + rs() * 0.2 };
-    const [ra, ta] = pol(a);
-    const cands = hubs.filter((b) => { if (b === a) return false; const [rb, tb] = pol(b); return Math.abs(rb - ra) < 0.09 && Math.abs(tb - ta) < 1.1; });
-    if (!cands.length) return { kind: 'ray', to: a, t: -rs() * 0.6, sp: 0.4 };
-    return { kind: 'arc', from: cands[Math.floor(rs() * cands.length)], to: a, t: -rs() * 0.6, sp: 0.26 + rs() * 0.16 };
-  };
-  if (kv && kvImg && geo) {
-    kc = document.createElement('canvas'); kc.className = 'kv__fx'; kc.setAttribute('aria-hidden', 'true');
-    kv.appendChild(kc); kg = kc.getContext('2d');
-    if ('IntersectionObserver' in window) new IntersectionObserver((es) => { kvSeen = es.some((e) => e.isIntersecting); }, { threshold: 0.02 }).observe(kv);
-    hubs = geo.hubs.map(([x, y, s]) => ({ x, y, s, ph: rs() * 6.28, w: 0.7 + rs() * 0.7 }));
-    lines = geo.lines.map((y) => ({ y, packets: [{ t: rs(), sp: 0.12 + rs() * 0.05 }, { t: -rs(), sp: 0.12 + rs() * 0.05 }] }));
-    for (let i = 0; i < (phone ? 4 : 8); i++) packets.push(newPacket());
-    kvImg.addEventListener('load', () => remap());
-  }
-  function remap() {   // image fractions -> canvas pixels, through object-fit: cover and object-position
-    if (!kc) return;
-    const kr = kv.getBoundingClientRect(), ir = kvImg.getBoundingClientRect();
-    const nw = kvImg.naturalWidth || 1672, nh = kvImg.naturalHeight || 941;
-    const sc = Math.max(ir.width / nw, ir.height / nh), dw = nw * sc, dh = nh * sc;
-    const op = (getComputedStyle(kvImg).objectPosition || '50% 50%').split(' ').map((v) => parseFloat(v) / 100);
-    const px = isNaN(op[0]) ? 0.5 : op[0], py = isNaN(op[1]) ? 0.5 : op[1];
-    kc.width = Math.round(kr.width * S); kc.height = Math.round(kr.height * S);
-    map = { ox: ir.left - kr.left + (ir.width - dw) * px, oy: ir.top - kr.top + (ir.height - dh) * py, dw, dh, il: ir.left - kr.left, it: ir.top - kr.top, iw: ir.width, ih: ir.height };
-  }
-  const P = (x, y) => [(map.ox + x * map.dw) * S, (map.oy + y * map.dh) * S];
-  // the image's own CSS mask, so nothing drawn outlives the picture: an ellipse
-  // (78% x 82% at 58% 46% of the image box, solid to 34%, gone at 78%) and a vertical fade
-  const maskAt = (x, y) => {
-    const bx = (map.ox + x * map.dw - map.il) / map.iw, by = (map.oy + y * map.dh - map.it) / map.ih;
-    const v = Math.max(0, Math.min(1, by < 0.12 ? by / 0.12 : by > 0.66 ? (1 - by) / 0.34 : 1));
-    if (phone) return v;
-    const r = Math.hypot((bx - 0.58) / 0.78, (by - 0.46) / 0.82);
-    return v * (r < 0.34 ? 1 : r > 0.78 ? 0 : 1 - (r - 0.34) / 0.44);
-  };
-  const bez = (p0, p1, p2, u) => { const v = 1 - u; return [v * v * p0[0] + 2 * v * u * p1[0] + u * u * p2[0], v * v * p0[1] + 2 * v * u * p1[1] + u * u * p2[1]]; };
-  // an ingress line: straight from the left edge, then bending into the focus
-  const linePt = (y, u) => bez([0, y], [geo.focus[0] * 0.6, y], geo.focus, u);
-  const arcPt = (u) => bez(geo.arc[0], geo.arc[1], geo.arc[2], u);
-  const packetPt = (p) => {
-    const [fx0, fy0] = geo.focus, u = Math.max(0, p.t);
-    if (p.kind === 'ray') return [fx0 + (p.to.x - fx0) * u, fy0 + (p.to.y - fy0) * u];
-    const [r1, t1] = pol(p.from), [r2, t2] = pol(p.to);
-    const r = r1 + (r2 - r1) * u, th = t1 + (t2 - t1) * u;
-    return [fx0 + Math.cos(th) * r / 1.6, fy0 + Math.sin(th) * r];
-  };
-
   /* ---------------- loop ---------------- */
   let t = 0, last = 0, raf = 0, running = false;
   const frameMs = () => (phone ? 41 : 33);
@@ -233,84 +165,6 @@
       if (m.y < -0.02) m.y += 1.04; if (m.y > 1.02) m.y -= 1.04;
     }
     taps.forEach((tp) => (tp.t += dt)); taps = taps.filter((tp) => tp.t < 0.75);
-    if (kc && kvSeen) {
-      for (const l of lines) for (const q of l.packets) { q.t += q.sp * dt; if (q.t > 1) { q.t = -0.2 - rs() * 0.8; focusFlash = 0.6; } }
-      focusFlash = Math.max(0, focusFlash - dt);
-      packets.forEach((p, i) => { p.t += p.sp * dt; if (p.t >= 1) { rings.push({ x: p.to.x, y: p.to.y, t: 0 }); packets[i] = newPacket(); } });
-      rings.forEach((r) => (r.t += dt)); rings = rings.filter((r) => r.t < 1.3);
-      shimmer.t += dt; if (shimmer.t > shimmer.wait + 1.6) { shimmer.t = 0; shimmer.wait = 4 + rs() * 5; }
-    }
-  };
-
-  const drawKv = () => {
-    if (!kg || !map) return;
-    const w = kc.width, h = kc.height;
-    kg.clearRect(0, 0, w, h);
-    // the hero video animates the same artwork; two motion layers fight each other
-    if (kv.classList.contains('has-video')) return;
-    if (!kvSeen) return;
-    kg.globalCompositeOperation = 'lighter';
-    // hubs breathe, each at its own pace
-    for (const hb of hubs) {
-      const m = maskAt(hb.x, hb.y); if (m < 0.03) continue;
-      const sn = 0.5 + hb.s, [x, y] = P(hb.x, hb.y);
-      const a = (0.12 + 0.30 * (0.5 + 0.5 * Math.sin(t * hb.w + hb.ph))) * sn * m * max;
-      const rad = (8 + 13 * sn) * S;
-      const g = kg.createRadialGradient(x, y, 0, x, y, rad);
-      g.addColorStop(0, 'rgba(255,214,150,' + a.toFixed(3) + ')');
-      g.addColorStop(0.45, 'rgba(210,156,82,' + (a * 0.45).toFixed(3) + ')');
-      g.addColorStop(1, 'rgba(210,156,82,0)');
-      kg.fillStyle = g; kg.beginPath(); kg.arc(x, y, rad, 0, 6.2832); kg.fill();
-    }
-    // the small blue nodes on the ingress lines
-    geo.nodes.forEach(([nx, ny], i) => {
-      const [x, y] = P(nx, ny);
-      kg.globalAlpha = (0.12 + 0.22 * (0.5 + 0.5 * Math.sin(t * 1.3 + i))) * maskAt(nx, ny) * max;
-      kg.fillStyle = BLUE2; kg.beginPath(); kg.arc(x, y, 1.7 * S, 0, 6.2832); kg.fill();
-    });
-    kg.globalAlpha = 1;
-    if (!reduce) {
-      kg.lineCap = 'round';
-      const trail = (pt, u1, u2, rgb, alpha, width) => {   // a short gradient segment along a path, sampled in five pieces
-        const [ax, ay] = P(...pt(u1)), [bx, by] = P(...pt(u2));
-        const g = kg.createLinearGradient(ax, ay, bx, by);
-        g.addColorStop(0, 'rgba(' + rgb + ',0)'); g.addColorStop(1, 'rgba(' + rgb + ',' + alpha.toFixed(3) + ')');
-        kg.strokeStyle = g; kg.lineWidth = width * S; kg.beginPath();
-        for (let k = 0; k <= 5; k++) { const [px, py] = P(...pt(u1 + (u2 - u1) * k / 5)); k ? kg.lineTo(px, py) : kg.moveTo(px, py); }
-        kg.stroke();
-      };
-      // signals run the ingress lines into the focus
-      for (const l of lines) for (const q of l.packets) {
-        if (q.t <= 0) continue;
-        const [mx, my] = linePt(l.y, q.t);
-        // the left scrim sits over this canvas, so the ingress signals run brighter to survive it
-        trail((u) => linePt(l.y, u), Math.max(0, q.t - 0.08), Math.min(1, q.t), '205,214,255', 0.85 * maskAt(mx, my) * max, 1.7);
-      }
-      if (focusFlash > 0) {
-        const [x, y] = P(...geo.focus), a = 0.45 * Math.min(1, focusFlash / 0.6) * max, rad = 26 * S;
-        const g = kg.createRadialGradient(x, y, 0, x, y, rad);
-        g.addColorStop(0, 'rgba(220,226,255,' + a.toFixed(3) + ')'); g.addColorStop(1, 'rgba(155,167,255,0)');
-        kg.fillStyle = g; kg.beginPath(); kg.arc(x, y, rad, 0, 6.2832); kg.fill();
-      }
-      // signals between hubs, and the ring where one arrives
-      for (const p of packets) {
-        if (p.t <= 0) continue;
-        const [mx, my] = packetPt(p);
-        trail((u) => packetPt(Object.assign({}, p, { t: u })), Math.max(0, p.t - 0.07), p.t, '175,186,255', 0.72 * maskAt(mx, my) * max, 1.5);
-      }
-      for (const r of rings) {
-        const u = r.t / 1.3, [x, y] = P(r.x, r.y);
-        kg.globalAlpha = 0.6 * (1 - u) * maskAt(r.x, r.y) * max; kg.strokeStyle = AMBER; kg.lineWidth = 1 * S;
-        kg.beginPath(); kg.arc(x, y, (3 + 26 * u) * S, 0, 6.2832); kg.stroke();
-      }
-      kg.globalAlpha = 1;
-      // a shimmer along the dome's edge
-      if (shimmer.t >= 0 && shimmer.t < 1.6) {
-        const u = shimmer.t / 1.6, [mx, my] = arcPt(u);
-        trail(arcPt, Math.max(0, u - 0.09), u, '255,214,150', 0.5 * maskAt(mx, my) * max, 2);
-      }
-    }
-    kg.globalCompositeOperation = 'source-over';
   };
 
   const drawClouds = () => {
@@ -371,7 +225,7 @@
     const dt = Math.min((now - last) / 1000, 0.05) || 0.033;
     last = now;
     const t0 = bench ? performance.now() : 0;
-    update(dt); drawClouds(); drawFx(); drawKv();
+    update(dt); drawClouds(); drawFx();
     if (bench) {
       const c = performance.now() - t0; benchT += c; benchN++; benchMax = Math.max(benchMax, c);
       if (benchN === 150) {
@@ -385,10 +239,10 @@
 
   /* ---------------- boot ---------------- */
   size(); seedMotes();
-  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { size(); seedMotes(); if (reduce) { drawClouds(); drawFx(); drawKv(); } }, 120); });
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { size(); seedMotes(); if (reduce) { drawClouds(); drawFx(); } }, 120); });
   document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
   requestAnimationFrame(() => {
     clouds.classList.add('is-on'); fx.classList.add('is-on');
-    if (reduce) { update(0); drawClouds(); drawFx(); drawKv(); } else start();
+    if (reduce) { update(0); drawClouds(); drawFx(); } else start();
   });
 })();

@@ -27,16 +27,13 @@ eleventyComputed:
 
 {#- ============ 1. the one screen that has to land ============ -#}
 <main class="stage" id="top">
-  {#- Two backgrounds, one shown at a time. The orb is the default: a canvas we
-      draw ourselves, so it is a few KB and stays sharp at any size. ?bg=video
-      swaps in the particle key visual for comparison. -#}
+  {#- The background is drawn, not filmed: assets/js/orb.js renders the body
+      and its ring live on this canvas. With JS off the still stands in. -#}
   <div class="stage__kv" data-kv aria-hidden="true">
     <canvas class="stage__orb" data-orb></canvas>
-    <img class="stage__still" src="{{ site.kv.static }}" width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="" hidden>
-    {%- if site.kv.video %}
-    <video class="stage__video" data-kv-video muted loop playsinline preload="none"
-           data-webm="{{ site.kv.video.webm }}" data-mp4="{{ site.kv.video.mp4 }}"></video>
-    {%- endif %}
+    <noscript>
+      <img class="stage__still" src="{{ site.kv.static }}" width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="">
+    </noscript>
   </div>
 
   <div class="stage__copy">

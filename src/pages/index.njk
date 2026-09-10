@@ -6,6 +6,7 @@ pagination:
 permalink: "{{ '/' | localeUrl(lang) }}index.html"
 layout: layouts/base.njk
 pageKey: home
+heroKv: true
 eleventyComputed:
   title: ""
   description: "{{ copy.home[lang].hero.lede }}"
@@ -17,14 +18,15 @@ eleventyComputed:
 
 <section class="hero hero--home" id="top" data-field="hero">
   <div class="hero__kv kv" data-no-reveal>
-    <img class="kv__img" src="{{ site.kv.static }}"
-         width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="{{ t.hero.kv_alt }}" fetchpriority="high">
-    {%- if site.kv.video %}
-    <video class="kv__video" data-kv-video muted loop playsinline preload="none"
-           aria-hidden="true" tabindex="-1"
-           data-webm="{{ site.kv.video.webm }}" data-mp4="{{ site.kv.video.mp4 }}"></video>
-    {%- endif %}
-    <script type="application/json" id="kv-geometry">{{ site.kv.geometry | dump | safe }}</script>
+    {#- The key visual is drawn, not filmed: a canvas engine (assets/js/orb.js)
+        renders the body and its ring live, so it is a few KB, sharp at any size
+        and answers the pointer. With JS off the still stands in. -#}
+    <canvas class="kv__orb" data-orb aria-hidden="true"
+            data-cfg='{"cx":0.72,"cy":0.40,"r":0.30,"cxSm":0.56,"cySm":0.34,"rSm":0.22,"tilt":0.30,"roll":-0.15,"motes":2300,"inner":1.07,"reach":1.5,"stars":false,"glow":0.95}'></canvas>
+    <noscript>
+      <img class="kv__img" src="{{ site.kv.static }}"
+           width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="{{ t.hero.kv_alt }}">
+    </noscript>
   </div>
   <div class="shell hero__copy">
     <p class="eyebrow">{{ t.hero.eyebrow | brand | safe }}</p>

@@ -74,17 +74,18 @@ ol,ul{list-style:none}
   padding:0 var(--pad) clamp(4.5rem,11vh,7rem);isolation:isolate;overflow:hidden}
 .stage__kv{position:absolute;inset:0;z-index:-1;pointer-events:none}
 .stage__orb{position:absolute;inset:0;width:100%;height:100%;display:block}
-.stage__kv[data-bg="video"] .stage__orb{display:none}
-.stage__still,.stage__video{position:absolute;right:-4%;top:-6%;width:104%;height:112%;object-fit:cover;
+.stage__still{position:absolute;right:-4%;top:-6%;width:104%;height:112%;object-fit:cover;
   object-position:62% 46%;opacity:.92;
   -webkit-mask-image:radial-gradient(ellipse 76% 78% at 62% 44%,#000 30%,transparent 76%),linear-gradient(180deg,transparent 0%,#000 16%,#000 60%,transparent 96%);
   mask-image:radial-gradient(ellipse 76% 78% at 62% 44%,#000 30%,transparent 76%),linear-gradient(180deg,transparent 0%,#000 16%,#000 60%,transparent 96%);
   -webkit-mask-composite:source-in;mask-composite:intersect}
-.stage__video{opacity:0;transition:opacity .9s var(--ease)}
-.stage__video.is-playing{opacity:.92}
+/* The scrim sits where the copy is, not across the whole frame: a full-width
+   horizontal band used to swallow the near half of the ring, which is the half
+   that carries the depth. Bottom-left is dark enough for the headline; the
+   right two-thirds stay open. */
 .stage__kv::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(8,8,10,.86) 0%,rgba(8,8,10,.6) 34%,transparent 66%),
-             linear-gradient(180deg,rgba(8,8,10,.5) 0%,transparent 24%,transparent 52%,rgba(8,8,10,.86) 84%,var(--bg) 100%)}
+  background:radial-gradient(78% 64% at 14% 90%,rgba(8,8,10,.95) 0%,rgba(8,8,10,.78) 34%,rgba(8,8,10,.24) 68%,transparent 88%),
+             linear-gradient(180deg,rgba(8,8,10,.55) 0%,transparent 20%,transparent 76%,rgba(8,8,10,.5) 94%,var(--bg) 100%)}
 
 .stage__copy{position:relative;max-width:min(46rem,92vw)}
 
@@ -227,7 +228,7 @@ ol,ul{list-style:none}
   .bar__nav{gap:1rem;font-size:.7rem}
   .bar__brand img{height:22px}
   .stage{padding-bottom:5.5rem}
-  .stage__still,.stage__video{right:0;left:0;top:0;width:100%;height:100%;object-position:66% 42%;opacity:.72}
+  .stage__still{right:0;left:0;top:0;width:100%;height:100%;object-position:66% 42%;opacity:.72}
   .display{font-size:clamp(1.9rem,8.4vw,2.6rem)}
   .facts{grid-template-columns:1fr;gap:1rem}
   .acts{flex-direction:column;align-items:stretch}
@@ -242,5 +243,4 @@ ol,ul{list-style:none}
   .rv{opacity:1;transform:none}
   .ring[data-ring] .ring__arcs path,.ring[data-ring] .ring__nodes circle{opacity:1}
   .type__cursor{display:none}
-  .stage__video{display:none}
 }
