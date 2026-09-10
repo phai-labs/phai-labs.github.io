@@ -1,0 +1,126 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+permalink: "{{ '/landing/' | localeUrl(lang) }}index.html"
+layout: layouts/landing.njk
+eleventyComputed:
+  title: "{{ copy.landing[lang].line1 }}{{ copy.landing[lang].line2_before }}{{ copy.landing[lang].line2_type }}"
+  description: "{{ copy.landing[lang].lede }}"
+---
+{%- set t = copy.landing[lang] -%}
+{%- set s = i18n[lang] -%}
+
+<header class="bar">
+  <a class="bar__brand ap" style="--d:.05s" href="{{ '/' | localeUrl(lang) }}" aria-label="{{ s.site_name }}">
+    <img src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="{{ s.site_name }}">
+  </a>
+  <nav class="bar__nav" aria-label="{{ '导航' if lang == 'zh' else 'Navigation' }}">
+    <a class="ap" style="--d:.18s" href="{{ '/tech/' | localeUrl(lang) }}">{{ t.nav_tech }}</a>
+    <a class="ap" style="--d:.26s" href="{{ '/' | localeUrl(lang) }}">{{ t.nav_site }}</a>
+    <a class="ap bar__lang" style="--d:.34s" href="{{ '/landing/' | switchUrl(lang) }}">{{ 'EN' if lang == 'zh' else '中文' }}</a>
+  </nav>
+</header>
+
+{#- ============ 1. the one screen that has to land ============ -#}
+<main class="stage" id="top">
+  <div class="stage__kv" aria-hidden="true">
+    <img class="stage__still" src="{{ site.kv.static }}" width="{{ site.kv.width }}" height="{{ site.kv.height }}" alt="">
+    {%- if site.kv.video %}
+    <video class="stage__video" data-kv-video muted loop playsinline preload="none"
+           data-webm="{{ site.kv.video.webm }}" data-mp4="{{ site.kv.video.mp4 }}"></video>
+    {%- endif %}
+  </div>
+
+  <div class="stage__copy">
+    <p class="badge ap" style="--d:.22s"><i aria-hidden="true"></i>{{ t.badge }}</p>
+
+    <h1 class="display">
+      <span class="mask" style="--d:.42s"><span>{{ t.line1 }}</span></span>
+      <span class="mask" style="--d:.60s"><span>{{ t.line2_before }}<b class="type" data-type="{{ t.line2_type }}"><i class="type__out"></i><i class="type__cursor" aria-hidden="true"></i></b></span></span>
+    </h1>
+
+    <p class="lede ap" style="--d:.86s">{{ t.lede }}</p>
+
+    <p class="acts">
+      <a class="btn btn--go ap" style="--d:1.0s" href="{{ site.links.apply_form }}">{{ t.cta_primary }} <span aria-hidden="true">↗</span></a>
+      <a class="btn ap" style="--d:1.12s" href="{{ '/tech/' | localeUrl(lang) }}">{{ t.cta_secondary }} <span aria-hidden="true">→</span></a>
+    </p>
+  </div>
+
+  <a class="cue ap" style="--d:1.4s" href="#loop">{{ t.scroll }}</a>
+</main>
+
+{#- ============ 2. the loop: the single idea this page argues ============ -#}
+<section class="loop-sec" id="loop">
+  <p class="eyebrow rv">{{ t.loop_eyebrow }}</p>
+  <h2 class="display-2 rv">{{ t.loop_title_a }}<br>{{ t.loop_title_b }}</h2>
+
+  <div class="ring-wrap">
+    <aside class="side side--l rv">
+      <p class="side__label">{{ t.loop_left_label }}</p>
+      <p>{{ t.loop_left }}</p>
+    </aside>
+
+    <figure class="ring rv" data-ring>
+      <svg viewBox="0 0 640 520" role="img" aria-label="{{ t.loop_center_a }}{{ t.loop_center_b }}">
+        <defs>
+          <marker id="lh" markerUnits="userSpaceOnUse" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#9ba7ff"/>
+          </marker>
+          <marker id="la" markerUnits="userSpaceOnUse" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#d29c52"/>
+          </marker>
+        </defs>
+
+        {#- circle centre (320,250) r=150; node k at -90+72k degrees, arcs trimmed 8 degrees each end -#}
+        <g class="ring__arcs" fill="none" stroke-linecap="round">
+          <path d="M340.9 101.5 A150 150 0 0 1 454.8 184.2" marker-end="url(#lh)"/>
+          <path d="M467.7 224.0 A150 150 0 0 1 424.2 357.9" marker-end="url(#lh)"/>
+          <path d="M390.4 382.4 A150 150 0 0 1 249.6 382.4" marker-end="url(#lh)"/>
+          <path d="M215.8 357.9 A150 150 0 0 1 172.3 224.0" marker-end="url(#lh)"/>
+          <path class="ring__back" d="M185.2 184.2 A150 150 0 0 1 299.1 101.5" marker-end="url(#la)"/>
+        </g>
+
+        <g class="ring__nodes">
+          <circle cx="320" cy="100" r="5"/>
+          <circle cx="462.7" cy="203.6" r="5"/>
+          <circle cx="408.2" cy="371.4" r="5"/>
+          <circle cx="231.8" cy="371.4" r="5"/>
+          <circle class="ring__n--a" cx="177.3" cy="203.6" r="5.5"/>
+        </g>
+
+        <g class="ring__cap">
+          <text x="320" y="68" text-anchor="middle"><tspan class="ring__k">01</tspan><tspan dx="7">{{ t.nodes[0] }}</tspan></text>
+          <text x="485.5" y="200.2" text-anchor="start"><tspan class="ring__k">02</tspan><tspan dx="7">{{ t.nodes[1] }}</tspan></text>
+          <text x="422.3" y="396.8" text-anchor="start"><tspan class="ring__k">03</tspan><tspan dx="7">{{ t.nodes[2] }}</tspan></text>
+          <text x="217.7" y="396.8" text-anchor="end"><tspan>{{ t.nodes[3] }}</tspan><tspan class="ring__k" dx="7">04</tspan></text>
+          <text x="154.5" y="200.2" text-anchor="end"><tspan>{{ t.nodes[4] }}</tspan><tspan class="ring__k ring__k--a" dx="7">05</tspan></text>
+        </g>
+
+        <g class="ring__mid">
+          <text x="320" y="242">{{ t.loop_center_a }}</text>
+          <text x="320" y="272">{{ t.loop_center_b }}</text>
+        </g>
+      </svg>
+      <figcaption>{{ t.return_label }}</figcaption>
+    </figure>
+
+    <aside class="side side--r rv">
+      <p class="side__label">{{ t.loop_right_label }}</p>
+      <p>{{ t.loop_right }}</p>
+    </aside>
+  </div>
+</section>
+
+{#- ============ 3. three facts, then out ============ -#}
+<footer class="end">
+  <p class="eyebrow rv">{{ t.facts_eyebrow }}</p>
+  <ol class="facts">
+    {%- for f in t.facts %}
+    <li class="rv" style="--k:{{ loop.index0 }}"><b>{{ f[0] }}</b><span>{{ f[1] }}</span></li>
+    {%- endfor %}
+  </ol>
+  <p class="end__line rv">{{ t.foot }} · <a href="{{ '/' | localeUrl(lang) }}">{{ t.nav_site }} →</a></p>
+</footer>

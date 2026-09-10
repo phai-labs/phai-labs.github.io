@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="{{ 'zh-CN' if lang == 'zh' else 'en' }}" style="background:#08080a;color:#f0eee8">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.png" type="image/png">
+
+{#- the same self-hosted faces the rest of the site uses, so this page is the
+    same brand rather than a different one -#}
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/IBMPlexSans-Light.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/IBMPlexMono-Regular.woff2" crossorigin>
+{%- if lang == 'zh' %}
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/NotoSerifSC-Display.woff2" crossorigin>
+{%- endif %}
+<link rel="stylesheet" href="/assets/css/landing.css">
+</head>
+<body style="background:#08080a;color:#f0eee8" data-lang="{{ lang }}">
+{{ content | safe }}
+<script src="/assets/js/landing.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+{
+  "zh": {
+    "nav_site": "完整站点",
+    "nav_tech": "技术",
+    "badge": "DFM · Discovery Foundation Models",
+    "line1": "AI 已经学会回答问题，",
+    "line2_before": "下一步是学会",
+    "line2_type": "发现",
+    "lede": "我们让真实的科学问题、数据与实验反馈进入下一代 AI 系统，探索从辅助科研到参与科学发现的路径。",
+    "cta_primary": "加入科学家合作计划",
+    "cta_secondary": "了解 DFM",
+    "scroll": "向下",
+
+    "loop_eyebrow": "一个闭环，不是一条直线",
+    "loop_title_a": "科学发现不是从问题",
+    "loop_title_b": "直接走向答案。",
+    "loop_center_a": "递归",
+    "loop_center_b": "发现闭环",
+    "loop_left_label": "问题从哪里来",
+    "loop_left": "系统不再只接受一个已经定义好的问题，而是从一个尚未充分理解的世界出发，识别值得研究的未知。",
+    "loop_right_label": "证据从哪里来",
+    "loop_right": "假设不停留在文本里。系统调用工具、数据与实验环境去执行，并接受外部证据的检验。",
+    "nodes": [
+      "尚未理解的世界",
+      "有价值的未知",
+      "可研究的问题",
+      "解释与干预",
+      "经过验证的新知识"
+    ],
+    "return_label": "验证结果更新对世界的理解",
+
+    "facts_eyebrow": "接下来",
+    "facts": [
+      ["9.15", "DFM 技术报告与技术研究版图"],
+      ["9.16 – 9.18", "三个独立工作连续发布"],
+      ["开放中", "DFM 科学家合作计划"]
+    ],
+    "foot": "PhAI Labs · 面向真实科学发现的模型与数据基础设施"
+  },
+
+  "en": {
+    "nav_site": "Full site",
+    "nav_tech": "Tech",
+    "badge": "DFM · Discovery Foundation Models",
+    "line1": "AI has learned to answer questions.",
+    "line2_before": "Next it learns to ",
+    "line2_type": "discover",
+    "lede": "We bring real scientific questions, data and experimental feedback into next-generation AI systems, on a path from assisting research to taking part in discovery.",
+    "cta_primary": "Join the collaboration program",
+    "cta_secondary": "About DFM",
+    "scroll": "Scroll",
+
+    "loop_eyebrow": "A loop, not a line",
+    "loop_title_a": "Discovery does not run",
+    "loop_title_b": "from question to answer.",
+    "loop_center_a": "Recursive",
+    "loop_center_b": "discovery loop",
+    "loop_left_label": "Where the question comes from",
+    "loop_left": "The system no longer takes a problem as given. It starts from a partially understood world and identifies the unknowns worth research.",
+    "loop_right_label": "Where the evidence comes from",
+    "loop_right": "A hypothesis does not stay on paper. The system calls tools, data and experimental environments, and submits to external evidence.",
+    "nodes": [
+      "Partially understood world",
+      "Valuable unknowns",
+      "Researchable problem",
+      "Explanation & intervention",
+      "Validated new knowledge"
+    ],
+    "return_label": "Validated findings update the world model",
+
+    "facts_eyebrow": "What comes next",
+    "facts": [
+      ["15 Sept", "DFM technical report and research map"],
+      ["16 – 18 Sept", "Three independent works, one a day"],
+      ["Open", "DFM Scientist Collaboration Program"]
+    ],
+    "foot": "PhAI Labs · Model and data infrastructure for real scientific discovery"
+  }
+}
