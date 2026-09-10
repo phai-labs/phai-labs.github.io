@@ -59,7 +59,7 @@ eleventyComputed:
       <figcaption>{{ 'DFM 技术示意图 · 点击查看大图' if lang == 'zh' else 'DFM technical diagram · click to open full size' }}</figcaption>
     </figure>
 
-    <div class="prose prose--cols">{% for p in t.dfm.blueprint %}<p>{{ p }}</p>{% endfor %}</div>
+    <div class="prose prose--cols">{% for p in t.dfm.paradigm %}<p>{{ p }}</p>{% endfor %}</div>
 
     {%- set dg = 'dfm' %}{% set dg_href = '' %}{% include "components/dgfig.njk" %}
 

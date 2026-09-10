@@ -16,12 +16,6 @@
     "dfm": {
       "title": "DFM · Discovery Foundation Models",
       "what_it_is": "DFM（Discovery Foundation Models）不是一个单一模型，也不是要求所有系统按同一套流程运行的软件框架，而是 PhAI Labs 围绕 Discovery Intelligence 提出的一套研究范式、能力定义和系统组织方式。它通过形式化定义、流程图示、系统实例和真实科学案例，把“发现”从一个模糊概念具体化为一种可学习、可执行、可评测的模型系统能力。",
-      "blueprint": [
-        "DFM 不是一个模型，也不是要求所有系统按同一套流程运行的软件框架。它是一套范式、能力定义和系统组织方式：说明科学发现过程里有哪些能力、它们如何相互连接，以及哪些环节需要外部证据。",
-        "在这张蓝图中，科学问题是起点。系统从一个部分理解的世界出发，识别有价值的未知，把它转化为可研究的问题，再围绕问题构建假设。假设不停留在文本里：系统调用科研工具、数据和实验环境去执行，从数据分析、实验结果和专家判断中获取外部证据，并据此验证、修正或推翻自己的判断。",
-        "模型训练嵌在这个过程之中。每一次工具调用、每一次实验反馈，都是对模型判断的一次检验，也是一份带有真实结果的训练信号。经过验证的新知识、可复用的问题、工具与验证机制沉淀下来，成为下一次发现的起点。",
-        "围绕这一范式和能力定义，相关研究将通过系统实例、独立论文、工程模块和真实科学合作逐步展开并陆续发布。这些工作不构成一套唯一的固定实现架构，而是从不同方向探索如何让 Discovery Intelligence 变得可操作。"
-      ],
       "modules_title": "DFM 关注的六项能力",
       "modules": [
         {
@@ -55,7 +49,13 @@
         "pending_label": "9 月 15 日公开"
       },
       "heading": "围绕 Discovery Intelligence 的研究范式",
-      "github_note": "DFM 技术研究版图仓库呈现 Discovery Loop 的概念结构、研究方向、开源计划、Demo 和开发者协作机会。仓库中的研究目录和方向标记，是对未来研究范围的公开预留，不代表对应实现均已完成或发布。"
+      "github_note": "DFM 技术研究版图仓库呈现 Discovery Loop 的概念结构、研究方向、开源计划、Demo 和开发者协作机会。仓库中的研究目录和方向标记，是对未来研究范围的公开预留，不代表对应实现均已完成或发布。",
+      "paradigm": [
+        "DFM 不是一个模型，也不是要求所有系统按同一套流程运行的软件框架。它是一套范式、能力定义和系统组织方式：说明科学发现过程里有哪些能力、它们如何相互连接，以及哪些环节需要外部证据。",
+        "在这一过程中，科学问题是起点。系统从一个部分理解的世界出发，识别有价值的未知，把它转化为可研究的问题，再围绕问题构建假设。假设不停留在文本里：系统调用科研工具、数据和实验环境去执行，从数据分析、实验结果和专家判断中获取外部证据，并据此验证、修正或推翻自己的判断。",
+        "模型训练嵌在这个过程之中。每一次工具调用、每一次实验反馈，都是对模型判断的一次检验，也是一份带有真实结果的训练信号。经过验证的新知识、可复用的问题、工具与验证机制沉淀下来，成为下一次发现的起点。",
+        "围绕这一范式和能力定义，相关研究将通过系统实例、独立论文、工程模块和真实科学合作逐步展开并陆续发布。这些工作不构成一套唯一的固定实现架构，而是从不同方向探索如何让 Discovery Intelligence 变得可操作。"
+      ]
     },
     "projects": [
       {
@@ -210,12 +210,6 @@
     "dfm": {
       "title": "DFM · Discovery Foundation Models",
       "what_it_is": "DFM (Discovery Foundation Models) is neither a single model nor a software framework that forces every system through one pipeline. It is the research paradigm, capability definition and system organisation that PhAI Labs proposes around Discovery Intelligence: through formal definitions, process diagrams, system instances and real scientific cases, it turns “discovery” from a vague notion into a capability of model systems that can be learned, executed and evaluated.",
-      "blueprint": [
-        "DFM is not a model, and not a software framework that forces every system through one pipeline. It is a paradigm, a capability definition and a way of organising systems: which capabilities the discovery process needs, how they connect, and where external evidence has to enter.",
-        "In this blueprint, the scientific question comes first. Starting from a partially understood world, the system identifies a valuable unknown, turns it into a researchable problem, and builds hypotheses around it. A hypothesis does not stay on paper. The system calls research tools, data and experimental environments to act on it, gathers external evidence from analysis, experiments and expert judgement, and uses that evidence to confirm, revise or reject its own position.",
-        "Model training sits inside this process rather than in front of it. Every tool call and every experimental result is both a test of the model’s judgement and a training signal with a real outcome attached. Validated knowledge, reusable questions, tools and verifiers accumulate, and become the starting point for the next discovery.",
-        "Around this paradigm and capability definition, the research unfolds through system instances, independent papers, engineering modules and real scientific collaborations, released progressively. They do not add up to one fixed implementation; they explore, from different directions, how Discovery Intelligence becomes operational."
-      ],
       "modules_title": "The six capabilities DFM is about",
       "modules": [
         {
@@ -249,7 +243,13 @@
         "pending_label": "Public 15 Sept"
       },
       "heading": "A research paradigm around Discovery Intelligence",
-      "github_note": "The DFM research-map repository carries the conceptual structure of the Discovery Loop, research directions, the open-source plan, demos and how to collaborate. Its directories and direction markers reserve future scope in public; they do not mean the corresponding implementations are finished or released."
+      "github_note": "The DFM research-map repository carries the conceptual structure of the Discovery Loop, research directions, the open-source plan, demos and how to collaborate. Its directories and direction markers reserve future scope in public; they do not mean the corresponding implementations are finished or released.",
+      "paradigm": [
+        "DFM is not a model, and not a software framework that forces every system through one pipeline. It is a paradigm, a capability definition and a way of organising systems: which capabilities the discovery process needs, how they connect, and where external evidence has to enter.",
+        "In this process, the scientific question comes first. Starting from a partially understood world, the system identifies a valuable unknown, turns it into a researchable problem, and builds hypotheses around it. A hypothesis does not stay on paper. The system calls research tools, data and experimental environments to act on it, gathers external evidence from analysis, experiments and expert judgement, and uses that evidence to confirm, revise or reject its own position.",
+        "Model training sits inside this process rather than in front of it. Every tool call and every experimental result is both a test of the model’s judgement and a training signal with a real outcome attached. Validated knowledge, reusable questions, tools and verifiers accumulate, and become the starting point for the next discovery.",
+        "Around this paradigm and capability definition, the research unfolds through system instances, independent papers, engineering modules and real scientific collaborations, released progressively. They do not add up to one fixed implementation; they explore, from different directions, how Discovery Intelligence becomes operational."
+      ]
     },
     "projects": [
       {
