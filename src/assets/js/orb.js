@@ -18,8 +18,8 @@
    there would never fire. Coordinates come from the canvas rect instead.      */
 (() => {
   const BLUE = [155, 167, 255];
-  const AMBER = [210, 156, 82];
-  const HOT = [255, 240, 219];
+  const DEEP = [74, 85, 183];
+  const HOT = [231, 236, 247], ICE = [201, 211, 236];
   const mix = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
   const rgba = (c, a) => 'rgba(' + (c[0] | 0) + ',' + (c[1] | 0) + ',' + (c[2] | 0) + ',' + a + ')';
 
@@ -36,7 +36,7 @@
       const c = document.createElement('canvas');
       c.width = c.height = S;
       const x = c.getContext('2d');
-      const col = i === HOTI ? HOT : mix(AMBER, BLUE, i / (STEPS - 1));
+      const col = i === HOTI ? HOT : mix(mix(ICE, BLUE, Math.min(1, i / 5)), DEEP, Math.max(0, (i - 5) / 6));
       const g = x.createRadialGradient(S / 2, S / 2, 0, S / 2, S / 2, S / 2);
       g.addColorStop(0, rgba(col, 1));
       g.addColorStop(0.14, rgba(col, 0.62));
@@ -93,8 +93,8 @@
         r: r,
         sp: (0.42 / Math.pow(r, 1.2)) * o.spin,       // differential: inner runs faster
         sz: 0.5 + rnd() * rnd() * 3.6,
-        br: (0.3 + rnd() * 0.7) * (1 - band * 0.34),
-        hue: Math.min(STEPS - 1, Math.max(0, Math.round((band * 1.25 + (rnd() - 0.5) * 0.4) * (STEPS - 1)))),
+        br: (0.4 + rnd() * 0.6) * (1 - band * 0.12),
+        hue: Math.min(STEPS - 1, Math.max(0, Math.round((band + (rnd() - 0.5) * 0.09) * (STEPS - 1)))),
         ph: rnd() * Math.PI * 2,
         streak: band < 0.3 && rnd() < 0.16,           // a few smear along the orbit
         ex: 0,                                        // excitation from the pointer
@@ -117,7 +117,7 @@
        Still five rnd() draws a star and 230 stars in total, so the field is the
        same deterministic field -- only its depth is new. */
     const LAYERS = [
-      { n: 120, par: 3,  sz: 1,   gain: 0.34, base: 0.62, amp: 0.18, rate: 0.45, pad: 0.012, col: '#a5adcc', pts: [] },
+      { n: 120, par: 3,  sz: 1,   gain: 0.34, base: 0.62, amp: 0.18, rate: 0.45, pad: 0.012, col: '#aeb6f2', pts: [] },
       { n: 74,  par: 8,  sz: 1.5, gain: 0.55, base: 0.50, amp: 0.50, rate: 0.70, pad: 0.028, col: '#cad0ee', pts: [] },
       { n: 36,  par: 16, sz: 2.2, gain: 0.78, base: 0.50, amp: 0.50, rate: 0.95, pad: 0.050, col: '#e6e9ff', pts: [] },
     ];
@@ -193,8 +193,8 @@
       const pulse = 1 + 0.05 * Math.sin(t * 0.5) + P.str * 0.35;
       const k = o.glow;
       const h = g.createRadialGradient(OX, OY, R * 0.8, OX, OY, R * 3.4 * pulse);
-      h.addColorStop(0, rgba(BLUE, (0.10 * k * (1 + P.str * 0.8)).toFixed(3)));
-      h.addColorStop(0.34, rgba(AMBER, (0.055 * k).toFixed(3)));
+      h.addColorStop(0, rgba(BLUE, (0.105 * k * (1 + P.str * 0.8)).toFixed(3)));
+      h.addColorStop(0.34, rgba([75, 86, 192], (0.075 * k).toFixed(3)));
       h.addColorStop(1, 'rgba(0,0,0,0)');
       g.fillStyle = h; g.fillRect(0, 0, W, H);
       g.restore();
@@ -213,8 +213,8 @@
       const k = (half ? 0.5 : 1) * o.alpha * (1 + P.str * 0.5);
       const rg = g.createRadialGradient(0, 0, R * o.inner * 0.95, 0, 0, R * (o.inner + o.reach));
       rg.addColorStop(0, rgba(HOT, (0.10 * k).toFixed(4)));
-      rg.addColorStop(0.16, rgba(AMBER, (0.085 * k).toFixed(4)));
-      rg.addColorStop(0.5, rgba(mix(AMBER, BLUE, 0.7), (0.055 * k).toFixed(4)));
+      rg.addColorStop(0.16, rgba(ICE, (0.085 * k).toFixed(4)));
+      rg.addColorStop(0.5, rgba(mix(DEEP, BLUE, 0.7), (0.055 * k).toFixed(4)));
       rg.addColorStop(1, rgba(BLUE, 0));
       g.fillStyle = rg;
       g.beginPath();
@@ -236,8 +236,8 @@
       for (let i = 0; i < 26; i++) {
         const u = i / 25;
         const rr = R * (o.inner + Math.pow(u, 0.8) * o.reach);
-        const c = mix(mix(HOT, AMBER, Math.min(1, u * 2.6)), BLUE, Math.max(0, u * 1.6 - 0.5));
-        const a = (half ? 0.026 : 0.062) * dens(u) * (1 - u * 0.42)
+        const c = mix(mix(HOT, BLUE, Math.min(1, u * 2.6)), DEEP, Math.max(0, u * 1.6 - 0.5));
+        const a = (half ? 0.026 : 0.062) * dens(Math.pow(u, 0.8)) * (1 - u * 0.42)
           * (0.9 + 0.1 * Math.sin(t * 1.3 + i)) * o.alpha * boost;
         if (a < 0.002) continue;
         g.strokeStyle = rgba(c, a.toFixed(4));
@@ -249,7 +249,7 @@
       /* the inner rim catches the light: one bright, tight ellipse */
       if (!half) {
         const rr = R * o.inner * 1.02;
-        g.strokeStyle = rgba(HOT, (0.20 * o.alpha * boost).toFixed(3));
+        g.strokeStyle = rgba(HOT, (0.15 * o.alpha * boost).toFixed(3));
         g.lineWidth = Math.max(1, R * 0.012);
         g.beginPath();
         g.ellipse(0, 0, rr, rr * tilt, 0, 0, Math.PI);
@@ -262,10 +262,10 @@
       const px = OX, py = OY;
       /* the sphere, lit from the upper left */
       const bg = g.createRadialGradient(px - R * 0.38, py - R * 0.44, R * 0.03, px, py, R * 1.02);
-      bg.addColorStop(0, '#151827');
-      bg.addColorStop(0.42, '#0a0c13');
-      bg.addColorStop(0.82, '#06060a');
-      bg.addColorStop(1, '#040406');
+      bg.addColorStop(0, '#282848');
+      bg.addColorStop(0.42, '#1c1c31');
+      bg.addColorStop(0.82, '#141524');
+      bg.addColorStop(1, '#11121d');
       g.fillStyle = bg;
       g.beginPath(); g.arc(px, py, R, 0, 6.2832); g.fill();
 
@@ -278,7 +278,7 @@
       for (let i = 0; i < 12; i++) {
         const u = i / 11;
         const rr = R * (o.inner * 0.86 + u * o.reach * 0.9);
-        g.strokeStyle = 'rgba(2,3,6,' + (0.42 * dens(u * 0.9)).toFixed(3) + ')';
+        g.strokeStyle = 'rgba(5,5,14,' + (0.52 * dens(u * 0.9)).toFixed(3) + ')';
         g.lineWidth = Math.max(1, R * 0.1);
         g.beginPath();
         g.ellipse(0, 0, rr, rr * tilt, 0, 0, Math.PI);
@@ -298,7 +298,7 @@
       const L = -2.3;                                   // upper left
       const lg = g.createLinearGradient(px + Math.cos(L) * R, py + Math.sin(L) * R,
         px - Math.cos(L) * R, py - Math.sin(L) * R);
-      lg.addColorStop(0, rgba([196, 206, 255], (0.72 + P.str * 0.25).toFixed(3)));
+      lg.addColorStop(0, rgba(HOT, (0.62 + P.str * 0.22).toFixed(3)));
       lg.addColorStop(0.34, rgba(BLUE, 0.1));
       lg.addColorStop(1, 'rgba(0,0,0,0)');
       g.strokeStyle = lg;
@@ -421,7 +421,7 @@
       const rr = R * 0.5;
       const cg = g.createRadialGradient(P.x, P.y, 0, P.x, P.y, rr);
       cg.addColorStop(0, rgba(HOT, (0.13 * P.str).toFixed(3)));
-      cg.addColorStop(0.4, rgba(AMBER, (0.05 * P.str).toFixed(3)));
+      cg.addColorStop(0.4, rgba(HOT, (0.045 * P.str).toFixed(3)));
       cg.addColorStop(1, rgba(BLUE, 0));
       g.fillStyle = cg;
       g.beginPath(); g.arc(P.x, P.y, rr, 0, 6.2832); g.fill();
