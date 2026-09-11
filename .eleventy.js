@@ -44,6 +44,18 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("localeUrl", (url, lang) =>
     lang === "en" ? `/en${url === "/" ? "/" : url}` : url
   );
+  // A link to an article that may still be a draft. `articles` is already
+  // filtered by draft state, so in a HIDE_DRAFTS build an unpublished slug is
+  // simply absent -- and the row falls back to a page that does exist instead
+  // of shipping a 404. The homepage's launch rows point at announcements dated
+  // days ahead of the build, so without this they break on every production
+  // deploy and work fine locally, which is the worst way for a link to fail.
+  eleventyConfig.addFilter("articleHref", (slug, lang, fallback) => {
+    const live = slug && articles.some((a) => a.slug === slug);
+    const url = live ? `/news/${slug}/` : fallback;
+    return lang === "en" ? `/en${url === "/" ? "/" : url}` : url;
+  });
+
   // the sibling URL in the other language, for the zh | EN switch
   eleventyConfig.addFilter("switchUrl", (url, lang) =>
     lang === "en" ? url.replace(/^\/en/, "") || "/" : `/en${url}`

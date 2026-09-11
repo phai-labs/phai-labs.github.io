@@ -119,7 +119,8 @@ eleventyComputed:
   <ol class="facts">
     {%- for f in t.facts %}
     <li class="rv" style="--k:{{ loop.index0 }}">
-      <a href="{{ t.facts_href[loop.index0] | localeUrl(lang) }}">
+      {%- set fl = t.facts_link[loop.index0] %}
+      <a href="{{ fl.slug | articleHref(lang, fl.fallback) }}">
         <b>{{ f[0] }}</b>
         <span>{{ f[1] }}</span>
         <em>{{ t.facts_cta }} →</em>

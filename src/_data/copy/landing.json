@@ -43,13 +43,22 @@
       ]
     ],
     "foot": "PhAI Labs · 面向真实科学发现的模型与数据基础设施",
-    "facts_href": [
-      "/news/dfm-launch/",
-      "/news/",
-      "/news/scientist-collaboration/"
-    ],
     "facts_cta": "查看详情",
-    "facts_more": "全部新闻动态"
+    "facts_more": "全部新闻动态",
+    "facts_link": [
+      {
+        "slug": "dfm-launch",
+        "fallback": "/tech/"
+      },
+      {
+        "slug": "",
+        "fallback": "/news/"
+      },
+      {
+        "slug": "scientist-collaboration",
+        "fallback": "/collaborate/"
+      }
+    ]
   },
   "en": {
     "nav_site": "Full site",
@@ -95,12 +104,21 @@
       ]
     ],
     "foot": "PhAI Labs · Model and data infrastructure for real scientific discovery",
-    "facts_href": [
-      "/news/dfm-launch/",
-      "/news/",
-      "/news/scientist-collaboration/"
-    ],
     "facts_cta": "Details",
-    "facts_more": "All news"
+    "facts_more": "All news",
+    "facts_link": [
+      {
+        "slug": "dfm-launch",
+        "fallback": "/tech/"
+      },
+      {
+        "slug": "",
+        "fallback": "/news/"
+      },
+      {
+        "slug": "scientist-collaboration",
+        "fallback": "/collaborate/"
+      }
+    ]
   }
 }
