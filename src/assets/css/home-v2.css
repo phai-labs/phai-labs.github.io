@@ -95,16 +95,16 @@
 
 /* ---------------------------------------------------- 2. the loop */
 .mh .loop-sec{padding:clamp(4rem,10vh,6.5rem) var(--pad) clamp(2rem,5vh,3.5rem);text-align:center}
-.mh .loop-sec .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--ink-3);margin-bottom:1rem}
+.mh .loop-sec .eyebrow{font-family:var(--mono);font-size:.92rem;letter-spacing:.2em;color:var(--ink-3);margin-bottom:1rem}
 .mh .display-2{font-family:var(--serif);font-weight:300;letter-spacing:-.015em;line-height:1.3;
-  font-size:clamp(1.4rem,2.5vw,2.2rem);color:var(--ink);max-width:34rem;margin:0 auto}
+  font-size:clamp(1.65rem,3vw,2.6rem);color:var(--ink);max-width:38rem;margin:0 auto}
 
 .mh .ring-wrap{display:grid;grid-template-columns:1fr minmax(360px,clamp(400px,40vw,560px)) 1fr;
   gap:clamp(1.5rem,3vw,3rem);align-items:center;max-width:72rem;margin:clamp(1.2rem,3vh,2.4rem) auto 0}
-.mh .side{text-align:left;color:var(--ink-2);font-size:.92rem;line-height:1.8;max-width:17rem}
+.mh .side{text-align:left;color:var(--ink-2);font-size:1.06rem;line-height:1.8;max-width:19rem}
 .mh .side--l{justify-self:end}
 .mh .side--r{justify-self:start}
-.mh .side__label{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--blue);margin-bottom:.5rem}
+.mh .side__label{font-family:var(--mono);font-size:.84rem;letter-spacing:.14em;color:var(--blue);margin-bottom:.5rem}
 
 .mh .ring{position:relative;width:100%}
 .mh .ring svg{width:100%;height:auto;overflow:visible}
@@ -112,56 +112,24 @@
 .mh .ring__arcs .ring__back{stroke:rgba(210,156,82,.55);stroke-width:1.4}
 .mh .ring__nodes circle{fill:var(--bg);stroke:var(--blue);stroke-width:1.4}
 .mh .ring__nodes .ring__n--a{stroke:var(--amber)}
-.mh .ring__mid text{font-family:var(--serif);font-size:20px;fill:var(--ink);text-anchor:middle;letter-spacing:.01em}
-.mh .ring figcaption{margin-top:-1.2rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;color:rgba(210,156,82,.75)}
-.mh .ring__cap text{font-family:var(--sans);font-size:14px;fill:var(--ink-2);letter-spacing:.01em}
-.mh .ring__k{font-family:var(--mono);font-size:11px;fill:var(--blue);letter-spacing:.08em}
+.mh .ring__mid text{font-family:var(--serif);font-size:25px;fill:var(--ink);text-anchor:middle;letter-spacing:.01em}
+.mh .ring figcaption{margin-top:-1.2rem;font-family:var(--mono);font-size:.82rem;letter-spacing:.12em;color:rgba(210,156,82,.75)}
+.mh .ring__cap text{font-family:var(--sans);font-size:17px;fill:var(--ink-2);letter-spacing:.01em}
+.mh .ring__k{font-family:var(--mono);font-size:13.5px;fill:var(--blue);letter-spacing:.08em}
 .mh .ring__k--a{fill:var(--amber)}
 
-/* the token that circulates 01 -> 05 -> 01; see landing.css for the geometry,
-   the numbers are identical because the figure is */
-.mh .ring{--ring-t:20s;--ring-lead:1.3s}
-.mh .ring__mv{fill:var(--blue-2);opacity:0;offset-rotate:auto}
-.mh .ring__mv--a{fill:var(--amber-2)}
-.mh .ring[data-ring].in .ring__mv{
-  animation:ring-run var(--ring-t) linear infinite;
-  animation-delay:calc(var(--ring-lead) + var(--i) * var(--ring-t) / 5)}
-.mh .ring__mvs path:nth-child(1){--i:0}
-.mh .ring__mvs path:nth-child(2){--i:1}
-.mh .ring__mvs path:nth-child(3){--i:2}
-.mh .ring__mvs path:nth-child(4){--i:3}
-.mh .ring__mvs path:nth-child(5){--i:4}
-.mh .ring[data-ring].in .ring__nodes circle{
-  animation:ring-arrive var(--ring-t) ease-in-out infinite;
-  animation-delay:calc(var(--ring-lead) + var(--i) * var(--ring-t) / 5 - var(--ring-t) * .92)}
-.mh .ring[data-ring].in .ring__nodes .ring__n--a{animation-name:ring-arrive-a}
-.mh .ring__nodes circle:nth-child(1){--i:0}
-.mh .ring__nodes circle:nth-child(2){--i:1}
-.mh .ring__nodes circle:nth-child(3){--i:2}
-.mh .ring__nodes circle:nth-child(4){--i:3}
-.mh .ring__nodes circle:nth-child(5){--i:4}
+/* Every arc flows at once, the way a current does, rather than one token
+   making the round trip. The arcs are already dashed 4 5, so the whole figure
+   is a set of dashes on five paths: slide the dash pattern by exactly one
+   period and the motion is seamless and endless, and because all five share
+   one animation they move together.
 
-/* the keyframes the two rules above name. They live in landing.css as well;
-   without them here animation-name resolves to nothing and the token simply
-   stays at its base opacity:0, which is exactly how this first failed. */
-@keyframes ring-run{
-  0%      {offset-distance:0%;   opacity:0}
-  2.222%  {offset-distance:0%;   opacity:0}
-  4.4%    {offset-distance:14%;  opacity:1}
-  15.6%   {offset-distance:86%;  opacity:1}
-  17.778% {offset-distance:100%; opacity:0}
-  100%    {offset-distance:100%; opacity:0}
-}
-@keyframes ring-arrive{
-  0%,86%{stroke:var(--blue);stroke-width:1.4}
-  92%   {stroke:var(--blue-2);stroke-width:2}
-  100%  {stroke:var(--blue);stroke-width:1.4}
-}
-@keyframes ring-arrive-a{
-  0%,86%{stroke:var(--amber);stroke-width:1.4}
-  92%   {stroke:var(--amber-2);stroke-width:2.1}
-  100%  {stroke:var(--amber);stroke-width:1.4}
-}
+   -9 is the period: stroke-dasharray 4 5. Any other value jumps at the loop.
+   Negative runs the dashes ALONG each path's drawn direction, which is the
+   direction of the cycle -- four arcs clockwise, the amber one returning.
+   The arrowheads stay where they are and keep saying which way is forward. */
+@keyframes ring-flow{to{stroke-dashoffset:-9}}
+.mh .ring[data-ring].in .ring__arcs path{animation:ring-flow 1s linear infinite}
 
 /* ---------------------------------------------------- 3. what is next
    /landing/ set these three at .86rem, which was fine on a page with nothing
@@ -169,9 +137,9 @@
    they are rows you can click through to the story. */
 .mh .nextup{padding:clamp(2rem,5vh,3rem) var(--pad) clamp(3rem,7vh,4.5rem);
   max-width:64rem;margin:0 auto}
-.mh .nextup .eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.2em;color:var(--ink-3);
+.mh .nextup .eyebrow{font-family:var(--mono);font-size:.92rem;letter-spacing:.2em;color:var(--ink-3);
   margin-bottom:1.4rem;display:flex;align-items:baseline;gap:1rem}
-.mh .nextup .eyebrow a{margin-left:auto;font-size:.72rem;letter-spacing:.1em;color:var(--ink-2);
+.mh .nextup .eyebrow a{margin-left:auto;font-size:.86rem;letter-spacing:.1em;color:var(--ink-2);
   border-bottom:1px solid var(--rule);transition:color .25s,border-color .25s}
 .mh .nextup .eyebrow a:hover{color:var(--ink);border-color:var(--ink-3)}
 .mh .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,2.6rem)}
@@ -179,15 +147,15 @@
 .mh .facts a{display:grid;gap:.5rem;padding:1.1rem 0 1.2rem;border-top:1px solid var(--rule);
   text-align:left;transition:border-color .3s}
 .mh .facts a:hover{border-top-color:var(--ink-3)}
-.mh .facts b{font-family:var(--mono);font-weight:400;font-size:1.3rem;letter-spacing:.03em;color:var(--blue);
+.mh .facts b{font-family:var(--mono);font-weight:400;font-size:1.62rem;letter-spacing:.03em;color:var(--blue);
   transition:color .25s}
 .mh .facts li:last-child b{color:var(--amber)}
-.mh .facts span{font-size:1.02rem;line-height:1.6;color:var(--ink-2);transition:color .25s}
+.mh .facts span{font-size:1.18rem;line-height:1.6;color:var(--ink-2);transition:color .25s}
 .mh .facts a:hover b{color:var(--blue-2)}
 .mh .facts li:last-child a:hover b{color:var(--amber-2)}
 .mh .facts a:hover span{color:var(--ink)}
 .mh .facts em{display:block;margin-top:.15rem;font-style:normal;font-family:var(--mono);
-  font-size:.68rem;letter-spacing:.12em;color:var(--ink-4)}
+  font-size:.82rem;letter-spacing:.12em;color:var(--ink-4)}
 
 /* ---------------------------------------------------- entrance
    site.js runs the scroll reveal for everything inside .main; these are only
@@ -233,6 +201,8 @@
 @media(prefers-reduced-motion:reduce){
   .mh .ap,.mh .mask>span{opacity:1!important;transform:none!important;animation:none!important}
   .mh .ring[data-ring] .ring__arcs path,.mh .ring[data-ring] .ring__nodes circle{opacity:1}
-  .mh .ring__mv{display:none}
-  .mh .type__cursor{display:none}
+  /* stop the current outright rather than leaning on the global
+     animation-duration:.01ms, which leaves an infinite animation running */
+  .mh .ring[data-ring].in .ring__arcs path{animation:none;stroke-dashoffset:0}
+    .mh .type__cursor{display:none}
 }
