@@ -49,5 +49,43 @@
       "url": ""
     }
   },
-  "_releases_readme": "Flip live to true on each release day. A project's product/page url is shown only when live; every other link key in links stays a pending row until it has an href."
+  "_releases_readme": "Flip live to true on each release day. A project's product/page url is shown only when live; every other link key in links stays a pending row until it has an href.",
+  "contacts": [
+    {
+      "label": {
+        "zh": "科研与技术合作",
+        "en": "Research & technical collaboration"
+      },
+      "email": "yang@phai-labs.com",
+      "note": {
+        "zh": "联合研究、技术交流、产品技术问题",
+        "en": "Joint research, technical exchange, product and technical questions"
+      }
+    },
+    {
+      "label": {
+        "zh": "商务与产业合作",
+        "en": "Business & industry partnerships"
+      },
+      "email": "wuyc@phai-labs.com",
+      "note": {
+        "zh": "企业合作、商业化、产业资源及客户需求",
+        "en": "Enterprise partnerships, commercialisation, industry resources and customer needs"
+      }
+    },
+    {
+      "label": {
+        "zh": "政府与机构合作",
+        "en": "Government & institutional relations"
+      },
+      "email": "yin@phai-labs.com"
+    },
+    {
+      "label": {
+        "zh": "媒体与品牌合作",
+        "en": "Media & brand"
+      },
+      "email": "social@phai-labs.com"
+    }
+  ]
 }

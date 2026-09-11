@@ -95,11 +95,25 @@
       {%- endfor %}
       <a href="{{ '/investors/' | localeUrl(lang) }}">{{ s.footer_investors }}</a>
     </nav>
+    {#- One inbox was the whole contact column; four named ones need their own
+        grid, or the reader has to guess which address their question belongs to. -#}
     <div class="foot__contact">
-      <span class="foot__label">{{ s.footer_contact }}</span>
-      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-      {%- if site.links.x %}<a href="{{ site.links.x }}" rel="noopener" target="_blank">X</a>{% endif %}
-      {%- if site.links.linkedin %}<a href="{{ site.links.linkedin }}" rel="noopener" target="_blank">LinkedIn</a>{% endif %}
+      <span class="foot__label foot__label--head">{{ s.footer_contact }}</span>
+      <ul class="foot__cs">
+        {%- for c in site.contacts %}
+        <li>
+          <span class="foot__ckind">{{ c.label | t(lang) }}</span>
+          <a href="mailto:{{ c.email }}">{{ c.email }}</a>
+          {%- if c.note %}<span class="foot__cnote">{{ c.note | t(lang) }}</span>{% endif %}
+        </li>
+        {%- endfor %}
+      </ul>
+      {%- if site.links.x or site.links.linkedin %}
+      <p class="foot__social">
+        {%- if site.links.x %}<a href="{{ site.links.x }}" rel="noopener" target="_blank">X</a>{% endif %}
+        {%- if site.links.linkedin %}<a href="{{ site.links.linkedin }}" rel="noopener" target="_blank">LinkedIn</a>{% endif %}
+      </p>
+      {%- endif %}
     </div>
   </div>
   <div class="foot__base">

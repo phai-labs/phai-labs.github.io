@@ -165,7 +165,8 @@ body.drawer-open{overflow:hidden}
 }
 
 .foot{margin-top:var(--sec);border-top:1px solid var(--rule);background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)}
-.foot__inner{width:min(var(--shell),100%);margin:0 auto;padding:clamp(2.5rem,6vh,4rem) var(--pad) 2rem;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2rem}
+/* the contact column carries four named inboxes now, so it takes the room */
+.foot__inner{width:min(var(--shell),100%);margin:0 auto;padding:clamp(2.5rem,6vh,4rem) var(--pad) 2rem;display:grid;grid-template-columns:1.05fr .8fr 2.1fr;gap:2rem}
 .foot__brand{display:grid;gap:1rem;align-content:start}
 .foot__brand .mark{width:22px;height:22px;overflow:visible}
 .foot__logo{display:block;height:44px;width:auto}
@@ -173,6 +174,15 @@ body.drawer-open{overflow:hidden}
 .foot__nav,.foot__contact{display:grid;gap:.45rem;align-content:start;font-size:.9rem;color:var(--ink-2)}
 .foot__nav a:hover,.foot__contact a:hover{color:var(--ink)}
 .foot__label{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+/* Four inboxes, two by two: which address to write to is the reader's first
+   question, so the kind leads and the address follows it. */
+.foot__cs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.15rem 1.8rem;margin-top:.15rem}
+.foot__cs li{display:grid;gap:.2rem;align-content:start;min-width:0}
+.foot__ckind{font-size:.86rem;color:var(--ink);line-height:1.4}
+.foot__cs a{font-size:.86rem;color:var(--ink-2);word-break:break-all;transition:color .25s}
+.foot__cs a:hover{color:var(--ink)}
+.foot__cnote{font-size:.76rem;line-height:1.6;color:var(--ink-3)}
+.foot__social{display:flex;gap:1rem;margin-top:.3rem;font-size:.86rem}
 .foot__base{width:min(var(--shell),100%);margin:0 auto;padding:1.2rem var(--pad) 2.2rem;display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;justify-content:space-between;align-items:center;border-top:1px solid var(--rule-soft);font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--ink-3)}
 .foot__top:hover{color:var(--ink)}
 
@@ -814,6 +824,7 @@ html[lang="zh-CN"] .hero .eyebrow{letter-spacing:.12em}
   .mast__nav,.mast__cta{display:none}
   .mast__menu{display:inline-flex}
   .foot__inner{grid-template-columns:1fr;gap:1.6rem}
+  .foot__cs{grid-template-columns:1fr;gap:1rem}
   .split,.split--figure,.split--project,.split--chapter,.focus,.exchange{grid-template-columns:1fr}
   .focus__aside{padding-left:0;border-left:0;padding-top:1.2rem;border-top:1px solid var(--rule-soft)}
   .principles,.capabilities,.directions,.pillars{grid-template-columns:1fr}
