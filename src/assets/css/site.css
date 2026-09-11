@@ -103,11 +103,11 @@ summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:n
   transition:padding .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease)}
 .is-scrolled .mast{padding-block:.65rem;background:rgba(10,10,11,.74);border-bottom-color:var(--rule-soft);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 .mast__brand{display:inline-flex;align-items:center;gap:.55rem;color:var(--ink)}
-.mast__logo{display:block;height:30px;width:auto}
+.mast__logo{display:block;height:38px;width:auto}
 .mast__brand .mark{width:16px;height:16px;overflow:visible}
 .mast__word{font-weight:600;font-size:1.02rem;letter-spacing:-.01em}
 .mast__word b{font-weight:400;color:var(--ink-2);margin-left:.3em}
-.mast__nav{display:flex;justify-content:center;gap:clamp(1rem,2.2vw,2rem);font-size:.86rem;color:var(--ink-2)}
+.mast__nav{display:flex;justify-content:center;gap:clamp(.9rem,2vw,1.9rem);font-size:.95rem;font-weight:600;color:var(--ink-2)}
 .mast__nav a{position:relative;padding:.35rem 0;transition:color .25s}
 .mast__nav a:hover,.mast__nav a[aria-current="page"]{color:var(--ink)}
 .mast__nav a[aria-current="page"]::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--blue)}
