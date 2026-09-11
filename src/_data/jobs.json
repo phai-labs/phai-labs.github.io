@@ -2,6 +2,53 @@
   "_readme": "One entry per open position. To add a role, copy an entry and edit; set status to closed to hide it without deleting. placeholder: true marks roles that still need confirmation from the lab before publishing -- the page shows them with a 待确认 / TBC mark. Applications go to site.email unless apply_url is set.",
   "positions": [
     {
+      "id": "research-intern-post-training",
+      "status": "open",
+      "apply_url": "mailto:yang@phai-labs.com?subject=AI%20%E7%A0%94%E7%A9%B6%E5%AE%9E%E4%B9%A0%E7%94%9F",
+      "type": {
+        "zh": "实习",
+        "en": "Internship"
+      },
+      "location": {
+        "zh": "北京 · 海淀（北京大学西门）",
+        "en": "Beijing · Haidian (west gate of Peking University)"
+      },
+      "zh": {
+        "title": "AI 研究实习生 · Post-Training 与自我进化",
+        "summary": "面向在读硕博（优秀本科生亦可），参与 LLM / Agent 的后训练与自我进化研究。表现优秀者有机会以第一作者或核心贡献者身份产出顶会成果。日薪 1000–5000 元，特别优秀者面议。",
+        "responsibilities": [
+          "RL Post-Training：面向推理与 Agent 任务的强化学习方法，包括 GRPO、RLHF 等",
+          "Reward / Verifier Modeling：奖励模型、可验证奖励与自我纠错机制",
+          "Agentic Post-Training：Agent 的技能、记忆与工具调用架构",
+          "Self-Evolving Harness：可持续优化的训练与评测系统"
+        ],
+        "requirements": [
+          "重点高校计算机、AI、数学、物理等相关专业在读硕博，优秀本科生亦可",
+          "有强化学习、大模型或 Agent 相关的研究或项目经历",
+          "具备科研热情、自驱力与独立解决问题的能力",
+          "每周到岗不少于 4 天，连续实习不少于 3 个月",
+          "加分项：顶会论文、高质量开源项目，或熟悉 verl / Megatron / DeepSpeed"
+        ]
+      },
+      "en": {
+        "title": "Research Intern · Post-training and self-evolution",
+        "summary": "For master's and doctoral students, and strong undergraduates: post-training and self-evolution research on LLMs and agents. Interns who do well have the chance to publish as first author or core contributor. CNY 1,000-5,000 a day, negotiable for exceptional candidates.",
+        "responsibilities": [
+          "RL post-training: reinforcement learning for reasoning and agent tasks, including GRPO and RLHF",
+          "Reward and verifier modelling: reward models, verifiable rewards, self-correction",
+          "Agentic post-training: skill, memory and tool-use architecture for agents",
+          "Self-evolving harness: training and evaluation systems that keep improving"
+        ],
+        "requirements": [
+          "Master's or doctoral student in CS, AI, mathematics or physics; strong undergraduates welcome",
+          "Research or project experience in reinforcement learning, large models or agents",
+          "Genuine research drive and the ability to work through problems independently",
+          "At least four days a week on site, for at least three consecutive months",
+          "A plus: top-venue papers, substantial open-source work, or familiarity with verl / Megatron / DeepSpeed"
+        ]
+      }
+    },
+    {
       "id": "research-scientist-post-training",
       "status": "open",
       "placeholder": true,
