@@ -56,7 +56,7 @@
       "title": "投递方式",
       "body": "目前没有固定的职位列表。如果上面的方向里有你想做的事，请直接发邮件：说明你想解决的问题、做过的最相关的工作，并附上简历或个人主页、代码仓库或论文链接。",
       "email": "wuyc@phai-labs.com",
-      "note": "职位列表【待确认】：具体职位将在此页持续更新。"
+      "note": "新的职位会在此页更新。方向合适但暂无对应职位，也欢迎直接来信。"
     }
   },
   "en": {
@@ -116,7 +116,7 @@
       "title": "How to apply",
       "body": "There is no fixed list of openings at the moment. If one of the directions above is something you want to work on, write to us directly: say what problem you want to work on and the most relevant work you have done, and attach a CV or profile page, a code repository or papers.",
       "email": "wuyc@phai-labs.com",
-      "note": "Openings [TBC]: specific positions will be listed on this page as they open."
+      "note": "New openings are listed here as they come up. If your direction fits but no position matches, write to us anyway."
     }
   }
 }
