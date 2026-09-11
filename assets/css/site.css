@@ -173,7 +173,10 @@ body.drawer-open{overflow:hidden}
 .foot__line{font-family:var(--serif);font-weight:400;font-size:1.05rem;line-height:1.5;color:var(--ink-2);max-width:24em}
 .foot__nav,.foot__contact{display:grid;gap:.45rem;align-content:start;font-size:.9rem;color:var(--ink-2)}
 .foot__nav a:hover,.foot__contact a:hover{color:var(--ink)}
-.foot__label{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+/* it heads a grid of four groups whose own labels are .86rem in full ink, so
+   at .66rem in --ink-3 the section title was smaller and dimmer than the
+   items under it -- the hierarchy read upside down */
+.foot__label{font-family:var(--mono);font-size:.84rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:.35rem}
 /* Four inboxes, two by two: which address to write to is the reader's first
    question, so the kind leads and the address follows it. */
 .foot__cs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.15rem 1.8rem;margin-top:.15rem}
