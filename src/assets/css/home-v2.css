@@ -1,0 +1,238 @@
+/* PhAI Labs · the minimal hero, on the full site's frame
+   ------------------------------------------------------
+   This is /landing/'s opening — the typed headline, the big orb, the loop
+   figure — lifted onto a page that keeps the real masthead, the real footer
+   and the site's own navigation. It loads AFTER site.css and alongside it.
+
+   Everything is scoped under .mh. That is not tidiness: landing.css defines
+   .btn, .display, .lede, .badge and .eyebrow, and site.css defines all five
+   too. Imported flat, the hero's glass buttons would restyle the masthead CTA
+   and every button further down the page. Scoped, the override stops at the
+   hero and the loop figure.
+
+   Tokens come from site.css, which already defines every one landing.css used
+   except --line.                                                            */
+.mh{--line:rgba(240,238,232,.20)}
+
+/* ---------------------------------------------------- grain
+   A dark page with large flat areas reads as cheap without a little tooth:
+   one tiled SVG of noise, fixed, screen-blended, about 3% opacity. */
+.grain{position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.035;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------------------------------------------------- 1. the stage */
+/* The masthead is fixed and about 75px tall, so unlike /landing/ the stage
+   starts below it rather than at the top of the viewport. */
+.mh .stage{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 var(--pad) clamp(4.5rem,11vh,7rem);isolation:isolate;overflow:hidden}
+.mh .stage__kv{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.mh .stage__orb{position:absolute;inset:0;width:100%;height:100%;display:block}
+/* The scrim sits where the copy is, not across the whole frame: a full-width
+   horizontal band would swallow the near half of the ring, and that half is
+   what carries the depth. */
+.mh .stage__kv::after{content:'';position:absolute;inset:0;
+  background:radial-gradient(78% 64% at 14% 90%,rgba(10,10,11,.95) 0%,rgba(10,10,11,.78) 34%,rgba(10,10,11,.24) 68%,transparent 88%),
+             linear-gradient(180deg,rgba(10,10,11,.55) 0%,transparent 20%,transparent 76%,rgba(10,10,11,.5) 94%,var(--bg) 100%)}
+
+/* /landing/ sets the headline at -.02em, but site.css gives Chinese +.01em
+   (html[lang="zh-CN"] .display, line 205) and that rule is deliberate -- Chinese
+   glyphs need the positive tracking. Keeping it costs width: the first line
+   measures 728px against /landing/'s 704px, which left 8px inside a 46rem box
+   and wrapped to three lines whenever the webfont had not landed yet. The
+   column gets the room instead of the typography losing the argument. */
+.mh .stage__copy{position:relative;max-width:min(52rem,92vw)}
+
+.mh .badge{display:inline-flex;align-items:center;gap:.55rem;margin-bottom:clamp(1rem,2.4vh,1.6rem);
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--ink-2);
+  padding:.42rem .8rem;border:1px solid var(--rule);border-radius:3px;background:rgba(240,238,232,.03)}
+.mh .badge svg{width:14px;height:14px;fill:var(--blue);filter:drop-shadow(0 0 4px rgba(155,167,255,.55));
+  animation:in-star .9s var(--ease) .3s both}
+@keyframes in-star{0%{opacity:0;transform:scale(.2) rotate(-50deg)}65%{opacity:1;transform:scale(1.18) rotate(8deg)}100%{transform:scale(1) rotate(0)}}
+
+.mh .display{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;line-height:1.16;
+  font-size:clamp(2.1rem,5.2vw,4.4rem);color:var(--ink)}
+.mh .mask{display:block;overflow:hidden;padding:.02em .06em .1em}
+.mh .type{font-weight:400;color:var(--blue);position:relative;white-space:nowrap;
+  animation:in-em 1.2s var(--ease) 1.05s both}
+@keyframes in-em{from{opacity:.35;filter:blur(4px)}to{opacity:1;filter:blur(0)}}
+.mh .type__cursor{display:inline-block;width:.5em;height:.94em;margin-left:.06em;background:var(--blue);
+  vertical-align:-.1em;animation:blink 1.05s steps(1,end) infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
+.mh .lede{margin-top:clamp(1rem,2.4vh,1.5rem);max-width:34rem;color:var(--ink-2);
+  font-size:clamp(.95rem,1.12vw,1.08rem);line-height:1.75}
+
+.mh .acts{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:clamp(1.4rem,3vh,2.2rem)}
+.mh .acts .btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;
+  gap:.45rem;height:2.9rem;min-width:0;padding:0 1.2rem;border-radius:5px;font-size:.92rem;letter-spacing:.01em;line-height:1;
+  white-space:nowrap;cursor:pointer;
+  background:linear-gradient(135deg,rgba(240,238,232,.10),rgba(10,10,11,.5) 48%,rgba(155,167,255,.07));
+  border:1px solid rgba(240,238,232,.24);color:var(--ink);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  transition:background .35s,border-color .35s,box-shadow .35s,color .35s}
+.mh .acts .btn::after{content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.32) 48%,transparent 76%);
+  transform:translateX(-130%);transition:transform .65s ease}
+.mh .acts .btn:hover::after{transform:translateX(130%)}
+.mh .acts .btn:hover{border-color:rgba(200,210,255,.62);
+  background:linear-gradient(135deg,rgba(180,192,255,.16),rgba(10,10,11,.38) 46%,rgba(155,167,255,.14));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 0 24px rgba(155,167,255,.22)}
+.mh .acts .btn--go{color:#17130d;font-weight:500;border-color:#d29c52;
+  background:linear-gradient(180deg,#e2b16c 0%,#d29c52 52%,#c08c44 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.42);-webkit-backdrop-filter:none;backdrop-filter:none}
+/* the sweep was tuned against a brown wash; on a clean ground a .5 white
+   specular over an opaque gold pill reads as plastic */
+.mh .acts .btn--go::after{background:linear-gradient(115deg,transparent 22%,rgba(255,255,255,.30) 48%,transparent 74%)}
+.mh .acts .btn--go:hover{color:#17130d;border-color:#eabb78;
+  background:linear-gradient(180deg,#eec081 0%,#e0ae66 52%,#cc9750 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 0 26px rgba(210,156,82,.34)}
+
+.mh .cue{position:absolute;left:50%;bottom:1.5rem;transform:translateX(-50%);
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;color:var(--ink-4)}
+.mh .cue::after{content:'';display:block;width:1px;height:1.5rem;margin:.5rem auto 0;
+  background:linear-gradient(180deg,var(--ink-4),transparent)}
+
+/* ---------------------------------------------------- 2. the loop */
+.mh .loop-sec{padding:clamp(4rem,10vh,6.5rem) var(--pad) clamp(2rem,5vh,3.5rem);text-align:center}
+.mh .loop-sec .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--ink-3);margin-bottom:1rem}
+.mh .display-2{font-family:var(--serif);font-weight:300;letter-spacing:-.015em;line-height:1.3;
+  font-size:clamp(1.4rem,2.5vw,2.2rem);color:var(--ink);max-width:34rem;margin:0 auto}
+
+.mh .ring-wrap{display:grid;grid-template-columns:1fr minmax(360px,clamp(400px,40vw,560px)) 1fr;
+  gap:clamp(1.5rem,3vw,3rem);align-items:center;max-width:72rem;margin:clamp(1.2rem,3vh,2.4rem) auto 0}
+.mh .side{text-align:left;color:var(--ink-2);font-size:.92rem;line-height:1.8;max-width:17rem}
+.mh .side--l{justify-self:end}
+.mh .side--r{justify-self:start}
+.mh .side__label{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--blue);margin-bottom:.5rem}
+
+.mh .ring{position:relative;width:100%}
+.mh .ring svg{width:100%;height:auto;overflow:visible}
+.mh .ring__arcs path{stroke:var(--blue-line);stroke-width:1.2;stroke-dasharray:4 5}
+.mh .ring__arcs .ring__back{stroke:rgba(210,156,82,.55);stroke-width:1.4}
+.mh .ring__nodes circle{fill:var(--bg);stroke:var(--blue);stroke-width:1.4}
+.mh .ring__nodes .ring__n--a{stroke:var(--amber)}
+.mh .ring__mid text{font-family:var(--serif);font-size:20px;fill:var(--ink);text-anchor:middle;letter-spacing:.01em}
+.mh .ring figcaption{margin-top:-1.2rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;color:rgba(210,156,82,.75)}
+.mh .ring__cap text{font-family:var(--sans);font-size:14px;fill:var(--ink-2);letter-spacing:.01em}
+.mh .ring__k{font-family:var(--mono);font-size:11px;fill:var(--blue);letter-spacing:.08em}
+.mh .ring__k--a{fill:var(--amber)}
+
+/* the token that circulates 01 -> 05 -> 01; see landing.css for the geometry,
+   the numbers are identical because the figure is */
+.mh .ring{--ring-t:20s;--ring-lead:1.3s}
+.mh .ring__mv{fill:var(--blue-2);opacity:0;offset-rotate:auto}
+.mh .ring__mv--a{fill:var(--amber-2)}
+.mh .ring[data-ring].in .ring__mv{
+  animation:ring-run var(--ring-t) linear infinite;
+  animation-delay:calc(var(--ring-lead) + var(--i) * var(--ring-t) / 5)}
+.mh .ring__mvs path:nth-child(1){--i:0}
+.mh .ring__mvs path:nth-child(2){--i:1}
+.mh .ring__mvs path:nth-child(3){--i:2}
+.mh .ring__mvs path:nth-child(4){--i:3}
+.mh .ring__mvs path:nth-child(5){--i:4}
+.mh .ring[data-ring].in .ring__nodes circle{
+  animation:ring-arrive var(--ring-t) ease-in-out infinite;
+  animation-delay:calc(var(--ring-lead) + var(--i) * var(--ring-t) / 5 - var(--ring-t) * .92)}
+.mh .ring[data-ring].in .ring__nodes .ring__n--a{animation-name:ring-arrive-a}
+.mh .ring__nodes circle:nth-child(1){--i:0}
+.mh .ring__nodes circle:nth-child(2){--i:1}
+.mh .ring__nodes circle:nth-child(3){--i:2}
+.mh .ring__nodes circle:nth-child(4){--i:3}
+.mh .ring__nodes circle:nth-child(5){--i:4}
+
+/* the keyframes the two rules above name. They live in landing.css as well;
+   without them here animation-name resolves to nothing and the token simply
+   stays at its base opacity:0, which is exactly how this first failed. */
+@keyframes ring-run{
+  0%      {offset-distance:0%;   opacity:0}
+  2.222%  {offset-distance:0%;   opacity:0}
+  4.4%    {offset-distance:14%;  opacity:1}
+  15.6%   {offset-distance:86%;  opacity:1}
+  17.778% {offset-distance:100%; opacity:0}
+  100%    {offset-distance:100%; opacity:0}
+}
+@keyframes ring-arrive{
+  0%,86%{stroke:var(--blue);stroke-width:1.4}
+  92%   {stroke:var(--blue-2);stroke-width:2}
+  100%  {stroke:var(--blue);stroke-width:1.4}
+}
+@keyframes ring-arrive-a{
+  0%,86%{stroke:var(--amber);stroke-width:1.4}
+  92%   {stroke:var(--amber-2);stroke-width:2.1}
+  100%  {stroke:var(--amber);stroke-width:1.4}
+}
+
+/* ---------------------------------------------------- 3. what is next
+   /landing/ set these three at .86rem, which was fine on a page with nothing
+   else on it. Here they are the only place the launch schedule appears, so
+   they are rows you can click through to the story. */
+.mh .nextup{padding:clamp(2rem,5vh,3rem) var(--pad) clamp(3rem,7vh,4.5rem);
+  max-width:64rem;margin:0 auto}
+.mh .nextup .eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.2em;color:var(--ink-3);
+  margin-bottom:1.4rem;display:flex;align-items:baseline;gap:1rem}
+.mh .nextup .eyebrow a{margin-left:auto;font-size:.72rem;letter-spacing:.1em;color:var(--ink-2);
+  border-bottom:1px solid var(--rule);transition:color .25s,border-color .25s}
+.mh .nextup .eyebrow a:hover{color:var(--ink);border-color:var(--ink-3)}
+.mh .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,2.6rem)}
+.mh .facts li{display:block}
+.mh .facts a{display:grid;gap:.5rem;padding:1.1rem 0 1.2rem;border-top:1px solid var(--rule);
+  text-align:left;transition:border-color .3s}
+.mh .facts a:hover{border-top-color:var(--ink-3)}
+.mh .facts b{font-family:var(--mono);font-weight:400;font-size:1.3rem;letter-spacing:.03em;color:var(--blue);
+  transition:color .25s}
+.mh .facts li:last-child b{color:var(--amber)}
+.mh .facts span{font-size:1.02rem;line-height:1.6;color:var(--ink-2);transition:color .25s}
+.mh .facts a:hover b{color:var(--blue-2)}
+.mh .facts li:last-child a:hover b{color:var(--amber-2)}
+.mh .facts a:hover span{color:var(--ink)}
+.mh .facts em{display:block;margin-top:.15rem;font-style:normal;font-family:var(--mono);
+  font-size:.68rem;letter-spacing:.12em;color:var(--ink-4)}
+
+/* ---------------------------------------------------- entrance
+   site.js runs the scroll reveal for everything inside .main; these are only
+   the first-paint animations the hero needs. */
+.mh .ap{opacity:1;animation:ap-soft 1s var(--ease) both;animation-delay:var(--d,.1s)}
+.mh .ap.is-in,.mh .mask>span.is-in{animation:none;opacity:1;transform:none;filter:none}
+.mh .badge.ap{animation-name:ap-pop}
+.mh .acts .btn:first-child.ap{animation-name:ap-rise}
+@keyframes ap-soft{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes ap-pop{0%{opacity:0;transform:scale(.92)}70%{opacity:1;transform:scale(1.02)}100%{transform:scale(1)}}
+@keyframes ap-rise{from{opacity:0;transform:translateY(16px) scale(.95)}to{opacity:1;transform:none}}
+.mh .mask>span{display:inline-block;animation:ap-mask 1.05s var(--ease) both;animation-delay:var(--d,.4s)}
+@keyframes ap-mask{from{opacity:0;transform:translateY(46%)}to{opacity:1;transform:none}}
+
+/* ---------------------------------------------------- responsive */
+@media(min-width:721px) and (max-height:860px){
+  .mh .display{font-size:clamp(1.9rem,4vw,3rem)}
+  .mh .stage{padding-bottom:clamp(3rem,7vh,4.5rem)}
+  .mh .badge{margin-bottom:.8rem}
+  .mh .lede{margin-top:.8rem}
+  .mh .acts{margin-top:1.1rem}
+}
+@media(min-width:721px) and (max-height:720px){
+  .mh .display{font-size:2.4rem}
+  .mh .lede{font-size:.9rem}
+  .mh .cue{display:none}
+}
+@media(max-width:1080px){
+  .mh .ring-wrap{grid-template-columns:1fr;justify-items:center}
+  .mh .side{text-align:left;max-width:32rem;justify-self:center}
+  .mh .side--l{text-align:left;justify-self:center;order:2}
+  .mh .side--r{order:3}
+  .mh .ring{order:1;width:min(420px,86vw);margin-bottom:2.5rem}
+}
+@media(max-width:720px){
+  .mh .stage{padding-bottom:5.5rem}
+  .mh .display{font-size:clamp(1.9rem,8.4vw,2.6rem)}
+  .mh .facts{grid-template-columns:1fr;gap:.4rem}
+  .mh .acts{flex-direction:column;align-items:stretch}
+  .mh .acts .btn{justify-content:center}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .mh .ap,.mh .mask>span{opacity:1!important;transform:none!important;animation:none!important}
+  .mh .ring[data-ring] .ring__arcs path,.mh .ring[data-ring] .ring__nodes circle{opacity:1}
+  .mh .ring__mv{display:none}
+  .mh .type__cursor{display:none}
+}

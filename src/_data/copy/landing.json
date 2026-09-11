@@ -10,7 +10,6 @@
     "cta_primary": "加入科学家合作计划",
     "cta_secondary": "了解 DFM",
     "scroll": "向下",
-
     "loop_eyebrow": "一个闭环，不是一条直线",
     "loop_title_a": "科学发现不是从问题",
     "loop_title_b": "直接走向答案。",
@@ -28,16 +27,30 @@
       "经过验证的新知识"
     ],
     "return_label": "验证结果更新对世界的理解",
-
     "facts_eyebrow": "接下来",
     "facts": [
-      ["9.15", "DFM 技术报告与技术研究版图"],
-      ["9.16 – 9.18", "三个独立工作连续发布"],
-      ["开放中", "DFM 科学家合作计划"]
+      [
+        "9.15",
+        "DFM 技术报告与技术研究版图"
+      ],
+      [
+        "9.16 – 9.18",
+        "三个独立工作连续发布"
+      ],
+      [
+        "开放中",
+        "DFM 科学家合作计划"
+      ]
     ],
-    "foot": "PhAI Labs · 面向真实科学发现的模型与数据基础设施"
+    "foot": "PhAI Labs · 面向真实科学发现的模型与数据基础设施",
+    "facts_href": [
+      "/news/dfm-launch/",
+      "/news/",
+      "/news/scientist-collaboration/"
+    ],
+    "facts_cta": "查看详情",
+    "facts_more": "全部新闻动态"
   },
-
   "en": {
     "nav_site": "Full site",
     "nav_tech": "Tech",
@@ -49,7 +62,6 @@
     "cta_primary": "Join the collaboration program",
     "cta_secondary": "About DFM",
     "scroll": "Scroll",
-
     "loop_eyebrow": "A loop, not a line",
     "loop_title_a": "Discovery does not run",
     "loop_title_b": "from question to answer.",
@@ -67,13 +79,28 @@
       "Validated new knowledge"
     ],
     "return_label": "Validated findings update the world model",
-
     "facts_eyebrow": "What comes next",
     "facts": [
-      ["15 Sept", "DFM technical report and research map"],
-      ["16 – 18 Sept", "Three independent works, one a day"],
-      ["Open", "DFM Scientist Collaboration Program"]
+      [
+        "15 Sept",
+        "DFM technical report and research map"
+      ],
+      [
+        "16 – 18 Sept",
+        "Three independent works, one a day"
+      ],
+      [
+        "Open",
+        "DFM Scientist Collaboration Program"
+      ]
     ],
-    "foot": "PhAI Labs · Model and data infrastructure for real scientific discovery"
+    "foot": "PhAI Labs · Model and data infrastructure for real scientific discovery",
+    "facts_href": [
+      "/news/dfm-launch/",
+      "/news/",
+      "/news/scientist-collaboration/"
+    ],
+    "facts_cta": "Details",
+    "facts_more": "All news"
   }
 }

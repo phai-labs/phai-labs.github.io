@@ -3,7 +3,7 @@
    size the body without a second script. Loaded on every page; costs one failed
    querySelector where there is no hero. */
 (() => {
-  const cv = document.querySelector('.hero__kv canvas[data-orb]');
+  const cv = document.querySelector('.hero__kv canvas[data-orb], .stage__kv canvas[data-orb]');
   if (!cv || !window.PhAIOrb) return;
   let cfg = {};
   try { cfg = JSON.parse(cv.dataset.cfg || '{}'); } catch (e) { /* keep the defaults */ }

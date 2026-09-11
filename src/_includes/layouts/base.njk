@@ -36,6 +36,9 @@
 <link rel="preload" href="/assets/fonts/IBMPlexSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
   {% if lang == 'zh' %}<link rel="preload" href="/assets/fonts/NotoSerifSC-Display.woff2" as="font" type="font/woff2" crossorigin>{% endif %}
 <link rel="stylesheet" href="/assets/css/site.css">
+{%- if heroMinimal %}
+<link rel="stylesheet" href="/assets/css/home-v2.css">
+{%- endif %}
 <link rel="stylesheet" href="/assets/css/pulse.css">
 {%- block head %}{% endblock %}
 </head>
@@ -108,6 +111,9 @@
 {%- if heroKv %}
 <script src="/assets/js/orb.js" defer></script>
 <script src="/assets/js/hero-orb.js" defer></script>
+{%- if heroMinimal %}
+<script src="/assets/js/landing.js" defer></script>
+{%- endif %}
 {%- endif %}
 {%- block scripts %}{% endblock %}
 </body>
