@@ -108,9 +108,13 @@
 
 .mh .ring{position:relative;width:100%}
 .mh .ring svg{width:100%;height:auto;overflow:visible}
-.mh .ring__arcs path{stroke:var(--blue-line);stroke-width:1.2;stroke-dasharray:4 5}
-.mh .ring__arcs .ring__back{stroke:rgba(210,156,82,.55);stroke-width:1.4}
-.mh .ring__nodes circle{fill:var(--bg);stroke:var(--blue);stroke-width:1.4}
+/* The dash pattern has to grow with the stroke. stroke-linecap:round adds
+   half the width at each end of every dash, so at width 2 a "4 5" pattern
+   renders as a 6-long dash over a 3-long gap and the line reads almost solid.
+   5 7 at width 2 renders 7 over 5, which keeps the rhythm visible. */
+.mh .ring__arcs path{stroke:var(--blue-line);stroke-width:2;stroke-dasharray:5 7}
+.mh .ring__arcs .ring__back{stroke:rgba(210,156,82,.62);stroke-width:2.2}
+.mh .ring__nodes circle{fill:var(--bg);stroke:var(--blue);stroke-width:1.9}
 .mh .ring__nodes .ring__n--a{stroke:var(--amber)}
 .mh .ring__mid text{font-family:var(--serif);font-size:25px;fill:var(--ink);text-anchor:middle;letter-spacing:.01em}
 .mh .ring figcaption{margin-top:-1.2rem;font-family:var(--mono);font-size:.82rem;letter-spacing:.12em;color:rgba(210,156,82,.75)}
@@ -124,12 +128,12 @@
    period and the motion is seamless and endless, and because all five share
    one animation they move together.
 
-   -9 is the period: stroke-dasharray 4 5. Any other value jumps at the loop.
+   -12 is the period: stroke-dasharray 5 7. Any other value jumps at the loop.
    Negative runs the dashes ALONG each path's drawn direction, which is the
    direction of the cycle -- four arcs clockwise, the amber one returning.
    The arrowheads stay where they are and keep saying which way is forward. */
-@keyframes ring-flow{to{stroke-dashoffset:-9}}
-.mh .ring[data-ring].in .ring__arcs path{animation:ring-flow 1s linear infinite}
+@keyframes ring-flow{to{stroke-dashoffset:-12}}
+.mh .ring[data-ring].in .ring__arcs path{animation:ring-flow .5s linear infinite}
 
 /* ---------------------------------------------------- 3. what is next
    /landing/ set these three at .86rem, which was fine on a page with nothing

@@ -17,6 +17,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ fullTitle }}</title>
 <meta name="description" content="{{ description or s.site_tagline }}">
+{%- if noindex %}
+<meta name="robots" content="noindex">
+{%- endif %}
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 <link rel="alternate" hreflang="zh-CN" href="{{ site.url }}{{ (page.url | switchUrl(lang)) if lang == 'en' else page.url }}">
 <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url if lang == 'en' else (page.url | switchUrl(lang)) }}">

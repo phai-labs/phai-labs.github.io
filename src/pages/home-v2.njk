@@ -3,7 +3,7 @@ pagination:
   data: langs
   size: 1
   alias: lang
-permalink: "{{ '/home-v2/' | localeUrl(lang) }}index.html"
+permalink: "{{ '/' | localeUrl(lang) }}index.html"
 layout: layouts/base.njk
 pageKey: home
 heroKv: true
@@ -16,7 +16,7 @@ eleventyComputed:
 {%- set h = copy.home[lang] -%}
 {%- set s = i18n[lang] -%}
 
-{#- A trial merge: /landing/'s opening on the full site's frame. The masthead,
+{#- The homepage: /landing/'s opening on the full site's frame. The masthead,
     the footer, the navigation and the scroll reveal all come from base.njk and
     site.js, so this page is part of the site rather than a satellite of it.
     Everything below is scoped under .mh -- see assets/css/home-v2.css. -#}

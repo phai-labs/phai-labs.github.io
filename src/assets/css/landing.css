@@ -157,9 +157,9 @@ ol,ul{list-style:none}
 
 .ring{position:relative;width:100%}
 .ring svg{width:100%;height:auto;overflow:visible}
-.ring__arcs path{stroke:var(--blue-line);stroke-width:1.2;stroke-dasharray:4 5}
-.ring__arcs .ring__back{stroke:rgba(210,156,82,.55);stroke-width:1.4}
-.ring__nodes circle{fill:var(--bg);stroke:var(--blue);stroke-width:1.4}
+.ring__arcs path{stroke:var(--blue-line);stroke-width:2;stroke-dasharray:5 7}
+.ring__arcs .ring__back{stroke:rgba(210,156,82,.62);stroke-width:2.2}
+.ring__nodes circle{fill:var(--bg);stroke:var(--blue);stroke-width:1.9}
 .ring__nodes .ring__n--a{stroke:var(--amber)}
 .ring__mid text{font-family:var(--serif);font-size:20px;fill:var(--ink);text-anchor:middle;letter-spacing:.01em}
 .ring figcaption{margin-top:-1.2rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;color:rgba(210,156,82,.75)}
@@ -198,7 +198,7 @@ ol,ul{list-style:none}
   transition-delay:calc(var(--k,0) * .09s)}
 .rv.in{opacity:1;transform:none}
 
-.ring__arcs path{stroke-dasharray:4 5;stroke-dashoffset:0}
+.ring__arcs path{stroke-dasharray:5 7;stroke-dashoffset:0}
 .ring[data-ring] .ring__arcs path{opacity:0;transition:opacity .8s var(--ease)}
 .ring[data-ring].in .ring__arcs path{opacity:1}
 .ring[data-ring] .ring__arcs path:nth-child(2){transition-delay:.12s}
@@ -215,12 +215,12 @@ ol,ul{list-style:none}
    motion is seamless and endless, and because all five share one animation
    they move together.
 
-   -9 is the period: stroke-dasharray 4 5. Any other value jumps at the loop.
+   -12 is the period: stroke-dasharray 5 7. Any other value jumps at the loop.
    Negative runs the dashes ALONG each path's drawn direction, which is the
    direction of the cycle -- four arcs clockwise, the amber one returning. The
    arrowheads stay put and keep saying which way is forward. */
-@keyframes ring-flow{to{stroke-dashoffset:-9}}
-.ring[data-ring].in .ring__arcs path{animation:ring-flow 1s linear infinite}
+@keyframes ring-flow{to{stroke-dashoffset:-12}}
+.ring[data-ring].in .ring__arcs path{animation:ring-flow .5s linear infinite}
 
 /* ---------------------------------------------------- responsive */
 @media(min-width:721px) and (max-height:860px){
