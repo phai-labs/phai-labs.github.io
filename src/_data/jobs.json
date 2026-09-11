@@ -14,8 +14,8 @@
         "en": "Beijing · Haidian (west gate of Peking University)"
       },
       "zh": {
-        "title": "AI 研究实习生 · Post-Training 与自我进化",
-        "summary": "面向在读硕博（优秀本科生亦可），参与 LLM / Agent 的后训练与自我进化研究。表现优秀者有机会以第一作者或核心贡献者身份产出顶会成果。日薪 1000–5000 元，特别优秀者面议。",
+        "title": "AI 研究实习生 · Post-training 与 Self-evolving",
+        "summary": "面向在读硕博（优秀本科生亦可），参与 LLM / Agent 的 Post-training 与 Self-evolving 算法研究。表现优秀者有机会以第一作者或核心贡献者身份产出顶会成果。日薪 1000–5000 元，特别优秀者面议。",
         "responsibilities": [
           "RL Post-Training：面向推理与 Agent 任务的强化学习方法，包括 GRPO、RLHF 等",
           "Reward / Verifier Modeling：奖励模型、可验证奖励与自我纠错机制",
