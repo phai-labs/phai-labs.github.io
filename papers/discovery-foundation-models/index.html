@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discovery Foundation Models: Toward Open-Ended Discovery Intelligence — PhAI Labs</title>
+<meta name="description" content="把「发现」本身定义为可训练、可执行、可评估的能力：DFM 在一个可修订的研究状态上运行，覆盖从问题发现到证据驱动修正的七项耦合能力。">
+<link rel="canonical" href="https://phai-labs.com/papers/discovery-foundation-models/">
+<link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/discovery-foundation-models/">
+<link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/discovery-foundation-models/">
+<link rel="alternate" hreflang="x-default" href="https://phai-labs.com/papers/discovery-foundation-models/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PhAI Labs">
+<meta property="og:title" content="Discovery Foundation Models: Toward Open-Ended Discovery Intelligence — PhAI Labs">
+<meta property="og:description" content="把「发现」本身定义为可训练、可执行、可评估的能力：DFM 在一个可修订的研究状态上运行，覆盖从问题发现到证据驱动修正的七项耦合能力。">
+<meta property="og:url" content="https://phai-labs.com/papers/discovery-foundation-models/">
+<meta property="og:image" content="https://phai-labs.com/assets/img/kv-static.webp">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image"><meta name="citation_title" content="Discovery Foundation Models: Toward Open-Ended Discovery Intelligence">
+<meta name="citation_author" content="Yang, Ling">
+<meta name="citation_author" content="Yin, Zhenfei">
+<meta name="citation_author" content="Wu, Yingcheng">
+<meta name="citation_publication_date" content="2026/09/06">
+<meta name="citation_technical_report_institution" content="PhAI Labs">
+<meta name="citation_technical_report_number" content="PHAI-TR-2026-01">
+<meta name="citation_abstract_html_url" content="https://phai-labs.com/papers/discovery-foundation-models/">
+<meta name="citation_language" content="en">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preload" href="/assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/IBMPlexSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/NotoSerifSC-Display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/papers.css">
+<link rel="stylesheet" href="/assets/css/pulse.css">
+</head>
+<body class="page-papers">
+<a class="skip" href="#main">跳到正文</a>
+<div class="progress" aria-hidden="true"><i></i></div><div class="rails" aria-hidden="true">
+  <div class="rail rail--l"><i></i><b>+</b><i></i><b>+</b><i></i></div>
+  <div class="rail rail--r"><i></i><b>+</b><i></i><b>+</b><i></i></div>
+</div>
+
+<header class="mast" data-mast>
+  <a class="mast__brand" href="/" aria-label="PhAI Labs">
+    <img class="mast__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="PhAI Labs">
+  </a>
+  <nav class="mast__nav" aria-label="主导航" data-nav>
+    <a href="/tech/">技术</a>
+    <a href="/papers/" aria-current="page">论文</a>
+    <a href="/news/">新闻动态</a>
+    <a href="/about/">关于我们</a>
+    <a href="/team/">团队</a>
+    <a href="/careers/">加入我们</a>
+    <a href="/collaborate/">合作</a>
+  </nav>
+  <div class="mast__tools">
+    <a class="mast__lang" href="/en/papers/discovery-foundation-models/" hreflang="en" aria-label="Switch to English">EN</a>
+    <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请<span aria-hidden="true">↗</span></a>
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
+      <span class="mast__menu-label">菜单</span><i></i><i></i>
+    </button>
+  </div>
+</header>
+<nav class="drawer" id="mobile-nav" aria-label="移动端导航" data-drawer hidden>
+  <a href="/tech/">技术</a>
+  <a href="/papers/" aria-current="page">论文</a>
+  <a href="/news/">新闻动态</a>
+  <a href="/about/">关于我们</a>
+  <a href="/team/">团队</a>
+  <a href="/careers/">加入我们</a>
+  <a href="/collaborate/">合作</a>
+  <a class="drawer__lang" href="/en/papers/discovery-foundation-models/">EN</a>
+  <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请 ↗</a>
+</nav>
+
+<main id="main" class="main" data-field="off">
+<article class="paper" id="top">
+  <header class="shell paper__head">
+    <p class="paper__date"><time datetime="2026-09-06">2026-09-06</time></p>
+    <h1 class="display paper__title">Discovery Foundation Models: Toward Open-Ended Discovery Intelligence</h1>
+
+    <div class="paper__acts">
+      <div class="paper__btns">
+        <span class="btn btn--wait">下载 PDF<small>9 月 15 日发布</small></span>
+        <a class="btn" href="#cite">引用</a>
+      </div>
+
+      <nav class="paper__pager" aria-label="全部论文">
+      </nav>
+    </div>
+  </header>
+
+  <div class="shell paper__rows">
+    <section class="paper__row">
+      <h2 class="paper__label">摘要</h2>
+      <div class="paper__val paper__val--abs"><p>Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, tool use, and outcome feedback. We argue that the next frontier is a further transition: from solving and acting within problems specified by humans to participating in the process by which new problems, representations, explanations, and knowledge are created. We refer to this capability as Discovery Intelligence. We formulate Discovery Foundation Models (DFMs) as general-purpose model systems for open-ended discovery. A DFM operates over a revisable research state and supports seven coupled capabilities spanning problem discovery, formulation, representation construction, hypothesis formation, intervention, evidence-grounded revision, and continual discovery improvement. We instantiate this framework with Zetema, which couples explicit research-state dynamics, verification and experimental gating, external grounding, and cross-task Discovery Skill evolution. We further ground the framework with GALILEO, a real therapeutic-discovery system in which Dry-Lab reasoning, robotic and hands-on Wet-Lab experimentation, external biological evidence, and iterative hypothesis and design revision form a closed physical discovery loop. We then formulate a unified approach to capability formation and process-centered evaluation, enabling discovery behavior to be trained, improved, and measured beyond final-answer performance. Together, these components establish discovery as a learnable, executable, and evaluable capability of foundation-model systems. We view this shift as a broader progression in intelligence scaling: from learning over existing knowledge, to learning from action outcomes, and ultimately to participating in the construction, testing, and revision of the structures through which new knowledge is discovered.</p></div>
+    </section>
+
+    <section class="paper__row">
+      <h2 class="paper__label">作者</h2>
+      <div class="paper__val">
+        <p class="paper__authors">Ling Yang*, Zhenfei Yin*, Yingcheng Wu*</p><p class="paper__note">* 共同一作</p>
+      </div>
+    </section>
+
+    <section class="paper__row">
+      <h2 class="paper__label">期刊/会议</h2>
+      <div class="paper__val">
+        <p class="paper__authors">arXiv</p>
+      </div>
+    </section>
+
+    <section class="paper__row" id="cite">
+      <h2 class="paper__label">引用</h2>
+      <div class="paper__val">
+        <div class="cite" data-copy>
+          <p class="cite__cap">BibTeX</p>
+          <pre class="cite__text cite__text--bib" data-copy-src>@techreport{yang2026dfm,
+  title       = {Discovery Foundation Models: Toward Open-Ended Discovery Intelligence},
+  author      = {Yang, Ling and Yin, Zhenfei and Wu, Yingcheng},
+  institution = {PhAI Labs},
+  type        = {Technical Report},
+  number      = {PHAI-TR-2026-01},
+  year        = {2026},
+  url         = {https://phai-labs.com/papers/discovery-foundation-models/},
+  note        = {Version v1. Equal contribution: Ling Yang, Zhenfei Yin, Yingcheng Wu}
+}</pre>
+          <button class="cite__btn" type="button" data-copy-btn data-done="已复制">复制</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <p class="shell paper__back"><a href="/papers/">← 全部论文</a></p>
+</article>
+
+</main>
+
+<footer class="foot" data-reveal-scope>
+  <div class="foot__inner">
+    <div class="foot__brand">
+      <img class="foot__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="PhAI Labs" loading="lazy">
+      <p class="foot__line">面向真实科学发现的模型与数据基础设施</p>
+    </div>
+    <nav class="foot__nav" aria-label="页脚导航">
+      <a href="/tech/">技术</a>
+      <a href="/papers/">论文</a>
+      <a href="/news/">新闻动态</a>
+      <a href="/about/">关于我们</a>
+      <a href="/team/">团队</a>
+      <a href="/careers/">加入我们</a>
+      <a href="/collaborate/">合作</a>
+      <a href="/investors/">投资者关系</a>
+    </nav><div class="foot__contact">
+      <span class="foot__label">联系</span>
+      <ul class="foot__cs">
+        <li>
+          <span class="foot__ckind">科研与技术合作</span>
+          <a href="mailto:yang@phai-labs.com">yang@phai-labs.com</a><span class="foot__cnote">联合研究、技术交流、产品技术问题</span>
+        </li>
+        <li>
+          <span class="foot__ckind">商务与产业合作</span>
+          <a href="mailto:wuyc@phai-labs.com">wuyc@phai-labs.com</a><span class="foot__cnote">企业合作、商业化、产业资源及客户需求</span>
+        </li>
+        <li>
+          <span class="foot__ckind">政府与机构合作</span>
+          <a href="mailto:yin@phai-labs.com">yin@phai-labs.com</a>
+        </li>
+        <li>
+          <span class="foot__ckind">媒体与品牌合作</span>
+          <a href="mailto:social@phai-labs.com">social@phai-labs.com</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot__base">
+    <span>© 2026 PhAI Labs. 保留所有权利。</span>
+    <span class="foot__domain"><svg class="pulse" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle class="d00" cx="1.0" cy="1.0" r="1"/><circle class="d01" cx="4.5" cy="1.0" r="1"/><circle class="d02" cx="8.0" cy="1.0" r="1"/><circle class="d03" cx="11.5" cy="1.0" r="1"/><circle class="d04" cx="15.0" cy="1.0" r="1"/><circle class="d10" cx="1.0" cy="4.5" r="1"/><circle class="d11" cx="4.5" cy="4.5" r="1"/><circle class="d12" cx="8.0" cy="4.5" r="1"/><circle class="d13" cx="11.5" cy="4.5" r="1"/><circle class="d14" cx="15.0" cy="4.5" r="1"/><circle class="d20" cx="1.0" cy="8.0" r="1"/><circle class="d21" cx="4.5" cy="8.0" r="1"/><circle class="d22 amber" cx="8.0" cy="8.0" r="1"/><circle class="d23" cx="11.5" cy="8.0" r="1"/><circle class="d24" cx="15.0" cy="8.0" r="1"/><circle class="d30" cx="1.0" cy="11.5" r="1"/><circle class="d31" cx="4.5" cy="11.5" r="1"/><circle class="d32" cx="8.0" cy="11.5" r="1"/><circle class="d33" cx="11.5" cy="11.5" r="1"/><circle class="d34" cx="15.0" cy="11.5" r="1"/><circle class="d40" cx="1.0" cy="15.0" r="1"/><circle class="d41" cx="4.5" cy="15.0" r="1"/><circle class="d42" cx="8.0" cy="15.0" r="1"/><circle class="d43" cx="11.5" cy="15.0" r="1"/><circle class="d44" cx="15.0" cy="15.0" r="1"/></svg>
+phai-labs.com</span>
+    <a class="foot__top" href="#top">返回顶部 ↑</a>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/field.js" defer></script>
+<script src="/assets/js/paper.js" defer></script>
+</body>
+</html>
