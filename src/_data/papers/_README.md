@@ -1,13 +1,18 @@
 # Publications
 
-One JSON per paper. The file name does not matter; `slug` is the URL.
+One JSON per paper. The file name does not matter; `slug` is the URL, and it
+is the single source of every generated reference to the page -- canonical,
+hreflang, og:url, sitemap, citation_abstract_html_url and the BibTeX `url`
+all derive from it, so renaming a paper means editing exactly one string.
+Keep slugs short (`dfm`, not `discovery-foundation-models`): the URL gets
+printed on slides and in PDFs.
 `.eleventy.js` loads this directory into the `publications` global (newest first)
 and builds `/papers/<slug>/` in both languages from it.
 
 ## Adding a paper
 
 1. Drop `<slug>.json` here.
-2. Drop the PDF next to the page, at `src/pages/papers/<slug>/<file>.pdf`, and put
+2. Drop the PDF next to the page, at `src/papers/<slug>/<file>.pdf`, and put
    that bare file name in `pdf`. It must sit in the same directory as the landing
    page: Google Scholar requires `citation_pdf_url` to point at a file in the same
    subdirectory as the HTML abstract, so `/assets/` is the wrong place.
