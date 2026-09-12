@@ -1,0 +1,58 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "{{ '/papers/' | localeUrl(lang) }}index.html"
+layout: layouts/base.njk
+pageKey: papers
+papersCss: true
+eleventyComputed:
+  title: "{{ i18n[lang].nav | navLabel('papers') }}"
+  description: "{{ i18n[lang].pub_lede }}"
+---
+{%- set s = i18n[lang] -%}
+
+{#- The archive. ByteDance Seed's /public_papers shape -- one row per paper,
+    date in the left column, title + collapsed abstract + venue on the right --
+    in this site's type and palette. No search box and no facets: Seed needs
+    three dropdowns for 242 papers, DeepMind ships none for 263, and a filter
+    bar over a handful of entries reads as broken furniture. -#}
+<section class="hero hero--page" id="top">
+  <div class="shell">
+    <p class="eyebrow">{{ s.nav | navLabel('papers') }}</p>
+    <h1 class="display">{{ s.pub_headline }}</h1>
+    <p class="lede">{{ s.pub_lede }}</p>
+  </div>
+</section>
+
+<section class="sec sec--pubs" data-field="calm">
+  <div class="shell">
+    {%- if publications.length %}
+    <ol class="pubs">
+      {%- for p in publications %}
+      {%- set r = site.releases[p.release_key] if p.release_key and site.releases[p.release_key] else null %}
+      <li class="pub rv" style="--k:{{ loop.index0 }}">
+        <p class="pub__meta">
+          <time datetime="{{ p.date }}">{{ p.date | fmtDate(lang) }}</time>
+          {%- if p.topic %}<span class="pub__topic">{{ p.topic }}</span>{% endif %}
+        </p>
+        <div class="pub__body">
+          <h2 class="pub__title"><a href="{{ p.slug | paperUrl(lang) }}">{{ p.title }}</a></h2>
+          <p class="pub__authors">{{ p.authors | authorLine }}</p>
+          <p class="pub__abs">{{ p.abstract }}</p>
+          <p class="pub__foot">
+            <span class="pub__venue">{{ p | venueLabel }}</span>
+            {%- if r and not r.live %}<span class="pub__pending">{{ r.date | releaseLabel(lang) }}</span>{% endif %}
+          </p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+    <p class="pubs__count">{{ s.pub_count | replace("{n}", publications.length) }}</p>
+    {%- else %}
+    <p class="lede">{{ s.pub_empty }}</p>
+    {%- endif %}
+  </div>
+</section>

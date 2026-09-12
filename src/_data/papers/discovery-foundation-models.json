@@ -1,0 +1,51 @@
+{
+  "slug": "discovery-foundation-models",
+  "status": "published",
+  "date": "2026-09-06",
+  "title": "Discovery Foundation Models: Toward Open-Ended Discovery Intelligence",
+  "authors": [
+    {
+      "name": "Ling Yang",
+      "sort": "Yang, Ling",
+      "equal": true
+    },
+    {
+      "name": "Zhenfei Yin",
+      "sort": "Yin, Zhenfei",
+      "equal": true
+    },
+    {
+      "name": "Yingcheng Wu",
+      "sort": "Wu, Yingcheng",
+      "equal": true
+    }
+  ],
+  "venue": "",
+  "type": "technical-report",
+  "number": "PHAI-TR-2026-01",
+  "version": "v1",
+  "topic": "Foundation Models",
+  "bibkey": "yang2026dfm",
+  "abstract": "Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, tool use, and outcome feedback. We argue that the next frontier is a further transition: from solving and acting within problems specified by humans to participating in the process by which new problems, representations, explanations, and knowledge are created. We refer to this capability as Discovery Intelligence. We formulate Discovery Foundation Models (DFMs) as general-purpose model systems for open-ended discovery. A DFM operates over a revisable research state and supports seven coupled capabilities spanning problem discovery, formulation, representation construction, hypothesis formation, intervention, evidence-grounded revision, and continual discovery improvement. We instantiate this framework with Zetema, which couples explicit research-state dynamics, verification and experimental gating, external grounding, and cross-task Discovery Skill evolution. We further ground the framework with GALILEO, a real therapeutic-discovery system in which Dry-Lab reasoning, robotic and hands-on Wet-Lab experimentation, external biological evidence, and iterative hypothesis and design revision form a closed physical discovery loop. We then formulate a unified approach to capability formation and process-centered evaluation, enabling discovery behavior to be trained, improved, and measured beyond final-answer performance. Together, these components establish discovery as a learnable, executable, and evaluable capability of foundation-model systems. We view this shift as a broader progression in intelligence scaling: from learning over existing knowledge, to learning from action outcomes, and ultimately to participating in the construction, testing, and revision of the structures through which new knowledge is discovered.",
+  "pdf": "",
+  "release_key": "dfm",
+  "arxiv": "",
+  "version_doi": "",
+  "concept_doi": "",
+  "license": "",
+  "zh": {
+    "summary": "把「发现」本身定义为可训练、可执行、可评估的能力：DFM 在一个可修订的研究状态上运行，覆盖从问题发现到证据驱动修正的七项耦合能力。"
+  },
+  "en": {
+    "summary": "Defines discovery itself as a learnable, executable and evaluable capability: a DFM operates over a revisable research state spanning seven coupled capabilities, from problem discovery to evidence-grounded revision."
+  },
+  "links": {
+    "github": "",
+    "huggingface_model": "",
+    "huggingface_data": "",
+    "project": "",
+    "demo": "",
+    "video": "",
+    "x": ""
+  }
+}

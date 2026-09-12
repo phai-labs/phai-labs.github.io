@@ -9,18 +9,32 @@ import { join } from "node:path";
 
 const LANGS = ["zh", "en"];
 const NEWS_DIR = join(process.cwd(), "src", "_data", "news");
+const PAPERS_DIR = join(process.cwd(), "src", "_data", "papers");
+
+const loadDir = (dir) =>
+  readdirSync(dir)
+    .filter((f) => f.endsWith(".json"))
+    .map((f) => JSON.parse(readFileSync(join(dir, f), "utf8")))
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
 
 function loadArticles() {
-  return readdirSync(NEWS_DIR)
-    .filter((f) => f.endsWith(".json"))
-    .map((f) => JSON.parse(readFileSync(join(NEWS_DIR, f), "utf8")))
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  return loadDir(NEWS_DIR);
+}
+// "hidden" drops the entry from the build entirely -- no page, no row, no
+// sitemap line. That is the setting for work that is recorded but must not be
+// rendered yet; hiding it in CSS or filtering it in the browser would not.
+function loadPapers() {
+  return loadDir(PAPERS_DIR).filter((p) => p.status !== "hidden");
 }
 
 export default function (eleventyConfig) {
   // -- static passthrough --------------------------------------------------
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
+  // Paper PDFs live beside their landing page, not under /assets/: Google
+  // Scholar requires citation_pdf_url to name a file in the same subdirectory
+  // as the HTML abstract.
+  eleventyConfig.addPassthroughCopy({ "src/papers": "papers" });
   eleventyConfig.addPassthroughCopy({ "src/assets/img/favicon.png": "favicon.png" });
 
   // -- global data ---------------------------------------------------------
@@ -39,6 +53,24 @@ export default function (eleventyConfig) {
     LANGS.flatMap((lang) => articles.map((article) => ({ lang, article })))
   );
 
+  // Publications. The global is `publications`, not `papers`: Eleventy already
+  // loads src/_data/papers/ into a `papers` object keyed by file name, and two
+  // things under one name is how a silent wrong answer happens.
+  // prev/next are baked in here so the detail page can carry Seed's
+  // "< Previous / Next >" pager without looking the neighbours up in Nunjucks.
+  const publications = loadPapers().filter((p) => showDrafts || p.status !== "draft");
+  eleventyConfig.addGlobalData("publications", publications);
+  eleventyConfig.addGlobalData("publicationPages", () =>
+    LANGS.flatMap((lang) =>
+      publications.map((paper, i) => ({
+        lang,
+        paper,
+        prev: publications[i - 1] || null,
+        next: publications[i + 1] || null,
+      }))
+    )
+  );
+
   // -- filters -------------------------------------------------------------
   // "/tech/" -> "/tech/" for zh, "/en/tech/" for en
   eleventyConfig.addFilter("localeUrl", (url, lang) =>
@@ -54,6 +86,61 @@ export default function (eleventyConfig) {
     const live = slug && articles.some((a) => a.slug === slug);
     const url = live ? `/news/${slug}/` : fallback;
     return lang === "en" ? `/en${url === "/" ? "/" : url}` : url;
+  });
+
+  // -- publications ---------------------------------------------------------
+  // Nav labels by key. The nav array used to be read positionally
+  // (s.nav[1], s.nav[3], s.nav[4]) in four templates, which meant inserting an
+  // entry anywhere but the end silently relabelled News, Team and About.
+  eleventyConfig.addFilter("navLabel", (nav, key) => {
+    const item = (nav || []).find((n) => n.key === key);
+    return item ? item.label : "";
+  });
+
+  // "Ling Yang*, Zhenfei Yin*, Yingcheng Wu*"
+  const authorNames = (authors, star = true) =>
+    (authors || []).map((a) => a.name + (star && a.equal ? "*" : "")).join(", ");
+  eleventyConfig.addFilter("authorLine", (authors) => authorNames(authors));
+  eleventyConfig.addFilter("equalNames", (authors) =>
+    (authors || []).filter((a) => a.equal).map((a) => a.name).join(", ")
+  );
+  eleventyConfig.addFilter("hasEqual", (authors) => (authors || []).some((a) => a.equal));
+  // Scholar wants the surname first and one tag per author.
+  eleventyConfig.addFilter("authorSort", (a) => a.sort || a.name);
+  eleventyConfig.addFilter("scholarDate", (iso) => iso.replace(/-/g, "/"));
+  eleventyConfig.addFilter("year", (iso) => iso.slice(0, 4));
+  eleventyConfig.addFilter("paperUrl", (slug, lang) =>
+    lang === "en" ? `/en/papers/${slug}/` : `/papers/${slug}/`
+  );
+
+  // The venue row. A paper that has not been accepted anywhere still has a
+  // home, and for this lab that home is arXiv -- so an empty `venue` reads
+  // "arXiv" rather than leaving the row blank or inventing a status. Fill
+  // `venue` only when there is a real one ("NeurIPS 2026", "Nature").
+  eleventyConfig.addFilter("venueLabel", (p) =>
+    p.venue && p.venue.trim() ? p.venue.trim() : "arXiv"
+  );
+
+  eleventyConfig.addFilter("bibtex", (p, baseUrl) => {
+    const rows = [
+      ["title", `{${p.title}}`],
+      ["author", `{${(p.authors || []).map((a) => a.sort || a.name).join(" and ")}}`],
+      ["institution", "{PhAI Labs}"],
+      ["type", "{Technical Report}"],
+      p.number ? ["number", `{${p.number}}`] : null,
+      ["year", `{${p.date.slice(0, 4)}}`],
+    ].filter(Boolean);
+    if (p.version_doi) rows.push(["doi", `{${p.version_doi}}`]);
+    if (p.arxiv) rows.push(["eprint", `{${p.arxiv}}`], ["archivePrefix", "{arXiv}"]);
+    rows.push(["url", `{${baseUrl}/papers/${p.slug}/}`]);
+    const notes = [];
+    if (p.version) notes.push(`Version ${p.version}`);
+    const eq = (p.authors || []).filter((a) => a.equal).map((a) => a.name);
+    if (eq.length) notes.push(`Equal contribution: ${eq.join(", ")}`);
+    if (notes.length) rows.push(["note", `{${notes.join(". ")}}`]);
+    const w = Math.max(...rows.map((r) => r[0].length));
+    const body = rows.map(([k, v]) => `  ${k.padEnd(w)} = ${v}`).join(",\n");
+    return `@techreport{${p.bibkey || p.slug},\n${body}\n}`;
   });
 
   // the sibling URL in the other language, for the zh | EN switch

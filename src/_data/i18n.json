@@ -10,6 +10,11 @@
         "href": "/tech/"
       },
       {
+        "key": "papers",
+        "label": "论文",
+        "href": "/papers/"
+      },
+      {
         "key": "news",
         "label": "新闻动态",
         "href": "/news/"
@@ -61,7 +66,33 @@
     },
     "live": "可访问",
     "independent": "独立研究方向",
-    "hover_hint": "把光标移到图上"
+    "hover_hint": "把光标移到图上",
+    "pub_headline": "技术报告与论文",
+    "pub_lede": "PhAI Labs 的公开研究记录：技术报告、预印本与会议论文。",
+    "pub_abstract": "摘要",
+    "pub_authors": "作者",
+    "pub_record": "期刊/会议",
+    "pub_equal": "* 共同一作",
+    "pub_download": "下载 PDF",
+    "pub_cite": "引用",
+    "pub_bibtex": "BibTeX",
+    "pub_copy": "复制",
+    "pub_copied": "已复制",
+    "pub_allver": "所有版本（始终指向最新）",
+    "pub_prev": "上一篇",
+    "pub_next": "下一篇",
+    "pub_all": "全部论文",
+    "pub_empty": "暂无公开论文。",
+    "pub_count": "共 {n} 篇",
+    "pub_links": {
+      "github": "GitHub",
+      "huggingface_model": "Hugging Face · 模型",
+      "huggingface_data": "Hugging Face · 数据",
+      "project": "项目主页",
+      "demo": "演示",
+      "video": "视频",
+      "x": "X"
+    }
   },
   "en": {
     "lang": "en",
@@ -72,6 +103,11 @@
         "key": "tech",
         "label": "Tech",
         "href": "/tech/"
+      },
+      {
+        "key": "papers",
+        "label": "Papers",
+        "href": "/papers/"
       },
       {
         "key": "news",
@@ -125,6 +161,32 @@
     },
     "live": "Live",
     "independent": "Independent direction",
-    "hover_hint": "Move the cursor over the drawing"
+    "hover_hint": "Move the cursor over the drawing",
+    "pub_headline": "Technical reports and papers",
+    "pub_lede": "The public research record of PhAI Labs: technical reports, preprints and conference papers.",
+    "pub_abstract": "Abstract",
+    "pub_authors": "Authors",
+    "pub_record": "Venue",
+    "pub_equal": "* Equal contribution",
+    "pub_download": "Download PDF",
+    "pub_cite": "Cite",
+    "pub_bibtex": "BibTeX",
+    "pub_copy": "Copy",
+    "pub_copied": "Copied",
+    "pub_allver": "All versions (always resolves to the latest)",
+    "pub_prev": "Previous",
+    "pub_next": "Next",
+    "pub_all": "All publications",
+    "pub_empty": "No publications yet.",
+    "pub_count": "{n} in total",
+    "pub_links": {
+      "github": "GitHub",
+      "huggingface_model": "Hugging Face · Models",
+      "huggingface_data": "Hugging Face · Datasets",
+      "project": "Project page",
+      "demo": "Demo",
+      "video": "Video",
+      "x": "X"
+    }
   }
 }

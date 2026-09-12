@@ -3,6 +3,7 @@ pagination:
   data: articlePages
   size: 1
   alias: ap
+  addAllPagesToCollections: true
 permalink: "{{ ('/news/' + ap.article.slug + '/') | localeUrl(ap.lang) }}index.html"
 layout: layouts/base.njk
 fieldOff: true
@@ -21,7 +22,7 @@ eleventyComputed:
 <article class="article" id="top">
   <header class="hero hero--article">
     <div class="shell shell--narrow">
-      <p class="eyebrow"><a href="{{ '/news/' | localeUrl(lang) }}">{{ s.nav[1].label }}</a><span class="sep">/</span>{{ s.category[a.category] }}</p>
+      <p class="eyebrow"><a href="{{ '/news/' | localeUrl(lang) }}">{{ s.nav | navLabel('news') }}</a><span class="sep">/</span>{{ s.category[a.category] }}</p>
       <h1 class="display">{{ c.title }}</h1>
       <p class="lede">{{ c.summary }}</p>
       <p class="article__meta">

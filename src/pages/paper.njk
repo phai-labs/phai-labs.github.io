@@ -1,0 +1,107 @@
+---
+pagination:
+  data: publicationPages
+  size: 1
+  alias: pp
+  addAllPagesToCollections: true
+permalink: "{{ ('/papers/' + pp.paper.slug + '/') | localeUrl(pp.lang) }}index.html"
+layout: layouts/base.njk
+pageKey: papers
+fieldOff: true
+papersCss: true
+eleventyComputed:
+  lang: "{{ pp.lang }}"
+  title: "{{ pp.paper.title }}"
+  description: "{{ pp.paper[pp.lang].summary }}"
+  citeSlug: "{{ pp.paper.slug }}"
+---
+{%- set p = pp.paper -%}
+{%- set lang = pp.lang -%}
+{%- set s = i18n[lang] -%}
+{%- set r = site.releases[p.release_key] if p.release_key and site.releases[p.release_key] else null -%}
+{%- set gated = r and not r.live -%}
+{%- set pdfUrl = ('/papers/' + p.slug + '/' + p.pdf) if p.pdf else '' -%}
+
+{#- The record page, on ByteDance Seed's shape: date, title, one row of actions
+    with the pager opposite, then label/value rows. Seed stops at ABSTRACT /
+    AUTHORS / VENUE; the fourth row is ours, because Seed can lean on arXiv for
+    a citation and a self-hosted report cannot -- nobody can guess how to cite a
+    PDF on a lab's own domain unless the page says so. -#}
+<article class="paper" id="top">
+  <header class="shell paper__head">
+    <p class="paper__date"><time datetime="{{ p.date }}">{{ p.date }}</time></p>
+    <h1 class="display paper__title">{{ p.title }}</h1>
+
+    <div class="paper__acts">
+      <div class="paper__btns">
+        {%- if pdfUrl and not gated %}
+        <a class="btn btn--primary" href="{{ pdfUrl }}">{{ s.pub_download }}</a>
+        {%- else %}
+        <span class="btn btn--wait">{{ s.pub_download }}<small>{{ (r.date | releaseLabel(lang)) if r else s.pending }}</small></span>
+        {%- endif %}
+        {%- if p.arxiv and not gated %}
+        <a class="btn" href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv <span aria-hidden="true">↗</span></a>
+        {%- elif p.version_doi and not gated %}
+        <a class="btn" href="https://doi.org/{{ p.version_doi }}">DOI <span aria-hidden="true">↗</span></a>
+        {%- endif %}
+        {#- Resource links, in a fixed order so the row never reshuffles as
+            fields are filled in. A slot with no value renders nothing at all --
+            an empty button is worse than silence. Unlike the PDF these are not
+            release-gated: a repo or a model card is only pasted in once it is
+            already public, and gating them would contradict "show it the moment
+            it exists". -#}
+        {%- for k in ['github', 'huggingface_model', 'huggingface_data', 'project', 'demo', 'video', 'x'] %}
+        {%- set href = p.links[k] if p.links else '' %}
+        {%- if href %}
+        <a class="btn" href="{{ href }}" rel="noopener">{{ s.pub_links[k] }} <span aria-hidden="true">↗</span></a>
+        {%- endif %}
+        {%- endfor %}
+        <a class="btn" href="#cite">{{ s.pub_cite }}</a>
+      </div>
+
+      <nav class="paper__pager" aria-label="{{ s.pub_all }}">
+        {%- if pp.prev %}<a class="btn btn--sm" href="{{ pp.prev.slug | paperUrl(lang) }}"><span aria-hidden="true">←</span> {{ s.pub_prev }}</a>{% endif %}
+        {%- if pp.next %}<a class="btn btn--sm" href="{{ pp.next.slug | paperUrl(lang) }}">{{ s.pub_next }} <span aria-hidden="true">→</span></a>{% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <div class="shell paper__rows">
+    <section class="paper__row">
+      <h2 class="paper__label">{{ s.pub_abstract }}</h2>
+      <div class="paper__val paper__val--abs"><p>{{ p.abstract }}</p></div>
+    </section>
+
+    <section class="paper__row">
+      <h2 class="paper__label">{{ s.pub_authors }}</h2>
+      <div class="paper__val">
+        <p class="paper__authors">{{ p.authors | authorLine }}</p>
+        {%- if p.authors | hasEqual %}<p class="paper__note">{{ s.pub_equal }}</p>{% endif %}
+      </div>
+    </section>
+
+    <section class="paper__row">
+      <h2 class="paper__label">{{ s.pub_record }}</h2>
+      <div class="paper__val">
+        <p class="paper__authors">{{ p | venueLabel }}</p>
+        {%- if p.license %}<p class="paper__note">{{ p.license }}</p>{% endif %}
+      </div>
+    </section>
+
+    <section class="paper__row" id="cite">
+      <h2 class="paper__label">{{ s.pub_cite }}</h2>
+      <div class="paper__val">
+        <div class="cite" data-copy>
+          <p class="cite__cap">{{ s.pub_bibtex }}</p>
+          <pre class="cite__text cite__text--bib" data-copy-src>{{ p | bibtex(site.url) }}</pre>
+          <button class="cite__btn" type="button" data-copy-btn data-done="{{ s.pub_copied }}">{{ s.pub_copy }}</button>
+        </div>
+        {%- if p.concept_doi %}
+        <p class="paper__note">{{ s.pub_allver }}：<a href="https://doi.org/{{ p.concept_doi }}">https://doi.org/{{ p.concept_doi }}</a></p>
+        {%- endif %}
+      </div>
+    </section>
+  </div>
+
+  <p class="shell paper__back"><a href="{{ '/papers/' | localeUrl(lang) }}">← {{ s.pub_all }}</a></p>
+</article>

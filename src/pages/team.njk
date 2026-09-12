@@ -3,11 +3,12 @@ pagination:
   data: langs
   size: 1
   alias: lang
+  addAllPagesToCollections: true
 permalink: "{{ '/team/' | localeUrl(lang) }}index.html"
 layout: layouts/base.njk
 pageKey: team
 eleventyComputed:
-  title: "{{ i18n[lang].nav[3].label }}"
+  title: "{{ i18n[lang].nav | navLabel('team') }}"
   description: "{{ team.spine[lang].lede if team.spine else i18n[lang].site_tagline }}"
 ---
 {%- set sp = team.spine[lang] -%}
@@ -73,7 +74,7 @@ eleventyComputed:
     <h2 class="display-2">{{ sp.join_title }}</h2>
     <div>
       <p class="lede">{{ sp.join_body }}</p>
-      <p class="actions"><a class="btn" href="{{ '/careers/' | localeUrl(lang) }}">{{ i18n[lang].nav[4].label }} →</a></p>
+      <p class="actions"><a class="btn" href="{{ '/careers/' | localeUrl(lang) }}">{{ i18n[lang].nav | navLabel('careers') }} →</a></p>
     </div>
   </div>
 </section>

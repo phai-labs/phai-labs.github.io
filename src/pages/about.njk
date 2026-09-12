@@ -3,6 +3,7 @@ pagination:
   data: langs
   size: 1
   alias: lang
+  addAllPagesToCollections: true
 permalink: "{{ '/about/' | localeUrl(lang) }}index.html"
 layout: layouts/base.njk
 pageKey: about
@@ -52,8 +53,8 @@ eleventyComputed:
   <div class="shell split">
     <h2 class="display-2">{{ '团队与加入我们' if lang == 'zh' else 'Team and careers' }}</h2>
     <p class="actions">
-      <a class="btn" href="{{ '/team/' | localeUrl(lang) }}">{{ s.nav[3].label }} →</a>
-      <a class="btn" href="{{ '/careers/' | localeUrl(lang) }}">{{ s.nav[4].label }} →</a>
+      <a class="btn" href="{{ '/team/' | localeUrl(lang) }}">{{ s.nav | navLabel('team') }} →</a>
+      <a class="btn" href="{{ '/careers/' | localeUrl(lang) }}">{{ s.nav | navLabel('careers') }} →</a>
     </p>
   </div>
 </section>

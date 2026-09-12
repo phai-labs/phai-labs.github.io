@@ -32,6 +32,7 @@
 <meta property="og:image" content="{{ site.url }}{{ ogImage or site.og_image }}">
 <meta property="og:locale" content="{{ 'zh_CN' if lang == 'zh' else 'en_US' }}">
 <meta name="twitter:card" content="summary_large_image">
+{%- if citeSlug %}{% include "components/citation-meta.njk" %}{% endif %}
 <meta name="theme-color" content="#0a0a0b">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/favicon.png">
@@ -41,6 +42,9 @@
 <link rel="stylesheet" href="/assets/css/site.css">
 {%- if heroMinimal %}
 <link rel="stylesheet" href="/assets/css/home-v2.css">
+{%- endif %}
+{%- if papersCss %}
+<link rel="stylesheet" href="/assets/css/papers.css">
 {%- endif %}
 <link rel="stylesheet" href="/assets/css/pulse.css">
 {%- block head %}{% endblock %}
@@ -125,6 +129,9 @@
 
 <script src="/assets/js/site.js" defer></script>
 <script src="/assets/js/field.js" defer></script>
+{%- if papersCss %}
+<script src="/assets/js/paper.js" defer></script>
+{%- endif %}
 {%- if heroKv %}
 <script src="/assets/js/orb.js" defer></script>
 <script src="/assets/js/hero-orb.js" defer></script>

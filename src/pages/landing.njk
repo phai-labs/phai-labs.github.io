@@ -3,8 +3,12 @@ pagination:
   data: langs
   size: 1
   alias: lang
+  addAllPagesToCollections: true
 permalink: "{{ '/landing/' | localeUrl(lang) }}index.html"
 layout: layouts/landing.njk
+# /landing/ is the same copy as the homepage on a bare layout; listing both
+# in the sitemap would ask Google to index a duplicate of "/".
+sitemapSkip: true
 eleventyComputed:
   title: "{{ copy.landing[lang].line1 }}{{ copy.landing[lang].line2_before }}{{ copy.landing[lang].line2_type }}"
   description: "{{ copy.landing[lang].lede }}"

@@ -3,18 +3,19 @@ pagination:
   data: langs
   size: 1
   alias: lang
+  addAllPagesToCollections: true
 permalink: "{{ '/news/' | localeUrl(lang) }}index.html"
 layout: layouts/base.njk
 pageKey: news
 eleventyComputed:
-  title: "{{ i18n[lang].nav[1].label }}"
+  title: "{{ i18n[lang].nav | navLabel('news') }}"
 ---
 {%- set s = i18n[lang] -%}
 {%- set list = articles if showDrafts else (articles | published) -%}
 
 <section class="hero hero--page" id="top">
   <div class="shell">
-    <p class="eyebrow">{{ s.nav[1].label }}</p>
+    <p class="eyebrow">{{ s.nav | navLabel('news') }}</p>
     <h1 class="display">{{ '技术发布、合作计划与项目进展' if lang == 'zh' else 'Releases, programs and progress' }}</h1>
     <p class="lede">{{ '官网长期更新入口：DFM 及各模块的发布、科学家合作计划、项目进展与团队动态。' if lang == 'zh' else 'The running record: DFM and module releases, the Scientist Collaboration Program, project progress and team news.' }}</p>
   </div>

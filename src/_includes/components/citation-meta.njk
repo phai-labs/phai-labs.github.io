@@ -1,0 +1,43 @@
+{#- Highwire Press tags, the format Google Scholar reads. Included from base.njk
+    whenever a page sets `citeSlug` in its front matter -- the same
+    front-matter-flag idiom as `noindex` and `ogImage`. It is not a {% block %}:
+    Eleventy's `layout:` chaining passes rendered content rather than using
+    Nunjucks inheritance, so a block override here would silently emit nothing.
+
+    Emitted on the Chinese tree only, which is this site's root and x-default.
+    Scholar requires citation_pdf_url to point at a file in the same subdirectory
+    as the HTML abstract; the PDF lives beside /papers/<slug>/, so the English
+    mirror at /en/papers/<slug>/ cannot satisfy that rule and claiming otherwise
+    would be worse than staying quiet. Titles and abstracts are English on both
+    trees anyway, so the indexed record reads correctly either way.
+
+    Scholar treats the whole page as untagged if title, first author or year is
+    missing, so every tag below is either always present or omitted as a set. -#}
+{%- if lang == 'zh' -%}
+{%- for p in publications -%}
+{%- if p.slug == citeSlug -%}
+{%- set pdfUrl = ('/papers/' + p.slug + '/' + p.pdf) if p.pdf else '' -%}
+{%- set r = site.releases[p.release_key] if p.release_key and site.releases[p.release_key] else null -%}
+<meta name="citation_title" content="{{ p.title }}">
+{%- for a in p.authors %}
+<meta name="citation_author" content="{{ a | authorSort }}">
+{%- endfor %}
+<meta name="citation_publication_date" content="{{ p.date | scholarDate }}">
+<meta name="citation_technical_report_institution" content="PhAI Labs">
+{%- if p.number %}
+<meta name="citation_technical_report_number" content="{{ p.number }}">
+{%- endif %}
+{%- if pdfUrl and r and r.live %}
+<meta name="citation_pdf_url" content="{{ site.url }}{{ pdfUrl }}">
+{%- endif %}
+<meta name="citation_abstract_html_url" content="{{ site.url }}/papers/{{ p.slug }}/">
+<meta name="citation_language" content="en">
+{%- if p.arxiv %}
+<meta name="citation_arxiv_id" content="{{ p.arxiv }}">
+{%- endif %}
+{%- if p.version_doi %}
+<meta name="citation_doi" content="{{ p.version_doi }}">
+{%- endif %}
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
