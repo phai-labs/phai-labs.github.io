@@ -71,6 +71,17 @@ export default function (eleventyConfig) {
     )
   );
 
+  // Short links. A paper with `vanity: "dfm"` also answers at /dfm/ and
+  // /en/dfm/, which is what gets printed on a slide or inside the PDF. The
+  // stub redirects; /papers/<slug>/ stays the canonical URL everywhere else.
+  // A vanity that collides with a real page is caught at build time -- Eleventy
+  // refuses two templates writing the same output path.
+  eleventyConfig.addGlobalData("paperVanityPages", () =>
+    LANGS.flatMap((lang) =>
+      publications.filter((p) => p.vanity).map((paper) => ({ lang, paper }))
+    )
+  );
+
   // -- filters -------------------------------------------------------------
   // "/tech/" -> "/tech/" for zh, "/en/tech/" for en
   eleventyConfig.addFilter("localeUrl", (url, lang) =>

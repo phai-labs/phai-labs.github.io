@@ -32,6 +32,7 @@ and builds `/papers/<slug>/` in both languages from it.
 | `version_doi` | The DOI printed in the citation. Zenodo mints **two** DOIs on first publish — this is the one for this specific version, and it is the one to cite. |
 | `concept_doi` | Zenodo's "all versions" DOI. Shown on its own labelled line, never as the citation. It silently retargets when a new version is published, so it must not be the primary identifier. |
 | `arxiv` | Bare id, e.g. `2609.01234`. When present it leads the citation and the DOI drops to the archive line. |
+| `vanity` | Optional short link. `"dfm"` also answers at `/dfm/` and `/en/dfm/`, which redirect to the canonical page — that is the URL to print on a slide or inside the PDF. The stub is a 0-second meta refresh plus `rel=canonical` (GitHub Pages is static; there is no real 301), is kept out of `sitemap.xml`, and works with JavaScript disabled. A vanity that collides with a real page fails the build rather than overwriting it. |
 | `release_key` | Key into `site.releases`. While that release is `live: false`, the PDF / DOI / code buttons render as dated "pending" rows instead of dead links. Keep it set — a bare empty field means no gate. |
 
 Every link goes through the release gate. An entry with no `pdf`, `arxiv` or
