@@ -141,13 +141,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/"/>
   </url>
   <url>
-    <loc>https://phai-labs.com/papers/discovery-foundation-models/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/discovery-foundation-models/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/discovery-foundation-models/"/>
+    <loc>https://phai-labs.com/papers/dfm/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/dfm/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/dfm/"/>
   </url>
   <url>
-    <loc>https://phai-labs.com/en/papers/discovery-foundation-models/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/discovery-foundation-models/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/discovery-foundation-models/"/>
+    <loc>https://phai-labs.com/en/papers/dfm/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/dfm/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/dfm/"/>
   </url>
 </urlset>
