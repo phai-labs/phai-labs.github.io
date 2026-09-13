@@ -4,7 +4,7 @@
     "zh": {
       "eyebrow": "团队",
       "title": "既能做实验，也能训模型",
-      "lede": "临床医学与前沿 AI 研究出身的团队：把科学问题、数据与实验反馈，接进同一条发现链路。",
+      "lede": "医学与前沿 AI 研究出身的团队：把科学问题、数据与实验反馈，接进同一条发现链路。",
       "spine_label": "团队的工作主线",
       "nodes": [
         [
@@ -31,7 +31,7 @@
     "en": {
       "eyebrow": "Team",
       "title": "People who can run the experiment and train the model",
-      "lede": "A team from clinical medicine and frontier AI research, connecting scientific questions, data and experimental feedback into one discovery loop.",
+      "lede": "A team from medicine and frontier AI research, connecting scientific questions, data and experimental feedback into one discovery loop.",
       "spine_label": "How the team works",
       "nodes": [
         [
@@ -109,12 +109,12 @@
         "name_latin": "Ling Yang",
         "title": "联合创始人 · CSO",
         "affiliation": "普林斯顿大学博士后 · 北京大学（即将入职）",
-        "bio": "普林斯顿大学 ECE 博士后，即将加入北京大学任助理教授。研究大模型与智能体后训练、强化学习系统、递归自我改进与 AI for Discovery。创建开源社区 Gen-Verse，代表工作包括 Buffer of Thoughts、ReasonFlux、MMaDA。",
+        "bio": "普林斯顿大学 ECE 博士后，即将加入北京大学任助理教授。研究大模型与智能体后训练、强化学习系统、递归自我改进与 Discovery Intelligence。创建开源研究社区 Gen-Verse，相关项目在 GitHub 与 Hugging Face 累计达到千万级使用量；担任 ICLR、ICML、NeurIPS 领域主席。代表工作包括 RLAnything、ReasonFlux、Buffer of Thoughts、MMaDA。",
         "research": [
           "大模型 / 智能体后训练",
           "强化学习系统与基础设施",
           "递归自我改进",
-          "AI for Discovery"
+          "Discovery Intelligence"
         ]
       },
       "en": {
@@ -122,12 +122,12 @@
         "name_latin": "Ling Yang",
         "title": "Co-founder & CSO",
         "affiliation": "Postdoctoral researcher, Princeton · Incoming faculty, Peking University",
-        "bio": "Postdoctoral researcher in ECE at Princeton and incoming assistant professor at Peking University. Works on LLM and agent post-training, reinforcement-learning systems, recursive self-improvement and AI for discovery. Founded the Gen-Verse open-source community; representative work includes Buffer of Thoughts, ReasonFlux and MMaDA.",
+        "bio": "Postdoctoral researcher in ECE at Princeton and incoming assistant professor at Peking University. Works on LLM and agent post-training, reinforcement-learning systems, recursive self-improvement and discovery intelligence. Founded the open-source research community Gen-Verse, whose projects have reached tens of millions of cumulative uses across GitHub and Hugging Face; serves as Area Chair for ICLR, ICML and NeurIPS. Representative work includes RLAnything, ReasonFlux, Buffer of Thoughts and MMaDA.",
         "research": [
           "LLM and agent post-training",
           "RL systems and infrastructure",
           "Recursive self-improvement",
-          "AI for discovery"
+          "Discovery intelligence"
         ]
       }
     },
@@ -171,5 +171,72 @@
         ]
       }
     }
-  ]
+  ],
+  "partners": {
+    "zh": {
+      "eyebrow": "核心团队"
+    },
+    "en": {
+      "eyebrow": "Core team"
+    },
+    "list": [
+      {
+        "zh": "清华大学",
+        "en": "Tsinghua",
+        "logo": "/assets/img/unis/tsinghua.png",
+        "kind": "seal",
+        "halo": true
+      },
+      {
+        "zh": "北京大学",
+        "en": "Peking University",
+        "logo": "/assets/img/unis/peking.svg",
+        "kind": "seal"
+      },
+      {
+        "zh": "斯坦福大学",
+        "en": "Stanford",
+        "logo": "/assets/img/unis/stanford.png",
+        "kind": "seal"
+      },
+      {
+        "zh": "普林斯顿大学",
+        "en": "Princeton",
+        "logo": "/assets/img/unis/princeton.svg",
+        "kind": "seal",
+        "halo": true
+      },
+      {
+        "zh": "牛津大学",
+        "en": "Oxford",
+        "logo": "/assets/img/unis/oxford.svg",
+        "kind": "seal",
+        "halo": true
+      },
+      {
+        "zh": "加州大学伯克利分校",
+        "en": "UC Berkeley",
+        "logo": "/assets/img/unis/berkeley.svg",
+        "kind": "seal"
+      },
+      {
+        "zh": "麻省理工学院",
+        "en": "MIT",
+        "logo": "/assets/img/unis/mit.svg",
+        "kind": "wordmark"
+      },
+      {
+        "zh": "字节跳动 Seed",
+        "en": "ByteDance Seed",
+        "logo": "/assets/img/unis/bytedance.svg",
+        "kind": "wordmark"
+      },
+      {
+        "zh": "Google DeepMind",
+        "en": "Google DeepMind",
+        "logo": "/assets/img/unis/deepmind.svg",
+        "kind": "wordmark"
+      }
+    ]
+  }
 }

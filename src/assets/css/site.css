@@ -621,6 +621,11 @@ a.dgfig__link:focus-visible .dg__n--amber{fill:var(--amber-2)}
 .dgfig__attrs i{width:6px;height:6px;border-radius:50%;background:var(--blue);display:inline-block;transform:translateY(-2px)}
 .dgfig__attrs b{font-family:var(--serif);font-weight:400;font-size:var(--t-2);color:var(--ink);letter-spacing:-.01em}
 html[lang="zh-CN"] .dgfig__attrs b{letter-spacing:0}
+/* The column is 13rem. "Evaluable" fits there at display size; "A workspace
+   that improves" does not, and breaks into four lines. English labels are
+   phrases where the Chinese ones are two or three characters, so the
+   English tree takes a smaller size rather than a wider column. */
+html[lang="en"] .dgfig__attrs b{font-size:clamp(1.15rem,1.45vw,1.4rem);line-height:1.3}
 .dgfig__attrs span{grid-column:2;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
 .dgfig .dgfig__cap{grid-area:cap;text-transform:none;margin-top:.9rem;display:flex;justify-content:space-between;gap:var(--gap);align-items:baseline}
 .dgfig__claim{margin:0;font-family:var(--serif);font-size:var(--t-3);line-height:1.5;color:var(--ink-2);max-width:34em}
@@ -891,4 +896,51 @@ html[lang="zh-CN"] .hero .eyebrow{letter-spacing:.12em}
 }
 @media(min-width:1600px){
   :root{--shell:1360px}
+}
+
+/* ---------------------------------------- collaborating institutions (team) */
+/* Marks sit straight on the page ground in their own colours -- no plate, no
+   recolouring, the way aitonomy.org does it. An explicit column count rather
+   than flex-wrap: nine marks left to wrap on their own settle into 8+1, and a
+   single stranded logo reads as a mistake. Nine across, then 5+4, then 3+3+3. */
+.sec--unis{padding-top:clamp(1rem,3vh,2.5rem)}
+.unis{
+  display:grid;grid-template-columns:repeat(9,minmax(0,1fr));
+  gap:clamp(1.4rem,2.6vh,2.1rem) clamp(.5rem,1.2vw,1.2rem);
+  align-items:end;justify-items:center;
+  margin-top:clamp(1rem,2.2vh,1.8rem);
+  padding-block:clamp(2.1rem,4.6vh,3.2rem);
+  border-block:1px solid var(--rule);
+}
+.uni{display:flex;flex-direction:column;align-items:center;gap:.75rem;width:100%;min-width:0}
+.uni__mark{
+  display:block;width:auto;max-width:100%;opacity:.92;
+  transition:transform .4s var(--ease),opacity .4s var(--ease);
+}
+/* Only for marks that are mostly dark and would otherwise dissolve into the
+   page -- Princeton's shield, Oxford's field, Tsinghua's violet. On a bright
+   wordmark the same halo just fuzzes the letterforms, so it is opt-in. */
+.uni__mark--halo{
+  filter:drop-shadow(0 0 .5px rgba(255,255,255,.95))
+         drop-shadow(0 0 1.5px rgba(255,255,255,.72))
+         drop-shadow(0 0 4px rgba(255,255,255,.3));
+}
+.uni__mark--seal{height:3.4rem}
+.uni__mark--wordmark{height:1.7rem}
+.uni:hover .uni__mark{opacity:1;transform:translateY(-3px)}
+.uni__name{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);text-align:center;line-height:1.45;text-wrap:balance;
+  transition:color .4s var(--ease);
+}
+.uni:hover .uni__name{color:var(--ink-2)}
+@media(max-width:1040px){
+  .unis{grid-template-columns:repeat(5,minmax(0,1fr));gap:1.8rem .8rem}
+}
+@media(max-width:700px){
+  .unis{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem .6rem;padding-block:1.8rem}
+  .uni{gap:.55rem}
+  .uni__mark--seal{height:2.8rem}
+  .uni__mark--wordmark{height:1.4rem}
+  .uni__name{font-size:.55rem;letter-spacing:.06em}
 }

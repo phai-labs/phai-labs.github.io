@@ -69,6 +69,26 @@ eleventyComputed:
   </div>
 </section>
 
+{#- Collaborating institutions. A logo wall without logos: an institution's
+    mark is its trademark, so until real files are supplied the name itself is
+    the mark -- which also claims less than a crest does. Each entry takes an
+    optional `logo` path and switches to the image the moment one exists. -#}
+{%- if team.partners %}
+<section class="sec sec--unis" data-field="still">
+  <div class="shell">
+    <p class="eyebrow">{{ team.partners[lang].eyebrow }}</p>
+    <ul class="unis" data-reveal>
+      {%- for u in team.partners.list %}
+      <li class="uni" style="--k:{{ loop.index0 }}">
+        {%- if u.logo %}<img class="uni__mark uni__mark--{{ u.kind or 'seal' }}{% if u.halo %} uni__mark--halo{% endif %}" src="{{ u.logo }}" alt="{{ u[lang] }}" loading="lazy">{% endif %}
+        <span class="uni__name">{{ u[lang] }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
 <section class="sec sec--join">
   <div class="shell split">
     <h2 class="display-2">{{ sp.join_title }}</h2>
