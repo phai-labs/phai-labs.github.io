@@ -132,13 +132,20 @@ export default function (eleventyConfig) {
     p.venue && p.venue.trim() ? p.venue.trim() : "arXiv"
   );
 
+  const MONTHS = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
   eleventyConfig.addFilter("bibtex", (p, baseUrl) => {
+    // `bibtitle` is the title with braces around the terms whose capitalisation
+    // has to survive a style that lower-cases titles -- the model class and the
+    // capability it names. Qwen's own @techreport brace-protects {Qwen3.8-Next}
+    // the same way. Falls back to the plain title when the field is not set.
     const rows = [
-      ["title", `{${p.title}}`],
+      ["title", `{${p.bibtitle || p.title}}`],
       ["author", `{${(p.authors || []).map((a) => a.sort || a.name).join(" and ")}}`],
       ["institution", "{PhAI Labs}"],
       ["type", "{Technical Report}"],
       p.number ? ["number", `{${p.number}}`] : null,
+      ["month", `{${MONTHS[Number(p.date.slice(5, 7)) - 1]}}`],
       ["year", `{${p.date.slice(0, 4)}}`],
     ].filter(Boolean);
     if (p.version_doi) rows.push(["doi", `{${p.version_doi}}`]);
@@ -150,7 +157,7 @@ export default function (eleventyConfig) {
     if (eq.length) notes.push(`Equal contribution: ${eq.join(", ")}`);
     if (notes.length) rows.push(["note", `{${notes.join(". ")}}`]);
     const w = Math.max(...rows.map((r) => r[0].length));
-    const body = rows.map(([k, v]) => `  ${k.padEnd(w)} = ${v}`).join(",\n");
+    const body = rows.map(([k, v]) => `    ${k.padEnd(w)} = ${v}`).join(",\n");
     return `@techreport{${p.bibkey || p.slug},\n${body}\n}`;
   });
 
