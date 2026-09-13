@@ -51,7 +51,7 @@ eleventyComputed:
 
 <section class="sec sec--join">
   <div class="shell split">
-    <h2 class="display-2">{{ '团队与加入我们' if lang == 'zh' else 'Team and careers' }}</h2>
+    <h2 class="display-2">{{ '团队与招聘' if lang == 'zh' else 'Team and careers' }}</h2>
     <p class="actions">
       <a class="btn" href="{{ '/team/' | localeUrl(lang) }}">{{ s.nav | navLabel('team') }} →</a>
       <a class="btn" href="{{ '/careers/' | localeUrl(lang) }}">{{ s.nav | navLabel('careers') }} →</a>
