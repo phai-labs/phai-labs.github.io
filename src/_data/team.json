@@ -4,7 +4,7 @@
     "zh": {
       "eyebrow": "团队",
       "title": "既能做实验，也能训模型",
-      "lede": "医学与前沿 AI 研究出身的团队：把科学问题、数据与实验反馈，接进同一条发现链路。",
+      "lede": "科学与前沿 AI 研究出身的团队：把科学问题、数据与实验反馈，接进同一条发现链路。",
       "spine_label": "团队的工作主线",
       "nodes": [
         [
@@ -31,7 +31,7 @@
     "en": {
       "eyebrow": "Team",
       "title": "People who can run the experiment and train the model",
-      "lede": "A team from medicine and frontier AI research, connecting scientific questions, data and experimental feedback into one discovery loop.",
+      "lede": "A team from science and frontier AI research, connecting scientific questions, data and experimental feedback into one discovery loop.",
       "spine_label": "How the team works",
       "nodes": [
         [
