@@ -136,9 +136,39 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/dfm/"/>
   </url>
   <url>
+    <loc>https://phai-labs.com/papers/sciencebuddy/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/sciencebuddy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/sciencebuddy/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/papers/scienceide/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/scienceide/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/scienceide/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/papers/jepa-anything/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/jepa-anything/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/jepa-anything/"/>
+  </url>
+  <url>
     <loc>https://phai-labs.com/en/papers/dfm/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/dfm/"/>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/dfm/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/papers/sciencebuddy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/sciencebuddy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/sciencebuddy/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/papers/scienceide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/scienceide/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/scienceide/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/papers/jepa-anything/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/jepa-anything/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/jepa-anything/"/>
   </url>
   <url>
     <loc>https://phai-labs.com/tech/</loc>

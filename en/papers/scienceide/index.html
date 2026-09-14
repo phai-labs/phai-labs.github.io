@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Discovery Foundation Models: Toward Open-Ended Discovery Intelligence — PhAI Labs</title>
-<meta name="description" content="Defines discovery itself as a learnable, executable and evaluable capability: a DFM operates over a revisable research state spanning seven coupled capabilities, from problem discovery to evidence-grounded revision.">
-<link rel="canonical" href="https://phai-labs.com/en/papers/dfm/">
-<link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/dfm/">
-<link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/dfm/">
-<link rel="alternate" hreflang="x-default" href="https://phai-labs.com/papers/dfm/">
+<title>ScienceIDE: Scaling Scientific Experience toward 1,000 Executable Environments — PhAI Labs</title>
+<meta name="description" content="Turning scientific software and expert judgement into executable environments an agent can learn from: experts define cases and acceptance criteria, task factories generate challenges, and the same environments serve training, RL and evaluation.">
+<link rel="canonical" href="https://phai-labs.com/en/papers/scienceide/">
+<link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/scienceide/">
+<link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/scienceide/">
+<link rel="alternate" hreflang="x-default" href="https://phai-labs.com/papers/scienceide/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PhAI Labs">
-<meta property="og:title" content="Discovery Foundation Models: Toward Open-Ended Discovery Intelligence — PhAI Labs">
-<meta property="og:description" content="Defines discovery itself as a learnable, executable and evaluable capability: a DFM operates over a revisable research state spanning seven coupled capabilities, from problem discovery to evidence-grounded revision.">
-<meta property="og:url" content="https://phai-labs.com/en/papers/dfm/">
+<meta property="og:title" content="ScienceIDE: Scaling Scientific Experience toward 1,000 Executable Environments — PhAI Labs">
+<meta property="og:description" content="Turning scientific software and expert judgement into executable environments an agent can learn from: experts define cases and acceptance criteria, task factories generate challenges, and the same environments serve training, RL and evaluation.">
+<meta property="og:url" content="https://phai-labs.com/en/papers/scienceide/">
 <meta property="og:image" content="https://phai-labs.com/assets/img/kv-static.webp">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
@@ -48,7 +48,7 @@
     <a href="/en/collaborate/">Collaborate</a>
   </nav>
   <div class="mast__tools">
-    <a class="mast__lang" href="/papers/dfm/" hreflang="zh-CN" aria-label="切换到中文">中文</a>
+    <a class="mast__lang" href="/papers/scienceide/" hreflang="zh-CN" aria-label="切换到中文">中文</a>
     <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">Apply now<span aria-hidden="true">↗</span></a>
     <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
       <span class="mast__menu-label">Menu</span><i></i><i></i>
@@ -63,24 +63,25 @@
   <a href="/en/team/">Team</a>
   <a href="/en/careers/">Careers</a>
   <a href="/en/collaborate/">Collaborate</a>
-  <a class="drawer__lang" href="/papers/dfm/">中文</a>
+  <a class="drawer__lang" href="/papers/scienceide/">中文</a>
   <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">Apply now ↗</a>
 </nav>
 
 <main id="main" class="main" data-field="off">
 <article class="paper" id="top">
   <header class="shell paper__head">
-    <p class="paper__date"><time datetime="2026-09-15">2026-09-15</time></p>
-    <h1 class="display paper__title">Discovery Foundation Models: Toward Open-Ended Discovery Intelligence</h1>
+    <p class="paper__date"><time datetime="2026-09-17">2026-09-17</time></p>
+    <h1 class="display paper__title">ScienceIDE: Scaling Scientific Experience toward 1,000 Executable Environments</h1>
 
     <div class="paper__acts">
       <div class="paper__btns">
-        <a class="btn btn--primary" href="/papers/dfm/dfm-technical-report-v1-2026-09.pdf">Download PDF</a>
-        <span class="btn btn--wait">GitHub<small>Releasing 15 Sept</small></span>
+        <span class="btn btn--wait">Download PDF<small>Releasing 17 Sept</small></span>
+        <span class="btn btn--wait">GitHub<small>Releasing 17 Sept</small></span>
+        <a class="btn" href="https://aitonomy.org/projects/scienceide" rel="noopener">Project page <span aria-hidden="true">↗</span></a>
         <a class="btn" href="#cite">Cite</a>
       </div>
 
-      <nav class="paper__pager" aria-label="All publications"><a class="btn btn--sm" href="/en/papers/sciencebuddy/">Next <span aria-hidden="true">→</span></a>
+      <nav class="paper__pager" aria-label="All publications"><a class="btn btn--sm" href="/en/papers/sciencebuddy/"><span aria-hidden="true">←</span> Previous</a><a class="btn btn--sm" href="/en/papers/jepa-anything/">Next <span aria-hidden="true">→</span></a>
       </nav>
     </div>
   </header>
@@ -88,12 +89,12 @@
   <div class="shell paper__rows">
     <section class="paper__row">
       <h2 class="paper__label">Abstract</h2>
-      <div class="paper__val paper__val--abs"><p>Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, tool use, and outcome feedback. We argue that the next frontier is a further transition: from solving and acting within problems specified by humans to participating in the process by which new problems, representations, explanations, and knowledge are created. We refer to this capability as Discovery Intelligence. We formulate Discovery Foundation Models (DFMs) as general-purpose model systems for open-ended discovery. A DFM operates over a revisable research state and supports seven coupled capabilities spanning problem discovery, formulation, representation construction, hypothesis formation, intervention, evidence-grounded revision, and continual discovery improvement. We instantiate this framework with Zetema, which couples explicit research-state dynamics, verification and experimental gating, external grounding, and cross-task Discovery Skill evolution. We further ground the framework with GALILEO, a real therapeutic-discovery system in which Dry-Lab reasoning, robotic and hands-on Wet-Lab experimentation, external biological evidence, and iterative hypothesis and design revision form a closed physical discovery loop. We then formulate a unified approach to capability formation and process-centered evaluation, enabling discovery behavior to be trained, improved, and measured beyond final-answer performance. Together, these components establish discovery as a learnable, executable, and evaluable capability of foundation-model systems. We view this shift as a broader progression in intelligence scaling: from learning over existing knowledge, to learning from action outcomes, and ultimately to participating in the construction, testing, and revision of the structures through which new knowledge is discovered.</p></div>
+      <div class="paper__val paper__val--abs"><p>Scientific software and expertise do not readily become experience that agents can learn from: repositories depend on fragile toolchains and unwritten conventions, and correctness rests on scientific behaviour and numerical tolerances. ScienceIDE is infrastructure that connects scientific practice with agent development by making expert knowledge reusable. Domain experts define scientific cases and acceptance criteria, agents help turn those decisions into executable environments, and task factories generate diverse challenges whose validity is established through execution and scientific verification. The same environments yield graded trajectories for supervised fine-tuning, online rewards for reinforcement learning, and evidence for evaluation.</p></div>
     </section>
     <section class="paper__row">
       <h2 class="paper__label">Authors</h2>
       <div class="paper__val">
-        <p class="paper__authors">Ling Yang, Zhenfei Yin, Yingcheng Wu</p>
+        <p class="paper__authors">Hejia Geng*, Zesen Huang*, Haoyang Li, Wenbin Li, Koutian Wu, Zihan Zhou, Yuanbo Pang, Weihao Liu, Zigong Xu, Yueheng Shi, Yue Ma, Zongzheng Zhang, Tianzhe Zheng, Chuanfei Dong, Fengyu Xie, Zhiping Li, Jiankai Sun, Qucheng Gao, Jiaming Pan, Zhenlin Zhu, Peijin Zhang, Lanqing Yuan, Liuwei Xu, Xianrong Liu, Tong Xie, Junkai Wang, Zonglin Di, Xiao-Han Ma, Kangkai Liang, Ziang Liu, Sheng Huang, Zehong Zhao, Ziyang Xu, Jingxu Xie, Yaopeng Xing, Jiayi Xian, Xing Meng, Zhenfei Yin, Yingcheng Wu, Ling Yang</p><p class="paper__note">* Equal contribution</p>
       </div>
     </section>
 
@@ -109,16 +110,16 @@
       <div class="paper__val">
         <div class="cite" data-copy>
           <p class="cite__cap">BibTeX</p>
-          <pre class="cite__text cite__text--bib" data-copy-src>@techreport{yang2026dfm,
-    title       = {{Discovery Foundation Models}: Toward Open-Ended {Discovery Intelligence}},
-    author      = {Yang, Ling and Yin, Zhenfei and Wu, Yingcheng},
+          <pre class="cite__text cite__text--bib" data-copy-src>@techreport{geng2026scienceide,
+    title       = {{ScienceIDE}: Scaling Scientific Experience toward 1,000 Executable Environments},
+    author      = {Geng, Hejia and Huang, Zesen and Li, Haoyang and Li, Wenbin and Wu, Koutian and Zhou, Zihan and Pang, Yuanbo and Liu, Weihao and Xu, Zigong and Shi, Yueheng and Ma, Yue and Zhang, Zongzheng and Zheng, Tianzhe and Dong, Chuanfei and Xie, Fengyu and Li, Zhiping and Sun, Jiankai and Gao, Qucheng and Pan, Jiaming and Zhu, Zhenlin and Zhang, Peijin and Yuan, Lanqing and Xu, Liuwei and Liu, Xianrong and Xie, Tong and Wang, Junkai and Di, Zonglin and Ma, Xiao-Han and Liang, Kangkai and Liu, Ziang and Huang, Sheng and Zhao, Zehong and Xu, Ziyang and Xie, Jingxu and Xing, Yaopeng and Xian, Jiayi and Meng, Xing and Yin, Zhenfei and Wu, Yingcheng and Yang, Ling},
     institution = {PhAI Labs},
     type        = {Technical Report},
-    number      = {PHAI-TR-2026-01},
+    number      = {PHAI-TR-2026-03},
     month       = {September},
     year        = {2026},
-    url         = {https://phai-labs.com/papers/dfm/},
-    note        = {Version v1}
+    url         = {https://phai-labs.com/papers/scienceide/},
+    note        = {Version v1. Equal contribution: Hejia Geng, Zesen Huang}
 }</pre>
           <button class="cite__btn" type="button" data-copy-btn data-done="Copied">Copy</button>
         </div>
