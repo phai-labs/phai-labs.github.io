@@ -386,6 +386,11 @@ html[lang="zh-CN"] .prose--lg{line-height:1.9}
 .principles li,.criteria li,.audience li,.capabilities li,.directions li,.pillars li{position:relative;padding:1.4rem 0 1.8rem;border-bottom:1px solid var(--rule-soft)}
 .principles li .num,.criteria li .num,.audience li .num,.capabilities li .num,.directions li .num{display:block;margin-bottom:.9rem}
 .principles li h3,.criteria li h3,.audience li h3,.capabilities li h3,.directions li h3{margin-bottom:.55rem}
+/* Five collaborator types in a two-column grid leaves the last row half
+   empty. An odd final item takes the whole row instead; the measure is
+   capped so the paragraph does not run the full 1136px. */
+.audience li:last-child:nth-child(odd){grid-column:1 / -1}
+.audience li:last-child:nth-child(odd) p{max-width:56em}
 .principles li p,.criteria li p,.audience li p,.capabilities li p,.directions li p,.pillars li p{color:var(--ink-2);font-size:var(--t-small);line-height:1.7}
 html[lang="zh-CN"] .principles li p,html[lang="zh-CN"] .criteria li p,html[lang="zh-CN"] .audience li p,html[lang="zh-CN"] .capabilities li p,html[lang="zh-CN"] .directions li p{line-height:1.85}
 .pillars li{padding:0 0 1.6rem}

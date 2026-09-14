@@ -103,14 +103,14 @@
         },
         {
           "key": "jepa",
-          "name": "JEPA Anything · 跨领域统一科学世界模型",
+          "name": "JEPA-Anything · 跨领域统一科学世界模型",
           "tagline": "面向跨领域状态预测、干预模拟和科学诊断的统一科学世界模型",
           "body": "它探索如何在视觉、生物、临床、分子、控制和物理等不同领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。",
-          "link_label": "JEPA Anything 论文",
+          "link_label": "JEPA-Anything 论文",
           "link_key": "jepa_paper"
         }
       ],
-      "modulesNote": "ScienceBuddy、ScienceIDE 和 JEPA Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一种可组合的研究路径：ScienceBuddy 通过科学家与智能体的交互收集反馈和研究轨迹；ScienceIDE 将这些数据和经验进一步组织为可复用的科学环境，用于任务执行、强化学习和模型训练；JEPA Anything 则探索对多个科学环境和干预结果进行统一的状态预测和模拟。这是一种未来可能的组合方式，不代表三者当前已经完成集成，也不改变它们各自独立的定位。"
+      "modulesNote": "ScienceBuddy、ScienceIDE 和 JEPA-Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一种可组合的研究路径：ScienceBuddy 通过科学家与智能体的交互收集反馈和研究轨迹；ScienceIDE 将这些数据和经验进一步组织为可复用的科学环境，用于任务执行、强化学习和模型训练；JEPA-Anything 则探索对多个科学环境和干预结果进行统一的状态预测和模拟。这是一种未来可能的组合方式，不代表三者当前已经完成集成，也不改变它们各自独立的定位。"
     },
     "questions": {
       "label": "我们寻找什么",
@@ -159,20 +159,24 @@
       "audienceTitle": "我们希望与这样的研究者共同探索",
       "types": [
         [
-          "有明确科学问题但缺少 AI 系统能力的科学家",
-          "积累了较深的领域知识，知道哪些问题真正重要，也了解现有研究方法的瓶颈，但缺少大模型、Agent、自动化实验设计或复杂工程系统的支持。"
+          "有科学问题、希望系统引入 AI 能力的科学家与研究团队",
+          "你知道哪些问题真正重要，也了解现有方法的局限，希望把大模型、科研 Agent 或自动化实验更系统地接进研究流程。我们从具体的研究瓶颈出发，一起判断 AI 能在哪些环节发挥作用，并共同设计和验证方案。"
         ],
         [
-          "拥有高价值数据、实验环境的实验室（干实验）",
-          "真正的科学发现需要系统与环境交互，并获得新的外部证据。"
+          "以计算、建模与仿真为主要手段的实验室",
+          "你已经积累了专业数据、科研代码、计算模型或仿真环境，希望用 AI 拓展现有的分析与探索方法。我们一起看 AI 如何在其中开展可验证的研究任务。"
         ],
         [
-          "可以提供真实验证条件的湿实验团队",
-          "湿实验合作方能够检验模型提出的假设是否在真实环境中成立。"
+          "希望把 AI 与实验研究结合的湿实验团队",
+          "你能开展实验、获得观测数据、检验假设，也想知道 AI 能否帮上实验设计、结果分析和下一步方向的选择。我们一起把从提出问题到获得证据的链路接成闭环。"
         ],
         [
-          "希望共同探索 DFM 的青年 PI、博士后和博士生",
-          "希望把 AI 深度带入科研过程，并共同探索新的科学发现范式。"
+          "希望探索新型科研方式的青年 PI、博士后和博士生",
+          "希望把 AI 深度带入科研过程、愿意共同探索新研究范式的青年研究者。有持续关注的问题、相关的研究积累，或想一起探索的方向，都欢迎提出合作意向。"
+        ],
+        [
+          "面对复杂研发问题的产业研发团队",
+          "你在研究产品或工艺背后的科学问题，已有业务场景、数据积累或测试条件，但现有方法仍难以解释关键现象，或需要大量试验才能找到可行方案。我们一起识别其中适合 AI 参与的环节，结合实际研发要求，用计算、仿真或实验评估进展。"
         ]
       ]
     },
@@ -469,14 +473,14 @@
         },
         {
           "key": "jepa",
-          "name": "JEPA Anything · cross-domain unified science world model",
+          "name": "JEPA-Anything · cross-domain unified science world model",
           "tagline": "A unified science world model for cross-domain state prediction, intervention simulation and scientific diagnosis",
           "body": "It explores how to learn, across vision, biology, the clinic, molecules, control and physics, latent representations that predict changes of world state, and to offer one interface for intervention prediction, state synthesis and scientific diagnosis.",
-          "link_label": "JEPA Anything paper",
+          "link_label": "JEPA-Anything paper",
           "link_key": "jepa_paper"
         }
       ],
-      "modulesNote": "ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a composable research path: ScienceBuddy collects feedback and research trajectories from the interaction between scientists and agents; ScienceIDE organises that data and experience into reusable scientific environments for task execution, reinforcement learning and model training; JEPA Anything explores unified state prediction and simulation across multiple scientific environments and interventions. That is a possible future combination, not an integration that exists today, and it does not change their independent standing."
+      "modulesNote": "ScienceBuddy, ScienceIDE and JEPA-Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a composable research path: ScienceBuddy collects feedback and research trajectories from the interaction between scientists and agents; ScienceIDE organises that data and experience into reusable scientific environments for task execution, reinforcement learning and model training; JEPA-Anything explores unified state prediction and simulation across multiple scientific environments and interventions. That is a possible future combination, not an integration that exists today, and it does not change their independent standing."
     },
     "questions": {
       "label": "What we look for",
@@ -525,20 +529,24 @@
       "audienceTitle": "The collaborators we hope to explore with",
       "types": [
         [
-          "Scientists with clear questions but limited AI systems capacity",
-          "Deep domain expertise and a clear view of consequential questions and methodological bottlenecks, but limited support in foundation models, agents, automated experiment design or complex engineering systems."
+          "Scientists and research groups with a question, wanting AI built in",
+          "You know which questions matter and where current methods stop, and you want foundation models, research agents or automated experimentation wired into how you already work. We start from the specific bottleneck, work out where AI actually helps, then design and test the approach together."
         ],
         [
-          "Dry-lab teams with high-value data or computational environments",
-          "Discovery requires an intelligent system to interact with an environment and obtain new external evidence."
+          "Labs working mainly through computation, modelling and simulation",
+          "You have specialist data, research code, computational models or simulation environments, and want AI to extend how you analyse and explore. We look at how AI can run verifiable research tasks inside them."
         ],
         [
-          "Wet-lab teams able to provide real-world validation",
-          "Wet-lab partners can test whether model-generated hypotheses hold in the real world."
+          "Wet labs looking to pair experiments with AI",
+          "You run experiments, collect observations and test hypotheses, and want to know whether AI can help design the experiment, read the result or choose the next direction. We close the loop from question to evidence together."
         ],
         [
-          "Early-career PIs, postdocs and PhD students exploring DFM",
-          "Researchers who want to integrate AI deeply into scientific practice and co-create a new discovery paradigm."
+          "Early-career PIs, postdocs and PhD students trying a new way of working",
+          "Researchers who want AI deep in the research process and are willing to work out a new paradigm with us. If you have a question you keep returning to, relevant groundwork, or a direction you want to explore together, tell us about it."
+        ],
+        [
+          "Industrial R&D teams facing hard development problems",
+          "You are working on the science behind a product or a process, with business context, data or test conditions already in hand, but current methods cannot explain the key behaviour, or it takes too many trials to find something that works. We identify where AI fits and measure progress by computation, simulation or experiment, against your real requirements."
         ]
       ]
     },

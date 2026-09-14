@@ -49,11 +49,11 @@
         },
         {
           "key": "jepa",
-          "name": "JEPA Anything · 跨领域统一科学世界模型",
+          "name": "JEPA-Anything · 跨领域统一科学世界模型",
           "tagline": "面向跨领域状态预测、干预模拟和科学诊断的统一科学世界模型"
         }
       ],
-      "note": "ScienceBuddy、ScienceIDE 和 JEPA Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一种可组合的研究路径：ScienceBuddy 通过科学家与智能体的交互收集反馈和研究轨迹；ScienceIDE 将这些数据和经验进一步组织为可复用的科学环境，用于任务执行、强化学习和模型训练；JEPA Anything 则探索对多个科学环境和干预结果进行统一的状态预测和模拟。这是一种未来可能的组合方式，不代表三者当前已经完成集成，也不改变它们各自独立的定位。"
+      "note": "ScienceBuddy、ScienceIDE 和 JEPA-Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一种可组合的研究路径：ScienceBuddy 通过科学家与智能体的交互收集反馈和研究轨迹；ScienceIDE 将这些数据和经验进一步组织为可复用的科学环境，用于任务执行、强化学习和模型训练；JEPA-Anything 则探索对多个科学环境和干预结果进行统一的状态预测和模拟。这是一种未来可能的组合方式，不代表三者当前已经完成集成，也不改变它们各自独立的定位。"
     },
     "collab_teaser": {
       "eyebrow": "DFM 科学家合作计划",
@@ -94,7 +94,7 @@
         },
         {
           "key": "jepa",
-          "name": "JEPA Anything · 跨领域统一科学世界模型"
+          "name": "JEPA-Anything · 跨领域统一科学世界模型"
         }
       ]
     }
@@ -149,11 +149,11 @@
         },
         {
           "key": "jepa",
-          "name": "JEPA Anything · cross-domain unified science world model",
+          "name": "JEPA-Anything · cross-domain unified science world model",
           "tagline": "A unified science world model for cross-domain state prediction, intervention simulation and scientific diagnosis"
         }
       ],
-      "note": "ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a composable research path: ScienceBuddy collects feedback and research trajectories from the interaction between scientists and agents; ScienceIDE organises that data and experience into reusable scientific environments for task execution, reinforcement learning and model training; JEPA Anything explores unified state prediction and simulation across multiple scientific environments and interventions. That is a possible future combination, not an integration that exists today, and it does not change their independent standing."
+      "note": "ScienceBuddy, ScienceIDE and JEPA-Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a composable research path: ScienceBuddy collects feedback and research trajectories from the interaction between scientists and agents; ScienceIDE organises that data and experience into reusable scientific environments for task execution, reinforcement learning and model training; JEPA-Anything explores unified state prediction and simulation across multiple scientific environments and interventions. That is a possible future combination, not an integration that exists today, and it does not change their independent standing."
     },
     "collab_teaser": {
       "eyebrow": "DFM Scientist Collaboration Program",
@@ -194,7 +194,7 @@
         },
         {
           "key": "jepa",
-          "name": "JEPA Anything · cross-domain unified science world model"
+          "name": "JEPA-Anything · cross-domain unified science world model"
         }
       ]
     }

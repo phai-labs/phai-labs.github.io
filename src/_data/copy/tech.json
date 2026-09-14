@@ -3,7 +3,7 @@
     "hero": {
       "eyebrow": "PhAI Labs · 技术",
       "title": "面向*科学发现*的技术体系",
-      "lede": "PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的研究范式；ScienceBuddy、ScienceIDE 与 JEPA Anything 是三个彼此独立的研究与工程方向，分别从交互反馈、可复用的科学环境和世界状态预测展开。"
+      "lede": "PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的研究范式；ScienceBuddy、ScienceIDE 与 JEPA-Anything 是三个彼此独立的研究与工程方向，分别从交互反馈、可复用的科学环境和世界状态预测展开。"
     },
     "direction": {
       "title": "PhAI 的技术方向",
@@ -102,7 +102,7 @@
         "body": [
           "ScienceIDE 是一项面向真实科学代码库、研究任务和可验证科学经验的独立基础设施探索。",
           "它把真实科学代码、研究流程、任务目标和验证标准转化为可运行、可测量、可复现的科学环境，让研究者能够在真实科学场景中开展 Agent 执行、模型训练和强化学习研究。",
-          "它的核心价值在于，把真实科学软件、领域判断、任务目标和可验证反馈组织到同一个可执行环境中，为科研 Agent、模型训练、强化学习和科学发现研究提供经验基础。ScienceIDE 不要求接入 ScienceBuddy 才能使用，也不依赖 JEPA Anything 才能成立。"
+          "它的核心价值在于，把真实科学软件、领域判断、任务目标和可验证反馈组织到同一个可执行环境中，为科研 Agent、模型训练、强化学习和科学发现研究提供经验基础。ScienceIDE 不要求接入 ScienceBuddy 才能使用，也不依赖 JEPA-Anything 才能成立。"
         ],
         "bullets_title": "当前任务形态",
         "bullets": [
@@ -130,13 +130,13 @@
       },
       {
         "key": "jepa",
-        "name": "JEPA Anything",
+        "name": "JEPA-Anything",
         "subtitle": "跨领域统一科学世界模型",
         "role": "跨领域统一科学世界模型：面向跨领域状态预测、干预模拟和科学诊断。",
         "body": [
-          "JEPA Anything 是一项面向潜在世界模型和正交预测因子分解的独立模型方法研究。",
+          "JEPA-Anything 是一项面向潜在世界模型和正交预测因子分解的独立模型方法研究。",
           "它探索如何在视觉、生物、临床、分子、控制和物理等不同领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。",
-          "在未来的研究愿景中，JEPA Anything 可以被理解为面向多个科学环境的统一预测模型或科学世界模拟器：当研究者提出某种科学行为或干预时，模型预先预测可能的状态变化、结果和风险，帮助筛选无效或代价较高的方案。这是希望探索的能力方向：目前它并不能模拟所有科学环境，也尚未接入 ScienceBuddy 或 ScienceIDE。"
+          "在未来的研究愿景中，JEPA-Anything 可以被理解为面向多个科学环境的统一预测模型或科学世界模拟器：当研究者提出某种科学行为或干预时，模型预先预测可能的状态变化、结果和风险，帮助筛选无效或代价较高的方案。这是希望探索的能力方向：目前它并不能模拟所有科学环境，也尚未接入 ScienceBuddy 或 ScienceIDE。"
         ],
         "bullets_title": "研究问题",
         "bullets": [
@@ -164,7 +164,7 @@
     ],
     "roadmap": {
       "title": "逐步实现，持续发布",
-      "body": "DFM 是一套范式，不是一个已经完成的模型。围绕它的研究通过系统实例、独立论文、工程模块和真实科学合作逐步展开：9 月 15 日公开 DFM 技术报告与技术研究版图仓库；16、17、18 日分别发布 ScienceBuddy、ScienceIDE 与 JEPA Anything。各项目的链接、代码与产品入口在对应日期开放，提前存在的链接一律标注为“即将发布”。"
+      "body": "DFM 是一套范式，不是一个已经完成的模型。围绕它的研究通过系统实例、独立论文、工程模块和真实科学合作逐步展开：9 月 15 日公开 DFM 技术报告与技术研究版图仓库；16、17、18 日分别发布 ScienceBuddy、ScienceIDE 与 JEPA-Anything。各项目的链接、代码与产品入口在对应日期开放，提前存在的链接一律标注为“即将发布”。"
     },
     "loop": {
       "title": "DFM 连接什么",
@@ -178,15 +178,15 @@
       ],
       "amber": 4
     },
-    "projects_intro": "ScienceBuddy、ScienceIDE 和 JEPA Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。",
+    "projects_intro": "ScienceBuddy、ScienceIDE 和 JEPA-Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。",
     "composition": {
       "eyebrow": "可组合的研究路径",
       "title": "未来可能的组合路径",
-      "body": "从未来愿景上看，三者可以形成一种可组合的研究路径：ScienceBuddy 通过科学家与智能体的交互收集反馈和研究轨迹；ScienceIDE 将这些数据和经验进一步组织为可复用的科学环境，用于任务执行、强化学习和模型训练；JEPA Anything 则探索对多个科学环境和干预结果进行统一的状态预测和模拟。这是一种未来可能的组合方式，不代表三者当前已经完成集成，也不改变它们各自独立的定位。",
+      "body": "从未来愿景上看，三者可以形成一种可组合的研究路径：ScienceBuddy 通过科学家与智能体的交互收集反馈和研究轨迹；ScienceIDE 将这些数据和经验进一步组织为可复用的科学环境，用于任务执行、强化学习和模型训练；JEPA-Anything 则探索对多个科学环境和干预结果进行统一的状态预测和模拟。这是一种未来可能的组合方式，不代表三者当前已经完成集成，也不改变它们各自独立的定位。",
       "nodes": [
         "ScienceBuddy 与科学家持续交互，产生反馈、任务状态和科研轨迹",
         "ScienceIDE 把部分交互经验组织成可复用的科学环境，用于执行、训练和评估模型",
-        "JEPA Anything 探索对这些环境和潜在干预结果的统一状态预测，帮助研究者在行动前筛选方案",
+        "JEPA-Anything 探索对这些环境和潜在干预结果的统一状态预测，帮助研究者在行动前筛选方案",
         "预测和真实实验结果作为新的证据，返回后续研究过程"
       ],
       "amber": 3,
@@ -197,7 +197,7 @@
     "hero": {
       "eyebrow": "PhAI Labs · Tech",
       "title": "Technology for scientific *discovery*",
-      "lede": "PhAI Labs' technical work turns on one question: how can AI systems take part in real scientific discovery. DFM is the research paradigm we propose for it; ScienceBuddy, ScienceIDE and JEPA Anything are three independent research and engineering directions, working from interactive feedback, reusable scientific environments and world-state prediction respectively."
+      "lede": "PhAI Labs' technical work turns on one question: how can AI systems take part in real scientific discovery. DFM is the research paradigm we propose for it; ScienceBuddy, ScienceIDE and JEPA-Anything are three independent research and engineering directions, working from interactive feedback, reusable scientific environments and world-state prediction respectively."
     },
     "direction": {
       "title": "Our technical direction",
@@ -296,7 +296,7 @@
         "body": [
           "ScienceIDE is an independent infrastructure exploration for real scientific codebases, research tasks and verifiable scientific experience.",
           "It turns real scientific code, research procedures, task goals and verification criteria into scientific environments that run, measure and reproduce, so that researchers can do agent execution, model training and reinforcement-learning research in real scientific settings.",
-          "Its value is in organising real scientific software, domain judgement, task goals and verifiable feedback into one executable environment, an experiential base for research agents, model training, reinforcement learning and discovery research. ScienceIDE does not require ScienceBuddy to be used, and does not depend on JEPA Anything to stand."
+          "Its value is in organising real scientific software, domain judgement, task goals and verifiable feedback into one executable environment, an experiential base for research agents, model training, reinforcement learning and discovery research. ScienceIDE does not require ScienceBuddy to be used, and does not depend on JEPA-Anything to stand."
         ],
         "bullets_title": "Current task forms",
         "bullets": [
@@ -324,13 +324,13 @@
       },
       {
         "key": "jepa",
-        "name": "JEPA Anything",
+        "name": "JEPA-Anything",
         "subtitle": "Cross-domain unified science world model",
         "role": "A cross-domain unified science world model: cross-domain state prediction, intervention simulation and scientific diagnosis.",
         "body": [
-          "JEPA Anything is an independent model-method study of latent world models and orthogonal predictive factorisation.",
+          "JEPA-Anything is an independent model-method study of latent world models and orthogonal predictive factorisation.",
           "It explores how to learn, across vision, biology, the clinic, molecules, control and physics, latent representations that predict changes of world state, and to offer one interface for intervention prediction, state synthesis and scientific diagnosis.",
-          "In the research vision, JEPA Anything can be read as a unified predictive model or science world simulator over many scientific environments: when a researcher proposes an action or intervention, the model predicts the likely state changes, outcomes and risks in advance, helping screen out ineffective or costly plans. That is a direction to explore: today it does not simulate every scientific environment, and it is not connected to ScienceBuddy or ScienceIDE."
+          "In the research vision, JEPA-Anything can be read as a unified predictive model or science world simulator over many scientific environments: when a researcher proposes an action or intervention, the model predicts the likely state changes, outcomes and risks in advance, helping screen out ineffective or costly plans. That is a direction to explore: today it does not simulate every scientific environment, and it is not connected to ScienceBuddy or ScienceIDE."
         ],
         "bullets_title": "Research questions",
         "bullets": [
@@ -358,7 +358,7 @@
     ],
     "roadmap": {
       "title": "One module at a time",
-      "body": "DFM is a paradigm, not a finished model. The research around it unfolds through system instances, independent papers, engineering modules and real scientific collaborations: on 15 September the DFM technical report and research-map repository go public; on 16, 17 and 18 September ScienceBuddy, ScienceIDE and JEPA Anything are released in turn. Each project's links, code and product entries open on their day; anything that exists earlier is marked “coming soon”."
+      "body": "DFM is a paradigm, not a finished model. The research around it unfolds through system instances, independent papers, engineering modules and real scientific collaborations: on 15 September the DFM technical report and research-map repository go public; on 16, 17 and 18 September ScienceBuddy, ScienceIDE and JEPA-Anything are released in turn. Each project's links, code and product entries open on their day; anything that exists earlier is marked “coming soon”."
     },
     "loop": {
       "title": "What DFM connects",
@@ -372,15 +372,15 @@
       ],
       "amber": 4
     },
-    "projects_intro": "ScienceBuddy, ScienceIDE and JEPA Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them.",
+    "projects_intro": "ScienceBuddy, ScienceIDE and JEPA-Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them.",
     "composition": {
       "eyebrow": "A composable research path",
       "title": "A possible future path",
-      "body": "Looking ahead, the three could form a composable research path: ScienceBuddy collects feedback and research trajectories from the interaction between scientists and agents; ScienceIDE organises that data and experience into reusable scientific environments for task execution, reinforcement learning and model training; JEPA Anything explores unified state prediction and simulation across multiple scientific environments and interventions. That is a possible future combination, not an integration that exists today, and it does not change their independent standing.",
+      "body": "Looking ahead, the three could form a composable research path: ScienceBuddy collects feedback and research trajectories from the interaction between scientists and agents; ScienceIDE organises that data and experience into reusable scientific environments for task execution, reinforcement learning and model training; JEPA-Anything explores unified state prediction and simulation across multiple scientific environments and interventions. That is a possible future combination, not an integration that exists today, and it does not change their independent standing.",
       "nodes": [
         "ScienceBuddy keeps interacting with scientists, producing feedback, task states and research trajectories",
         "ScienceIDE organises some of that experience into reusable scientific environments for executing, training and evaluating models",
-        "JEPA Anything explores unified state prediction over those environments and candidate interventions, so researchers can screen plans before acting",
+        "JEPA-Anything explores unified state prediction over those environments and candidate interventions, so researchers can screen plans before acting",
         "Predictions and real experimental results return to the research process as new evidence"
       ],
       "amber": 3,
