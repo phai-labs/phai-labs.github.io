@@ -23,5 +23,14 @@
   },
   "en": {
     "summary": "Different worlds -- cells, molecules, physical fields, control environments, clinical trajectories -- share one predictive problem. Orthogonal predictive factorization splits a latent world state into complementary factors, each learned through its own pathway."
+  },
+  "links": {
+    "github": "",
+    "huggingface_model": "",
+    "huggingface_data": "",
+    "project": "",
+    "demo": "",
+    "video": "",
+    "x": ""
   }
 }
