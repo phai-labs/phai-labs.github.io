@@ -24,7 +24,10 @@ function loadArticles() {
 // sitemap line. That is the setting for work that is recorded but must not be
 // rendered yet; hiding it in CSS or filtering it in the browser would not.
 function loadPapers() {
-  return loadDir(PAPERS_DIR).filter((p) => p.status !== "hidden");
+  // Reverse of the news feed: the archive reads top to bottom in the order the
+  // lab released the work -- DFM, ScienceBuddy, ScienceIDE, JEPA-Anything --
+  // rather than newest first, so the page follows the launch sequence.
+  return loadDir(PAPERS_DIR).filter((p) => p.status !== "hidden").reverse();
 }
 
 export default function (eleventyConfig) {
@@ -141,7 +144,11 @@ export default function (eleventyConfig) {
     // the same way. Falls back to the plain title when the field is not set.
     const rows = [
       ["title", `{${p.bibtitle || p.title}}`],
-      ["author", `{${(p.authors || []).map((a) => a.sort || a.name).join(" and ")}}`],
+      // An anonymous submission has no list to print. Omit the field rather
+      // than emit `author = {}`, which is worse than leaving it out.
+      (p.authors || []).length
+        ? ["author", `{${p.authors.map((a) => a.sort || a.name).join(" and ")}}`]
+        : null,
       ["institution", "{PhAI Labs}"],
       ["type", "{Technical Report}"],
       p.number ? ["number", `{${p.number}}`] : null,

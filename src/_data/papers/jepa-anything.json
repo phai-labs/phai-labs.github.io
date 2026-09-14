@@ -1,0 +1,27 @@
+{
+  "slug": "jepa-anything",
+  "status": "published",
+  "date": "2026-09-18",
+  "title": "JEPA-Anything: Learning Predictive Models across Different Worlds",
+  "bibtitle": "{JEPA-Anything}: Learning Predictive Models across Different Worlds",
+  "authors": [],
+  "venue": "PhAI Labs Technical Report",
+  "type": "technical-report",
+  "number": "PHAI-TR-2026-04",
+  "version": "v1",
+  "topic": "World Models",
+  "bibkey": "jepaanything2026",
+  "abstract": "World models learn internal states for predicting how a system changes. Cells, molecules, physical fields, control environments and clinical trajectories differ radically, yet share one predictive problem: infer unobserved, intervened or future states from the current context. JEPA-Anything is a domain-agnostic framework that builds on joint-embedding predictive architectures and replaces their monolithic target representation with orthogonal predictive factorization, which organises a latent world state into complementary predictive factors, learns each through its own pathway, and recombines them for readout, intervention prediction and rollout. Each domain keeps its own observations and encoders while sharing the predictive core.",
+  "pdf": "",
+  "release_key": "jepa",
+  "arxiv": "",
+  "version_doi": "",
+  "concept_doi": "",
+  "license": "",
+  "zh": {
+    "summary": "不同的「世界」——细胞、分子、物理场、控制环境、临床轨迹——共享同一个预测问题。用正交预测分解把潜在世界状态拆成互补的预测因子，各自学习后再组合。"
+  },
+  "en": {
+    "summary": "Different worlds -- cells, molecules, physical fields, control environments, clinical trajectories -- share one predictive problem. Orthogonal predictive factorization splits a latent world state into complementary factors, each learned through its own pathway."
+  }
+}

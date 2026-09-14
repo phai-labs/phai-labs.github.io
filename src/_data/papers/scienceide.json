@@ -1,0 +1,202 @@
+{
+  "slug": "scienceide",
+  "status": "published",
+  "date": "2026-09-17",
+  "title": "ScienceIDE: Scaling Scientific Experience toward 1,000 Executable Environments",
+  "bibtitle": "{ScienceIDE}: Scaling Scientific Experience toward 1,000 Executable Environments",
+  "authors": [
+    {
+      "name": "Hejia Geng",
+      "sort": "Geng, Hejia",
+      "equal": true
+    },
+    {
+      "name": "Zesen Huang",
+      "sort": "Huang, Zesen",
+      "equal": true
+    },
+    {
+      "name": "Haoyang Li",
+      "sort": "Li, Haoyang"
+    },
+    {
+      "name": "Wenbin Li",
+      "sort": "Li, Wenbin"
+    },
+    {
+      "name": "Koutian Wu",
+      "sort": "Wu, Koutian"
+    },
+    {
+      "name": "Zihan Zhou",
+      "sort": "Zhou, Zihan"
+    },
+    {
+      "name": "Yuanbo Pang",
+      "sort": "Pang, Yuanbo"
+    },
+    {
+      "name": "Weihao Liu",
+      "sort": "Liu, Weihao"
+    },
+    {
+      "name": "Zigong Xu",
+      "sort": "Xu, Zigong"
+    },
+    {
+      "name": "Yueheng Shi",
+      "sort": "Shi, Yueheng"
+    },
+    {
+      "name": "Yue Ma",
+      "sort": "Ma, Yue"
+    },
+    {
+      "name": "Zongzheng Zhang",
+      "sort": "Zhang, Zongzheng"
+    },
+    {
+      "name": "Tianzhe Zheng",
+      "sort": "Zheng, Tianzhe"
+    },
+    {
+      "name": "Chuanfei Dong",
+      "sort": "Dong, Chuanfei"
+    },
+    {
+      "name": "Fengyu Xie",
+      "sort": "Xie, Fengyu"
+    },
+    {
+      "name": "Zhiping Li",
+      "sort": "Li, Zhiping"
+    },
+    {
+      "name": "Jiankai Sun",
+      "sort": "Sun, Jiankai"
+    },
+    {
+      "name": "Qucheng Gao",
+      "sort": "Gao, Qucheng"
+    },
+    {
+      "name": "Jiaming Pan",
+      "sort": "Pan, Jiaming"
+    },
+    {
+      "name": "Zhenlin Zhu",
+      "sort": "Zhu, Zhenlin"
+    },
+    {
+      "name": "Peijin Zhang",
+      "sort": "Zhang, Peijin"
+    },
+    {
+      "name": "Lanqing Yuan",
+      "sort": "Yuan, Lanqing"
+    },
+    {
+      "name": "Liuwei Xu",
+      "sort": "Xu, Liuwei"
+    },
+    {
+      "name": "Xianrong Liu",
+      "sort": "Liu, Xianrong"
+    },
+    {
+      "name": "Tong Xie",
+      "sort": "Xie, Tong"
+    },
+    {
+      "name": "Junkai Wang",
+      "sort": "Wang, Junkai"
+    },
+    {
+      "name": "Zonglin Di",
+      "sort": "Di, Zonglin"
+    },
+    {
+      "name": "Xiao-Han Ma",
+      "sort": "Ma, Xiao-Han"
+    },
+    {
+      "name": "Kangkai Liang",
+      "sort": "Liang, Kangkai"
+    },
+    {
+      "name": "Ziang Liu",
+      "sort": "Liu, Ziang"
+    },
+    {
+      "name": "Sheng Huang",
+      "sort": "Huang, Sheng"
+    },
+    {
+      "name": "Zehong Zhao",
+      "sort": "Zhao, Zehong"
+    },
+    {
+      "name": "Ziyang Xu",
+      "sort": "Xu, Ziyang"
+    },
+    {
+      "name": "Jingxu Xie",
+      "sort": "Xie, Jingxu"
+    },
+    {
+      "name": "Yaopeng Xing",
+      "sort": "Xing, Yaopeng"
+    },
+    {
+      "name": "Jiayi Xian",
+      "sort": "Xian, Jiayi"
+    },
+    {
+      "name": "Xing Meng",
+      "sort": "Meng, Xing"
+    },
+    {
+      "name": "Zhenfei Yin",
+      "sort": "Yin, Zhenfei",
+      "corresponding": true
+    },
+    {
+      "name": "Yingcheng Wu",
+      "sort": "Wu, Yingcheng",
+      "corresponding": true
+    },
+    {
+      "name": "Ling Yang",
+      "sort": "Yang, Ling",
+      "corresponding": true
+    }
+  ],
+  "venue": "PhAI Labs Technical Report",
+  "type": "technical-report",
+  "number": "PHAI-TR-2026-03",
+  "version": "v1",
+  "topic": "Research Environments",
+  "bibkey": "geng2026scienceide",
+  "abstract": "Scientific software and expertise do not readily become experience that agents can learn from: repositories depend on fragile toolchains and unwritten conventions, and correctness rests on scientific behaviour and numerical tolerances. ScienceIDE is infrastructure that connects scientific practice with agent development by making expert knowledge reusable. Domain experts define scientific cases and acceptance criteria, agents help turn those decisions into executable environments, and task factories generate diverse challenges whose validity is established through execution and scientific verification. The same environments yield graded trajectories for supervised fine-tuning, online rewards for reinforcement learning, and evidence for evaluation.",
+  "pdf": "",
+  "release_key": "scienceide",
+  "arxiv": "",
+  "version_doi": "",
+  "concept_doi": "",
+  "license": "",
+  "zh": {
+    "summary": "把科学软件和专家经验变成智能体可以学习的可执行环境：专家定义科学案例与验收标准，任务工厂据此生成挑战，同一套环境同时供训练、强化学习和评测使用。"
+  },
+  "en": {
+    "summary": "Turning scientific software and expert judgement into executable environments an agent can learn from: experts define cases and acceptance criteria, task factories generate challenges, and the same environments serve training, RL and evaluation."
+  },
+  "links": {
+    "github": "",
+    "huggingface_model": "",
+    "huggingface_data": "",
+    "project": "https://aitonomy.org/projects/scienceide",
+    "demo": "",
+    "video": "",
+    "x": ""
+  }
+}

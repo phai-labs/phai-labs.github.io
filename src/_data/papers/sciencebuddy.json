@@ -1,0 +1,95 @@
+{
+  "slug": "sciencebuddy",
+  "status": "published",
+  "date": "2026-09-16",
+  "title": "ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents",
+  "bibtitle": "{ScienceBuddy}: {Recursive-in-Recursive} Self-Improvement for Interactive Scientific Agents",
+  "authors": [
+    {
+      "name": "Shuhan Xue",
+      "sort": "Xue, Shuhan",
+      "equal": true
+    },
+    {
+      "name": "Jianyuan Zhong",
+      "sort": "Zhong, Jianyuan",
+      "equal": true
+    },
+    {
+      "name": "Ziyuan Nan",
+      "sort": "Nan, Ziyuan",
+      "equal": true
+    },
+    {
+      "name": "Wenbin Li",
+      "sort": "Li, Wenbin"
+    },
+    {
+      "name": "Zhaochen Yu",
+      "sort": "Yu, Zhaochen"
+    },
+    {
+      "name": "Jinchao Ding",
+      "sort": "Ding, Jinchao"
+    },
+    {
+      "name": "Qiang Gao",
+      "sort": "Gao, Qiang"
+    },
+    {
+      "name": "Pengyu Zhan",
+      "sort": "Zhan, Pengyu"
+    },
+    {
+      "name": "Yuntong Zhang",
+      "sort": "Zhang, Yuntong"
+    },
+    {
+      "name": "Tian Cheng",
+      "sort": "Cheng, Tian"
+    },
+    {
+      "name": "Zhenfei Yin",
+      "sort": "Yin, Zhenfei",
+      "corresponding": true
+    },
+    {
+      "name": "Yingcheng Wu",
+      "sort": "Wu, Yingcheng",
+      "corresponding": true
+    },
+    {
+      "name": "Ling Yang",
+      "sort": "Yang, Ling",
+      "corresponding": true
+    }
+  ],
+  "venue": "PhAI Labs Technical Report",
+  "type": "technical-report",
+  "number": "PHAI-TR-2026-02",
+  "version": "v1",
+  "topic": "Scientific Agents",
+  "bibkey": "xue2026sciencebuddy",
+  "abstract": "ScienceBuddy is an interactive scientific research workspace that brings continually improving agents into a researcher's everyday work. It supports researchers in carrying out scientific tasks while turning their requests, feedback and execution evidence into tasks and evaluation rubrics for continual learning. At its core is recursive-in-recursive self-improvement, which couples harness evolution with model reinforcement learning: the inner recursion improves the harness with the model fixed, and the outer recursion trains the model under the improved harness. Case studies cover researcher interaction, harness refinement and model learning across four families of scientific task.",
+  "pdf": "",
+  "release_key": "sciencebuddy",
+  "arxiv": "",
+  "version_doi": "",
+  "concept_doi": "",
+  "license": "",
+  "zh": {
+    "summary": "把持续改进的科研智能体放进研究者的日常工作：研究者的请求、反馈与执行证据被转化为任务和评测标准，驱动 harness 与模型的嵌套式自我改进。"
+  },
+  "en": {
+    "summary": "Continually improving agents inside a researcher's daily work: requests, feedback and execution evidence become the tasks and rubrics that drive nested self-improvement of harness and model."
+  },
+  "links": {
+    "github": "",
+    "huggingface_model": "",
+    "huggingface_data": "",
+    "project": "",
+    "demo": "",
+    "video": "",
+    "x": ""
+  }
+}

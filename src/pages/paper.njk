@@ -50,7 +50,16 @@ eleventyComputed:
             release-gated: a repo or a model card is only pasted in once it is
             already public, and gating them would contradict "show it the moment
             it exists". -#}
-        {%- for k in ['github', 'huggingface_model', 'huggingface_data', 'project', 'demo', 'video', 'x'] %}
+        {#- GitHub is the one slot that is always shown: a real link once the
+            repo is public, a dated "releasing on" pill until then, the same way
+            the PDF button waits. The rest stay silent while empty. -#}
+        {%- set gh = p.links.github if p.links else '' %}
+        {%- if gh %}
+        <a class="btn" href="{{ gh }}" rel="noopener">{{ s.pub_links.github }} <span aria-hidden="true">↗</span></a>
+        {%- else %}
+        <span class="btn btn--wait">{{ s.pub_links.github }}<small>{{ (r.date | releaseLabel(lang)) if r else s.pending }}</small></span>
+        {%- endif %}
+        {%- for k in ['huggingface_model', 'huggingface_data', 'project', 'demo', 'video', 'x'] %}
         {%- set href = p.links[k] if p.links else '' %}
         {%- if href %}
         <a class="btn" href="{{ href }}" rel="noopener">{{ s.pub_links[k] }} <span aria-hidden="true">↗</span></a>
@@ -72,6 +81,9 @@ eleventyComputed:
       <div class="paper__val paper__val--abs"><p>{{ p.abstract }}</p></div>
     </section>
 
+    {#- A paper whose only build is an anonymised double-blind submission has no
+        author list to print. Skip the row rather than render an empty one. -#}
+    {%- if p.authors and p.authors.length %}
     <section class="paper__row">
       <h2 class="paper__label">{{ s.pub_authors }}</h2>
       <div class="paper__val">
@@ -79,6 +91,7 @@ eleventyComputed:
         {%- if p.authors | hasEqual %}<p class="paper__note">{{ s.pub_equal }}</p>{% endif %}
       </div>
     </section>
+    {%- endif %}
 
     <section class="paper__row">
       <h2 class="paper__label">{{ s.pub_record }}</h2>

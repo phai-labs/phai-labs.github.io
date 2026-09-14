@@ -40,7 +40,7 @@ eleventyComputed:
         </p>
         <div class="pub__body">
           <h2 class="pub__title"><a href="{{ p.slug | paperUrl(lang) }}">{{ p.title }}</a></h2>
-          <p class="pub__authors">{{ p.authors | authorLine }}</p>
+          {%- if p.authors and p.authors.length %}<p class="pub__authors">{{ p.authors | authorLine }}</p>{% endif %}
           <p class="pub__abs">{{ p.abstract }}</p>
           <p class="pub__foot">
             <span class="pub__venue">{{ p | venueLabel }}</span>
