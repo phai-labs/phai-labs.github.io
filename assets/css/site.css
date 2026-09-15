@@ -731,6 +731,25 @@ html[lang="en"] .dgfig__attrs b{font-size:clamp(1.15rem,1.45vw,1.4rem);line-heig
 /* Today's release is what the reader came for, so its badge is filled while the
    amber "releasing on" pills further down stay outlined. */
 .entry__badge--today{border-color:var(--blue);background:var(--blue);color:var(--bg);font-weight:500}
+
+/* Small pills on the Chinese tree take the sans stack. --mono is Plex Mono ->
+   ui-monospace -> SF Mono -> Menlo -> Consolas, and not one of those carries a
+   hanzi, so the characters fell through to a system substitute while keeping
+   the tracking and uppercasing that only make sense for Latin labels. The
+   English tree keeps the mono label voice, which is correct there. */
+html[lang="zh-CN"] .entry__badge,
+html[lang="zh-CN"] .pub__pending,
+html[lang="zh-CN"] .btn--wait small,
+html[lang="zh-CN"] .facts__now,
+html[lang="zh-CN"] .foot__qr em{
+  font-family:var(--sans);letter-spacing:.04em;text-transform:none;
+}
+html[lang="zh-CN"] .entry__badge,
+html[lang="zh-CN"] .pub__pending,
+html[lang="zh-CN"] .btn--wait small{font-size:.68rem}
+html[lang="zh-CN"] .facts__now{font-size:.7rem}
+html[lang="zh-CN"] .foot__qr em{font-size:.72rem}
+
 .entry__title{grid-column:2;font-family:var(--serif);font-weight:400;font-size:var(--t-2);line-height:1.15;letter-spacing:-.02em;max-width:22em}
 html[lang="zh-CN"] .entry__title{font-weight:400;letter-spacing:0;line-height:1.3}
 .entry__title a{transition:color .25s}.entry__title a:hover{color:var(--blue-2)}
