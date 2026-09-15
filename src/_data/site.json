@@ -8,7 +8,8 @@
     "aitonomy": "https://aitonomy.org/",
     "dfm_report": "https://phai-labs.com/papers/dfm/dfm-technical-report-v1-2026-09.pdf",
     "dfm_github": "https://github.com/Gen-Verse/DFM-Plans",
-    "x": "",
+    "rednote": "https://www.xiaohongshu.com/user/profile/637a2ff5000000001f0156c2",
+    "x": "https://x.com/PhAILabs",
     "linkedin": "",
     "wechat": "",
     "sciencebuddy_report": "",
@@ -19,6 +20,11 @@
     "jepa_paper": "",
     "jepa_code": "",
     "jepa_demo": ""
+  },
+  "qr": {
+    "rednote": "",
+    "wechat": "/assets/img/social/wechat-qr.png",
+    "x": ""
   },
   "kv": {
     "static": "/assets/img/kv-static.webp",

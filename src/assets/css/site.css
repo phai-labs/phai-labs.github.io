@@ -185,7 +185,63 @@ body.drawer-open{overflow:hidden}
 .foot__cs a{font-size:.86rem;color:var(--ink-2);word-break:break-all;transition:color .25s}
 .foot__cs a:hover{color:var(--ink)}
 .foot__cnote{font-size:.76rem;line-height:1.6;color:var(--ink-3)}
-.foot__social{display:flex;gap:1rem;margin-top:.3rem;font-size:.86rem}
+.foot__social{display:flex;align-items:center;gap:1.4rem;margin-top:1.4rem}
+/* The mark is 20px but the hit area is 44px: a 20px tap target fails on a
+   phone, and the footer is where a thumb reaches last. */
+.foot__s{position:relative;display:inline-flex;align-items:center}
+.foot__social [data-mark]{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:1.75rem;height:1.75rem;color:var(--ink-3);
+  transition:color .25s var(--ease);position:relative;
+  background:none;border:0;padding:0;font:inherit;
+}
+.foot__social button[data-mark]{cursor:pointer}
+.foot__social [data-mark]::after{content:'';position:absolute;inset:-.45rem}
+.foot__s:hover [data-mark],.foot__s:focus-within [data-mark]{color:var(--blue-2)}
+.foot__social svg{width:100%;height:100%;display:block;fill:currentColor}
+/* Xiaohongshu ships a horizontal wordmark rather than a square glyph, so it
+   gets its own width: cropped to its ink the mark is 2.8:1, and 3.94rem puts
+   the characters at 22.5px -- the same optical height as the WeChat mark's
+   22.9px. Equal box sizes would leave the hanzi less than half that and the
+   row would read with a hole in it. */
+.foot__social [data-mark="rednote"]{width:3.94rem}
+/* The English tree cannot use the mark: Xiaohongshu's only logo is the hanzi
+   wordmark -- even the international rednote app icon is set in hanzi -- and an
+   English page here carries no Chinese. The name is set in the site's own type
+   instead of a faked latin wordmark, so it reads as a label, not a counterfeit. */
+.foot__social .is-word{width:auto;height:auto}
+
+/* The code panel. It opens upward because the row sits near the page bottom,
+   and ::before bridges the gap so the pointer can travel from mark to panel
+   without crossing dead space and dismissing it. */
+.foot__qr{
+  position:absolute;bottom:calc(100% + .7rem);left:50%;
+  transform:translateX(-50%) translateY(.25rem);
+  opacity:0;visibility:hidden;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;
+  /* max-content, or shrink-to-fit resolves against the 28px mark: the global
+     img{max-width:100%} lets the code squeeze to nothing and the panel collapses. */
+  width:max-content;padding:.55rem;border:1px solid var(--rule);border-radius:8px;
+  background:var(--bg-2);box-shadow:0 12px 34px rgba(0,0,0,.5);z-index:30;
+}
+.foot__qr::before{content:'';position:absolute;top:100%;left:0;right:0;height:.9rem}
+.foot__s:hover .foot__qr,.foot__s:focus-within .foot__qr{
+  opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);
+}
+/* 160px, not the 140 the panel would naturally take: at 258/140 the resampler
+   blurs the module edges and the code stops decoding. The asset is 320 so a 2x
+   screen is 1:1 and a 1x screen halves it exactly. */
+.foot__qr img{display:block;width:160px;height:160px;max-width:none;border-radius:3px}
+.foot__qr em{
+  display:block;margin-top:.45rem;text-align:center;font-style:normal;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+@media (max-width:520px){.foot__qr{left:0;transform:translateX(0) translateY(.25rem)}
+  .foot__s:hover .foot__qr,.foot__s:focus-within .foot__qr{transform:translateX(0) translateY(0)}}
+.foot__word{
+  font-size:1.02rem;font-weight:500;letter-spacing:-.01em;line-height:1;
+  white-space:nowrap;
+}
 .foot__base{width:min(var(--shell),100%);margin:0 auto;padding:1.2rem var(--pad) 2.2rem;display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;justify-content:space-between;align-items:center;border-top:1px solid var(--rule-soft);font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--ink-3)}
 .foot__top:hover{color:var(--ink)}
 

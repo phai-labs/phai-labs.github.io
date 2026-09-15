@@ -112,12 +112,7 @@
         </li>
         {%- endfor %}
       </ul>
-      {%- if site.links.x or site.links.linkedin %}
-      <p class="foot__social">
-        {%- if site.links.x %}<a href="{{ site.links.x }}" rel="noopener" target="_blank">X</a>{% endif %}
-        {%- if site.links.linkedin %}<a href="{{ site.links.linkedin }}" rel="noopener" target="_blank">LinkedIn</a>{% endif %}
-      </p>
-      {%- endif %}
+      {% include "components/social.njk" %}
     </div>
   </div>
   <div class="foot__base">
