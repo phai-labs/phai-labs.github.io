@@ -184,6 +184,29 @@ export default function (eleventyConfig) {
     return esc.replace(/PhAI(\s+Labs)?/g, (m) => `<span class="brand">${m}</span>`);
   });
   eleventyConfig.addFilter("published", (list) => list.filter((a) => !a.draft));
+  // Build-time "today" in Beijing, the lab's own timezone. A 09:00 Beijing
+  // deploy is still the previous day in UTC, and a UTC-based feed would go on
+  // featuring yesterday's release all morning.
+  const todayCN = () => new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
+  eleventyConfig.addFilter("isToday", (iso) => iso === todayCN());
+  eleventyConfig.addFilter("isAhead", (iso) => iso > todayCN());
+  // The feed is ordered by what the reader can act on rather than by raw date:
+  // today's items first (a release ahead of a programme note), then what is
+  // still ahead in launch order, then the past, newest first. Across the
+  // four-day launch each morning's deploy promotes that day's release and sinks
+  // the previous one on its own -- the running order is never hand-edited.
+  eleventyConfig.addFilter("feedOrder", (list) => {
+    const today = todayCN();
+    const rank = (a) => (a.category === "release" ? 0 : 1);
+    const desc = (a, b) => (a.date === b.date ? rank(a) - rank(b) : a.date < b.date ? 1 : -1);
+    const asc = (a, b) => (a.date === b.date ? rank(a) - rank(b) : a.date < b.date ? -1 : 1);
+    const items = [...(list || [])];
+    return [
+      ...items.filter((a) => a.date === today).sort(desc),
+      ...items.filter((a) => a.date > today).sort(asc),
+      ...items.filter((a) => a.date < today).sort(desc),
+    ];
+  });
   // The hero strip should point at the release the reader can act on next: the
   // earliest item still ahead of today, or the newest published one if none is.
   eleventyConfig.addFilter("imminent", (list) => {
