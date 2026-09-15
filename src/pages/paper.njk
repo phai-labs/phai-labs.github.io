@@ -20,7 +20,13 @@ eleventyComputed:
 {%- set s = i18n[lang] -%}
 {%- set r = site.releases[p.release_key] if p.release_key and site.releases[p.release_key] else null -%}
 {%- set gated = r and not r.live -%}
-{%- set pdfUrl = ('/papers/' + p.slug + '/' + p.pdf) if p.pdf else '' -%}
+{#- Once a paper is on arXiv the download points there: that is the copy readers
+    already trust and mirror, and it spares the repo a multi-megabyte blob per
+    release. A paper arXiv does not carry keeps serving its own file. Note this
+    is the reader-facing link only -- citation_pdf_url in citation-meta.njk must
+    keep naming a file in the same subdirectory as the abstract page, which is
+    Scholar's rule, so that one still follows p.pdf. -#}
+{%- set pdfUrl = ('https://arxiv.org/pdf/' + p.arxiv) if p.arxiv else (('/papers/' + p.slug + '/' + p.pdf) if p.pdf else '') -%}
 
 {#- The record page, on ByteDance Seed's shape: date, title, one row of actions
     with the pager opposite, then label/value rows. Seed stops at ABSTRACT /
@@ -35,7 +41,7 @@ eleventyComputed:
     <div class="paper__acts">
       <div class="paper__btns">
         {%- if pdfUrl and not gated %}
-        <a class="btn btn--primary" href="{{ pdfUrl }}">{{ s.pub_download }}</a>
+        <a class="btn btn--primary" href="{{ pdfUrl }}"{% if p.arxiv %} rel="noopener"{% endif %}>{{ s.pub_download }}{% if p.arxiv %} <span aria-hidden="true">↗</span>{% endif %}</a>
         {%- else %}
         <span class="btn btn--wait">{{ s.pub_download }}<small>{{ (r.date | releaseLabel(lang)) if r else s.pending }}</small></span>
         {%- endif %}

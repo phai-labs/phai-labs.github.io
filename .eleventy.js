@@ -138,6 +138,25 @@ export default function (eleventyConfig) {
   const MONTHS = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
   eleventyConfig.addFilter("bibtex", (p, baseUrl) => {
+    // Once a paper is on arXiv that is where people cite it from, so it takes
+    // the preprint form arXiv and Scholar both hand out: four fields, compact,
+    // no brace protection. Anything still living only here keeps the fuller
+    // @techreport entry below, which is the only way a reader can tell where to
+    // find it. The branch is on `arxiv` alone, so filling that field is the
+    // single edit that switches a record over.
+    if (p.arxiv) {
+      const cite = [
+        ["title", p.title],
+        (p.authors || []).length
+          ? ["author", p.authors.map((a) => a.sort || a.name).join(" and ")]
+          : null,
+        ["journal", `arXiv preprint arXiv:${p.arxiv}`],
+        ["year", p.date.slice(0, 4)],
+      ].filter(Boolean);
+      return `@article{${p.bibkey || p.slug},\n${cite
+        .map(([k, v]) => `  ${k}={${v}}`)
+        .join(",\n")}\n}`;
+    }
     // `bibtitle` is the title with braces around the terms whose capitalisation
     // has to survive a style that lower-cases titles -- the model class and the
     // capability it names. Qwen's own @techreport brace-protects {Qwen3.8-Next}
