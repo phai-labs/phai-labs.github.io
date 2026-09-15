@@ -39,7 +39,7 @@
     "summary": "Defines discovery itself as a learnable, executable and evaluable capability: a DFM operates over a revisable research state spanning seven coupled capabilities, from problem discovery to evidence-grounded revision."
   },
   "links": {
-    "github": "",
+    "github": "https://github.com/Gen-Verse/DFM-Plans",
     "huggingface_model": "",
     "huggingface_data": "",
     "project": "",
