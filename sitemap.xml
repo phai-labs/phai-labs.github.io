@@ -11,16 +11,6 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/team/"/>
   </url>
   <url>
-    <loc>https://phai-labs.com/news/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/en/news/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/"/>
-  </url>
-  <url>
     <loc>https://phai-labs.com/careers/</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/careers/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/careers/"/>
@@ -179,5 +169,15 @@
     <loc>https://phai-labs.com/en/tech/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/tech/"/>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/tech/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/news/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/news/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/"/>
   </url>
 </urlset>
