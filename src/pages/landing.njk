@@ -125,8 +125,8 @@ eleventyComputed:
 <footer class="end">
   <p class="eyebrow rv">{{ t.facts_eyebrow }}</p>
   <ol class="facts">
-    {%- for f in t.facts %}
-    <li class="rv" style="--k:{{ loop.index0 }}"><b>{{ f[0] }}</b><span>{{ f[1] }}</span></li>
+    {%- for f in lang | nextup %}
+    <li class="rv{{ ' is-today' if f.kind == 'today' }}{{ ' is-program' if f.kind == 'program' }}" style="--k:{{ loop.index0 }}"><b>{{ t.facts_open if f.kind == 'program' else f.when }}{% if f.kind == 'today' %}<span class="facts__now">{{ s.today_badge }}</span>{% endif %}</b><span>{{ f.label }}</span></li>
     {%- endfor %}
   </ol>
   <p class="end__line rv">{{ t.foot }} · <a href="{{ '/' | localeUrl(lang) }}">{{ t.nav_site }} →</a></p>

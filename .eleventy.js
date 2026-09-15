@@ -96,6 +96,40 @@ export default function (eleventyConfig) {
   // of shipping a 404. The homepage's launch rows point at announcements dated
   // days ahead of the build, so without this they break on every production
   // deploy and work fine locally, which is the worst way for a link to fail.
+  // The homepage strip. It has to carry the release that lands today, marked as
+  // today's, because on a launch morning that is the thing a visitor came for;
+  // what is still ahead follows, and the standing programme takes whatever seat
+  // is left. Derived rather than written out: the row changes every morning,
+  // and the hand-written version was still promising 15 September a day after
+  // it shipped.
+  eleventyConfig.addFilter("nextup", (lang) => {
+    const today = todayCN();
+    const label = (a) => (a[lang] && a[lang].short) || a[lang].title.split(/[:\uff1a]/)[0];
+    const when = (iso) => {
+      const [, m, d] = iso.split("-").map(Number);
+      return lang === "en" ? `${d} ${M3[m - 1]}` : `${m}.${d}`;
+    };
+    const row = (a, kind) => ({ kind, slug: a.slug, when: when(a.date), label: label(a) });
+    const releases = articles.filter((a) => a.category === "release");
+    const rows = [];
+    const now = releases.find((a) => a.date === today);
+    if (now) rows.push(row(now, "today"));
+    for (const a of releases.filter((a) => a.date > today)
+                            .sort((x, y) => (x.date < y.date ? -1 : 1))) {
+      rows.push(row(a, "ahead"));
+    }
+    // Once the run is over there is nothing ahead to show, so fall back to the
+    // most recent release rather than leaving a single programme cell adrift.
+    if (!rows.length) {
+      const last = releases.filter((a) => a.date < today)
+                           .sort((x, y) => (x.date < y.date ? 1 : -1))[0];
+      if (last) rows.push(row(last, "past"));
+    }
+    const programme = articles.find((a) => a.category === "program");
+    if (programme && rows.length < 3) rows.push(row(programme, "program"));
+    return rows.slice(0, 3);
+  });
+
   eleventyConfig.addFilter("articleHref", (slug, lang, fallback) => {
     const live = slug && articles.some((a) => a.slug === slug);
     const url = live ? `/news/${slug}/` : fallback;

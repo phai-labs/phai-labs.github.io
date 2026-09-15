@@ -40,7 +40,8 @@
       "它的核心价值在于，把真实科学软件、领域判断、任务目标和可验证反馈组织到同一个可执行环境中，为科研 Agent、模型训练、强化学习和科学发现研究提供经验基础。ScienceIDE 不要求接入 ScienceBuddy 才能使用，也不依赖 JEPA-Anything 才能成立。",
       "当前任务形态包括加速、发现、修复、复现和集成。ScienceIDE 可以独立服务于科学代码、科学任务、环境构建、任务验证和强化学习训练等场景。",
       "ScienceIDE 当前开放任务提案。项目主页、任务提交页面和代码仓库于 9 月 17 日按最终准备情况公开。"
-    ]
+    ],
+    "short": "ScienceIDE 可验证的科学执行环境"
   },
   "en": {
     "title": "ScienceIDE · science integrated development platform: turning real scientific code into verifiable environments",
@@ -51,7 +52,8 @@
       "Its value is in organising real scientific software, domain judgement, task goals and verifiable feedback into one executable environment, an experiential base for research agents, model training, reinforcement learning and discovery research. ScienceIDE does not require ScienceBuddy to be used, and does not depend on JEPA-Anything to stand.",
       "Current task forms are accelerate, discover, repair, reproduce and integrate. ScienceIDE serves scientific code, scientific tasks, environment building, task verification and reinforcement-learning training on its own.",
       "ScienceIDE is open for task proposals. Whether the project page, submission page and repository go public on 17 September follows final readiness."
-    ]
+    ],
+    "short": "ScienceIDE, verifiable scientific environments"
   },
   "art": "scienceide"
 }

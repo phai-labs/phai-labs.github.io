@@ -146,17 +146,31 @@
 .mh .nextup .eyebrow a{margin-left:auto;font-size:.86rem;letter-spacing:.1em;color:var(--ink-2);
   border-bottom:1px solid var(--rule);transition:color .25s,border-color .25s}
 .mh .nextup .eyebrow a:hover{color:var(--ink);border-color:var(--ink-3)}
-.mh .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,2.6rem)}
+.mh .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:clamp(1.2rem,3vw,2.6rem)}
 .mh .facts li{display:block}
 .mh .facts a{display:grid;gap:.5rem;padding:1.1rem 0 1.2rem;border-top:1px solid var(--rule);
   text-align:left;transition:border-color .3s}
 .mh .facts a:hover{border-top-color:var(--ink-3)}
 .mh .facts b{font-family:var(--mono);font-weight:400;font-size:1.62rem;letter-spacing:.03em;color:var(--blue);
   transition:color .25s}
-.mh .facts li:last-child b{color:var(--amber)}
+.mh .facts li.is-program b{color:var(--amber)}
+/* The day's release leads the strip and has to read as today's, not as one more
+   date in a list: a filled badge, a blue rule instead of the grey one, and the
+   label at full strength. Same badge as the news feed, so the two agree. */
+.mh .facts .facts__now{
+  display:inline-block;vertical-align:.34em;margin-left:.6rem;
+  padding:.2rem .52rem;border-radius:999px;background:var(--blue);color:var(--bg);
+  font-family:var(--mono);font-style:normal;font-weight:500;font-size:.62rem;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+/* The site-wide Chinese pill rule loses to .mh .facts .facts__now on
+   specificity, so the hanzi case is restated at the same depth here. */
+html[lang="zh-CN"] .mh .facts .facts__now{font-family:var(--sans);font-size:.7rem;letter-spacing:.04em;text-transform:none;font-style:normal}
+.mh .facts li.is-today a{border-top-color:var(--blue)}
+.mh .facts li.is-today span{color:var(--ink)}
 .mh .facts span{font-size:1.18rem;line-height:1.6;color:var(--ink-2);transition:color .25s}
 .mh .facts a:hover b{color:var(--blue-2)}
-.mh .facts li:last-child a:hover b{color:var(--amber-2)}
+.mh .facts li.is-program a:hover b{color:var(--amber-2)}
 .mh .facts a:hover span{color:var(--ink)}
 .mh .facts em{display:block;margin-top:.15rem;font-style:normal;font-family:var(--mono);
   font-size:.82rem;letter-spacing:.12em;color:var(--ink-4)}

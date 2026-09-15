@@ -41,7 +41,7 @@
     },
     "sciencebuddy": {
       "date": "2026-09-16",
-      "live": false,
+      "live": true,
       "url": "http://science-buddy.io"
     },
     "scienceide": {

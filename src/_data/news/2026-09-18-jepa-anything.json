@@ -40,7 +40,8 @@
       "在未来的研究愿景中，JEPA-Anything 可以被理解为面向多个科学环境的统一预测模型或科学世界模拟器：当研究者提出某种科学行为或干预时，模型预先预测可能的状态变化、结果和风险，帮助筛选无效或代价较高的方案。这是希望探索的能力方向：目前它并不能模拟所有科学环境，也尚未接入 ScienceBuddy 或 ScienceIDE。",
       "在整体研究图景中，它关注如何表示复杂系统中的多种可预测因素、如何预测不同干预带来的状态变化、如何为实验选择和科学诊断提供预测依据，以及如何在跨领域场景中复用潜在世界状态接口。",
       "论文、代码、模型权重和演示链接于 9 月 18 日按最终确认的开放范围公开。"
-    ]
+    ],
+    "short": "JEPA-Anything 跨领域科学世界模型"
   },
   "en": {
     "title": "JEPA-Anything · cross-domain unified science world model: orthogonal predictive factorisation for latent world models",
@@ -51,7 +52,8 @@
       "In the research vision, JEPA-Anything can be read as a unified predictive model or science world simulator over many scientific environments: when a researcher proposes an action or intervention, the model predicts the likely state changes, outcomes and risks in advance, helping screen out ineffective or costly plans. That is a direction to explore: today it does not simulate every scientific environment, and it is not connected to ScienceBuddy or ScienceIDE.",
       "In the wider research picture it asks how to represent the many predictable factors of a complex system, how to predict the state changes different interventions bring, how to ground experiment selection and scientific diagnosis in prediction, and how to reuse a latent world-state interface across domains.",
       "Paper, code, model weights and demo links go public on 18 September within the confirmed scope."
-    ]
+    ],
+    "short": "JEPA-Anything, a cross-domain science world model"
   },
   "art": "jepa"
 }

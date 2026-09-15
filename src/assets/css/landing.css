@@ -171,11 +171,20 @@ ol,ul{list-style:none}
 /* ---------------------------------------------------- 3. facts */
 .end{padding:clamp(2.5rem,6vh,4rem) var(--pad) clamp(2.5rem,6vh,4rem);text-align:center;
   border-top:1px solid var(--rule);margin-top:clamp(2.5rem,6vh,4.5rem)}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,3rem);
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:clamp(1.2rem,3vw,3rem);
   max-width:58rem;margin:0 auto}
 .facts li{display:grid;gap:.35rem;padding-top:1rem;border-top:1px solid var(--rule);text-align:left}
 .facts b{font-family:var(--mono);font-weight:400;font-size:1.02rem;letter-spacing:.04em;color:var(--blue)}
-.facts li:last-child b{color:var(--amber)}
+.facts li.is-program b{color:var(--amber)}
+/* Same rule as the full homepage: today's release is marked, not just listed. */
+.facts .facts__now{
+  display:inline-block;vertical-align:.3em;margin-left:.5rem;
+  padding:.16rem .45rem;border-radius:999px;background:var(--blue);color:var(--bg);
+  font-family:var(--mono);font-style:normal;font-weight:500;font-size:.54rem;
+  letter-spacing:.1em;text-transform:uppercase;
+}
+.facts li.is-today{border-top-color:var(--blue)}
+.facts li.is-today span{color:var(--ink)}
 .facts span{font-size:.86rem;color:var(--ink-2);line-height:1.6}
 .end__line{margin-top:clamp(2rem,5vh,3.2rem);font-size:.82rem;color:var(--ink-3)}
 .end__line a{color:var(--ink-2);border-bottom:1px solid var(--rule)}

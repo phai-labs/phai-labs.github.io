@@ -118,12 +118,11 @@ eleventyComputed:
 <section class="nextup" id="next" data-field="calm">
   <p class="eyebrow rv">{{ t.facts_eyebrow }}<a href="{{ '/news/' | localeUrl(lang) }}">{{ t.facts_more }} →</a></p>
   <ol class="facts">
-    {%- for f in t.facts %}
-    <li class="rv" style="--k:{{ loop.index0 }}">
-      {%- set fl = t.facts_link[loop.index0] %}
-      <a href="{{ fl.slug | articleHref(lang, fl.fallback) }}">
-        <b>{{ f[0] }}</b>
-        <span>{{ f[1] }}</span>
+    {%- for f in lang | nextup %}
+    <li class="rv{{ ' is-today' if f.kind == 'today' }}{{ ' is-program' if f.kind == 'program' }}" style="--k:{{ loop.index0 }}">
+      <a href="{{ f.slug | articleHref(lang, '/news/') }}">
+        <b>{{ t.facts_open if f.kind == 'program' else f.when }}{% if f.kind == 'today' %}<span class="facts__now">{{ s.today_badge }}</span>{% endif %}</b>
+        <span>{{ f.label }}</span>
         <em>{{ t.facts_cta }} →</em>
       </a>
     </li>
