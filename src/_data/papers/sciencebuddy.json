@@ -71,7 +71,7 @@
   "topic": "Scientific Agents",
   "bibkey": "xue2026sciencebuddy",
   "abstract": "ScienceBuddy is an interactive scientific research workspace that brings continually improving agents into a researcher's everyday work. It supports researchers in carrying out scientific tasks while turning their requests, feedback and execution evidence into tasks and evaluation rubrics for continual learning. At its core is recursive-in-recursive self-improvement, which couples harness evolution with model reinforcement learning: the inner recursion improves the harness with the model fixed, and the outer recursion trains the model under the improved harness. Case studies cover researcher interaction, harness refinement and model learning across four families of scientific task.",
-  "pdf": "",
+  "pdf": "sciencebuddy-technical-report-v1-2026-09.pdf",
   "release_key": "sciencebuddy",
   "arxiv": "",
   "version_doi": "",
@@ -84,10 +84,10 @@
     "summary": "Continually improving agents inside a researcher's daily work: requests, feedback and execution evidence become the tasks and rubrics that drive nested self-improvement of harness and model."
   },
   "links": {
-    "github": "",
+    "github": "https://github.com/Gen-Verse/ScienceBuddy-RSI",
     "huggingface_model": "",
     "huggingface_data": "",
-    "project": "",
+    "project": "http://science-buddy.io",
     "demo": "",
     "video": "",
     "x": ""

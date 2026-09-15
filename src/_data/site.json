@@ -4,7 +4,7 @@
   "launch_date": "2026-09-15",
   "links": {
     "apply_form": "https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid",
-    "sciencebuddy": "http://115.191.37.16:8099/",
+    "sciencebuddy": "http://science-buddy.io",
     "aitonomy": "https://aitonomy.org/",
     "dfm_report": "https://phai-labs.com/papers/dfm/dfm-technical-report-v1-2026-09.pdf",
     "dfm_github": "https://github.com/Gen-Verse/DFM-Plans",
@@ -42,7 +42,7 @@
     "sciencebuddy": {
       "date": "2026-09-16",
       "live": false,
-      "url": "http://115.191.37.16:8099/"
+      "url": "http://science-buddy.io"
     },
     "scienceide": {
       "date": "2026-09-17",

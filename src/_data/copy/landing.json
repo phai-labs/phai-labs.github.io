@@ -30,12 +30,12 @@
     "facts_eyebrow": "接下来",
     "facts": [
       [
-        "9.15",
-        "DFM 技术报告与技术研究版图"
+        "9.16",
+        "ScienceBuddy 交互式科研工作台"
       ],
       [
-        "9.16 – 9.18",
-        "三个独立工作连续发布"
+        "9.17 – 9.18",
+        "两个独立工作连续发布"
       ],
       [
         "开放中",
@@ -47,8 +47,8 @@
     "facts_more": "全部新闻动态",
     "facts_link": [
       {
-        "slug": "dfm-launch",
-        "fallback": "/tech/"
+        "slug": "sciencebuddy",
+        "fallback": "/news/"
       },
       {
         "slug": "",
@@ -91,12 +91,12 @@
     "facts_eyebrow": "What comes next",
     "facts": [
       [
-        "15 Sept",
-        "DFM technical report and research map"
+        "16 Sept",
+        "ScienceBuddy, the interactive research workspace"
       ],
       [
-        "16 – 18 Sept",
-        "Three independent works, one a day"
+        "17 – 18 Sept",
+        "Two independent works, one a day"
       ],
       [
         "Open",
@@ -108,8 +108,8 @@
     "facts_more": "All news",
     "facts_link": [
       {
-        "slug": "dfm-launch",
-        "fallback": "/tech/"
+        "slug": "sciencebuddy",
+        "fallback": "/news/"
       },
       {
         "slug": "",
