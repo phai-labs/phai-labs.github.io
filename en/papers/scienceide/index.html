@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ScienceIDE: Scaling Scientific Experience toward 1,000 Executable Environments — PhAI Labs</title>
-<meta name="description" content="Turning scientific software and expert judgement into executable environments an agent can learn from: experts define cases and acceptance criteria, task factories generate challenges, and the same environments serve training, RL and evaluation.">
+<title>ScienceIDE: Turning World&amp;#39;s Scientific Codebase into Agent Learnable Environments — PhAI Labs</title>
+<meta name="description" content="Turning the world&amp;#39;s scientific code into environments an agent can learn from: experts define the cases and the acceptance criteria, agents convert repositories into executable environments, and those same environments serve fine-tuning, reinforcement learning and evaluation. Verified trajectories train the PhAI-IDE model family.">
 <link rel="canonical" href="https://phai-labs.com/en/papers/scienceide/">
 <link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/scienceide/">
 <link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/scienceide/">
 <link rel="alternate" hreflang="x-default" href="https://phai-labs.com/papers/scienceide/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PhAI Labs">
-<meta property="og:title" content="ScienceIDE: Scaling Scientific Experience toward 1,000 Executable Environments — PhAI Labs">
-<meta property="og:description" content="Turning scientific software and expert judgement into executable environments an agent can learn from: experts define cases and acceptance criteria, task factories generate challenges, and the same environments serve training, RL and evaluation.">
+<meta property="og:title" content="ScienceIDE: Turning World&amp;#39;s Scientific Codebase into Agent Learnable Environments — PhAI Labs">
+<meta property="og:description" content="Turning the world&amp;#39;s scientific code into environments an agent can learn from: experts define the cases and the acceptance criteria, agents convert repositories into executable environments, and those same environments serve fine-tuning, reinforcement learning and evaluation. Verified trajectories train the PhAI-IDE model family.">
 <meta property="og:url" content="https://phai-labs.com/en/papers/scienceide/">
 <meta property="og:image" content="https://phai-labs.com/assets/img/kv-static.webp">
 <meta property="og:locale" content="en_US">
@@ -71,12 +71,13 @@
 <article class="paper" id="top">
   <header class="shell paper__head">
     <p class="paper__date"><time datetime="2026-09-17">2026-09-17</time></p>
-    <h1 class="display paper__title">ScienceIDE: Scaling Scientific Experience toward 1,000 Executable Environments</h1>
+    <h1 class="display paper__title">ScienceIDE: Turning World&#39;s Scientific Codebase into Agent Learnable Environments</h1>
 
     <div class="paper__acts">
       <div class="paper__btns">
         <span class="btn btn--wait">Download PDF<small>Releasing 17 Sept</small></span>
-        <span class="btn btn--wait">GitHub<small>Releasing 17 Sept</small></span>
+        <a class="btn" href="https://github.com/aitofound/ScienceIDE" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="https://huggingface.co/collections/AItonomy/scienceide-model-series" rel="noopener">Hugging Face · Models <span aria-hidden="true">↗</span></a>
         <a class="btn" href="https://aitonomy.org/projects/scienceide" rel="noopener">Project page <span aria-hidden="true">↗</span></a>
         <a class="btn" href="#cite">Cite</a>
       </div>
@@ -89,12 +90,12 @@
   <div class="shell paper__rows">
     <section class="paper__row">
       <h2 class="paper__label">Abstract</h2>
-      <div class="paper__val paper__val--abs"><p>Scientific software and expertise do not readily become experience that agents can learn from: repositories depend on fragile toolchains and unwritten conventions, and correctness rests on scientific behaviour and numerical tolerances. ScienceIDE is infrastructure that connects scientific practice with agent development by making expert knowledge reusable. Domain experts define scientific cases and acceptance criteria, agents help turn those decisions into executable environments, and task factories generate diverse challenges whose validity is established through execution and scientific verification. The same environments yield graded trajectories for supervised fine-tuning, online rewards for reinforcement learning, and evidence for evaluation.</p></div>
+      <div class="paper__val paper__val--abs"><p>Scientific code repositories encode decades of human knowledge in executable models, methods, and tools. Yet fragmented toolchains, implicit domain conventions, and specialized correctness criteria make this knowledge difficult to convert into reliable learning experience—a challenge we call the scientific experience bottleneck. We introduce ScienceIDE, infrastructure for turning the world’s scientific code into programmable environments for scientific agents. Guided by expert-defined scientific cases and acceptance criteria, agents transform repositories into executable environments that support task generation, execution, and scientific verification. These environments provide a shared foundation for supervised fine-tuning, reinforcement learning, and evaluation. Using verified interaction trajectories, we train PhAI-IDE-72B, PhAI-IDE-9B, and PhAI-IDE-4B. The model family shows gains in held-out scientific-code repair and across selected general-purpose benchmarks in code, reasoning, and knowledge, providing evidence of positive transfer from scientific experience to broader capabilities. ScienceIDE lays the foundation for an integrated workspace for agent learning and scientific practice, making humanity’s scientific software a shared substrate for developing scientific intelligence.</p></div>
     </section>
     <section class="paper__row">
       <h2 class="paper__label">Authors</h2>
       <div class="paper__val">
-        <p class="paper__authors">Hejia Geng*, Zesen Huang*, Haoyang Li, Wenbin Li, Koutian Wu, Zihan Zhou, Yuanbo Pang, Weihao Liu, Zigong Xu, Yueheng Shi, Yue Ma, Zongzheng Zhang, Tianzhe Zheng, Chuanfei Dong, Fengyu Xie, Zhiping Li, Jiankai Sun, Qucheng Gao, Jiaming Pan, Zhenlin Zhu, Peijin Zhang, Lanqing Yuan, Liuwei Xu, Xianrong Liu, Tong Xie, Junkai Wang, Zonglin Di, Xiao-Han Ma, Kangkai Liang, Ziang Liu, Sheng Huang, Zehong Zhao, Ziyang Xu, Jingxu Xie, Yaopeng Xing, Jiayi Xian, Xing Meng, Zhenfei Yin, Yingcheng Wu, Ling Yang</p><p class="paper__note">* Equal contribution</p>
+        <p class="paper__authors">Hejia Geng*, Zesen Huang*, Haoyang Li, Wenbin Li, Koutian Wu, Zihan Zhou, Yuanbo Pang, Weihao Liu, Zigong Xu, Zhiping Li, Zongzheng Zhang, Chuanfei Dong, Jiankai Sun, Tianzhe Zheng, Fengyu Xie, Yue Ma, Yueheng Shi, Junkai Wang, Tong Xie, Zonglin Di, Xianrong Liu, Qucheng Gao, Yimin Liu, Jiaming Pan, Sheng Huang, Xiao-Han Ma, Lanqing Yuan, Zhenlin Zhu, Ziang Liu, Ziyang Xu, Kangkai Liang, Jiayi Xian, Zehong Zhao, Taigao Ma, Fuming Chang, Yuanzhe Hu, Liuwei Xu, Xianzhe Tang, Jingxu Xie, Peijin Zhang, Qiang Gao, Chengyi Xing, Zhe Zhao, Xi Wang, Leo Wang, Fang Wu, Yaopeng Xing, Xing Meng, Zhenfei Yin, Yingcheng Wu, Ling Yang</p><p class="paper__note">* Equal contribution</p>
       </div>
     </section>
 
@@ -111,8 +112,8 @@
         <div class="cite" data-copy>
           <p class="cite__cap">BibTeX</p>
           <pre class="cite__text cite__text--bib" data-copy-src>@techreport{geng2026scienceide,
-    title       = {{ScienceIDE}: Scaling Scientific Experience toward 1,000 Executable Environments},
-    author      = {Geng, Hejia and Huang, Zesen and Li, Haoyang and Li, Wenbin and Wu, Koutian and Zhou, Zihan and Pang, Yuanbo and Liu, Weihao and Xu, Zigong and Shi, Yueheng and Ma, Yue and Zhang, Zongzheng and Zheng, Tianzhe and Dong, Chuanfei and Xie, Fengyu and Li, Zhiping and Sun, Jiankai and Gao, Qucheng and Pan, Jiaming and Zhu, Zhenlin and Zhang, Peijin and Yuan, Lanqing and Xu, Liuwei and Liu, Xianrong and Xie, Tong and Wang, Junkai and Di, Zonglin and Ma, Xiao-Han and Liang, Kangkai and Liu, Ziang and Huang, Sheng and Zhao, Zehong and Xu, Ziyang and Xie, Jingxu and Xing, Yaopeng and Xian, Jiayi and Meng, Xing and Yin, Zhenfei and Wu, Yingcheng and Yang, Ling},
+    title       = {{ScienceIDE}: Turning World&#39;s Scientific Codebase into Agent Learnable Environments},
+    author      = {Geng, Hejia and Huang, Zesen and Li, Haoyang and Li, Wenbin and Wu, Koutian and Zhou, Zihan and Pang, Yuanbo and Liu, Weihao and Xu, Zigong and Li, Zhiping and Zhang, Zongzheng and Dong, Chuanfei and Sun, Jiankai and Zheng, Tianzhe and Xie, Fengyu and Ma, Yue and Shi, Yueheng and Wang, Junkai and Xie, Tong and Di, Zonglin and Liu, Xianrong and Gao, Qucheng and Liu, Yimin and Pan, Jiaming and Huang, Sheng and Ma, Xiao-Han and Yuan, Lanqing and Zhu, Zhenlin and Liu, Ziang and Xu, Ziyang and Liang, Kangkai and Xian, Jiayi and Zhao, Zehong and Ma, Taigao and Chang, Fuming and Hu, Yuanzhe and Xu, Liuwei and Tang, Xianzhe and Xie, Jingxu and Zhang, Peijin and Gao, Qiang and Xing, Chengyi and Zhao, Zhe and Wang, Xi and Wang, Leo and Wu, Fang and Xing, Yaopeng and Meng, Xing and Yin, Zhenfei and Wu, Yingcheng and Yang, Ling},
     institution = {PhAI Labs},
     type        = {Technical Report},
     number      = {PHAI-TR-2026-03},
