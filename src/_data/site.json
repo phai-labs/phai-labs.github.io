@@ -14,9 +14,9 @@
     "wechat": "",
     "sciencebuddy_report": "",
     "sciencebuddy_github": "",
-    "scienceide_page": "",
-    "scienceide_report": "",
-    "scienceide_github": "",
+    "scienceide_page": "https://aitonomy.org/projects/scienceide",
+    "scienceide_report": "https://phai-labs.com/papers/scienceide/scienceide-technical-report-v1-2026-09.pdf",
+    "scienceide_github": "https://github.com/aitofound/ScienceIDE",
     "jepa_paper": "",
     "jepa_code": "",
     "jepa_demo": ""
@@ -47,7 +47,7 @@
     "scienceide": {
       "date": "2026-09-17",
       "live": false,
-      "url": ""
+      "url": "https://aitonomy.org/projects/scienceide"
     },
     "jepa": {
       "date": "2026-09-18",

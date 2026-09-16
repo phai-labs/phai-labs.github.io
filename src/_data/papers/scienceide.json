@@ -2,8 +2,8 @@
   "slug": "scienceide",
   "status": "published",
   "date": "2026-09-17",
-  "title": "ScienceIDE: Scaling Scientific Experience toward 1,000 Executable Environments",
-  "bibtitle": "{ScienceIDE}: Scaling Scientific Experience toward 1,000 Executable Environments",
+  "title": "ScienceIDE: Turning World's Scientific Codebase into Agent Learnable Environments",
+  "bibtitle": "{ScienceIDE}: Turning World's Scientific Codebase into Agent Learnable Environments",
   "authors": [
     {
       "name": "Hejia Geng",
@@ -44,112 +44,156 @@
       "sort": "Xu, Zigong"
     },
     {
-      "name": "Yueheng Shi",
-      "sort": "Shi, Yueheng"
-    },
-    {
-      "name": "Yue Ma",
-      "sort": "Ma, Yue"
+      "name": "Zhiping Li",
+      "sort": "Li, Zhiping"
     },
     {
       "name": "Zongzheng Zhang",
       "sort": "Zhang, Zongzheng"
     },
     {
-      "name": "Tianzhe Zheng",
-      "sort": "Zheng, Tianzhe"
-    },
-    {
       "name": "Chuanfei Dong",
       "sort": "Dong, Chuanfei"
-    },
-    {
-      "name": "Fengyu Xie",
-      "sort": "Xie, Fengyu"
-    },
-    {
-      "name": "Zhiping Li",
-      "sort": "Li, Zhiping"
     },
     {
       "name": "Jiankai Sun",
       "sort": "Sun, Jiankai"
     },
     {
-      "name": "Qucheng Gao",
-      "sort": "Gao, Qucheng"
+      "name": "Tianzhe Zheng",
+      "sort": "Zheng, Tianzhe"
     },
     {
-      "name": "Jiaming Pan",
-      "sort": "Pan, Jiaming"
+      "name": "Fengyu Xie",
+      "sort": "Xie, Fengyu"
     },
     {
-      "name": "Zhenlin Zhu",
-      "sort": "Zhu, Zhenlin"
+      "name": "Yue Ma",
+      "sort": "Ma, Yue"
     },
     {
-      "name": "Peijin Zhang",
-      "sort": "Zhang, Peijin"
-    },
-    {
-      "name": "Lanqing Yuan",
-      "sort": "Yuan, Lanqing"
-    },
-    {
-      "name": "Liuwei Xu",
-      "sort": "Xu, Liuwei"
-    },
-    {
-      "name": "Xianrong Liu",
-      "sort": "Liu, Xianrong"
-    },
-    {
-      "name": "Tong Xie",
-      "sort": "Xie, Tong"
+      "name": "Yueheng Shi",
+      "sort": "Shi, Yueheng"
     },
     {
       "name": "Junkai Wang",
       "sort": "Wang, Junkai"
     },
     {
+      "name": "Tong Xie",
+      "sort": "Xie, Tong"
+    },
+    {
       "name": "Zonglin Di",
       "sort": "Di, Zonglin"
     },
     {
-      "name": "Xiao-Han Ma",
-      "sort": "Ma, Xiao-Han"
+      "name": "Xianrong Liu",
+      "sort": "Liu, Xianrong"
     },
     {
-      "name": "Kangkai Liang",
-      "sort": "Liang, Kangkai"
+      "name": "Qucheng Gao",
+      "sort": "Gao, Qucheng"
     },
     {
-      "name": "Ziang Liu",
-      "sort": "Liu, Ziang"
+      "name": "Yimin Liu",
+      "sort": "Liu, Yimin"
+    },
+    {
+      "name": "Jiaming Pan",
+      "sort": "Pan, Jiaming"
     },
     {
       "name": "Sheng Huang",
       "sort": "Huang, Sheng"
     },
     {
-      "name": "Zehong Zhao",
-      "sort": "Zhao, Zehong"
+      "name": "Xiao-Han Ma",
+      "sort": "Ma, Xiao-Han"
+    },
+    {
+      "name": "Lanqing Yuan",
+      "sort": "Yuan, Lanqing"
+    },
+    {
+      "name": "Zhenlin Zhu",
+      "sort": "Zhu, Zhenlin"
+    },
+    {
+      "name": "Ziang Liu",
+      "sort": "Liu, Ziang"
     },
     {
       "name": "Ziyang Xu",
       "sort": "Xu, Ziyang"
     },
     {
-      "name": "Jingxu Xie",
-      "sort": "Xie, Jingxu"
-    },
-    {
-      "name": "Yaopeng Xing",
-      "sort": "Xing, Yaopeng"
+      "name": "Kangkai Liang",
+      "sort": "Liang, Kangkai"
     },
     {
       "name": "Jiayi Xian",
       "sort": "Xian, Jiayi"
+    },
+    {
+      "name": "Zehong Zhao",
+      "sort": "Zhao, Zehong"
+    },
+    {
+      "name": "Taigao Ma",
+      "sort": "Ma, Taigao"
+    },
+    {
+      "name": "Fuming Chang",
+      "sort": "Chang, Fuming"
+    },
+    {
+      "name": "Yuanzhe Hu",
+      "sort": "Hu, Yuanzhe"
+    },
+    {
+      "name": "Liuwei Xu",
+      "sort": "Xu, Liuwei"
+    },
+    {
+      "name": "Xianzhe Tang",
+      "sort": "Tang, Xianzhe"
+    },
+    {
+      "name": "Jingxu Xie",
+      "sort": "Xie, Jingxu"
+    },
+    {
+      "name": "Peijin Zhang",
+      "sort": "Zhang, Peijin"
+    },
+    {
+      "name": "Qiang Gao",
+      "sort": "Gao, Qiang"
+    },
+    {
+      "name": "Chengyi Xing",
+      "sort": "Xing, Chengyi"
+    },
+    {
+      "name": "Zhe Zhao",
+      "sort": "Zhao, Zhe"
+    },
+    {
+      "name": "Xi Wang",
+      "sort": "Wang, Xi"
+    },
+    {
+      "name": "Leo Wang",
+      "sort": "Wang, Leo"
+    },
+    {
+      "name": "Fang Wu",
+      "sort": "Wu, Fang"
+    },
+    {
+      "name": "Yaopeng Xing",
+      "sort": "Xing, Yaopeng"
     },
     {
       "name": "Xing Meng",
@@ -177,22 +221,22 @@
   "version": "v1",
   "topic": "Research Environments",
   "bibkey": "geng2026scienceide",
-  "abstract": "Scientific software and expertise do not readily become experience that agents can learn from: repositories depend on fragile toolchains and unwritten conventions, and correctness rests on scientific behaviour and numerical tolerances. ScienceIDE is infrastructure that connects scientific practice with agent development by making expert knowledge reusable. Domain experts define scientific cases and acceptance criteria, agents help turn those decisions into executable environments, and task factories generate diverse challenges whose validity is established through execution and scientific verification. The same environments yield graded trajectories for supervised fine-tuning, online rewards for reinforcement learning, and evidence for evaluation.",
-  "pdf": "",
+  "abstract": "Scientific code repositories encode decades of human knowledge in executable models, methods, and tools. Yet fragmented toolchains, implicit domain conventions, and specialized correctness criteria make this knowledge difficult to convert into reliable learning experience—a challenge we call the scientific experience bottleneck. We introduce ScienceIDE, infrastructure for turning the world’s scientific code into programmable environments for scientific agents. Guided by expert-defined scientific cases and acceptance criteria, agents transform repositories into executable environments that support task generation, execution, and scientific verification. These environments provide a shared foundation for supervised fine-tuning, reinforcement learning, and evaluation. Using verified interaction trajectories, we train PhAI-IDE-72B, PhAI-IDE-9B, and PhAI-IDE-4B. The model family shows gains in held-out scientific-code repair and across selected general-purpose benchmarks in code, reasoning, and knowledge, providing evidence of positive transfer from scientific experience to broader capabilities. ScienceIDE lays the foundation for an integrated workspace for agent learning and scientific practice, making humanity’s scientific software a shared substrate for developing scientific intelligence.",
+  "pdf": "scienceide-technical-report-v1-2026-09.pdf",
   "release_key": "scienceide",
   "arxiv": "",
   "version_doi": "",
   "concept_doi": "",
   "license": "",
   "zh": {
-    "summary": "把科学软件和专家经验变成智能体可以学习的可执行环境：专家定义科学案例与验收标准，任务工厂据此生成挑战，同一套环境同时供训练、强化学习和评测使用。"
+    "summary": "把世界上的科学代码变成智能体可学习的环境：专家定义科学案例与验收标准，智能体据此把代码库转成可执行环境，同一套环境同时支撑监督微调、强化学习与评测；并用验证过的交互轨迹训练出 PhAI-IDE 系列模型。"
   },
   "en": {
-    "summary": "Turning scientific software and expert judgement into executable environments an agent can learn from: experts define cases and acceptance criteria, task factories generate challenges, and the same environments serve training, RL and evaluation."
+    "summary": "Turning the world's scientific code into environments an agent can learn from: experts define the cases and the acceptance criteria, agents convert repositories into executable environments, and those same environments serve fine-tuning, reinforcement learning and evaluation. Verified trajectories train the PhAI-IDE model family."
   },
   "links": {
-    "github": "",
-    "huggingface_model": "",
+    "github": "https://github.com/aitofound/ScienceIDE",
+    "huggingface_model": "https://huggingface.co/collections/AItonomy/scienceide-model-series",
     "huggingface_data": "",
     "project": "https://aitonomy.org/projects/scienceide",
     "demo": "",
