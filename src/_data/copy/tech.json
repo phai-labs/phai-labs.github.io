@@ -112,7 +112,7 @@
           "复现",
           "集成"
         ],
-        "status": "ScienceIDE 当前开放任务提案。项目主页、任务提交页面和代码仓库于 9 月 17 日按最终准备情况公开。",
+        "status": "项目主页、技术报告和 PhAI-IDE 系列模型权重均已公开，模型用 ScienceIDE 中已验证的交互轨迹训练。ScienceIDE 继续接受任务提案。",
         "links": [
           {
             "label": "项目主页",
@@ -121,6 +121,10 @@
           {
             "label": "技术报告",
             "key": "scienceide_report"
+          },
+          {
+            "label": "模型",
+            "key": "scienceide_models"
           },
           {
             "label": "GitHub",
@@ -306,7 +310,7 @@
           "Reproduce",
           "Integrate"
         ],
-        "status": "ScienceIDE is open for task proposals. Whether the project page, submission page and repository go public on 17 September follows final readiness.",
+        "status": "The project page, the technical report and the PhAI-IDE model weights are public. The models are trained on interaction trajectories verified in ScienceIDE, which remains open to task proposals.",
         "links": [
           {
             "label": "Project page",
@@ -315,6 +319,10 @@
           {
             "label": "Technical report",
             "key": "scienceide_report"
+          },
+          {
+            "label": "Models",
+            "key": "scienceide_models"
           },
           {
             "label": "GitHub",
