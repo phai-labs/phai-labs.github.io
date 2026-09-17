@@ -105,7 +105,7 @@
           "key": "jepa",
           "name": "JEPA-Anything · 跨领域统一科学世界模型",
           "tagline": "面向跨领域状态预测、干预模拟和科学诊断的统一科学世界模型",
-          "body": "它探索如何在视觉、生物、临床、分子、控制和物理等不同领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。",
+          "body": "它探索如何在视觉、生物、临床轨迹、控制、分子动力学、物理场和气象这七个领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。",
           "link_label": "JEPA-Anything 论文",
           "link_key": "jepa_paper"
         }
@@ -475,7 +475,7 @@
           "key": "jepa",
           "name": "JEPA-Anything · cross-domain unified science world model",
           "tagline": "A unified science world model for cross-domain state prediction, intervention simulation and scientific diagnosis",
-          "body": "It explores how to learn, across vision, biology, the clinic, molecules, control and physics, latent representations that predict changes of world state, and to offer one interface for intervention prediction, state synthesis and scientific diagnosis.",
+          "body": "It explores how to learn latent representations that predict changes in world state, and how to offer one interface for intervention prediction, state synthesis and scientific diagnosis. The seven domains are vision, biology, clinical trajectories, control, molecular dynamics, physical fields and weather.",
           "link_label": "JEPA-Anything paper",
           "link_key": "jepa_paper"
         }

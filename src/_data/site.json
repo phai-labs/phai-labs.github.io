@@ -18,9 +18,9 @@
     "scienceide_report": "https://phai-labs.com/papers/scienceide/scienceide-technical-report-v1-2026-09.pdf",
     "scienceide_models": "https://huggingface.co/collections/AItonomy/scienceide-model-series",
     "scienceide_github": "https://github.com/aitofound/ScienceIDE",
-    "jepa_paper": "",
-    "jepa_code": "",
-    "jepa_demo": ""
+    "jepa_paper": "https://phai-labs.com/papers/jepa-anything/jepa-anything-technical-report-v1-2026-09.pdf",
+    "jepa_models": "https://huggingface.co/collections/Gen-Verse/jepa-anything",
+    "jepa_code": "https://github.com/Gen-Verse/JEPA-Anything"
   },
   "qr": {
     "rednote": "/assets/img/social/rednote-qr.png",
@@ -52,7 +52,7 @@
     },
     "jepa": {
       "date": "2026-09-18",
-      "live": false,
+      "live": true,
       "url": ""
     }
   },

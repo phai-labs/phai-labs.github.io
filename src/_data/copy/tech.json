@@ -139,7 +139,7 @@
         "role": "跨领域统一科学世界模型：面向跨领域状态预测、干预模拟和科学诊断。",
         "body": [
           "JEPA-Anything 是一项面向潜在世界模型和正交预测因子分解的独立模型方法研究。",
-          "它探索如何在视觉、生物、临床、分子、控制和物理等不同领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。",
+          "它探索如何在视觉、生物、临床轨迹、控制、分子动力学、物理场和气象这七个领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。",
           "在未来的研究愿景中，JEPA-Anything 可以被理解为面向多个科学环境的统一预测模型或科学世界模拟器：当研究者提出某种科学行为或干预时，模型预先预测可能的状态变化、结果和风险，帮助筛选无效或代价较高的方案。这是希望探索的能力方向：目前它并不能模拟所有科学环境，也尚未接入 ScienceBuddy 或 ScienceIDE。"
         ],
         "bullets_title": "研究问题",
@@ -149,19 +149,19 @@
           "如何为实验选择和科学诊断提供预测依据",
           "如何在跨领域场景中复用潜在世界状态接口"
         ],
-        "status": "论文、代码、模型权重和演示链接于 9 月 18 日按最终确认的开放范围公开。",
+        "status": "技术报告和 Hugging Face 上的模型集合已公开。本次发布不包含公开演示，开放范围以仓库和集合的实际状态为准。",
         "links": [
           {
             "label": "论文",
             "key": "jepa_paper"
           },
           {
-            "label": "代码",
-            "key": "jepa_code"
+            "label": "模型",
+            "key": "jepa_models"
           },
           {
-            "label": "演示",
-            "key": "jepa_demo"
+            "label": "代码",
+            "key": "jepa_code"
           }
         ]
       }
@@ -337,7 +337,7 @@
         "role": "A cross-domain unified science world model: cross-domain state prediction, intervention simulation and scientific diagnosis.",
         "body": [
           "JEPA-Anything is an independent model-method study of latent world models and orthogonal predictive factorisation.",
-          "It explores how to learn, across vision, biology, the clinic, molecules, control and physics, latent representations that predict changes of world state, and to offer one interface for intervention prediction, state synthesis and scientific diagnosis.",
+          "It explores how to learn latent representations that predict changes in world state, and how to offer one interface for intervention prediction, state synthesis and scientific diagnosis. The seven domains are vision, biology, clinical trajectories, control, molecular dynamics, physical fields and weather.",
           "In the research vision, JEPA-Anything can be read as a unified predictive model or science world simulator over many scientific environments: when a researcher proposes an action or intervention, the model predicts the likely state changes, outcomes and risks in advance, helping screen out ineffective or costly plans. That is a direction to explore: today it does not simulate every scientific environment, and it is not connected to ScienceBuddy or ScienceIDE."
         ],
         "bullets_title": "Research questions",
@@ -347,19 +347,19 @@
           "How to ground experiment selection and scientific diagnosis in prediction",
           "How to reuse a latent world-state interface across domains"
         ],
-        "status": "Paper, code, model weights and demo links go public on 18 September within the confirmed scope.",
+        "status": "The technical report and the Hugging Face model collection are public; the scope follows their actual state. This release includes no public demo.",
         "links": [
           {
             "label": "Paper",
             "key": "jepa_paper"
           },
           {
-            "label": "Code",
-            "key": "jepa_code"
+            "label": "Models",
+            "key": "jepa_models"
           },
           {
-            "label": "Demo",
-            "key": "jepa_demo"
+            "label": "Code",
+            "key": "jepa_code"
           }
         ]
       }
