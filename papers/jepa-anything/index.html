@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JEPA-Anything: Learning Predictive Models across Different Worlds — PhAI Labs</title>
-<meta name="description" content="不同的「世界」——细胞、分子、物理场、控制环境、临床轨迹——共享同一个预测问题。用正交预测分解把潜在世界状态拆成互补的预测因子，各自学习后再组合。">
+<meta name="description" content="正交预测因子分解（OPF）在联合嵌入预测架构之上，把潜在目标拆成互补因子，各自通过专门通路学习后再组合。论文用它在视觉、生物、临床轨迹、控制、分子动力学、物理场和气象七个领域上做了同一套评测，考察表示学习、干预预测、分布外泛化和长时程动力学。">
 <link rel="canonical" href="https://phai-labs.com/papers/jepa-anything/">
 <link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/jepa-anything/">
 <link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/jepa-anything/">
@@ -12,14 +12,28 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PhAI Labs">
 <meta property="og:title" content="JEPA-Anything: Learning Predictive Models across Different Worlds — PhAI Labs">
-<meta property="og:description" content="不同的「世界」——细胞、分子、物理场、控制环境、临床轨迹——共享同一个预测问题。用正交预测分解把潜在世界状态拆成互补的预测因子，各自学习后再组合。">
+<meta property="og:description" content="正交预测因子分解（OPF）在联合嵌入预测架构之上，把潜在目标拆成互补因子，各自通过专门通路学习后再组合。论文用它在视觉、生物、临床轨迹、控制、分子动力学、物理场和气象七个领域上做了同一套评测，考察表示学习、干预预测、分布外泛化和长时程动力学。">
 <meta property="og:url" content="https://phai-labs.com/papers/jepa-anything/">
 <meta property="og:image" content="https://phai-labs.com/assets/img/kv-static.webp">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary_large_image"><meta name="citation_title" content="JEPA-Anything: Learning Predictive Models across Different Worlds">
+<meta name="citation_author" content="Cui, Taoyong">
+<meta name="citation_author" content="Wang, Zhongyao">
+<meta name="citation_author" content="Xu, Xinyue">
+<meta name="citation_author" content="Liu, Weiyang">
+<meta name="citation_author" content="Yu, Zhaochen">
+<meta name="citation_author" content="Zhang, Yuying">
+<meta name="citation_author" content="Gao, Qiang">
+<meta name="citation_author" content="Yang, Mengyue">
+<meta name="citation_author" content="Ouyang, Wanli">
+<meta name="citation_author" content="Heng, Pheng Ann">
+<meta name="citation_author" content="Wu, Yingcheng">
+<meta name="citation_author" content="Yin, Zhenfei">
+<meta name="citation_author" content="Yang, Ling">
 <meta name="citation_publication_date" content="2026/09/18">
 <meta name="citation_technical_report_institution" content="PhAI Labs">
 <meta name="citation_technical_report_number" content="PHAI-TR-2026-04">
+<meta name="citation_pdf_url" content="https://phai-labs.com/papers/jepa-anything/jepa-anything-technical-report-v1-2026-09.pdf">
 <meta name="citation_abstract_html_url" content="https://phai-labs.com/papers/jepa-anything/">
 <meta name="citation_language" content="en">
 <meta name="theme-color" content="#0a0a0b">
@@ -80,8 +94,9 @@
 
     <div class="paper__acts">
       <div class="paper__btns">
-        <span class="btn btn--wait">下载 PDF<small>9 月 18 日发布</small></span>
-        <span class="btn btn--wait">GitHub<small>9 月 18 日发布</small></span>
+        <a class="btn btn--primary" href="/papers/jepa-anything/jepa-anything-technical-report-v1-2026-09.pdf">下载 PDF</a>
+        <a class="btn" href="https://github.com/Gen-Verse/JEPA-Anything" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="https://huggingface.co/collections/Gen-Verse/jepa-anything" rel="noopener">Hugging Face · 模型 <span aria-hidden="true">↗</span></a>
         <a class="btn" href="#cite">引用</a>
       </div>
 
@@ -93,7 +108,13 @@
   <div class="shell paper__rows">
     <section class="paper__row">
       <h2 class="paper__label">摘要</h2>
-      <div class="paper__val paper__val--abs"><p>World models learn internal states for predicting how a system changes. Cells, molecules, physical fields, control environments and clinical trajectories differ radically, yet share one predictive problem: infer unobserved, intervened or future states from the current context. JEPA-Anything is a domain-agnostic framework that builds on joint-embedding predictive architectures and replaces their monolithic target representation with orthogonal predictive factorization, which organises a latent world state into complementary predictive factors, learns each through its own pathway, and recombines them for readout, intervention prediction and rollout. Each domain keeps its own observations and encoders while sharing the predictive core.</p></div>
+      <div class="paper__val paper__val--abs"><p>World modeling enables intelligence to anticipate consequences, guide interventions, and learn from interaction. Yet predictive models remain domain-specific: can a common learning principle support world modeling across radically different systems? We introduce JEPA-Anything, a domain-agnostic framework based on orthogonal predictive factorization (OPF). Extending joint-embedding predictive architectures, OPF decomposes latent targets into complementary factors, learns them through dedicated pathways, and recombines them within a shared predictive design. We evaluate JEPA-Anything across seven domains: vision, biology, clinical trajectories, control, molecular dynamics, physical fields, and weather. Experiments span representation learning, intervention prediction, out-of-distribution generalization, and long-horizon dynamics, including 10 matched dynamics tasks, forecasting of over 1,000 clinical events, and 100-step molecular rollouts across four systems. Against matched JEPA baselines, JEPA-Anything improves reported metrics on all 10 dynamics tasks and reduces single-intervention prediction error on Interventional Pong by 34.8%. It achieves the lowest one-step and 100-step molecular errors among compared methods in all four systems. Beyond prediction, a factor-nominated biological intervention receives experimental support in cell co-cultures, patient-derived organoids, tumor fragments, and mice; latent orbital modes recover the Keplerian scaling exponent with a fitted slope of −1.4991. These results support a common factorized predictive principle across heterogeneous worlds, connecting world modeling with intervention and experimentally grounded scientific discovery.</p></div>
+    </section>
+    <section class="paper__row">
+      <h2 class="paper__label">作者</h2>
+      <div class="paper__val">
+        <p class="paper__authors">Taoyong Cui, Zhongyao Wang, Xinyue Xu, Weiyang Liu, Zhaochen Yu, Yuying Zhang, Qiang Gao, Mengyue Yang, Wanli Ouyang, Pheng Ann Heng, Yingcheng Wu, Zhenfei Yin, Ling Yang</p>
+      </div>
     </section>
 
     <section class="paper__row">
@@ -108,8 +129,9 @@
       <div class="paper__val">
         <div class="cite" data-copy>
           <p class="cite__cap">BibTeX</p>
-          <pre class="cite__text cite__text--bib" data-copy-src>@techreport{jepaanything2026,
+          <pre class="cite__text cite__text--bib" data-copy-src>@techreport{cui2026jepa,
     title       = {{JEPA-Anything}: Learning Predictive Models across Different Worlds},
+    author      = {Cui, Taoyong and Wang, Zhongyao and Xu, Xinyue and Liu, Weiyang and Yu, Zhaochen and Zhang, Yuying and Gao, Qiang and Yang, Mengyue and Ouyang, Wanli and Heng, Pheng Ann and Wu, Yingcheng and Yin, Zhenfei and Yang, Ling},
     institution = {PhAI Labs},
     type        = {Technical Report},
     number      = {PHAI-TR-2026-04},

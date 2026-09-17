@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>面向*科学发现*的技术体系 — PhAI Labs</title>
+<title>面向科学发现的技术体系 — PhAI Labs</title>
 <meta name="description" content="PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的研究范式；ScienceBuddy、ScienceIDE 与 JEPA-Anything 是三个彼此独立的研究与工程方向，分别从交互反馈、可复用的科学环境和世界状态预测展开。">
 <link rel="canonical" href="https://phai-labs.com/tech/">
 <link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/tech/">
@@ -11,7 +11,7 @@
 <link rel="alternate" hreflang="x-default" href="https://phai-labs.com/tech/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PhAI Labs">
-<meta property="og:title" content="面向*科学发现*的技术体系 — PhAI Labs">
+<meta property="og:title" content="面向科学发现的技术体系 — PhAI Labs">
 <meta property="og:description" content="PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的研究范式；ScienceBuddy、ScienceIDE 与 JEPA-Anything 是三个彼此独立的研究与工程方向，分别从交互反馈、可复用的科学环境和世界状态预测展开。">
 <meta property="og:url" content="https://phai-labs.com/tech/">
 <meta property="og:image" content="https://phai-labs.com/assets/img/dfm-diagram-zh.webp">
@@ -144,14 +144,15 @@
 </figure>
 
 
-    <p class="subhead">DFM 关注的六项能力</p>
+    <p class="subhead">DFM 关注的七项能力</p>
     <ol class="capabilities">
       <li><span class="num">01</span><h3>识别有价值的未知</h3><p>从尚未解释的现象、方法失效的地方和数据中的异常出发，判断哪些未知值得投入。</p></li>
       <li><span class="num">02</span><h3>将未知转化为可研究的问题</h3><p>把一个模糊的未知收敛为有边界、可切入、可检验的研究问题，并说明什么结果算作进展。</p></li>
-      <li><span class="num">03</span><h3>构建并修正研究假设</h3><p>围绕问题提出假设，组织已有证据，并在新证据到来时修正或放弃假设。</p></li>
-      <li><span class="num">04</span><h3>调用科研工具、数据和实验环境</h3><p>让假设离开文本：调用文献、代码、数据分析工具与实验环境，把判断变成可以执行的动作。</p></li>
-      <li><span class="num">05</span><h3>根据外部证据验证和更新判断</h3><p>让系统的输出接受数据、实验、专家判断与现实环境的检验，并根据结果更新自己的判断。</p></li>
-      <li><span class="num">06</span><h3>沉淀可复用的研究结构与发现能力</h3><p>把经过验证的问题、工具、数据与验证机制沉淀为可复用的结构，让每一次探索成为下一次发现的起点。</p></li>
+      <li><span class="num">03</span><h3>构建并修正问题的表征</h3><p>确定用哪些对象、变量、关系、抽象尺度和结构约束来描述问题；可以加入潜变量、去掉误导性的代理指标，或者换一个时间与空间尺度重新表述。</p></li>
+      <li><span class="num">04</span><h3>构建并修正研究假设</h3><p>围绕问题提出假设，组织已有证据，并在新证据到来时修正或放弃假设。</p></li>
+      <li><span class="num">05</span><h3>调用科研工具、数据和实验环境</h3><p>让假设离开文本：调用文献、代码、数据分析工具与实验环境，把判断变成可以执行的动作。</p></li>
+      <li><span class="num">06</span><h3>根据外部证据验证和更新判断</h3><p>让系统的输出接受数据、实验、专家判断与现实环境的检验，并根据结果更新自己的判断。</p></li>
+      <li><span class="num">07</span><h3>沉淀可复用的研究结构与发现能力</h3><p>把经过验证的问题、工具、数据与验证机制沉淀为可复用的结构，让每一次探索成为下一次发现的起点。</p></li>
     </ol>
 
     <p class="links"><a class="link" href="https://phai-labs.com/papers/dfm/dfm-technical-report-v1-2026-09.pdf">DFM 技术报告 ↗</a><a class="link" href="https://github.com/Gen-Verse/DFM-Plans">GitHub ↗</a>
@@ -176,7 +177,7 @@
     <div>
       <div class="prose"><p>ScienceBuddy 是一项围绕科学家交互、科研反馈和智能体持续改进展开的独立研究与工程探索，与 DFM 所关注的 Discovery Intelligence 方向一致。</p><p>它重点探索一种交互式 Science RSI 形态：用户提出科学问题，智能体调用工具并给出回应；科学家的追问、修改、采纳、否定和重新运行形成反馈，进而推动科研智能体工作环境和 Harness 的持续演化。</p><p>ScienceBuddy 的产出不只是一次性的问答结果，也包括交互过程中的反馈、研究轨迹、工具调用和任务状态。这些信息未来可以进一步整理为可复用的科学任务和环境，用于强化学习或其他模型训练。</p></div>
       <p class="prose__note">当前为早期产品 / 研究预览形态，具体开放能力、演示方式和使用入口以实际版本为准。产品入口于 9 月 16 日开放。</p>
-      <p class="links"><a class="link link--live" href="http://science-buddy.io">访问 ScienceBuddy ↗</a><a class="link link--live" href="https://phai-labs.com/papers/sciencebuddy/sciencebuddy-technical-report-v1-2026-09.pdf">技术报告 ↗</a><a class="link link--live" href="https://github.com/Gen-Verse/ScienceBuddy-RSI">GitHub ↗</a>
+      <p class="links"><a class="link link--live" href="https://science-buddy.io/">访问 ScienceBuddy ↗</a><a class="link link--live" href="https://phai-labs.com/papers/sciencebuddy/sciencebuddy-technical-report-v1-2026-09.pdf">技术报告 ↗</a><a class="link link--live" href="https://github.com/Gen-Verse/ScienceBuddy">GitHub ↗</a>
       </p>
     </div>
   </div>
@@ -277,9 +278,9 @@
       <p class="project__role">跨领域统一科学世界模型：面向跨领域状态预测、干预模拟和科学诊断。</p>
     </div>
     <div>
-      <div class="prose"><p>JEPA-Anything 是一项面向潜在世界模型和正交预测因子分解的独立模型方法研究。</p><p>它探索如何在视觉、生物、临床、分子、控制和物理等不同领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。</p><p>在未来的研究愿景中，JEPA-Anything 可以被理解为面向多个科学环境的统一预测模型或科学世界模拟器：当研究者提出某种科学行为或干预时，模型预先预测可能的状态变化、结果和风险，帮助筛选无效或代价较高的方案。这是希望探索的能力方向：目前它并不能模拟所有科学环境，也尚未接入 ScienceBuddy 或 ScienceIDE。</p></div>
-      <p class="prose__note">论文、代码、模型权重和演示链接于 9 月 18 日按最终确认的开放范围公开。</p>
-      <p class="links"><span class="link link--pending"><span>论文</span><small>9 月 18 日发布</small></span><span class="link link--pending"><span>代码</span><small>9 月 18 日发布</small></span><span class="link link--pending"><span>演示</span><small>9 月 18 日发布</small></span>
+      <div class="prose"><p>JEPA-Anything 是一项面向潜在世界模型和正交预测因子分解的独立模型方法研究。</p><p>它探索如何在视觉、生物、临床轨迹、控制、分子动力学、物理场和气象这七个领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。</p><p>在未来的研究愿景中，JEPA-Anything 可以被理解为面向多个科学环境的统一预测模型或科学世界模拟器：当研究者提出某种科学行为或干预时，模型预先预测可能的状态变化、结果和风险，帮助筛选无效或代价较高的方案。这是希望探索的能力方向：目前它并不能模拟所有科学环境，也尚未接入 ScienceBuddy 或 ScienceIDE。</p></div>
+      <p class="prose__note">技术报告和 Hugging Face 上的模型集合已公开。本次发布不包含公开演示，开放范围以仓库和集合的实际状态为准。</p>
+      <p class="links"><a class="link link--live" href="https://phai-labs.com/papers/jepa-anything/jepa-anything-technical-report-v1-2026-09.pdf">论文 ↗</a><a class="link link--live" href="https://huggingface.co/collections/Gen-Verse/jepa-anything">模型 ↗</a><a class="link link--live" href="https://github.com/Gen-Verse/JEPA-Anything">代码 ↗</a>
       </p>
     </div>
   </div>
@@ -348,7 +349,7 @@
         <li class="is-live"><time datetime="2026-09-15">9 月 15 日</time><span>DFM 研究范式与 DFM 科学家合作计划</span></li>
         <li class="is-live"><time datetime="2026-09-16">9 月 16 日</time><span>ScienceBuddy · AI 科研搭档</span></li>
         <li class="is-live"><time datetime="2026-09-17">9 月 17 日</time><span>ScienceIDE · 科学集成开发平台</span></li>
-        <li><time datetime="2026-09-18">9 月 18 日</time><span>JEPA-Anything · 跨领域统一科学世界模型</span></li>
+        <li class="is-live"><time datetime="2026-09-18">9 月 18 日</time><span>JEPA-Anything · 跨领域统一科学世界模型</span></li>
       </ol>
       <p class="actions"><a class="btn" href="/news/">全部动态 →</a></p>
     </div>

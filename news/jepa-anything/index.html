@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JEPA-Anything · 跨领域统一科学世界模型：面向潜在世界模型的正交预测因子分解 — PhAI Labs</title>
-<meta name="description" content="JEPA-Anything 探索在视觉、生物、临床、分子、控制和物理等领域学习能预测世界状态变化的潜在表示，为干预预测、状态合成和科学诊断提供统一接口。">
+<meta name="description" content="JEPA-Anything 用正交预测因子分解（OPF）把潜在目标拆成互补因子，各自学习后再组合，并在视觉、生物、临床轨迹、控制、分子动力学、物理场和气象七个领域上评测；与匹配的 JEPA 基线相比，10 个动力学任务的报告指标均有提升。">
 <link rel="canonical" href="https://phai-labs.com/news/jepa-anything/">
 <link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/jepa-anything/">
 <link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/jepa-anything/">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PhAI Labs">
 <meta property="og:title" content="JEPA-Anything · 跨领域统一科学世界模型：面向潜在世界模型的正交预测因子分解 — PhAI Labs">
-<meta property="og:description" content="JEPA-Anything 探索在视觉、生物、临床、分子、控制和物理等领域学习能预测世界状态变化的潜在表示，为干预预测、状态合成和科学诊断提供统一接口。">
+<meta property="og:description" content="JEPA-Anything 用正交预测因子分解（OPF）把潜在目标拆成互补因子，各自学习后再组合，并在视觉、生物、临床轨迹、控制、分子动力学、物理场和气象七个领域上评测；与匹配的 JEPA 基线相比，10 个动力学任务的报告指标均有提升。">
 <meta property="og:url" content="https://phai-labs.com/news/jepa-anything/">
 <meta property="og:image" content="https://phai-labs.com/assets/img/kv-static.webp">
 <meta property="og:locale" content="zh_CN">
@@ -72,7 +72,7 @@
     <div class="shell shell--narrow">
       <p class="eyebrow"><a href="/news/">新闻动态</a><span class="sep">/</span>技术发布</p>
       <h1 class="display">JEPA-Anything · 跨领域统一科学世界模型：面向潜在世界模型的正交预测因子分解</h1>
-      <p class="lede">JEPA-Anything 探索在视觉、生物、临床、分子、控制和物理等领域学习能预测世界状态变化的潜在表示，为干预预测、状态合成和科学诊断提供统一接口。</p>
+      <p class="lede">JEPA-Anything 用正交预测因子分解（OPF）把潜在目标拆成互补因子，各自学习后再组合，并在视觉、生物、临床轨迹、控制、分子动力学、物理场和气象七个领域上评测；与匹配的 JEPA 基线相比，10 个动力学任务的报告指标均有提升。</p>
       <p class="article__meta">
         <time datetime="2026-09-18">发布于 2026年9月18日</time>
       </p>
@@ -103,13 +103,13 @@
 
 <figcaption>在动手之前先预测：如果这样做，世界会变成什么样，哪条路值得走。</figcaption></figure>
 
-  <div class="shell shell--narrow article__body prose"><p>JEPA-Anything 是一项面向潜在世界模型和正交预测因子分解的独立模型方法研究。</p><p>它探索如何在视觉、生物、临床、分子、控制和物理等不同领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。</p><p>在未来的研究愿景中，JEPA-Anything 可以被理解为面向多个科学环境的统一预测模型或科学世界模拟器：当研究者提出某种科学行为或干预时，模型预先预测可能的状态变化、结果和风险，帮助筛选无效或代价较高的方案。这是希望探索的能力方向：目前它并不能模拟所有科学环境，也尚未接入 ScienceBuddy 或 ScienceIDE。</p><p>在整体研究图景中，它关注如何表示复杂系统中的多种可预测因素、如何预测不同干预带来的状态变化、如何为实验选择和科学诊断提供预测依据，以及如何在跨领域场景中复用潜在世界状态接口。</p><p>论文、代码、模型权重和演示链接于 9 月 18 日按最终确认的开放范围公开。</p>
+  <div class="shell shell--narrow article__body prose"><p>JEPA-Anything 是一项面向潜在世界模型和正交预测因子分解的独立模型方法研究。</p><p>它探索如何在视觉、生物、临床轨迹、控制、分子动力学、物理场和气象这七个领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。</p><p>在未来的研究愿景中，JEPA-Anything 可以被理解为面向多个科学环境的统一预测模型或科学世界模拟器：当研究者提出某种科学行为或干预时，模型预先预测可能的状态变化、结果和风险，帮助筛选无效或代价较高的方案。这是希望探索的能力方向：目前它并不能模拟所有科学环境，也尚未接入 ScienceBuddy 或 ScienceIDE。</p><p>在整体研究图景中，它关注如何表示复杂系统中的多种可预测因素、如何预测不同干预带来的状态变化、如何为实验选择和科学诊断提供预测依据，以及如何在跨领域场景中复用潜在世界状态接口。</p><p>论文提出正交预测因子分解（OPF）：在联合嵌入预测架构之上，把潜在目标拆成互补因子，各自通过专门的通路学习，再在共享的预测设计中组合。评测覆盖表示学习、干预预测、分布外泛化和长时程动力学，包含 10 个匹配的动力学任务、超过 1000 个临床事件的预测，以及四个体系上的 100 步分子 rollout。</p><p>与匹配的 JEPA 基线相比，全部 10 个动力学任务的报告指标都有提升，Interventional Pong 上的单次干预预测误差降低 34.8%；在所比较的方法中，四个体系的一步和 100 步分子误差都是最低的。一项由因子提名的生物干预在细胞共培养、患者来源类器官、肿瘤组织块和小鼠中获得实验支持，潜在轨道模态复现开普勒标度指数，拟合斜率为 −1.4991。以上是在论文选定的领域和任务上的观察。</p><p>技术报告和 Hugging Face 上的模型集合已公开。本次发布不包含公开演示。</p>
   </div>
   <aside class="shell shell--narrow article__links">
     <ul class="links">
-      <li><span class="link link--pending"><span>论文</span><small>9 月 18 日发布</small></span></li>
-      <li><span class="link link--pending"><span>代码</span><small>9 月 18 日发布</small></span></li>
-      <li><span class="link link--pending"><span>演示</span><small>9 月 18 日发布</small></span></li>
+      <li><a class="link link--live" href="https://phai-labs.com/papers/jepa-anything/jepa-anything-technical-report-v1-2026-09.pdf">论文 ↗</a></li>
+      <li><a class="link link--live" href="https://huggingface.co/collections/Gen-Verse/jepa-anything">模型 ↗</a></li>
+      <li><a class="link link--live" href="https://github.com/Gen-Verse/JEPA-Anything">代码 ↗</a></li>
     </ul>
   </aside>
   <aside class="shell shell--narrow article__related">

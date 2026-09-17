@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Technology for scientific *discovery* — PhAI Labs</title>
-<meta name="description" content="PhAI Labs&amp;#39; technical work turns on one question: how can AI systems take part in real scientific discovery. DFM is the research paradigm we propose for it; ScienceBuddy, ScienceIDE and JEPA-Anything are three independent research and engineering directions, working from interactive feedback, reusable scientific environments and world-state prediction respectively.">
+<title>Technology for scientific discovery — PhAI Labs</title>
+<meta name="description" content="PhAI Labs&#39; technical work turns on one question: how can AI systems take part in real scientific discovery. DFM is the research paradigm we propose for it; ScienceBuddy, ScienceIDE and JEPA-Anything are three independent research and engineering directions, working from interactive feedback, reusable scientific environments and world-state prediction respectively.">
 <link rel="canonical" href="https://phai-labs.com/en/tech/">
 <link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/tech/">
 <link rel="alternate" hreflang="en" href="https://phai-labs.com/en/tech/">
 <link rel="alternate" hreflang="x-default" href="https://phai-labs.com/tech/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PhAI Labs">
-<meta property="og:title" content="Technology for scientific *discovery* — PhAI Labs">
-<meta property="og:description" content="PhAI Labs&amp;#39; technical work turns on one question: how can AI systems take part in real scientific discovery. DFM is the research paradigm we propose for it; ScienceBuddy, ScienceIDE and JEPA-Anything are three independent research and engineering directions, working from interactive feedback, reusable scientific environments and world-state prediction respectively.">
+<meta property="og:title" content="Technology for scientific discovery — PhAI Labs">
+<meta property="og:description" content="PhAI Labs&#39; technical work turns on one question: how can AI systems take part in real scientific discovery. DFM is the research paradigm we propose for it; ScienceBuddy, ScienceIDE and JEPA-Anything are three independent research and engineering directions, working from interactive feedback, reusable scientific environments and world-state prediction respectively.">
 <meta property="og:url" content="https://phai-labs.com/en/tech/">
 <meta property="og:image" content="https://phai-labs.com/assets/img/dfm-diagram-en.webp">
 <meta property="og:locale" content="en_US">
@@ -139,19 +139,20 @@
   </aside>
   <figcaption class="dgfig__cap">
     <p class="dgfig__claim">DFM takes an AI through a whole turn of discovery: find a question worth asking, test it against real evidence, keep what worked for next time.</p>
-    <p class="dgfig__hint">Move the cursor over the drawing</p>
+    <p class="dgfig__hint">Move the cursor over the diagram</p>
   </figcaption>
 </figure>
 
 
-    <p class="subhead">The six capabilities DFM is about</p>
+    <p class="subhead">The seven capabilities DFM is about</p>
     <ol class="capabilities">
       <li><span class="num">01</span><h3>Identify valuable unknowns</h3><p>Start from unexplained phenomena, places where methods fail, and anomalies in data, and judge which unknowns are worth pursuing.</p></li>
       <li><span class="num">02</span><h3>Turn unknowns into researchable questions</h3><p>Narrow a vague unknown into a bounded question with a way in and a way to check it, and state what would count as progress.</p></li>
-      <li><span class="num">03</span><h3>Build and revise hypotheses</h3><p>Propose hypotheses around the question, organize the existing evidence, and revise or drop a hypothesis when new evidence arrives.</p></li>
-      <li><span class="num">04</span><h3>Call tools, data and experimental environments</h3><p>Take the hypothesis off the page: call literature, code, analysis tools and experimental environments, and turn judgement into actions that can be executed.</p></li>
-      <li><span class="num">05</span><h3>Validate and update against external evidence</h3><p>Subject the system’s outputs to data, experiments, expert judgement and the physical world, and update its position according to what comes back.</p></li>
-      <li><span class="num">06</span><h3>Accumulate reusable research structure</h3><p>Turn validated questions, tools, data and verifiers into reusable structure, so that each exploration becomes the starting point for the next discovery.</p></li>
+      <li><span class="num">03</span><h3>Build and revise the representation</h3><p>Settle which objects, variables, relations, abstractions and structural constraints describe the problem; add a latent variable, drop a misleading proxy, or change the temporal or spatial scale and state the problem again.</p></li>
+      <li><span class="num">04</span><h3>Build and revise hypotheses</h3><p>Propose hypotheses around the question, organize the existing evidence, and revise or drop a hypothesis when new evidence arrives.</p></li>
+      <li><span class="num">05</span><h3>Call tools, data and experimental environments</h3><p>Take the hypothesis off the page: call literature, code, analysis tools and experimental environments, and turn judgement into actions that can be executed.</p></li>
+      <li><span class="num">06</span><h3>Validate and update against external evidence</h3><p>Subject the system’s outputs to data, experiments, expert judgement and the physical world, and update its position according to what comes back.</p></li>
+      <li><span class="num">07</span><h3>Accumulate reusable research structure</h3><p>Turn validated questions, tools, data and verifiers into reusable structure, so that each exploration becomes the starting point for the next discovery.</p></li>
     </ol>
 
     <p class="links"><a class="link" href="https://phai-labs.com/papers/dfm/dfm-technical-report-v1-2026-09.pdf">DFM technical report ↗</a><a class="link" href="https://github.com/Gen-Verse/DFM-Plans">GitHub ↗</a>
@@ -169,14 +170,14 @@
 <section class="sec sec--project" data-field="grid" id="sciencebuddy">
   <div class="shell split split--project">
     <div>
-      <p class="eyebrow"><span class="num">04</span>Independent direction<span class="sep">·</span>16 Sept</p>
+      <p class="eyebrow"><span class="num">04</span>Independent direction<span class="sep">·</span>16 Sep</p>
       <h2 class="display-2">ScienceBuddy<span class="display-2__sub">AI research partner</span></h2>
       <p class="project__role">An interactive Scientific Agent: recursive self-improvement in real research interaction, exploring Recursive-in-Recursive Self-Improvement (RSI in RSI).</p>
     </div>
     <div>
       <div class="prose"><p>ScienceBuddy is an independent research and engineering exploration built around interaction with scientists, research feedback and the continual improvement of agents, in the Discovery Intelligence direction DFM is about.</p><p>It focuses on an interactive form of Science RSI: a user poses a scientific question, the agent calls tools and answers; the scientist&#39;s follow-ups, edits, acceptances, rejections and re-runs become feedback that drives the research agent&#39;s workspace and harness to keep evolving.</p><p>What ScienceBuddy produces is not only one-off answers but the feedback, research trajectories, tool calls and task states of the interaction. In future these can be organised into reusable scientific tasks and environments for reinforcement learning or other model training.</p></div>
       <p class="prose__note">An early product / research preview: the capabilities opened, demonstrations and entry points follow the actual version. The product entry opens on 16 September.</p>
-      <p class="links"><a class="link link--live" href="http://science-buddy.io">Open ScienceBuddy ↗</a><a class="link link--live" href="https://phai-labs.com/papers/sciencebuddy/sciencebuddy-technical-report-v1-2026-09.pdf">Technical report ↗</a><a class="link link--live" href="https://github.com/Gen-Verse/ScienceBuddy-RSI">GitHub ↗</a>
+      <p class="links"><a class="link link--live" href="https://science-buddy.io/">Open ScienceBuddy ↗</a><a class="link link--live" href="https://phai-labs.com/papers/sciencebuddy/sciencebuddy-technical-report-v1-2026-09.pdf">Technical report ↗</a><a class="link link--live" href="https://github.com/Gen-Verse/ScienceBuddy">GitHub ↗</a>
       </p>
     </div>
   </div>
@@ -204,7 +205,7 @@
   </aside>
   <figcaption class="dgfig__cap">
     <p class="dgfig__claim">A scientist and an AI partner talk it through; every follow-up, edit and acceptance is written down, and the AI&#39;s workspace gets better round by round.</p>
-    <p class="dgfig__hint">Move the cursor over the drawing</p>
+    <p class="dgfig__hint">Move the cursor over the diagram</p>
   </figcaption>
 </figure>
 
@@ -215,7 +216,7 @@
 <section class="sec sec--project" data-field="grid" id="scienceide">
   <div class="shell split split--project">
     <div>
-      <p class="eyebrow"><span class="num">05</span>Independent direction<span class="sep">·</span>17 Sept</p>
+      <p class="eyebrow"><span class="num">05</span>Independent direction<span class="sep">·</span>17 Sep</p>
       <h2 class="display-2">ScienceIDE<span class="display-2__sub">Science integrated development platform</span></h2>
       <p class="project__role">Infrastructure for scientific experience: real scientific code, tasks, environments and reinforcement-learning training.</p>
     </div>
@@ -261,7 +262,7 @@
   </aside>
   <figcaption class="dgfig__cap">
     <p class="dgfig__claim">Turn a real scientific codebase into a row of workbenches that run, get scored and can be repeated, so an AI can work on real scientific tasks and be checked.</p>
-    <p class="dgfig__hint">Move the cursor over the drawing</p>
+    <p class="dgfig__hint">Move the cursor over the diagram</p>
   </figcaption>
 </figure>
 
@@ -272,14 +273,14 @@
 <section class="sec sec--project" data-field="grid" id="jepa">
   <div class="shell split split--project">
     <div>
-      <p class="eyebrow"><span class="num">06</span>Independent direction<span class="sep">·</span>18 Sept</p>
+      <p class="eyebrow"><span class="num">06</span>Independent direction<span class="sep">·</span>18 Sep</p>
       <h2 class="display-2">JEPA-Anything<span class="display-2__sub">Cross-domain unified science world model</span></h2>
       <p class="project__role">A cross-domain unified science world model: cross-domain state prediction, intervention simulation and scientific diagnosis.</p>
     </div>
     <div>
-      <div class="prose"><p>JEPA-Anything is an independent model-method study of latent world models and orthogonal predictive factorisation.</p><p>It explores how to learn, across vision, biology, the clinic, molecules, control and physics, latent representations that predict changes of world state, and to offer one interface for intervention prediction, state synthesis and scientific diagnosis.</p><p>In the research vision, JEPA-Anything can be read as a unified predictive model or science world simulator over many scientific environments: when a researcher proposes an action or intervention, the model predicts the likely state changes, outcomes and risks in advance, helping screen out ineffective or costly plans. That is a direction to explore: today it does not simulate every scientific environment, and it is not connected to ScienceBuddy or ScienceIDE.</p></div>
-      <p class="prose__note">Paper, code, model weights and demo links go public on 18 September within the confirmed scope.</p>
-      <p class="links"><span class="link link--pending"><span>Paper</span><small>Releasing 18 Sept</small></span><span class="link link--pending"><span>Code</span><small>Releasing 18 Sept</small></span><span class="link link--pending"><span>Demo</span><small>Releasing 18 Sept</small></span>
+      <div class="prose"><p>JEPA-Anything is an independent model-method study of latent world models and orthogonal predictive factorisation.</p><p>It explores how to learn latent representations that predict changes in world state, and how to offer one interface for intervention prediction, state synthesis and scientific diagnosis. The seven domains are vision, biology, clinical trajectories, control, molecular dynamics, physical fields and weather.</p><p>In the research vision, JEPA-Anything can be read as a unified predictive model or science world simulator over many scientific environments: when a researcher proposes an action or intervention, the model predicts the likely state changes, outcomes and risks in advance, helping screen out ineffective or costly plans. That is a direction to explore: today it does not simulate every scientific environment, and it is not connected to ScienceBuddy or ScienceIDE.</p></div>
+      <p class="prose__note">The technical report and the Hugging Face model collection are public; the scope follows their actual state. This release includes no public demo.</p>
+      <p class="links"><a class="link link--live" href="https://phai-labs.com/papers/jepa-anything/jepa-anything-technical-report-v1-2026-09.pdf">Paper ↗</a><a class="link link--live" href="https://huggingface.co/collections/Gen-Verse/jepa-anything">Models ↗</a><a class="link link--live" href="https://github.com/Gen-Verse/JEPA-Anything">Code ↗</a>
       </p>
     </div>
   </div>
@@ -312,7 +313,7 @@
   </aside>
   <figcaption class="dgfig__cap">
     <p class="dgfig__claim">Predict before acting: if we do this, what does the world look like, and which option is worth taking.</p>
-    <p class="dgfig__hint">Move the cursor over the drawing</p>
+    <p class="dgfig__hint">Move the cursor over the diagram</p>
   </figcaption>
 </figure>
 
@@ -345,10 +346,10 @@
       <p class="lede">DFM is a paradigm, not a finished model. The research around it unfolds through system instances, independent papers, engineering modules and real scientific collaborations: on 15 September the DFM technical report and research-map repository go public; on 16, 17 and 18 September ScienceBuddy, ScienceIDE and JEPA-Anything are released in turn. Each project&#39;s links, code and product entries open on their day; anything that exists earlier is marked “coming soon”.</p>
       <p class="subhead">Four-day release calendar</p>
       <ol class="calendar">
-        <li class="is-live"><time datetime="2026-09-15">15 Sept</time><span>The DFM paradigm and the DFM Scientist Collaboration Program</span></li>
-        <li class="is-live"><time datetime="2026-09-16">16 Sept</time><span>ScienceBuddy · AI research partner</span></li>
-        <li class="is-live"><time datetime="2026-09-17">17 Sept</time><span>ScienceIDE · science integrated development platform</span></li>
-        <li><time datetime="2026-09-18">18 Sept</time><span>JEPA-Anything · cross-domain unified science world model</span></li>
+        <li class="is-live"><time datetime="2026-09-15">15 Sep</time><span>The DFM paradigm and the DFM Scientist Collaboration Program</span></li>
+        <li class="is-live"><time datetime="2026-09-16">16 Sep</time><span>ScienceBuddy · AI research partner</span></li>
+        <li class="is-live"><time datetime="2026-09-17">17 Sep</time><span>ScienceIDE · science integrated development platform</span></li>
+        <li class="is-live"><time datetime="2026-09-18">18 Sep</time><span>JEPA-Anything · cross-domain unified science world model</span></li>
       </ol>
       <p class="actions"><a class="btn" href="/en/news/">All news →</a></p>
     </div>
