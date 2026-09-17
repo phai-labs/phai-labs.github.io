@@ -45,28 +45,6 @@
           "我们希望，每一次探索都成为下一次发现的起点。"
         ]
       }
-    ],
-    "milestones": [
-      {
-        "date": "2026-09-15",
-        "title": "提出 DFM 研究范式，启动科学家合作计划",
-        "body": "把「发现」从一个模糊概念具体化为可学习、可执行、可评测的能力，同时启动 DFM 科学家合作计划，让真实科学问题、数据与实验反馈进入系统。"
-      },
-      {
-        "date": "2026-09-16",
-        "title": "发布 ScienceBuddy",
-        "body": "围绕科学家交互、科研反馈和智能体持续改进的独立研究与工程探索：追问、修改、采纳、否定与重跑都变成反馈，推动工作台自身演进。"
-      },
-      {
-        "date": "2026-09-17",
-        "title": "发布 ScienceIDE",
-        "body": "把真实科学代码、研究流程、任务目标和验证标准转化为可运行、可测量、可复现的科学环境，并公开用其中已验证交互轨迹训练的 PhAI-IDE 系列模型权重。"
-      },
-      {
-        "date": "2026-09-18",
-        "title": "发布 JEPA-Anything",
-        "body": "面向潜在世界模型和正交预测因子分解的独立模型方法研究，在视觉、生物、临床轨迹、控制、分子动力学、物理场和气象七个领域上评测。"
-      }
     ]
   },
   "en": {
@@ -114,28 +92,6 @@
           "How we work is simple. Start with real questions. Verify through real feedback. Improve through collaboration. We do not overstate capabilities that are not yet released, and we do not describe plans as results. Data is used only within an authorized scope, and outcomes are determined by contribution and written agreement.",
           "We want each exploration to become the starting point for the next discovery."
         ]
-      }
-    ],
-    "milestones": [
-      {
-        "date": "2026-09-15",
-        "title": "DFM and the Scientist Collaboration Program",
-        "body": "Discovery was given a concrete form -- a capability that can be learned, executed and evaluated -- and the DFM Scientist Collaboration Program opened, bringing real scientific questions, data and experimental feedback into the system."
-      },
-      {
-        "date": "2026-09-16",
-        "title": "ScienceBuddy released",
-        "body": "An independent research and engineering exploration built around interaction with scientists, research feedback and the continual improvement of agents: follow-ups, edits, acceptances, rejections and re-runs all become feedback."
-      },
-      {
-        "date": "2026-09-17",
-        "title": "ScienceIDE released",
-        "body": "Real scientific code, research procedures, task goals and verification criteria turned into scientific environments that run, measure and reproduce, with the PhAI-IDE model weights trained on verified trajectories from them made public."
-      },
-      {
-        "date": "2026-09-18",
-        "title": "JEPA-Anything released",
-        "body": "An independent model-method study of latent world models and orthogonal predictive factorisation, evaluated across vision, biology, clinical trajectories, control, molecular dynamics, physical fields and weather."
       }
     ]
   }

@@ -34,6 +34,10 @@ eleventyComputed:
 </section>
 {%- endfor %}
 
+{#- The timeline renders only when there is data for it. It is off right now;
+    refilling copy/about.json milestones brings the whole section back with
+    no template change. -#}
+{%- if t.milestones and t.milestones.length %}
 <section class="sec sec--milestones" data-field="grid" id="milestones">
   <div class="shell">
     <p class="eyebrow"><span class="num">0{{ t.sections.length + 1 }}</span>{{ '发展节点' if lang == 'zh' else 'Milestones' }}</p>
@@ -48,6 +52,7 @@ eleventyComputed:
     </ol>
   </div>
 </section>
+{%- endif %}
 
 <section class="sec sec--join">
   <div class="shell split">
