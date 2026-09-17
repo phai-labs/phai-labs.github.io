@@ -122,12 +122,12 @@
         "name_latin": "Ling Yang",
         "title": "Co-founder & CSO",
         "affiliation": "Postdoctoral researcher, Princeton · Incoming faculty, Peking University",
-        "bio": "Postdoctoral researcher in ECE at Princeton and incoming assistant professor at Peking University. Works on LLM and agent post-training, reinforcement-learning systems, recursive self-improvement and discovery intelligence. Founded the open-source research community Gen-Verse, whose projects have reached tens of millions of cumulative uses across GitHub and Hugging Face; serves as Area Chair for ICLR, ICML and NeurIPS. Representative work includes RLAnything, ReasonFlux, Buffer of Thoughts and MMaDA.",
+        "bio": "Postdoctoral researcher in ECE at Princeton and incoming assistant professor at Peking University. Works on LLM and agent post-training, reinforcement-learning systems, recursive self-improvement and Discovery Intelligence. Founded the open-source research community Gen-Verse, whose projects have reached tens of millions of cumulative uses across GitHub and Hugging Face; serves as Area Chair for ICLR, ICML and NeurIPS. Representative work includes RLAnything, ReasonFlux, Buffer of Thoughts and MMaDA.",
         "research": [
           "LLM and agent post-training",
           "RL systems and infrastructure",
           "Recursive self-improvement",
-          "Discovery intelligence"
+          "Discovery Intelligence"
         ]
       }
     },

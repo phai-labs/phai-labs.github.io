@@ -281,8 +281,8 @@ export default function (eleventyConfig) {
     return `${y}年${m}月${d}日`;
   });
   eleventyConfig.addFilter("pad2", (n) => String(n).padStart(2, "0"));
-  // release dates: "9 月 16 日" / "16 Sept", and the pending label
-  const M3 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+  // release dates: "9 月 16 日" / "16 Sep", and the pending label
+  const M3 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   eleventyConfig.addFilter("dateShort", (iso, lang) => {
     const [, m, d] = iso.split("-").map(Number);
     return lang === "en" ? `${d} ${M3[m - 1]}` : `${m} 月 ${d} 日`;

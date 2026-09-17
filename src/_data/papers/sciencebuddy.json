@@ -84,10 +84,10 @@
     "summary": "Continually improving agents inside a researcher's daily work: requests, feedback and execution evidence become the tasks and rubrics that drive nested self-improvement of harness and model."
   },
   "links": {
-    "github": "https://github.com/Gen-Verse/ScienceBuddy-RSI",
+    "github": "https://github.com/Gen-Verse/ScienceBuddy",
     "huggingface_model": "",
     "huggingface_data": "",
-    "project": "http://science-buddy.io",
+    "project": "https://science-buddy.io/",
     "demo": "",
     "video": "",
     "x": ""

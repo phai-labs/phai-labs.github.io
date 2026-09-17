@@ -14,8 +14,9 @@
     Scholar treats the whole page as untagged if title, first author or year is
     missing, so every tag below is either always present or omitted as a set. -#}
 {%- if lang == 'zh' -%}
+{#- No author list means no usable record, so the whole block stays off. -#}
 {%- for p in publications -%}
-{%- if p.slug == citeSlug -%}
+{%- if p.slug == citeSlug and p.authors and p.authors.length -%}
 {%- set pdfUrl = ('/papers/' + p.slug + '/' + p.pdf) if p.pdf else '' -%}
 {%- set r = site.releases[p.release_key] if p.release_key and site.releases[p.release_key] else null -%}
 <meta name="citation_title" content="{{ p.title }}">

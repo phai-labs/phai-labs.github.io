@@ -38,7 +38,7 @@
     "nav_tech": "Tech",
     "badge": "DFM · Discovery Foundation Models",
     "line1": "AI has learned to answer questions.",
-    "line2_before": "Next it learns to ",
+    "line2_before": " Next it learns to ",
     "line2_type": "discover",
     "lede": "We bring real scientific questions, data and experimental feedback into next-generation AI systems, on a path from assisting research to taking part in discovery.",
     "cta_primary": "Join the collaboration program",
@@ -50,7 +50,7 @@
     "loop_center_a": "Recursive",
     "loop_center_b": "discovery loop",
     "loop_left_label": "Where the question comes from",
-    "loop_left": "The system no longer takes a problem as given. It starts from a partially understood world and identifies the unknowns worth research.",
+    "loop_left": "The system no longer takes a problem as given. It starts from a partially understood world and identifies the unknowns worth investigating.",
     "loop_right_label": "Where the evidence comes from",
     "loop_right": "A hypothesis does not stay on paper. The system calls tools, data and experimental environments, and submits to external evidence.",
     "nodes": [
