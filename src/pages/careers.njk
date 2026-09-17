@@ -8,8 +8,8 @@ permalink: "{{ '/careers/' | localeUrl(lang) }}index.html"
 layout: layouts/base.njk
 pageKey: careers
 eleventyComputed:
-  title: "{{ copy.careers[lang].hero.title }}"
-  description: "{{ copy.careers[lang].hero.lede }}"
+  title: "{{ copy.careers[lang].hero.title | plain | safe }}"
+  description: "{{ copy.careers[lang].hero.lede | safe }}"
 ---
 {%- set t = copy.careers[lang] -%}
 {%- set s = i18n[lang] -%}

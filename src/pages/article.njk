@@ -10,9 +10,9 @@ fieldOff: true
 pageKey: news
 eleventyComputed:
   lang: "{{ ap.lang }}"
-  title: "{{ ap.article[ap.lang].title }}"
-  description: "{{ ap.article[ap.lang].summary }}"
-  ogImage: "{{ ap.article.cover or site.og_image }}"
+  title: "{{ ap.article[ap.lang].title | plain | safe }}"
+  description: "{{ ap.article[ap.lang].summary | safe }}"
+  ogImage: "{{ ap.article.cover or site.og_image | safe }}"
 ---
 {%- set a = ap.article -%}
 {%- set lang = ap.lang -%}

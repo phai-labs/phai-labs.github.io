@@ -8,8 +8,8 @@ permalink: "{{ '/tech/' | localeUrl(lang) }}index.html"
 layout: layouts/base.njk
 pageKey: tech
 eleventyComputed:
-  title: "{{ copy.tech[lang].hero.title }}"
-  description: "{{ copy.tech[lang].hero.lede }}"
+  title: "{{ copy.tech[lang].hero.title | plain | safe }}"
+  description: "{{ copy.tech[lang].hero.lede | safe }}"
   ogImage: "/assets/img/dfm-diagram-{{ lang }}.webp"
 ---
 {%- set t = copy.tech[lang] -%}

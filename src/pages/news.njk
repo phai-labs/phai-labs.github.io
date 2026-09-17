@@ -8,7 +8,7 @@ permalink: "{{ '/news/' | localeUrl(lang) }}index.html"
 layout: layouts/base.njk
 pageKey: news
 eleventyComputed:
-  title: "{{ i18n[lang].nav | navLabel('news') }}"
+  title: "{{ i18n[lang].nav | navLabel('news') | plain | safe }}"
 ---
 {%- set s = i18n[lang] -%}
 {%- set list = (articles if showDrafts else (articles | published)) | feedOrder -%}

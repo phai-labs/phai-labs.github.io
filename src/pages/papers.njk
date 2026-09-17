@@ -9,8 +9,8 @@ layout: layouts/base.njk
 pageKey: papers
 papersCss: true
 eleventyComputed:
-  title: "{{ i18n[lang].nav | navLabel('papers') }}"
-  description: "{{ i18n[lang].pub_lede }}"
+  title: "{{ i18n[lang].nav | navLabel('papers') | plain | safe }}"
+  description: "{{ i18n[lang].pub_lede | safe }}"
 ---
 {%- set s = i18n[lang] -%}
 

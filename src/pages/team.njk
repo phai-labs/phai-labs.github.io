@@ -8,8 +8,8 @@ permalink: "{{ '/team/' | localeUrl(lang) }}index.html"
 layout: layouts/base.njk
 pageKey: team
 eleventyComputed:
-  title: "{{ i18n[lang].nav | navLabel('team') }}"
-  description: "{{ team.spine[lang].lede if team.spine else i18n[lang].site_tagline }}"
+  title: "{{ i18n[lang].nav | navLabel('team') | plain | safe }}"
+  description: "{{ team.spine[lang].lede if team.spine else i18n[lang].site_tagline | safe }}"
 ---
 {%- set sp = team.spine[lang] -%}
 

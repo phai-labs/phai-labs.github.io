@@ -9,8 +9,8 @@ layout: layouts/base.njk
 pageKey: collaborate
 heroKv: true
 eleventyComputed:
-  title: "{{ collab[lang].hero.title }}"
-  description: "{{ collab[lang].hero.body }}"
+  title: "{{ collab[lang].hero.title | plain | safe }}"
+  description: "{{ collab[lang].hero.body | safe }}"
   ogImage: "/assets/img/kv-static.webp"
 ---
 {%- set t = collab[lang] -%}

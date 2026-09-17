@@ -8,8 +8,8 @@ permalink: "{{ '/investors/' | localeUrl(lang) }}index.html"
 layout: layouts/base.njk
 pageKey: investors
 eleventyComputed:
-  title: "{{ copy.investors[lang].hero.title }}"
-  description: "{{ copy.investors[lang].hero.lede }}"
+  title: "{{ copy.investors[lang].hero.title | plain | safe }}"
+  description: "{{ copy.investors[lang].hero.lede | safe }}"
 ---
 {%- set t = copy.investors[lang] -%}
 {#- Investor Relations: structure reserved, no financing information published. -#}

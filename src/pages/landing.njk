@@ -10,8 +10,8 @@ layout: layouts/landing.njk
 # in the sitemap would ask Google to index a duplicate of "/".
 sitemapSkip: true
 eleventyComputed:
-  title: "{{ copy.landing[lang].line1 }}{{ copy.landing[lang].line2_before }}{{ copy.landing[lang].line2_type }}"
-  description: "{{ copy.landing[lang].lede }}"
+  title: "{{ copy.landing[lang].line1 }}{{ copy.landing[lang].line2_before }}{{ copy.landing[lang].line2_type | plain | safe }}"
+  description: "{{ copy.landing[lang].lede | safe }}"
 ---
 {%- set t = copy.landing[lang] -%}
 {%- set s = i18n[lang] -%}

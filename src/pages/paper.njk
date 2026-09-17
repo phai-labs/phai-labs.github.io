@@ -11,8 +11,8 @@ fieldOff: true
 papersCss: true
 eleventyComputed:
   lang: "{{ pp.lang }}"
-  title: "{{ pp.paper.title }}"
-  description: "{{ pp.paper[pp.lang].summary }}"
+  title: "{{ pp.paper.title | plain | safe }}"
+  description: "{{ pp.paper[pp.lang].summary | safe }}"
   citeSlug: "{{ pp.paper.slug }}"
 ---
 {%- set p = pp.paper -%}

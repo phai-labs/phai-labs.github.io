@@ -299,6 +299,10 @@ export default function (eleventyConfig) {
   const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   // *word* inside a headline is the blue keyword: <em class="hl">word</em>
   const hl = (s) => s.replace(/\*([^*]+)\*/g, '<em class="hl">$1</em>');
+  // The same markers, removed instead of highlighted. A <title> or a meta
+  // description carries no markup, and without this the raw asterisks reach
+  // browser tabs and search results.
+  eleventyConfig.addFilter("plain", (s) => String(s ?? "").replace(/\*([^*]+)\*/g, "$1"));
   eleventyConfig.addFilter("stagger", (text, lang) => {
     let t = esc(text);
     // Chinese headlines rise as one block: per-character stagger reads as a

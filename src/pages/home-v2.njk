@@ -11,7 +11,7 @@ heroKv: true
 heroMinimal: true
 eleventyComputed:
   title: ""
-  description: "{{ copy.landing[lang].lede }}"
+  description: "{{ copy.landing[lang].lede | safe }}"
 ---
 {%- set t = copy.landing[lang] -%}
 {%- set h = copy.home[lang] -%}

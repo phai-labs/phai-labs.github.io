@@ -8,8 +8,8 @@ permalink: "{{ '/about/' | localeUrl(lang) }}index.html"
 layout: layouts/base.njk
 pageKey: about
 eleventyComputed:
-  title: "{{ copy.about[lang].hero.title }}"
-  description: "{{ copy.about[lang].hero.lede }}"
+  title: "{{ copy.about[lang].hero.title | plain | safe }}"
+  description: "{{ copy.about[lang].hero.lede | safe }}"
 ---
 {%- set t = copy.about[lang] -%}
 {%- set s = i18n[lang] -%}
