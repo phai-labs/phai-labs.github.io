@@ -226,24 +226,6 @@ export default function (eleventyConfig) {
     lang === "en" ? url.replace(/^\/en/, "") || "/" : `/en${url}`
   );
   // pick a language field from an object with zh/en keys
-  // Organization markup for the homepage: who the lab is, where it is, and
-  // the profiles that are its own. The address and the footer line both come
-  // from site.locations, so the two cannot drift apart. "<" is escaped so no
-  // value can close the script element early.
-  eleventyConfig.addFilter("orgLd", (site) => JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "PhAI Labs",
-    url: site.url,
-    logo: `${site.url}/assets/img/phai-labs-lockup.png`,
-    sameAs: [site.links.x, site.links.rednote, site.links.linkedin].filter(Boolean),
-    address: (site.locations || []).map((l) => ({
-      "@type": "PostalAddress",
-      addressLocality: l.city.en,
-      addressRegion: l.region,
-      addressCountry: l.country,
-    })),
-  }).replace(/</g, "\\u003c"));
   eleventyConfig.addFilter("t", (obj, lang) =>
     obj && typeof obj === "object" && lang in obj ? obj[lang] : obj
   );
