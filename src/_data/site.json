@@ -94,5 +94,15 @@
       },
       "email": "social@phai-labs.com"
     }
+  ],
+  "locations": [
+    {
+      "city": {
+        "zh": "旧金山",
+        "en": "San Francisco"
+      },
+      "region": "CA",
+      "country": "US"
+    }
   ]
 }

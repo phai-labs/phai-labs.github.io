@@ -171,6 +171,10 @@ body.drawer-open{overflow:hidden}
 .foot__brand .mark{width:22px;height:22px;overflow:visible}
 .foot__logo{display:block;height:44px;width:auto}
 .foot__line{font-family:var(--serif);font-weight:400;font-size:1.05rem;line-height:1.5;color:var(--ink-2);max-width:24em}
+/* the lab's city. Sans rather than mono: --mono has no CJK face, and 旧金山
+   would fall through to whatever the system picks. */
+.foot__loc{display:flex;align-items:center;gap:.4em;margin-top:-.35rem;font-family:var(--sans);font-size:.9rem;line-height:1.4;color:var(--ink-2)}
+.foot__pin{flex:none;color:var(--blue)}
 .foot__nav,.foot__contact{display:grid;gap:.45rem;align-content:start;font-size:.9rem;color:var(--ink-2)}
 .foot__nav a:hover,.foot__contact a:hover{color:var(--ink)}
 /* it heads a grid of four groups whose own labels are .86rem in full ink, so

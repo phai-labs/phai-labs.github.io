@@ -32,6 +32,9 @@
 <meta property="og:image" content="{{ site.url }}{{ ogImage or site.og_image }}">
 <meta property="og:locale" content="{{ 'zh_CN' if lang == 'zh' else 'en_US' }}">
 <meta name="twitter:card" content="summary_large_image">
+{%- if pageKey == 'home' %}
+<script type="application/ld+json">{{ site | orgLd | safe }}</script>
+{%- endif %}
 {%- if citeSlug %}{% include "components/citation-meta.njk" %}{% endif %}
 <meta name="theme-color" content="#0a0a0b">
 <link rel="icon" href="/favicon.png" type="image/png">
@@ -92,6 +95,9 @@
     <div class="foot__brand">
       <img class="foot__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="{{ s.site_name }}" loading="lazy">
       <p class="foot__line">{{ s.footer_line }}</p>
+      {%- if site.locations and site.locations.length %}
+      <p class="foot__loc"><svg class="foot__pin" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M8 1.2a4.6 4.6 0 0 0-4.6 4.6c0 3.3 4.6 8.9 4.6 8.9s4.6-5.6 4.6-8.9A4.6 4.6 0 0 0 8 1.2Zm0 6.4a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6Z"/></svg>{% for l in site.locations %}{{ l.city | t(lang) }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+      {%- endif %}
     </div>
     <nav class="foot__nav" aria-label="{{ '页脚导航' if lang == 'zh' else 'Footer' }}">
       {%- for item in s.nav %}
