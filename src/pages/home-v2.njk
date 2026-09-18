@@ -114,11 +114,11 @@ eleventyComputed:
   </div>
 </section>
 
-{#- ============ 3. what comes next, each row a way in ============ -#}
+{#- ============ 3. recent releases, each row a way in ============ -#}
 <section class="nextup" id="next" data-field="calm">
-  <p class="eyebrow rv">{{ t.facts_eyebrow }}<a href="{{ '/news/' | localeUrl(lang) }}">{{ t.facts_more }} →</a></p>
+  <p class="eyebrow rv">{{ t.recent_eyebrow }}<a href="{{ '/news/' | localeUrl(lang) }}">{{ t.facts_more }} →</a></p>
   <ol class="facts">
-    {%- for f in lang | nextup %}
+    {%- for f in lang | recentReleases %}
     <li class="rv{{ ' is-today' if f.kind == 'today' }}{{ ' is-program' if f.kind == 'program' }}" style="--k:{{ loop.index0 }}">
       <a href="{{ f.slug | articleHref(lang, '/news/') }}">
         <b>{{ t.facts_open if f.kind == 'program' else f.when }}{% if f.kind == 'today' %}<span class="facts__now">{{ s.today_badge }}</span>{% endif %}</b>

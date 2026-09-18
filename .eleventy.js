@@ -102,14 +102,21 @@ export default function (eleventyConfig) {
   // is left. Derived rather than written out: the row changes every morning,
   // and the hand-written version was still promising 15 September a day after
   // it shipped.
+  // One cell of a homepage strip: short date, short label, which article.
+  // Shared by nextup (the launch countdown) and recentReleases (after it).
+  const factRow = (a, kind, lang) => {
+    const [, m, d] = a.date.split("-").map(Number);
+    return {
+      kind,
+      slug: a.slug,
+      when: lang === "en" ? `${d} ${M3[m - 1]}` : `${m}.${d}`,
+      label: (a[lang] && a[lang].short) || a[lang].title.split(/[:\uff1a]/)[0],
+    };
+  };
+
   eleventyConfig.addFilter("nextup", (lang) => {
     const today = todayCN();
-    const label = (a) => (a[lang] && a[lang].short) || a[lang].title.split(/[:\uff1a]/)[0];
-    const when = (iso) => {
-      const [, m, d] = iso.split("-").map(Number);
-      return lang === "en" ? `${d} ${M3[m - 1]}` : `${m}.${d}`;
-    };
-    const row = (a, kind) => ({ kind, slug: a.slug, when: when(a.date), label: label(a) });
+    const row = (a, kind) => factRow(a, kind, lang);
     const releases = articles.filter((a) => a.category === "release");
     const rows = [];
     const now = releases.find((a) => a.date === today);
@@ -128,6 +135,18 @@ export default function (eleventyConfig) {
     const programme = articles.find((a) => a.category === "program");
     if (programme && rows.length < 3) rows.push(row(programme, "program"));
     return rows.slice(0, 3);
+  });
+
+  // The homepage strip once a launch is over: what has actually shipped,
+  // newest first. A release dated today keeps its badge; anything still ahead
+  // is left to /news/, because this row is about what is out.
+  eleventyConfig.addFilter("recentReleases", (lang, n = 4) => {
+    const today = todayCN();
+    return articles
+      .filter((a) => a.category === "release" && a.date <= today)
+      .sort((x, y) => (x.date < y.date ? 1 : x.date > y.date ? -1 : 0))
+      .slice(0, n)
+      .map((a) => factRow(a, a.date === today ? "today" : "past", lang));
   });
 
   eleventyConfig.addFilter("articleHref", (slug, lang, fallback) => {
