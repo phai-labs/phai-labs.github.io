@@ -15,6 +15,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include "components/lang-route.njk" %}
 <title>{{ fullTitle }}</title>
 <meta name="description" content="{{ description or s.site_tagline }}">
 {%- if noindex %}
@@ -71,7 +72,7 @@
     {%- endfor %}
   </nav>
   <div class="mast__tools">
-    <a class="mast__lang" href="{{ page.url | switchUrl(lang) }}" hreflang="{{ 'en' if lang == 'zh' else 'zh-CN' }}" aria-label="{{ s.switch_aria }}">{{ s.switch_label }}</a>
+    <a class="mast__lang" data-lang-switch="{{ otherLang }}" href="{{ page.url | switchUrl(lang) }}" hreflang="{{ 'en' if lang == 'zh' else 'zh-CN' }}" aria-label="{{ s.switch_aria }}">{{ s.switch_label }}</a>
     <a class="mast__cta" href="{{ site.links.apply_form }}" target="_blank" rel="noopener">{{ s.apply }}<span aria-hidden="true">↗</span></a>
     <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
       <span class="mast__menu-label">{{ s.menu }}</span><i></i><i></i>
@@ -82,7 +83,7 @@
   {%- for item in s.nav %}
   <a href="{{ item.href | localeUrl(lang) }}"{% if pageKey == item.key %} aria-current="page"{% endif %}>{{ item.label }}</a>
   {%- endfor %}
-  <a class="drawer__lang" href="{{ page.url | switchUrl(lang) }}">{{ s.switch_label }}</a>
+  <a class="drawer__lang" data-lang-switch="{{ otherLang }}" href="{{ page.url | switchUrl(lang) }}">{{ s.switch_label }}</a>
   <a class="drawer__cta" href="{{ site.links.apply_form }}" target="_blank" rel="noopener">{{ s.apply }} ↗</a>
 </nav>
 
