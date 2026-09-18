@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  var KEY = 'phai-lang';
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
+    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+  });
+})();
+</script>
+
 <title>ScienceBuddy · AI research partner: an interactive Scientific Agent and recursive self-improvement in real research — PhAI Labs</title>
 <meta name="description" content="ScienceBuddy is an independent research and engineering exploration built around interaction with scientists, research feedback and the continual improvement of agents: follow-ups, edits, acceptances, rejections and re-runs become feedback that keeps the research agent&#39;s workspace evolving.">
 <link rel="canonical" href="https://phai-labs.com/en/news/sciencebuddy/">
@@ -47,7 +57,7 @@
     <a href="/en/collaborate/">Collaborate</a>
   </nav>
   <div class="mast__tools">
-    <a class="mast__lang" href="/news/sciencebuddy/" hreflang="zh-CN" aria-label="切换到中文">中文</a>
+    <a class="mast__lang" data-lang-switch="zh" href="/news/sciencebuddy/" hreflang="zh-CN" aria-label="切换到中文">中文</a>
     <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">Apply now<span aria-hidden="true">↗</span></a>
     <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
       <span class="mast__menu-label">Menu</span><i></i><i></i>
@@ -62,7 +72,7 @@
   <a href="/en/team/">Team</a>
   <a href="/en/careers/">Careers</a>
   <a href="/en/collaborate/">Collaborate</a>
-  <a class="drawer__lang" href="/news/sciencebuddy/">中文</a>
+  <a class="drawer__lang" data-lang-switch="zh" href="/news/sciencebuddy/">中文</a>
   <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">Apply now ↗</a>
 </nav>
 

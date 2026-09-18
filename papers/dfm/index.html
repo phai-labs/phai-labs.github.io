@@ -3,6 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  var KEY = 'phai-lang';
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
+    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+  });
+  var pref = null;
+  try { pref = localStorage.getItem(KEY); } catch (err) {}
+  if (pref === 'zh') return;
+  if (pref !== 'en') {
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|google|facebookexternalhit/i.test(navigator.userAgent)) return;
+    var ls = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+    for (var i = 0; i < ls.length; i++) { if (/^zh\b/i.test(ls[i])) return; }
+    if (document.referrer.indexOf(location.origin + '/') === 0) return;
+  }
+  location.replace("/en/papers/dfm/" + location.search + location.hash);
+})();
+</script>
+
 <title>Discovery Foundation Models: Toward Open-Ended Discovery Intelligence — PhAI Labs</title>
 <meta name="description" content="把「发现」本身定义为可训练、可执行、可评估的能力：DFM 在一个可修订的研究状态上运行，覆盖从问题发现到证据驱动修正的七项耦合能力。">
 <link rel="canonical" href="https://phai-labs.com/papers/dfm/">
@@ -58,7 +78,7 @@
     <a href="/collaborate/">合作</a>
   </nav>
   <div class="mast__tools">
-    <a class="mast__lang" href="/en/papers/dfm/" hreflang="en" aria-label="Switch to English">EN</a>
+    <a class="mast__lang" data-lang-switch="en" href="/en/papers/dfm/" hreflang="en" aria-label="Switch to English">EN</a>
     <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请<span aria-hidden="true">↗</span></a>
     <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
       <span class="mast__menu-label">菜单</span><i></i><i></i>
@@ -73,7 +93,7 @@
   <a href="/team/">团队</a>
   <a href="/careers/">招聘</a>
   <a href="/collaborate/">合作</a>
-  <a class="drawer__lang" href="/en/papers/dfm/">EN</a>
+  <a class="drawer__lang" data-lang-switch="en" href="/en/papers/dfm/">EN</a>
   <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请 ↗</a>
 </nav>
 

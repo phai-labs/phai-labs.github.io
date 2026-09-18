@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  var KEY = 'phai-lang';
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
+    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+  });
+})();
+</script>
+
 <title>News — PhAI Labs</title>
 <meta name="description" content="Model and data infrastructure for real scientific discovery">
 <link rel="canonical" href="https://phai-labs.com/en/news/">
@@ -47,7 +57,7 @@
     <a href="/en/collaborate/">Collaborate</a>
   </nav>
   <div class="mast__tools">
-    <a class="mast__lang" href="/news/" hreflang="zh-CN" aria-label="切换到中文">中文</a>
+    <a class="mast__lang" data-lang-switch="zh" href="/news/" hreflang="zh-CN" aria-label="切换到中文">中文</a>
     <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">Apply now<span aria-hidden="true">↗</span></a>
     <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
       <span class="mast__menu-label">Menu</span><i></i><i></i>
@@ -62,7 +72,7 @@
   <a href="/en/team/">Team</a>
   <a href="/en/careers/">Careers</a>
   <a href="/en/collaborate/">Collaborate</a>
-  <a class="drawer__lang" href="/news/">中文</a>
+  <a class="drawer__lang" data-lang-switch="zh" href="/news/">中文</a>
   <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">Apply now ↗</a>
 </nav>
 
@@ -108,7 +118,7 @@
       <div class="feature__body">
         <p class="entry__meta">
           <time datetime="2026-09-18">18 Sep 2026</time>
-          <span class="entry__cat">Release</span><span class="entry__badge entry__badge--today">Today</span>
+          <span class="entry__cat">Release</span>
         </p>
         <h2 class="feature__title"><a href="/en/news/jepa-anything/">JEPA-Anything · cross-domain unified science world model: orthogonal predictive factorisation for latent world models</a></h2>
         <p class="entry__summary">JEPA-Anything splits latent targets into complementary factors with orthogonal predictive factorisation (OPF), and is evaluated across vision, biology, clinical trajectories, control, molecular dynamics, physical fields and weather. Against matched JEPA baselines, it improves reported metrics on all 10 dynamics tasks.</p>

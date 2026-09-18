@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>
+(function () {
+  var KEY = 'phai-lang';
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
+    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+  });
+})();
+</script>
+
 <title>AI has learned to answer questions. Next it learns to discover</title>
 <meta name="description" content="We bring real scientific questions, data and experimental feedback into next-generation AI systems, on a path from assisting research to taking part in discovery.">
 <meta name="robots" content="noindex">
@@ -20,7 +30,7 @@
   <nav class="bar__nav" aria-label="Navigation">
     <a class="ap" style="--d:.18s" href="/en/tech/">Tech</a>
     <a class="ap" style="--d:.26s" href="/en/">Full site</a>
-    <a class="ap bar__lang" style="--d:.34s" href="/landing/">中文</a>
+    <a class="ap bar__lang" data-lang-switch="zh" style="--d:.34s" href="/landing/">中文</a>
   </nav>
 </header><main class="stage" id="top"><div class="stage__kv" data-kv aria-hidden="true">
     <canvas class="stage__orb" data-orb></canvas>
@@ -105,7 +115,7 @@
 </section><footer class="end">
   <p class="eyebrow rv">What comes next</p>
   <ol class="facts">
-    <li class="rv is-today" style="--k:0"><b>18 Sep<span class="facts__now">Today</span></b><span>JEPA-Anything, a cross-domain science world model</span></li>
+    <li class="rv" style="--k:0"><b>18 Sep</b><span>JEPA-Anything, a cross-domain science world model</span></li>
     <li class="rv is-program" style="--k:1"><b>Open</b><span>DFM Scientist Collaboration Program</span></li>
   </ol>
   <p class="end__line rv">PhAI Labs · Model and data infrastructure for real scientific discovery · <a href="/en/">Full site →</a></p>

@@ -3,6 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  var KEY = 'phai-lang';
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
+    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+  });
+  var pref = null;
+  try { pref = localStorage.getItem(KEY); } catch (err) {}
+  if (pref === 'zh') return;
+  if (pref !== 'en') {
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|google|facebookexternalhit/i.test(navigator.userAgent)) return;
+    var ls = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+    for (var i = 0; i < ls.length; i++) { if (/^zh\b/i.test(ls[i])) return; }
+    if (document.referrer.indexOf(location.origin + '/') === 0) return;
+  }
+  location.replace("/en/papers/jepa-anything/" + location.search + location.hash);
+})();
+</script>
+
 <title>JEPA-Anything: Learning Predictive Models across Different Worlds — PhAI Labs</title>
 <meta name="description" content="正交预测因子分解（OPF）在联合嵌入预测架构之上，把潜在目标拆成互补因子，各自通过专门通路学习后再组合。论文用它在视觉、生物、临床轨迹、控制、分子动力学、物理场和气象七个领域上做了同一套评测，考察表示学习、干预预测、分布外泛化和长时程动力学。">
 <link rel="canonical" href="https://phai-labs.com/papers/jepa-anything/">
@@ -68,7 +88,7 @@
     <a href="/collaborate/">合作</a>
   </nav>
   <div class="mast__tools">
-    <a class="mast__lang" href="/en/papers/jepa-anything/" hreflang="en" aria-label="Switch to English">EN</a>
+    <a class="mast__lang" data-lang-switch="en" href="/en/papers/jepa-anything/" hreflang="en" aria-label="Switch to English">EN</a>
     <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请<span aria-hidden="true">↗</span></a>
     <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
       <span class="mast__menu-label">菜单</span><i></i><i></i>
@@ -83,7 +103,7 @@
   <a href="/team/">团队</a>
   <a href="/careers/">招聘</a>
   <a href="/collaborate/">合作</a>
-  <a class="drawer__lang" href="/en/papers/jepa-anything/">EN</a>
+  <a class="drawer__lang" data-lang-switch="en" href="/en/papers/jepa-anything/">EN</a>
   <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请 ↗</a>
 </nav>
 

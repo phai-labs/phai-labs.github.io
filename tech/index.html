@@ -3,6 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  var KEY = 'phai-lang';
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
+    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+  });
+  var pref = null;
+  try { pref = localStorage.getItem(KEY); } catch (err) {}
+  if (pref === 'zh') return;
+  if (pref !== 'en') {
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|google|facebookexternalhit/i.test(navigator.userAgent)) return;
+    var ls = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+    for (var i = 0; i < ls.length; i++) { if (/^zh\b/i.test(ls[i])) return; }
+    if (document.referrer.indexOf(location.origin + '/') === 0) return;
+  }
+  location.replace("/en/tech/" + location.search + location.hash);
+})();
+</script>
+
 <title>面向科学发现的技术体系 — PhAI Labs</title>
 <meta name="description" content="PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的研究范式；ScienceBuddy、ScienceIDE 与 JEPA-Anything 是三个彼此独立的研究与工程方向，分别从交互反馈、可复用的科学环境和世界状态预测展开。">
 <link rel="canonical" href="https://phai-labs.com/tech/">
@@ -47,7 +67,7 @@
     <a href="/collaborate/">合作</a>
   </nav>
   <div class="mast__tools">
-    <a class="mast__lang" href="/en/tech/" hreflang="en" aria-label="Switch to English">EN</a>
+    <a class="mast__lang" data-lang-switch="en" href="/en/tech/" hreflang="en" aria-label="Switch to English">EN</a>
     <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请<span aria-hidden="true">↗</span></a>
     <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
       <span class="mast__menu-label">菜单</span><i></i><i></i>
@@ -62,7 +82,7 @@
   <a href="/team/">团队</a>
   <a href="/careers/">招聘</a>
   <a href="/collaborate/">合作</a>
-  <a class="drawer__lang" href="/en/tech/">EN</a>
+  <a class="drawer__lang" data-lang-switch="en" href="/en/tech/">EN</a>
   <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请 ↗</a>
 </nav>
 

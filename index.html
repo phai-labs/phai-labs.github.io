@@ -3,6 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  var KEY = 'phai-lang';
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
+    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+  });
+  var pref = null;
+  try { pref = localStorage.getItem(KEY); } catch (err) {}
+  if (pref === 'zh') return;
+  if (pref !== 'en') {
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|google|facebookexternalhit/i.test(navigator.userAgent)) return;
+    var ls = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+    for (var i = 0; i < ls.length; i++) { if (/^zh\b/i.test(ls[i])) return; }
+    if (document.referrer.indexOf(location.origin + '/') === 0) return;
+  }
+  location.replace("/en/" + location.search + location.hash);
+})();
+</script>
+
 <title>PhAI Labs — 面向真实科学发现的模型与数据基础设施</title>
 <meta name="description" content="我们让真实的科学问题、数据与实验反馈进入下一代 AI 系统，探索从辅助科研到参与科学发现的路径。">
 <link rel="canonical" href="https://phai-labs.com/">
@@ -48,7 +68,7 @@
     <a href="/collaborate/">合作</a>
   </nav>
   <div class="mast__tools">
-    <a class="mast__lang" href="/en/" hreflang="en" aria-label="Switch to English">EN</a>
+    <a class="mast__lang" data-lang-switch="en" href="/en/" hreflang="en" aria-label="Switch to English">EN</a>
     <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请<span aria-hidden="true">↗</span></a>
     <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
       <span class="mast__menu-label">菜单</span><i></i><i></i>
@@ -63,7 +83,7 @@
   <a href="/team/">团队</a>
   <a href="/careers/">招聘</a>
   <a href="/collaborate/">合作</a>
-  <a class="drawer__lang" href="/en/">EN</a>
+  <a class="drawer__lang" data-lang-switch="en" href="/en/">EN</a>
   <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请 ↗</a>
 </nav>
 
@@ -154,19 +174,33 @@
     </aside>
   </div>
 </section><section class="nextup" id="next" data-field="calm">
-  <p class="eyebrow rv">接下来<a href="/news/">全部新闻动态 →</a></p>
+  <p class="eyebrow rv">最新工作<a href="/news/">全部新闻动态 →</a></p>
   <ol class="facts">
-    <li class="rv is-today" style="--k:0">
+    <li class="rv" style="--k:0">
       <a href="/news/jepa-anything/">
-        <b>9.18<span class="facts__now">今日发布</span></b>
+        <b>9.18</b>
         <span>JEPA-Anything 跨领域科学世界模型</span>
         <em>查看详情 →</em>
       </a>
     </li>
-    <li class="rv is-program" style="--k:1">
-      <a href="/news/scientist-collaboration/">
-        <b>开放中</b>
-        <span>DFM 科学家合作计划</span>
+    <li class="rv" style="--k:1">
+      <a href="/news/scienceide/">
+        <b>9.17</b>
+        <span>ScienceIDE 可验证的科学执行环境</span>
+        <em>查看详情 →</em>
+      </a>
+    </li>
+    <li class="rv" style="--k:2">
+      <a href="/news/sciencebuddy/">
+        <b>9.16</b>
+        <span>ScienceBuddy 交互式科研工作台</span>
+        <em>查看详情 →</em>
+      </a>
+    </li>
+    <li class="rv" style="--k:3">
+      <a href="/news/dfm-launch/">
+        <b>9.15</b>
+        <span>DFM 技术报告与技术研究版图</span>
         <em>查看详情 →</em>
       </a>
     </li>

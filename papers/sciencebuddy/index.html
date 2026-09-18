@@ -3,6 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  var KEY = 'phai-lang';
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
+    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+  });
+  var pref = null;
+  try { pref = localStorage.getItem(KEY); } catch (err) {}
+  if (pref === 'zh') return;
+  if (pref !== 'en') {
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|google|facebookexternalhit/i.test(navigator.userAgent)) return;
+    var ls = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+    for (var i = 0; i < ls.length; i++) { if (/^zh\b/i.test(ls[i])) return; }
+    if (document.referrer.indexOf(location.origin + '/') === 0) return;
+  }
+  location.replace("/en/papers/sciencebuddy/" + location.search + location.hash);
+})();
+</script>
+
 <title>ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents — PhAI Labs</title>
 <meta name="description" content="把持续改进的科研智能体放进研究者的日常工作：研究者的请求、反馈与执行证据被转化为任务和评测标准，驱动 harness 与模型的嵌套式自我改进。">
 <link rel="canonical" href="https://phai-labs.com/papers/sciencebuddy/">
@@ -68,7 +88,7 @@
     <a href="/collaborate/">合作</a>
   </nav>
   <div class="mast__tools">
-    <a class="mast__lang" href="/en/papers/sciencebuddy/" hreflang="en" aria-label="Switch to English">EN</a>
+    <a class="mast__lang" data-lang-switch="en" href="/en/papers/sciencebuddy/" hreflang="en" aria-label="Switch to English">EN</a>
     <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请<span aria-hidden="true">↗</span></a>
     <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
       <span class="mast__menu-label">菜单</span><i></i><i></i>
@@ -83,7 +103,7 @@
   <a href="/team/">团队</a>
   <a href="/careers/">招聘</a>
   <a href="/collaborate/">合作</a>
-  <a class="drawer__lang" href="/en/papers/sciencebuddy/">EN</a>
+  <a class="drawer__lang" data-lang-switch="en" href="/en/papers/sciencebuddy/">EN</a>
   <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请 ↗</a>
 </nav>
 

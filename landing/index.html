@@ -3,6 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>
+(function () {
+  var KEY = 'phai-lang';
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
+    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+  });
+  var pref = null;
+  try { pref = localStorage.getItem(KEY); } catch (err) {}
+  if (pref === 'zh') return;
+  if (pref !== 'en') {
+    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|google|facebookexternalhit/i.test(navigator.userAgent)) return;
+    var ls = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+    for (var i = 0; i < ls.length; i++) { if (/^zh\b/i.test(ls[i])) return; }
+    if (document.referrer.indexOf(location.origin + '/') === 0) return;
+  }
+  location.replace("/en/landing/" + location.search + location.hash);
+})();
+</script>
+
 <title>AI 已经学会回答问题，下一步是学会发现</title>
 <meta name="description" content="我们让真实的科学问题、数据与实验反馈进入下一代 AI 系统，探索从辅助科研到参与科学发现的路径。">
 <meta name="robots" content="noindex">
@@ -21,7 +41,7 @@
   <nav class="bar__nav" aria-label="导航">
     <a class="ap" style="--d:.18s" href="/tech/">技术</a>
     <a class="ap" style="--d:.26s" href="/">完整站点</a>
-    <a class="ap bar__lang" style="--d:.34s" href="/en/landing/">EN</a>
+    <a class="ap bar__lang" data-lang-switch="en" style="--d:.34s" href="/en/landing/">EN</a>
   </nav>
 </header><main class="stage" id="top"><div class="stage__kv" data-kv aria-hidden="true">
     <canvas class="stage__orb" data-orb></canvas>
@@ -106,7 +126,7 @@
 </section><footer class="end">
   <p class="eyebrow rv">接下来</p>
   <ol class="facts">
-    <li class="rv is-today" style="--k:0"><b>9.18<span class="facts__now">今日发布</span></b><span>JEPA-Anything 跨领域科学世界模型</span></li>
+    <li class="rv" style="--k:0"><b>9.18</b><span>JEPA-Anything 跨领域科学世界模型</span></li>
     <li class="rv is-program" style="--k:1"><b>开放中</b><span>DFM 科学家合作计划</span></li>
   </ol>
   <p class="end__line rv">PhAI Labs · 面向真实科学发现的模型与数据基础设施 · <a href="/">完整站点 →</a></p>
