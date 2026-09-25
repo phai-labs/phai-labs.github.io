@@ -8,7 +8,10 @@
   var KEY = 'phai-lang';
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
-    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+    if (!a) return;
+    try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {}
+    // both trees come from the same templates, so a section id exists on both sides
+    if (location.hash) a.setAttribute('href', a.getAttribute('href').split('#')[0] + location.hash);
   });
   var pref = null;
   try { pref = localStorage.getItem(KEY); } catch (err) {}
@@ -44,7 +47,7 @@
 <link rel="preload" href="/assets/fonts/IBMPlexSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/NotoSerifSC-Display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
-<link rel="stylesheet" href="/assets/css/pulse.css">
+<link rel="stylesheet" href="/assets/css/pulse.css"><noscript><style>.rv,.w,.loop__node i,.loop__node span,.person,.person::after,.cst__n{opacity:1!important;transform:none!important;filter:none!important}.sec::before,.loop::before,.people::before,.timeline--nodes::before{transform:none!important}.cst__e,.dg__draw{stroke-dashoffset:0!important}.dg__fade{opacity:var(--o,1)!important}</style></noscript>
 </head>
 <body class="page-collaborate">
 <a class="skip" href="#main">跳到正文</a>
@@ -58,8 +61,8 @@
     <img class="mast__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="PhAI Labs">
   </a>
   <nav class="mast__nav" aria-label="主导航" data-nav>
-    <a href="/tech/">技术</a>
-    <a href="/papers/">论文</a>
+    <a href="/tech/">技术与论文</a>
+    <a href="/products/">产品</a>
     <a href="/news/">新闻动态</a>
     <a href="/about/">关于我们</a>
     <a href="/team/">团队</a>
@@ -75,8 +78,8 @@
   </div>
 </header>
 <nav class="drawer" id="mobile-nav" aria-label="移动端导航" data-drawer hidden>
-  <a href="/tech/">技术</a>
-  <a href="/papers/">论文</a>
+  <a href="/tech/">技术与论文</a>
+  <a href="/products/">产品</a>
   <a href="/news/">新闻动态</a>
   <a href="/about/">关于我们</a>
   <a href="/team/">团队</a>
@@ -170,20 +173,141 @@
 <section class="sec sec--dfm" data-field="flow" id="dfm">
   <div class="shell">
     <p class="eyebrow"><span class="num">03</span>什么是 DFM</p>
-    <div class="split split--figure">
+    <div class="split">
+      <h2 class="display-2">从完成科研任务，<br>走向参与科学发现</h2>
       <div>
-        <h2 class="display-2">从完成科研任务，<br>走向参与科学发现</h2>
         <div class="prose"><p>DFM（Discovery Foundation Models）不是一个单一模型，也不是要求所有系统按同一套流程运行的软件框架，而是 PhAI Labs 围绕 Discovery Intelligence 提出的一套研究范式、能力定义和系统组织方式。它通过形式化定义、流程图示、系统实例和真实科学案例，把“发现”从一个模糊概念具体化为一种可学习、可执行、可评测的模型系统能力。</p><p class="prose__note">DFM 科学家合作计划为这一范式引入真实科学问题、数据与验证条件，让系统在真实研究中形成判断。</p></div>
         <p class="links"><a class="link link--live" href="https://phai-labs.com/papers/dfm/dfm-technical-report-v1-2026-09.pdf">DFM 技术报告 ↗</a><a class="link link--live" href="https://github.com/Gen-Verse/DFM-Plans">GitHub ↗</a>
         </p>
       </div>
-      <figure class="figure figure--dfm">
-        <a href="/assets/img/dfm-diagram-zh.png" target="_blank" rel="noopener">
-          <img src="/assets/img/dfm-diagram-zh.webp" width="1543" height="1019" loading="lazy" alt="DFM 发现基座模型技术示意图">
-        </a>
-        <figcaption>递归科学发现闭环 · 部分理解的世界 → 有价值的未知 → 可研究的问题 → 解释与干预 → 经验证的新知识</figcaption>
-      </figure>
-    </div>
+    </div><figure class="figure figure--dfm figure--wide ovfig" data-reveal>
+  <div class="ovfig__art" role="img" aria-label="发现基座模型技术示意图：智能扩展的三个阶段（对话、智能体与编程、发现）；当前基座模型作用于预定义任务，发现基座模型作用于知识生产过程；以及从部分理解的世界到经验证的新知识的递归发现闭环。"><svg class="dg dg--ov" viewBox="0 0 1200 706" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+<rect class='ov__panel dg__draw' style='--d:0s' pathLength='1' x='0.5' y='0.5' width='372' height='467' rx='10'/>
+<rect class='ov__panel dg__draw' style='--d:0.15s' pathLength='1' x='388' y='0.5' width='280' height='467' rx='10'/>
+<rect class='ov__panel ov__panel--focus dg__draw' style='--d:0.3s' pathLength='1' x='796' y='0.5' width='403.5' height='467' rx='10'/>
+<rect class='ov__panel dg__draw' style='--d:0.45s' pathLength='1' x='0.5' y='488' width='1199' height='216' rx='10'/>
+<text class='ov__h dg__fade' x='24' y='38' text-anchor='start' style='--d:0.2s'>智能扩展的三个阶段</text>
+<g class='dg__fade' style='--d:.3s'><path class='dg__p dg__faint' d='M 52,262 L 52,68'/><path class='dg__p dg__faint' d='M 52,262 L 352,262'/><path class='dg__p dg__faint' d='M 48,74 L 52,66 L 56,74'/><path class='dg__p dg__faint' d='M 346,258 L 354,262 L 346,266'/></g>
+<text class='ov__ax dg__fade' x='32' y='166' text-anchor='middle' style='--d:0.4s' transform='rotate(-90 32 162)'>能力边界</text>
+<text class='ov__ax dg__fade' x='210' y='284' text-anchor='middle' style='--d:0.4s'>可扩展学习信号的演进</text>
+<path class='ov__c ov__t1 dg__draw' style='--d:0.5s' pathLength='1' d='M 66,250 L 69.4,249.7 L 72.8,249.3 L 76.1,249 L 79.5,248.6 L 82.9,248.2 L 86.3,247.8 L 89.6,247.4 L 93,247 L 96.4,246.6 L 99.8,246.1 L 103.1,245.7 L 106.5,245.2 L 109.9,244.7 L 113.3,244.1 L 116.6,243.6 L 120,243 L 123.4,242.5 L 126.8,241.8 L 130.1,241.2 L 133.5,240.6 L 136.9,239.9 L 140.3,239.2 L 143.6,238.5 L 147,237.7 L 150.4,236.9 L 153.8,236.1 L 157.1,235.3 L 160.5,234.4'/>
+<path class='ov__c ov__t2 dg__draw' style='--d:1.0s' pathLength='1' d='M 160.5,234.4 L 163.5,233.6 L 166.5,232.8 L 169.5,231.9 L 172.4,231 L 175.4,230.1 L 178.4,229.2 L 181.4,228.2 L 184.3,227.2 L 187.3,226.2 L 190.3,225.1 L 193.3,224 L 196.3,222.9 L 199.2,221.7 L 202.2,220.5 L 205.2,219.3 L 208.2,218 L 211.2,216.6 L 214.1,215.3 L 217.1,213.8 L 220.1,212.4 L 223.1,210.9 L 226,209.3 L 229,207.7 L 232,206 L 235,204.3 L 238,202.5 L 240.9,200.7 L 243.9,198.8'/>
+<path class='ov__c ov__t3 dg__draw' style='--d:1.5s' pathLength='1' d='M 243.9,198.8 L 247.5,196.4 L 251.1,193.9 L 254.6,191.4 L 258.2,188.7 L 261.8,186 L 265.4,183.1 L 268.9,180.2 L 272.5,177.1 L 276.1,173.8 L 279.7,170.5 L 283.2,167 L 286.8,163.4 L 290.4,159.7 L 294,155.8 L 297.5,151.7 L 301.1,147.5 L 304.7,143.1 L 308.3,138.6 L 311.8,133.9 L 315.4,128.9 L 319,123.8 L 322.6,118.5 L 326.1,113 L 329.7,107.3 L 333.3,101.3 L 336.9,95.1 L 340.4,88.7 L 344,82'/>
+<path class='ov__c ov__t3 dg__fade' style='--d:2.6s' transform='translate(344,82) rotate(-61.8)' d='M -9,-5.2 L 0,0 L -9,5.2'/>
+<g class='dg__hov dg__fade' style='--d:0.9s'><circle class='ov__badge' cx='113.3' cy='244.1' r='9'/><text x='113.3' y='248.1' text-anchor='middle'><tspan class='dg__num'>1</tspan></text></g>
+<text class='ov__stage ov__lt1 dg__fade' x='113.3' y='228.1' text-anchor='middle' style='--d:0.9s'>对话</text>
+<g class='dg__hov dg__fade' style='--d:1.5s'><circle class='ov__badge' cx='202.2' cy='220.5' r='9'/><text x='202.2' y='224.5' text-anchor='middle'><tspan class='dg__num'>2</tspan></text></g>
+<text class='ov__stage ov__lt2 dg__fade' x='216.2' y='240.5' text-anchor='start' style='--d:1.5s'>智能体 / 编程</text>
+<g class='dg__hov dg__fade' style='--d:2.2s'><circle class='ov__badge ov__badge--strong' cx='296.7' cy='152.6' r='9'/><text x='296.7' y='156.6' text-anchor='middle'><tspan class='dg__num'>3</tspan></text></g>
+<text class='ov__stage ov__lt3 dg__fade' x='280.7' y='156.6' text-anchor='end' style='--d:2.2s'>发现</text>
+<circle class='dg__ring dg__ring--slow' style='animation-delay:2.8s' cx='296.7' cy='152.6' r='12'/>
+<g class='dg__hov dg__fade' style='--d:1.0s'><line class='ov__sw ov__t1' x1='24' y1='305' x2='40' y2='305'/><text class='ov__lab ov__lab--s' x='52' y='310' text-anchor='start'>学习已有知识</text><text class='ov__small' x='52' y='328' text-anchor='start'>公共数据 + 预训练</text></g><g class='dg__hov dg__fade' style='--d:1.6s'><line class='ov__sw ov__t2' x1='24' y1='357' x2='40' y2='357'/><text class='ov__lab ov__lab--s' x='52' y='362' text-anchor='start'>从行动结果中学习</text><text class='ov__small' x='52' y='380' text-anchor='start'>可执行经验 + 测试反馈 + 迭代修正</text></g><g class='dg__hov dg__fade' style='--d:2.3s'><line class='ov__sw ov__t3' x1='24' y1='409' x2='40' y2='409'/><text class='ov__lab ov__lab--s' x='52' y='414' text-anchor='start'>创造并验证新知识</text><text class='ov__small' x='52' y='432' text-anchor='start'>可验证证据 + 发现策略 + 真实世界验证</text></g>
+<text class='ov__h dg__fade' x='408' y='38' text-anchor='start' style='--d:0.3s'>当前基座模型 / 大语言模型</text>
+<text class='ov__sub dg__fade' x='408' y='60' text-anchor='start' style='--d:0.35s'>作用于预定义任务</text>
+<line class='dg__p dg__faint dg__fade' style='--d:.5s' x1='404' y1='116.0' x2='404' y2='332.0'/>
+<g class='dg__hov dg__fade' style='--d:0.60s'><rect class='ov__tile' x='418' y='86' width='234' height='60' rx='8'/><circle class='dg__n ov__n--dim' cx='404' cy='116.0' r='3.5'/>
+<text class='ov__lab' x='434' y='112' text-anchor='start'>知识</text>
+<text class='ov__small' x='434' y='131' text-anchor='start'>预训练语料</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:0.75s'><rect class='ov__tile' x='418' y='158' width='234' height='60' rx='8'/><circle class='dg__n ov__n--dim' cx='404' cy='188.0' r='3.5'/>
+<text class='ov__lab' x='434' y='184' text-anchor='start'>推理</text>
+<text class='ov__small' x='434' y='203' text-anchor='start'>多步推理</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:0.90s'><rect class='ov__tile' x='418' y='230' width='234' height='60' rx='8'/><circle class='dg__n ov__n--dim' cx='404' cy='260.0' r='3.5'/>
+<text class='ov__lab' x='434' y='256' text-anchor='start'>工具使用</text>
+<text class='ov__small' x='434' y='275' text-anchor='start'>搜索、代码、数据库</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:1.05s'><rect class='ov__tile' x='418' y='302' width='234' height='60' rx='8'/><circle class='dg__n ov__n--dim' cx='404' cy='332.0' r='3.5'/>
+<text class='ov__lab' x='434' y='328' text-anchor='start'>智能体执行</text>
+<text class='ov__small' x='434' y='347' text-anchor='start'>长程工作流</text>
+</g>
+<g class='dg__fade' style='--d:1.3s'><rect class='ov__glyph' x='408' y='423' width='10' height='8' rx='1.5'/><path class='ov__glyph' d='M 410,423 v -3 a 3,3 0 0 1 6,0 v 3'/></g>
+<text class='ov__small dg__fade' x='426' y='432' text-anchor='start' style='--d:1.3s'>研究结构：由人类固定</text>
+<text class='ov__flow dg__fade' x='732' y='118' text-anchor='middle' style='--d:1.3s'><tspan x='732' dy='0'>发现拓展</tspan><tspan x='732' dy='17'>能力边界</tspan></text>
+<path class='ov__chev ov__t1 dg__draw' style='--d:1.4s' pathLength='1' d='M 702,188 L 728,236.0 L 702,284'/>
+<path class='ov__chev ov__t2 dg__draw' style='--d:1.6s' pathLength='1' d='M 724,188 L 750,236.0 L 724,284'/>
+<path class='ov__chev ov__t3 dg__draw' style='--d:1.8s' pathLength='1' d='M 746,188 L 772,236.0 L 746,284'/>
+<circle class='dg__mv dg__mv--fade' r='2.8' style="offset-path:path('M 654,236.0 L 810,236.0');--dur:3.2s;--delay:2.2s"/>
+<circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 654,236.0 L 810,236.0');--dur:3.2s;--delay:3.8s"/>
+<text class='ov__flow ov__flow--it dg__fade' x='732' y='326' text-anchor='middle' style='--d:2.0s'><tspan x='732' dy='0'>从解决任务</tspan><tspan x='732' dy='17'>到构建研究</tspan></text>
+<text class='ov__h dg__fade' x='816' y='38' text-anchor='start' style='--d:0.5s'>发现基座模型</text>
+<text class='ov__sub dg__fade' x='816' y='60' text-anchor='start' style='--d:0.55s'>作用于知识生产过程</text>
+<line class='dg__p dg__draw' style='--d:2.0s' pathLength='1' x1='812' y1='116.0' x2='812' y2='332.0'/>
+<g class='dg__hov dg__fade' style='--d:2.00s'><rect class='ov__tile' x='826' y='86' width='357.5' height='60' rx='8'/><circle class='dg__n' cx='812' cy='116.0' r='3.5'/>
+<text class='ov__lab' x='842' y='112' text-anchor='start'>识别有价值的未知</text>
+<text class='ov__small' x='842' y='131' text-anchor='start'>问题发现与形式化</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:2.15s'><rect class='ov__tile' x='826' y='158' width='357.5' height='60' rx='8'/><circle class='dg__n' cx='812' cy='188.0' r='3.5'/>
+<text class='ov__lab' x='842' y='184' text-anchor='start'>构建并修正研究结构</text>
+<text class='ov__small' x='842' y='203' text-anchor='start'>表征与假设</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:2.30s'><rect class='ov__tile' x='826' y='230' width='357.5' height='60' rx='8'/><circle class='dg__n' cx='812' cy='260.0' r='3.5'/>
+<text class='ov__lab' x='842' y='256' text-anchor='start'>用外部证据检验解释</text>
+<text class='ov__small' x='842' y='275' text-anchor='start'>干预与基于证据的修正</text>
+<circle class='dg__n--amber' cx='1165.5' cy='260' r='8'/><path class='dg__tick' d='M 1161.5,260 l 3,3 l 5.5,-6'/>
+</g>
+<g class='dg__hov dg__fade' style='--d:2.45s'><rect class='ov__tile' x='826' y='302' width='357.5' height='60' rx='8'/><circle class='dg__n' cx='812' cy='332.0' r='3.5'/>
+<text class='ov__lab' x='842' y='328' text-anchor='start'>跨任务提升发现能力</text>
+<text class='ov__small' x='842' y='347' text-anchor='start'>持续提升发现能力</text>
+</g>
+<circle class='dg__ring' style='animation-delay:2.9s' cx='1165.5' cy='260' r='8'/>
+<circle class='dg__mv dg__mv--fade' r='3' style="offset-path:path('M 812,116.0 L 812,332.0');--dur:4.4s;--delay:3s"/>
+<g class='dg__fade' style='--d:2.8s'><path class='ov__glyph' d='M 826,425 A 5.5,5.5 0 1 0 826.5,430'/><path class='ov__glyph' d='M 823.5,423 L 826.5,425.4 L 823,427.5'/></g>
+<text class='ov__small dg__fade' x='834' y='432' text-anchor='start' style='--d:2.8s'>研究结构：模型行动与修正的对象</text>
+<g class='dg__fade' style='--d:3.10s'><path class='dg__p dg__dash' d='M 172,538 L 350,538'/></g>
+<path class='dg__p dg__fade' style='--d:3.2s' transform='translate(350,538) rotate(0)' d='M -6,-3.5 L 0,0 L -6,3.5'/>
+<g class='dg__fade' style='--d:3.25s'><path class='dg__p dg__dash' d='M 398,538 L 576,538'/></g>
+<path class='dg__p dg__fade' style='--d:3.35s' transform='translate(576,538) rotate(0)' d='M -6,-3.5 L 0,0 L -6,3.5'/>
+<g class='dg__fade' style='--d:3.40s'><path class='dg__p dg__dash' d='M 624,538 L 802,538'/></g>
+<path class='dg__p dg__fade' style='--d:3.5s' transform='translate(802,538) rotate(0)' d='M -6,-3.5 L 0,0 L -6,3.5'/>
+<g class='dg__fade' style='--d:3.55s'><path class='dg__p dg__dash' d='M 850,538 L 1028,538'/></g>
+<path class='dg__p dg__fade' style='--d:3.65s' transform='translate(1028,538) rotate(0)' d='M -6,-3.5 L 0,0 L -6,3.5'/>
+<g class='dg__fade' style='--d:3.8s'><path class='dg__p dg__dash' d='M 1076,538 L 1160,538 Q 1176,538 1176,554 L 1176,640 Q 1176,656 1160,656 L 40,656 Q 24,656 24,640 L 24,554 Q 24,538 40,538 L 124,538'/></g>
+<path class='dg__p dg__fade' style='--d:3.9s' transform='translate(124,538) rotate(0)' d='M -6,-3.5 L 0,0 L -6,3.5'/>
+<g class='dg__hov dg__fade' style='--d:3.00s'><circle class='ov__badge' cx='148' cy='538' r='16'/><text x='148' y='542' text-anchor='middle'><tspan class='dg__num'>1</tspan></text>
+<text class='ov__lab ov__lab--step' x='148' y='576' text-anchor='middle'>部分理解的世界</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:3.15s'><circle class='ov__badge' cx='374' cy='538' r='16'/><text x='374' y='542' text-anchor='middle'><tspan class='dg__num'>2</tspan></text>
+<text class='ov__lab ov__lab--step' x='374' y='576' text-anchor='middle'>有价值的未知</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:3.30s'><circle class='ov__badge' cx='600' cy='538' r='16'/><text x='600' y='542' text-anchor='middle'><tspan class='dg__num'>3</tspan></text>
+<text class='ov__lab ov__lab--step' x='600' y='576' text-anchor='middle'>可研究的问题</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:3.45s'><circle class='ov__badge' cx='826' cy='538' r='16'/><text x='826' y='542' text-anchor='middle'><tspan class='dg__num'>4</tspan></text>
+<text class='ov__lab ov__lab--step' x='826' y='576' text-anchor='middle'>解释与干预</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:3.60s'><circle class='ov__badge ov__badge--strong' cx='1052' cy='538' r='16'/><text x='1052' y='542' text-anchor='middle'><tspan class='dg__num'>5</tspan></text>
+<text class='ov__lab ov__lab--step' x='1052' y='576' text-anchor='middle'>经验证的新知识</text>
+</g>
+<circle class='dg__ring dg__ring--slow' style='animation-delay:4.2s' cx='1052' cy='538' r='16'/>
+<g class='dg__hov dg__fade' style='--d:3.90s'><circle class='dg__n ov__n--dim' cx='148' cy='656' r='3.5'/>
+<text class='ov__act' x='148' y='680' text-anchor='middle'>更新对世界的理解</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:4.00s'><circle class='dg__n ov__n--dim' cx='374' cy='656' r='3.5'/>
+<text class='ov__act' x='374' y='680' text-anchor='middle'>构建问题</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:4.10s'><circle class='dg__n ov__n--dim' cx='600' cy='656' r='3.5'/>
+<text class='ov__act' x='600' y='680' text-anchor='middle'>生成假设</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:4.20s'><circle class='dg__n ov__n--dim' cx='826' cy='656' r='3.5'/>
+<text class='ov__act' x='826' y='680' text-anchor='middle'>设计干预</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:4.30s'><circle class='dg__n ov__n--dim' cx='1052' cy='656' r='3.5'/>
+<text class='ov__act' x='1052' y='680' text-anchor='middle'>收集新证据</text>
+</g>
+<text class='ov__h ov__h--band dg__fade' x='600' y='612' text-anchor='middle' style='--d:2.9s'>递归发现闭环</text>
+<circle class='dg__mv dg__mv--fade' r='3.2' style="offset-path:path('M 148,538 L 1160,538 Q 1176,538 1176,554 L 1176,640 Q 1176,656 1160,656 L 40,656 Q 24,656 24,640 L 24,554 Q 24,538 40,538 L 148,538');--dur:14s;--delay:4.2s"/>
+<circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 148,538 L 1160,538 Q 1176,538 1176,554 L 1176,640 Q 1176,656 1160,656 L 40,656 Q 24,656 24,640 L 24,554 Q 24,538 40,538 L 148,538');--dur:14s;--delay:11.2s"/>
+</svg>
+
+  </div>
+  <figcaption class="ovfig__cap">
+    <p class="dgfig__claim">发现基座模型，面向开放式发现智能：AI 不再只解决人给定的任务，而是参与提出问题、检验解释、积累新知识的整个过程。</p>
+    <p class="dgfig__hint">把光标移到图上</p>
+    <p class="ovfig__swipe">左右滑动查看完整示意图</p>
+  </figcaption>
+</figure>
+
     <div class="modules">
       <p class="modules__title">三个独立的研究与工程方向</p>
       <p class="modules__note">ScienceBuddy、ScienceIDE 和 JEPA-Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一种可组合的研究路径：ScienceBuddy 通过科学家与智能体的交互收集反馈和研究轨迹；ScienceIDE 将这些数据和经验进一步组织为可复用的科学环境，用于任务执行、强化学习和模型训练；JEPA-Anything 则探索对多个科学环境和干预结果进行统一的状态预测和模拟。这是一种未来可能的组合方式，不代表三者当前已经完成集成，也不改变它们各自独立的定位。</p>
@@ -395,8 +519,8 @@
       <p class="foot__line">面向真实科学发现的模型与数据基础设施</p>
     </div>
     <nav class="foot__nav" aria-label="页脚导航">
-      <a href="/tech/">技术</a>
-      <a href="/papers/">论文</a>
+      <a href="/tech/">技术与论文</a>
+      <a href="/products/">产品</a>
       <a href="/news/">新闻动态</a>
       <a href="/about/">关于我们</a>
       <a href="/team/">团队</a>

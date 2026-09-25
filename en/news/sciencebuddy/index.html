@@ -8,7 +8,10 @@
   var KEY = 'phai-lang';
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
-    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+    if (!a) return;
+    try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {}
+    // both trees come from the same templates, so a section id exists on both sides
+    if (location.hash) a.setAttribute('href', a.getAttribute('href').split('#')[0] + location.hash);
   });
 })();
 </script>
@@ -34,7 +37,7 @@
 <link rel="preload" href="/assets/fonts/IBMPlexSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
   
 <link rel="stylesheet" href="/assets/css/site.css">
-<link rel="stylesheet" href="/assets/css/pulse.css">
+<link rel="stylesheet" href="/assets/css/pulse.css"><noscript><style>.rv,.w,.loop__node i,.loop__node span,.person,.person::after,.cst__n{opacity:1!important;transform:none!important;filter:none!important}.sec::before,.loop::before,.people::before,.timeline--nodes::before{transform:none!important}.cst__e,.dg__draw{stroke-dashoffset:0!important}.dg__fade{opacity:var(--o,1)!important}</style></noscript>
 </head>
 <body class="page-news">
 <a class="skip" href="#main">Skip to content</a>
@@ -48,8 +51,8 @@
     <img class="mast__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="PhAI Labs">
   </a>
   <nav class="mast__nav" aria-label="Primary" data-nav>
-    <a href="/en/tech/">Tech</a>
-    <a href="/en/papers/">Papers</a>
+    <a href="/en/tech/">Tech &amp; Papers</a>
+    <a href="/en/products/">Products</a>
     <a href="/en/news/" aria-current="page">News</a>
     <a href="/en/about/">About</a>
     <a href="/en/team/">Team</a>
@@ -65,8 +68,8 @@
   </div>
 </header>
 <nav class="drawer" id="mobile-nav" aria-label="Mobile" data-drawer hidden>
-  <a href="/en/tech/">Tech</a>
-  <a href="/en/papers/">Papers</a>
+  <a href="/en/tech/">Tech &amp; Papers</a>
+  <a href="/en/products/">Products</a>
   <a href="/en/news/" aria-current="page">News</a>
   <a href="/en/about/">About</a>
   <a href="/en/team/">Team</a>
@@ -134,8 +137,8 @@
       <p class="foot__line">Model and data infrastructure for real scientific discovery</p>
     </div>
     <nav class="foot__nav" aria-label="Footer">
-      <a href="/en/tech/">Tech</a>
-      <a href="/en/papers/">Papers</a>
+      <a href="/en/tech/">Tech &amp; Papers</a>
+      <a href="/en/products/">Products</a>
       <a href="/en/news/">News</a>
       <a href="/en/about/">About</a>
       <a href="/en/team/">Team</a>

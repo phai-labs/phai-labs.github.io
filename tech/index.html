@@ -8,7 +8,10 @@
   var KEY = 'phai-lang';
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
-    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+    if (!a) return;
+    try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {}
+    // both trees come from the same templates, so a section id exists on both sides
+    if (location.hash) a.setAttribute('href', a.getAttribute('href').split('#')[0] + location.hash);
   });
   var pref = null;
   try { pref = localStorage.getItem(KEY); } catch (err) {}
@@ -24,7 +27,7 @@
 </script>
 
 <title>面向科学发现的技术体系 — PhAI Labs</title>
-<meta name="description" content="PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的研究范式；ScienceBuddy、ScienceIDE 与 JEPA-Anything 是三个彼此独立的研究与工程方向，分别从交互反馈、可复用的科学环境和世界状态预测展开。">
+<meta name="description" content="PhAI Labs 的技术与论文：DFM 研究范式，ScienceBuddy、ScienceIDE 与 JEPA-Anything 三个研究方向，以及全部技术报告与论文。">
 <link rel="canonical" href="https://phai-labs.com/tech/">
 <link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/tech/">
 <link rel="alternate" hreflang="en" href="https://phai-labs.com/en/tech/">
@@ -32,7 +35,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PhAI Labs">
 <meta property="og:title" content="面向科学发现的技术体系 — PhAI Labs">
-<meta property="og:description" content="PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的研究范式；ScienceBuddy、ScienceIDE 与 JEPA-Anything 是三个彼此独立的研究与工程方向，分别从交互反馈、可复用的科学环境和世界状态预测展开。">
+<meta property="og:description" content="PhAI Labs 的技术与论文：DFM 研究范式，ScienceBuddy、ScienceIDE 与 JEPA-Anything 三个研究方向，以及全部技术报告与论文。">
 <meta property="og:url" content="https://phai-labs.com/tech/">
 <meta property="og:image" content="https://phai-labs.com/assets/img/dfm-diagram-zh.webp">
 <meta property="og:locale" content="zh_CN">
@@ -44,7 +47,8 @@
 <link rel="preload" href="/assets/fonts/IBMPlexSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/NotoSerifSC-Display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
-<link rel="stylesheet" href="/assets/css/pulse.css">
+<link rel="stylesheet" href="/assets/css/papers.css">
+<link rel="stylesheet" href="/assets/css/pulse.css"><noscript><style>.rv,.w,.loop__node i,.loop__node span,.person,.person::after,.cst__n{opacity:1!important;transform:none!important;filter:none!important}.sec::before,.loop::before,.people::before,.timeline--nodes::before{transform:none!important}.cst__e,.dg__draw{stroke-dashoffset:0!important}.dg__fade{opacity:var(--o,1)!important}</style></noscript>
 </head>
 <body class="page-tech">
 <a class="skip" href="#main">跳到正文</a>
@@ -58,8 +62,8 @@
     <img class="mast__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="PhAI Labs">
   </a>
   <nav class="mast__nav" aria-label="主导航" data-nav>
-    <a href="/tech/" aria-current="page">技术</a>
-    <a href="/papers/">论文</a>
+    <a href="/tech/" aria-current="page">技术与论文</a>
+    <a href="/products/">产品</a>
     <a href="/news/">新闻动态</a>
     <a href="/about/">关于我们</a>
     <a href="/team/">团队</a>
@@ -75,8 +79,8 @@
   </div>
 </header>
 <nav class="drawer" id="mobile-nav" aria-label="移动端导航" data-drawer hidden>
-  <a href="/tech/" aria-current="page">技术</a>
-  <a href="/papers/">论文</a>
+  <a href="/tech/" aria-current="page">技术与论文</a>
+  <a href="/products/">产品</a>
   <a href="/news/">新闻动态</a>
   <a href="/about/">关于我们</a>
   <a href="/team/">团队</a>
@@ -89,9 +93,9 @@
 <main id="main" class="main">
 <section class="hero hero--page hero--tech" id="top" data-field="flow">
   <div class="shell">
-    <p class="eyebrow"><span class="brand">PhAI Labs</span> · 技术</p>
+    <p class="eyebrow"><span class="brand">PhAI Labs</span> · 技术与论文</p>
     <h1 class="display">面向<em class="hl">科学发现</em>的技术体系</h1>
-    <p class="lede">PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的研究范式；ScienceBuddy、ScienceIDE 与 JEPA-Anything 是三个彼此独立的研究与工程方向，分别从交互反馈、可复用的科学环境和世界状态预测展开。</p><ol class="loop" data-reveal style="--amber-x:66.7%">
+    <p class="lede">PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的研究范式；ScienceBuddy、ScienceIDE 与 JEPA-Anything 是三个彼此独立的研究与工程方向，分别从交互反馈、可复用的科学环境和世界状态预测展开。</p><p class="actions"><a class="btn" href="#papers">查看论文 <span aria-hidden="true">↓</span></a></p><ol class="loop" data-reveal style="--amber-x:66.7%">
   <li class="loop__node" style="--k:0"><i></i><span>科学问题</span></li>
   <li class="loop__node" style="--k:1"><i></i><span>模型训练</span></li>
   <li class="loop__node" style="--k:2"><i></i><span>工具调用</span></li>
@@ -104,7 +108,7 @@
 </section>
 
 <nav class="subnav" aria-label="页内导航" data-subnav data-no-reveal>
-  <div class="shell subnav__inner"><a href="#direction">技术方向</a><a href="#dfm">DFM</a><a href="#sciencebuddy">ScienceBuddy</a><a href="#scienceide">ScienceIDE</a><a href="#jepa">JEPA-Anything</a><a href="#roadmap">路线</a></div>
+  <div class="shell subnav__inner"><a href="#direction">技术方向</a><a href="#dfm">DFM</a><a href="#sciencebuddy">ScienceBuddy</a><a href="#scienceide">ScienceIDE</a><a href="#jepa">JEPA-Anything</a><a href="#roadmap">路线</a><a href="#papers">论文</a></div>
 </nav>
 
 <section class="sec sec--statement" id="direction">
@@ -120,15 +124,134 @@
     <div class="split">
       <h2 class="display-2">围绕 Discovery Intelligence 的研究范式</h2>
       <p class="lede">DFM（Discovery Foundation Models）不是一个单一模型，也不是要求所有系统按同一套流程运行的软件框架，而是 PhAI Labs 围绕 Discovery Intelligence 提出的一套研究范式、能力定义和系统组织方式。它通过形式化定义、流程图示、系统实例和真实科学案例，把“发现”从一个模糊概念具体化为一种可学习、可执行、可评测的模型系统能力。</p>
-    </div>
+    </div><figure class="figure figure--dfm figure--wide ovfig" data-reveal>
+  <div class="ovfig__art" role="img" aria-label="发现基座模型技术示意图：智能扩展的三个阶段（对话、智能体与编程、发现）；当前基座模型作用于预定义任务，发现基座模型作用于知识生产过程；以及从部分理解的世界到经验证的新知识的递归发现闭环。"><svg class="dg dg--ov" viewBox="0 0 1200 706" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+<rect class='ov__panel dg__draw' style='--d:0s' pathLength='1' x='0.5' y='0.5' width='372' height='467' rx='10'/>
+<rect class='ov__panel dg__draw' style='--d:0.15s' pathLength='1' x='388' y='0.5' width='280' height='467' rx='10'/>
+<rect class='ov__panel ov__panel--focus dg__draw' style='--d:0.3s' pathLength='1' x='796' y='0.5' width='403.5' height='467' rx='10'/>
+<rect class='ov__panel dg__draw' style='--d:0.45s' pathLength='1' x='0.5' y='488' width='1199' height='216' rx='10'/>
+<text class='ov__h dg__fade' x='24' y='38' text-anchor='start' style='--d:0.2s'>智能扩展的三个阶段</text>
+<g class='dg__fade' style='--d:.3s'><path class='dg__p dg__faint' d='M 52,262 L 52,68'/><path class='dg__p dg__faint' d='M 52,262 L 352,262'/><path class='dg__p dg__faint' d='M 48,74 L 52,66 L 56,74'/><path class='dg__p dg__faint' d='M 346,258 L 354,262 L 346,266'/></g>
+<text class='ov__ax dg__fade' x='32' y='166' text-anchor='middle' style='--d:0.4s' transform='rotate(-90 32 162)'>能力边界</text>
+<text class='ov__ax dg__fade' x='210' y='284' text-anchor='middle' style='--d:0.4s'>可扩展学习信号的演进</text>
+<path class='ov__c ov__t1 dg__draw' style='--d:0.5s' pathLength='1' d='M 66,250 L 69.4,249.7 L 72.8,249.3 L 76.1,249 L 79.5,248.6 L 82.9,248.2 L 86.3,247.8 L 89.6,247.4 L 93,247 L 96.4,246.6 L 99.8,246.1 L 103.1,245.7 L 106.5,245.2 L 109.9,244.7 L 113.3,244.1 L 116.6,243.6 L 120,243 L 123.4,242.5 L 126.8,241.8 L 130.1,241.2 L 133.5,240.6 L 136.9,239.9 L 140.3,239.2 L 143.6,238.5 L 147,237.7 L 150.4,236.9 L 153.8,236.1 L 157.1,235.3 L 160.5,234.4'/>
+<path class='ov__c ov__t2 dg__draw' style='--d:1.0s' pathLength='1' d='M 160.5,234.4 L 163.5,233.6 L 166.5,232.8 L 169.5,231.9 L 172.4,231 L 175.4,230.1 L 178.4,229.2 L 181.4,228.2 L 184.3,227.2 L 187.3,226.2 L 190.3,225.1 L 193.3,224 L 196.3,222.9 L 199.2,221.7 L 202.2,220.5 L 205.2,219.3 L 208.2,218 L 211.2,216.6 L 214.1,215.3 L 217.1,213.8 L 220.1,212.4 L 223.1,210.9 L 226,209.3 L 229,207.7 L 232,206 L 235,204.3 L 238,202.5 L 240.9,200.7 L 243.9,198.8'/>
+<path class='ov__c ov__t3 dg__draw' style='--d:1.5s' pathLength='1' d='M 243.9,198.8 L 247.5,196.4 L 251.1,193.9 L 254.6,191.4 L 258.2,188.7 L 261.8,186 L 265.4,183.1 L 268.9,180.2 L 272.5,177.1 L 276.1,173.8 L 279.7,170.5 L 283.2,167 L 286.8,163.4 L 290.4,159.7 L 294,155.8 L 297.5,151.7 L 301.1,147.5 L 304.7,143.1 L 308.3,138.6 L 311.8,133.9 L 315.4,128.9 L 319,123.8 L 322.6,118.5 L 326.1,113 L 329.7,107.3 L 333.3,101.3 L 336.9,95.1 L 340.4,88.7 L 344,82'/>
+<path class='ov__c ov__t3 dg__fade' style='--d:2.6s' transform='translate(344,82) rotate(-61.8)' d='M -9,-5.2 L 0,0 L -9,5.2'/>
+<g class='dg__hov dg__fade' style='--d:0.9s'><circle class='ov__badge' cx='113.3' cy='244.1' r='9'/><text x='113.3' y='248.1' text-anchor='middle'><tspan class='dg__num'>1</tspan></text></g>
+<text class='ov__stage ov__lt1 dg__fade' x='113.3' y='228.1' text-anchor='middle' style='--d:0.9s'>对话</text>
+<g class='dg__hov dg__fade' style='--d:1.5s'><circle class='ov__badge' cx='202.2' cy='220.5' r='9'/><text x='202.2' y='224.5' text-anchor='middle'><tspan class='dg__num'>2</tspan></text></g>
+<text class='ov__stage ov__lt2 dg__fade' x='216.2' y='240.5' text-anchor='start' style='--d:1.5s'>智能体 / 编程</text>
+<g class='dg__hov dg__fade' style='--d:2.2s'><circle class='ov__badge ov__badge--strong' cx='296.7' cy='152.6' r='9'/><text x='296.7' y='156.6' text-anchor='middle'><tspan class='dg__num'>3</tspan></text></g>
+<text class='ov__stage ov__lt3 dg__fade' x='280.7' y='156.6' text-anchor='end' style='--d:2.2s'>发现</text>
+<circle class='dg__ring dg__ring--slow' style='animation-delay:2.8s' cx='296.7' cy='152.6' r='12'/>
+<g class='dg__hov dg__fade' style='--d:1.0s'><line class='ov__sw ov__t1' x1='24' y1='305' x2='40' y2='305'/><text class='ov__lab ov__lab--s' x='52' y='310' text-anchor='start'>学习已有知识</text><text class='ov__small' x='52' y='328' text-anchor='start'>公共数据 + 预训练</text></g><g class='dg__hov dg__fade' style='--d:1.6s'><line class='ov__sw ov__t2' x1='24' y1='357' x2='40' y2='357'/><text class='ov__lab ov__lab--s' x='52' y='362' text-anchor='start'>从行动结果中学习</text><text class='ov__small' x='52' y='380' text-anchor='start'>可执行经验 + 测试反馈 + 迭代修正</text></g><g class='dg__hov dg__fade' style='--d:2.3s'><line class='ov__sw ov__t3' x1='24' y1='409' x2='40' y2='409'/><text class='ov__lab ov__lab--s' x='52' y='414' text-anchor='start'>创造并验证新知识</text><text class='ov__small' x='52' y='432' text-anchor='start'>可验证证据 + 发现策略 + 真实世界验证</text></g>
+<text class='ov__h dg__fade' x='408' y='38' text-anchor='start' style='--d:0.3s'>当前基座模型 / 大语言模型</text>
+<text class='ov__sub dg__fade' x='408' y='60' text-anchor='start' style='--d:0.35s'>作用于预定义任务</text>
+<line class='dg__p dg__faint dg__fade' style='--d:.5s' x1='404' y1='116.0' x2='404' y2='332.0'/>
+<g class='dg__hov dg__fade' style='--d:0.60s'><rect class='ov__tile' x='418' y='86' width='234' height='60' rx='8'/><circle class='dg__n ov__n--dim' cx='404' cy='116.0' r='3.5'/>
+<text class='ov__lab' x='434' y='112' text-anchor='start'>知识</text>
+<text class='ov__small' x='434' y='131' text-anchor='start'>预训练语料</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:0.75s'><rect class='ov__tile' x='418' y='158' width='234' height='60' rx='8'/><circle class='dg__n ov__n--dim' cx='404' cy='188.0' r='3.5'/>
+<text class='ov__lab' x='434' y='184' text-anchor='start'>推理</text>
+<text class='ov__small' x='434' y='203' text-anchor='start'>多步推理</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:0.90s'><rect class='ov__tile' x='418' y='230' width='234' height='60' rx='8'/><circle class='dg__n ov__n--dim' cx='404' cy='260.0' r='3.5'/>
+<text class='ov__lab' x='434' y='256' text-anchor='start'>工具使用</text>
+<text class='ov__small' x='434' y='275' text-anchor='start'>搜索、代码、数据库</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:1.05s'><rect class='ov__tile' x='418' y='302' width='234' height='60' rx='8'/><circle class='dg__n ov__n--dim' cx='404' cy='332.0' r='3.5'/>
+<text class='ov__lab' x='434' y='328' text-anchor='start'>智能体执行</text>
+<text class='ov__small' x='434' y='347' text-anchor='start'>长程工作流</text>
+</g>
+<g class='dg__fade' style='--d:1.3s'><rect class='ov__glyph' x='408' y='423' width='10' height='8' rx='1.5'/><path class='ov__glyph' d='M 410,423 v -3 a 3,3 0 0 1 6,0 v 3'/></g>
+<text class='ov__small dg__fade' x='426' y='432' text-anchor='start' style='--d:1.3s'>研究结构：由人类固定</text>
+<text class='ov__flow dg__fade' x='732' y='118' text-anchor='middle' style='--d:1.3s'><tspan x='732' dy='0'>发现拓展</tspan><tspan x='732' dy='17'>能力边界</tspan></text>
+<path class='ov__chev ov__t1 dg__draw' style='--d:1.4s' pathLength='1' d='M 702,188 L 728,236.0 L 702,284'/>
+<path class='ov__chev ov__t2 dg__draw' style='--d:1.6s' pathLength='1' d='M 724,188 L 750,236.0 L 724,284'/>
+<path class='ov__chev ov__t3 dg__draw' style='--d:1.8s' pathLength='1' d='M 746,188 L 772,236.0 L 746,284'/>
+<circle class='dg__mv dg__mv--fade' r='2.8' style="offset-path:path('M 654,236.0 L 810,236.0');--dur:3.2s;--delay:2.2s"/>
+<circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 654,236.0 L 810,236.0');--dur:3.2s;--delay:3.8s"/>
+<text class='ov__flow ov__flow--it dg__fade' x='732' y='326' text-anchor='middle' style='--d:2.0s'><tspan x='732' dy='0'>从解决任务</tspan><tspan x='732' dy='17'>到构建研究</tspan></text>
+<text class='ov__h dg__fade' x='816' y='38' text-anchor='start' style='--d:0.5s'>发现基座模型</text>
+<text class='ov__sub dg__fade' x='816' y='60' text-anchor='start' style='--d:0.55s'>作用于知识生产过程</text>
+<line class='dg__p dg__draw' style='--d:2.0s' pathLength='1' x1='812' y1='116.0' x2='812' y2='332.0'/>
+<g class='dg__hov dg__fade' style='--d:2.00s'><rect class='ov__tile' x='826' y='86' width='357.5' height='60' rx='8'/><circle class='dg__n' cx='812' cy='116.0' r='3.5'/>
+<text class='ov__lab' x='842' y='112' text-anchor='start'>识别有价值的未知</text>
+<text class='ov__small' x='842' y='131' text-anchor='start'>问题发现与形式化</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:2.15s'><rect class='ov__tile' x='826' y='158' width='357.5' height='60' rx='8'/><circle class='dg__n' cx='812' cy='188.0' r='3.5'/>
+<text class='ov__lab' x='842' y='184' text-anchor='start'>构建并修正研究结构</text>
+<text class='ov__small' x='842' y='203' text-anchor='start'>表征与假设</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:2.30s'><rect class='ov__tile' x='826' y='230' width='357.5' height='60' rx='8'/><circle class='dg__n' cx='812' cy='260.0' r='3.5'/>
+<text class='ov__lab' x='842' y='256' text-anchor='start'>用外部证据检验解释</text>
+<text class='ov__small' x='842' y='275' text-anchor='start'>干预与基于证据的修正</text>
+<circle class='dg__n--amber' cx='1165.5' cy='260' r='8'/><path class='dg__tick' d='M 1161.5,260 l 3,3 l 5.5,-6'/>
+</g>
+<g class='dg__hov dg__fade' style='--d:2.45s'><rect class='ov__tile' x='826' y='302' width='357.5' height='60' rx='8'/><circle class='dg__n' cx='812' cy='332.0' r='3.5'/>
+<text class='ov__lab' x='842' y='328' text-anchor='start'>跨任务提升发现能力</text>
+<text class='ov__small' x='842' y='347' text-anchor='start'>持续提升发现能力</text>
+</g>
+<circle class='dg__ring' style='animation-delay:2.9s' cx='1165.5' cy='260' r='8'/>
+<circle class='dg__mv dg__mv--fade' r='3' style="offset-path:path('M 812,116.0 L 812,332.0');--dur:4.4s;--delay:3s"/>
+<g class='dg__fade' style='--d:2.8s'><path class='ov__glyph' d='M 826,425 A 5.5,5.5 0 1 0 826.5,430'/><path class='ov__glyph' d='M 823.5,423 L 826.5,425.4 L 823,427.5'/></g>
+<text class='ov__small dg__fade' x='834' y='432' text-anchor='start' style='--d:2.8s'>研究结构：模型行动与修正的对象</text>
+<g class='dg__fade' style='--d:3.10s'><path class='dg__p dg__dash' d='M 172,538 L 350,538'/></g>
+<path class='dg__p dg__fade' style='--d:3.2s' transform='translate(350,538) rotate(0)' d='M -6,-3.5 L 0,0 L -6,3.5'/>
+<g class='dg__fade' style='--d:3.25s'><path class='dg__p dg__dash' d='M 398,538 L 576,538'/></g>
+<path class='dg__p dg__fade' style='--d:3.35s' transform='translate(576,538) rotate(0)' d='M -6,-3.5 L 0,0 L -6,3.5'/>
+<g class='dg__fade' style='--d:3.40s'><path class='dg__p dg__dash' d='M 624,538 L 802,538'/></g>
+<path class='dg__p dg__fade' style='--d:3.5s' transform='translate(802,538) rotate(0)' d='M -6,-3.5 L 0,0 L -6,3.5'/>
+<g class='dg__fade' style='--d:3.55s'><path class='dg__p dg__dash' d='M 850,538 L 1028,538'/></g>
+<path class='dg__p dg__fade' style='--d:3.65s' transform='translate(1028,538) rotate(0)' d='M -6,-3.5 L 0,0 L -6,3.5'/>
+<g class='dg__fade' style='--d:3.8s'><path class='dg__p dg__dash' d='M 1076,538 L 1160,538 Q 1176,538 1176,554 L 1176,640 Q 1176,656 1160,656 L 40,656 Q 24,656 24,640 L 24,554 Q 24,538 40,538 L 124,538'/></g>
+<path class='dg__p dg__fade' style='--d:3.9s' transform='translate(124,538) rotate(0)' d='M -6,-3.5 L 0,0 L -6,3.5'/>
+<g class='dg__hov dg__fade' style='--d:3.00s'><circle class='ov__badge' cx='148' cy='538' r='16'/><text x='148' y='542' text-anchor='middle'><tspan class='dg__num'>1</tspan></text>
+<text class='ov__lab ov__lab--step' x='148' y='576' text-anchor='middle'>部分理解的世界</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:3.15s'><circle class='ov__badge' cx='374' cy='538' r='16'/><text x='374' y='542' text-anchor='middle'><tspan class='dg__num'>2</tspan></text>
+<text class='ov__lab ov__lab--step' x='374' y='576' text-anchor='middle'>有价值的未知</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:3.30s'><circle class='ov__badge' cx='600' cy='538' r='16'/><text x='600' y='542' text-anchor='middle'><tspan class='dg__num'>3</tspan></text>
+<text class='ov__lab ov__lab--step' x='600' y='576' text-anchor='middle'>可研究的问题</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:3.45s'><circle class='ov__badge' cx='826' cy='538' r='16'/><text x='826' y='542' text-anchor='middle'><tspan class='dg__num'>4</tspan></text>
+<text class='ov__lab ov__lab--step' x='826' y='576' text-anchor='middle'>解释与干预</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:3.60s'><circle class='ov__badge ov__badge--strong' cx='1052' cy='538' r='16'/><text x='1052' y='542' text-anchor='middle'><tspan class='dg__num'>5</tspan></text>
+<text class='ov__lab ov__lab--step' x='1052' y='576' text-anchor='middle'>经验证的新知识</text>
+</g>
+<circle class='dg__ring dg__ring--slow' style='animation-delay:4.2s' cx='1052' cy='538' r='16'/>
+<g class='dg__hov dg__fade' style='--d:3.90s'><circle class='dg__n ov__n--dim' cx='148' cy='656' r='3.5'/>
+<text class='ov__act' x='148' y='680' text-anchor='middle'>更新对世界的理解</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:4.00s'><circle class='dg__n ov__n--dim' cx='374' cy='656' r='3.5'/>
+<text class='ov__act' x='374' y='680' text-anchor='middle'>构建问题</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:4.10s'><circle class='dg__n ov__n--dim' cx='600' cy='656' r='3.5'/>
+<text class='ov__act' x='600' y='680' text-anchor='middle'>生成假设</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:4.20s'><circle class='dg__n ov__n--dim' cx='826' cy='656' r='3.5'/>
+<text class='ov__act' x='826' y='680' text-anchor='middle'>设计干预</text>
+</g>
+<g class='dg__hov dg__fade' style='--d:4.30s'><circle class='dg__n ov__n--dim' cx='1052' cy='656' r='3.5'/>
+<text class='ov__act' x='1052' y='680' text-anchor='middle'>收集新证据</text>
+</g>
+<text class='ov__h ov__h--band dg__fade' x='600' y='612' text-anchor='middle' style='--d:2.9s'>递归发现闭环</text>
+<circle class='dg__mv dg__mv--fade' r='3.2' style="offset-path:path('M 148,538 L 1160,538 Q 1176,538 1176,554 L 1176,640 Q 1176,656 1160,656 L 40,656 Q 24,656 24,640 L 24,554 Q 24,538 40,538 L 148,538');--dur:14s;--delay:4.2s"/>
+<circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 148,538 L 1160,538 Q 1176,538 1176,554 L 1176,640 Q 1176,656 1160,656 L 40,656 Q 24,656 24,640 L 24,554 Q 24,538 40,538 L 148,538');--dur:14s;--delay:11.2s"/>
+</svg>
 
-    <figure class="figure figure--dfm figure--wide">
-      <a href="/assets/img/dfm-diagram-zh.png" target="_blank" rel="noopener">
-        <img src="/assets/img/dfm-diagram-zh.webp" width="1543" height="1019" loading="lazy"
-             alt="DFM 发现基座模型技术示意图：智能扩展的三个阶段、当前基座模型与发现基座模型的对比、递归发现闭环">
-      </a>
-      <figcaption>DFM 技术示意图 · 点击查看大图</figcaption>
-    </figure>
+  </div>
+  <figcaption class="ovfig__cap">
+    <p class="dgfig__claim">发现基座模型，面向开放式发现智能：AI 不再只解决人给定的任务，而是参与提出问题、检验解释、积累新知识的整个过程。</p>
+    <p class="dgfig__hint">把光标移到图上</p>
+    <p class="ovfig__swipe">左右滑动查看完整示意图</p>
+  </figcaption>
+</figure>
+
 
     <div class="prose prose--cols"><p>DFM 不是一个模型，也不是要求所有系统按同一套流程运行的软件框架。它是一套范式、能力定义和系统组织方式：说明科学发现过程里有哪些能力、它们如何相互连接，以及哪些环节需要外部证据。</p><p>在这一过程中，科学问题是起点。系统从一个部分理解的世界出发，识别有价值的未知，把它转化为可研究的问题，再围绕问题构建假设。假设不停留在文本里：系统调用科研工具、数据和实验环境去执行，从数据分析、实验结果和专家判断中获取外部证据，并据此验证、修正或推翻自己的判断。</p><p>模型训练嵌在这个过程之中。每一次工具调用、每一次实验反馈，都是对模型判断的一次检验，也是一份带有真实结果的训练信号。经过验证的新知识、可复用的问题、工具与验证机制沉淀下来，成为下一次发现的起点。</p><p>围绕这一范式和能力定义，相关研究将通过系统实例、独立论文、工程模块和真实科学合作逐步展开并陆续发布。这些工作不构成一套唯一的固定实现架构，而是从不同方向探索如何让 Discovery Intelligence 变得可操作。</p></div><figure class="figure figure--wide dgfig dgfig--dfm">
   <div class="dgfig__art"><svg class="dg dg--dfm" viewBox="0 0 1200 450" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
@@ -197,7 +320,7 @@
     <div>
       <div class="prose"><p>ScienceBuddy 是一项围绕科学家交互、科研反馈和智能体持续改进展开的独立研究与工程探索，与 DFM 所关注的 Discovery Intelligence 方向一致。</p><p>它重点探索一种交互式 Science RSI 形态：用户提出科学问题，智能体调用工具并给出回应；科学家的追问、修改、采纳、否定和重新运行形成反馈，进而推动科研智能体工作环境和 Harness 的持续演化。</p><p>ScienceBuddy 的产出不只是一次性的问答结果，也包括交互过程中的反馈、研究轨迹、工具调用和任务状态。这些信息未来可以进一步整理为可复用的科学任务和环境，用于强化学习或其他模型训练。</p></div>
       <p class="prose__note">当前为早期产品 / 研究预览形态，具体开放能力、演示方式和使用入口以实际版本为准。产品入口于 9 月 16 日开放。</p>
-      <p class="links"><a class="link link--live" href="https://science-buddy.io/">访问 ScienceBuddy ↗</a><a class="link link--live" href="https://phai-labs.com/papers/sciencebuddy/sciencebuddy-technical-report-v1-2026-09.pdf">技术报告 ↗</a><a class="link link--live" href="https://github.com/Gen-Verse/ScienceBuddy">GitHub ↗</a>
+      <p class="links"><a class="link link--live" href="/products/#sciencebuddy">产品介绍 →</a><a class="link link--live" href="https://science-buddy.io/">访问 ScienceBuddy ↗</a><a class="link link--live" href="https://phai-labs.com/papers/sciencebuddy/sciencebuddy-technical-report-v1-2026-09.pdf">技术报告 ↗</a><a class="link link--live" href="https://github.com/Gen-Verse/ScienceBuddy">GitHub ↗</a>
       </p>
     </div>
   </div>
@@ -374,6 +497,64 @@
       <p class="actions"><a class="btn" href="/news/">全部动态 →</a></p>
     </div>
   </div>
+</section><section class="sec sec--papers" data-field="calm" id="papers">
+  <div class="shell">
+    <p class="eyebrow">论文<span class="sep">·</span>共 4 篇</p>
+    <div class="split">
+      <h2 class="display-2">技术报告与论文</h2>
+      <p class="lede">PhAI Labs 的公开研究记录：技术报告、预印本与会议论文。</p>
+    </div>
+    <ol class="pubs">
+      <li class="pub rv" style="--k:0">
+        <p class="pub__meta">
+          <time datetime="2026-09-15">2026年9月15日</time><span class="pub__topic">Foundation Models</span>
+        </p>
+        <div class="pub__body">
+          <h3 class="pub__title"><a href="/papers/dfm/">Discovery Foundation Models: Toward Open-Ended Discovery Intelligence</a></h3><p class="pub__authors">Ling Yang, Zhenfei Yin, Yingcheng Wu</p>
+          <p class="pub__abs">Foundation models have progressed from learning and reasoning over existing knowledge, to increasingly learning through action, tool use, and outcome feedback. We argue that the next frontier is a further transition: from solving and acting within problems specified by humans to participating in the process by which new problems, representations, explanations, and knowledge are created. We refer to this capability as Discovery Intelligence. We formulate Discovery Foundation Models (DFMs) as general-purpose model systems for open-ended discovery. A DFM operates over a revisable research state and supports seven coupled capabilities spanning problem discovery, formulation, representation construction, hypothesis formation, intervention, evidence-grounded revision, and continual discovery improvement. We instantiate this framework with Zetema, which couples explicit research-state dynamics, verification and experimental gating, external grounding, and cross-task Discovery Skill evolution. We further ground the framework with GALILEO, a real therapeutic-discovery system in which Dry-Lab reasoning, robotic and hands-on Wet-Lab experimentation, external biological evidence, and iterative hypothesis and design revision form a closed physical discovery loop. We then formulate a unified approach to capability formation and process-centered evaluation, enabling discovery behavior to be trained, improved, and measured beyond final-answer performance. Together, these components establish discovery as a learnable, executable, and evaluable capability of foundation-model systems. We view this shift as a broader progression in intelligence scaling: from learning over existing knowledge, to learning from action outcomes, and ultimately to participating in the construction, testing, and revision of the structures through which new knowledge is discovered.</p>
+          <p class="pub__foot">
+            <span class="pub__venue">PhAI Labs Technical Report</span>
+          </p>
+        </div>
+      </li>
+      <li class="pub rv" style="--k:1">
+        <p class="pub__meta">
+          <time datetime="2026-09-16">2026年9月16日</time><span class="pub__topic">Scientific Agents</span>
+        </p>
+        <div class="pub__body">
+          <h3 class="pub__title"><a href="/papers/sciencebuddy/">ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents</a></h3><p class="pub__authors">Shuhan Xue*, Jianyuan Zhong*, Ziyuan Nan*, Wenbin Li, Zhaochen Yu, Jinchao Ding, Qiang Gao, Pengyu Zhan, Yuntong Zhang, Tian Cheng, Zhenfei Yin, Yingcheng Wu, Ling Yang</p>
+          <p class="pub__abs">ScienceBuddy is an interactive scientific research workspace that brings continually improving agents into a researcher&#39;s everyday work. It supports researchers in carrying out scientific tasks while turning their requests, feedback and execution evidence into tasks and evaluation rubrics for continual learning. At its core is recursive-in-recursive self-improvement, which couples harness evolution with model reinforcement learning: the inner recursion improves the harness with the model fixed, and the outer recursion trains the model under the improved harness. Case studies cover researcher interaction, harness refinement and model learning across four families of scientific task.</p>
+          <p class="pub__foot">
+            <span class="pub__venue">PhAI Labs Technical Report</span>
+          </p>
+        </div>
+      </li>
+      <li class="pub rv" style="--k:2">
+        <p class="pub__meta">
+          <time datetime="2026-09-17">2026年9月17日</time><span class="pub__topic">Research Environments</span>
+        </p>
+        <div class="pub__body">
+          <h3 class="pub__title"><a href="/papers/scienceide/">ScienceIDE: Turning World&#39;s Scientific Codebase into Agent Learnable Environments</a></h3><p class="pub__authors">Hejia Geng*, Zesen Huang*, Haoyang Li, Wenbin Li, Koutian Wu, Zihan Zhou, Yuanbo Pang, Weihao Liu, Zigong Xu, Zhiping Li, Zongzheng Zhang, Chuanfei Dong, Jiankai Sun, Tianzhe Zheng, Fengyu Xie, Yue Ma, Yueheng Shi, Junkai Wang, Tong Xie, Zonglin Di, Xianrong Liu, Qucheng Gao, Yimin Liu, Jiaming Pan, Sheng Huang, Xiao-Han Ma, Lanqing Yuan, Zhenlin Zhu, Ziang Liu, Ziyang Xu, Kangkai Liang, Jiayi Xian, Zehong Zhao, Taigao Ma, Fuming Chang, Yuanzhe Hu, Liuwei Xu, Xianzhe Tang, Jingxu Xie, Peijin Zhang, Qiang Gao, Chengyi Xing, Zhe Zhao, Xi Wang, Leo Wang, Fang Wu, Yaopeng Xing, Xing Meng, Zhenfei Yin, Yingcheng Wu, Ling Yang</p>
+          <p class="pub__abs">Scientific code repositories encode decades of human knowledge in executable models, methods, and tools. Yet fragmented toolchains, implicit domain conventions, and specialized correctness criteria make this knowledge difficult to convert into reliable learning experience—a challenge we call the scientific experience bottleneck. We introduce ScienceIDE, infrastructure for turning the world’s scientific code into programmable environments for scientific agents. Guided by expert-defined scientific cases and acceptance criteria, agents transform repositories into executable environments that support task generation, execution, and scientific verification. These environments provide a shared foundation for supervised fine-tuning, reinforcement learning, and evaluation. Using verified interaction trajectories, we train PhAI-IDE-72B, PhAI-IDE-9B, and PhAI-IDE-4B. The model family shows gains in held-out scientific-code repair and across selected general-purpose benchmarks in code, reasoning, and knowledge, providing evidence of positive transfer from scientific experience to broader capabilities. ScienceIDE lays the foundation for an integrated workspace for agent learning and scientific practice, making humanity’s scientific software a shared substrate for developing scientific intelligence.</p>
+          <p class="pub__foot">
+            <span class="pub__venue">PhAI Labs Technical Report</span>
+          </p>
+        </div>
+      </li>
+      <li class="pub rv" style="--k:3">
+        <p class="pub__meta">
+          <time datetime="2026-09-18">2026年9月18日</time><span class="pub__topic">World Models</span>
+        </p>
+        <div class="pub__body">
+          <h3 class="pub__title"><a href="/papers/jepa-anything/">JEPA-Anything: Learning Predictive Models across Different Worlds</a></h3><p class="pub__authors">Taoyong Cui, Zhongyao Wang, Xinyue Xu, Weiyang Liu, Zhaochen Yu, Yuying Zhang, Qiang Gao, Mengyue Yang, Wanli Ouyang, Pheng Ann Heng, Yingcheng Wu, Zhenfei Yin, Ling Yang</p>
+          <p class="pub__abs">World modeling enables intelligence to anticipate consequences, guide interventions, and learn from interaction. Yet predictive models remain domain-specific: can a common learning principle support world modeling across radically different systems? We introduce JEPA-Anything, a domain-agnostic framework based on orthogonal predictive factorization (OPF). Extending joint-embedding predictive architectures, OPF decomposes latent targets into complementary factors, learns them through dedicated pathways, and recombines them within a shared predictive design. We evaluate JEPA-Anything across seven domains: vision, biology, clinical trajectories, control, molecular dynamics, physical fields, and weather. Experiments span representation learning, intervention prediction, out-of-distribution generalization, and long-horizon dynamics, including 10 matched dynamics tasks, forecasting of over 1,000 clinical events, and 100-step molecular rollouts across four systems. Against matched JEPA baselines, JEPA-Anything improves reported metrics on all 10 dynamics tasks and reduces single-intervention prediction error on Interventional Pong by 34.8%. It achieves the lowest one-step and 100-step molecular errors among compared methods in all four systems. Beyond prediction, a factor-nominated biological intervention receives experimental support in cell co-cultures, patient-derived organoids, tumor fragments, and mice; latent orbital modes recover the Keplerian scaling exponent with a fitted slope of −1.4991. These results support a common factorized predictive principle across heterogeneous worlds, connecting world modeling with intervention and experimentally grounded scientific discovery.</p>
+          <p class="pub__foot">
+            <span class="pub__venue">PhAI Labs Technical Report</span>
+          </p>
+        </div>
+      </li>
+    </ol>
+  </div>
 </section>
 
 </main>
@@ -385,8 +566,8 @@
       <p class="foot__line">面向真实科学发现的模型与数据基础设施</p>
     </div>
     <nav class="foot__nav" aria-label="页脚导航">
-      <a href="/tech/">技术</a>
-      <a href="/papers/">论文</a>
+      <a href="/tech/">技术与论文</a>
+      <a href="/products/">产品</a>
       <a href="/news/">新闻动态</a>
       <a href="/about/">关于我们</a>
       <a href="/team/">团队</a>
@@ -446,5 +627,6 @@ phai-labs.com</span>
 
 <script src="/assets/js/site.js" defer></script>
 <script src="/assets/js/field.js" defer></script>
+<script src="/assets/js/paper.js" defer></script>
 </body>
 </html>
