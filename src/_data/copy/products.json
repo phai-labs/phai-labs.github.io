@@ -57,8 +57,7 @@
           "report": "技术报告",
           "github": "GitHub",
           "news": "发布公告"
-        },
-        "credit": "由 PhAI Labs 发起，沐晨科技（Muchen AI）联合研发。"
+        }
       }
     ]
   },
@@ -120,8 +119,7 @@
           "report": "Technical report",
           "github": "GitHub",
           "news": "Launch announcement"
-        },
-        "credit": "Initiated by PhAI Labs and co-developed with Muchen AI."
+        }
       }
     ]
   }
