@@ -6,7 +6,11 @@ Noto Serif SC covering every character that appears in a headline-ish string
 (titles, names, labels, short strings) across src/_data. Body text stays in the
 system sans and is never subset.
 
-Run after editing headline copy:  pnpm fonts   (needs python + fontTools + brotli)
+Run after editing headline copy:  pnpm fonts   (needs python3 + fontTools + brotli)
+The source is Noto Serif SC 2.002 as shipped by Google Fonts (google/fonts at
+c124e801978b, ofl/notoserifsc/NotoSerifSC[wght].ttf); 2.003 redraws a few
+glyphs. Point NOTO_SERIF_SC at the file if it is not installed in one of the
+places below.
 """
 import io, json, os, re, sys
 from fontTools.ttLib import TTFont
@@ -17,6 +21,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "src", "_data")
 OUT = os.path.join(ROOT, "src", "assets", "fonts", "NotoSerifSC-Display.woff2")
 SRC = next((p for p in [
+    os.environ.get("NOTO_SERIF_SC", ""),
     os.path.join(os.environ.get("WINDIR", "C:/Windows"), "Fonts", "NotoSerifSC-VF.ttf"),
     os.path.expanduser("~/Library/Fonts/NotoSerifSC-VF.ttf"),
     "/usr/share/fonts/truetype/noto/NotoSerifSC-VF.ttf",
@@ -24,14 +29,16 @@ SRC = next((p for p in [
 if not SRC:
     sys.exit("Noto Serif SC variable font not found; install it or edit SRC in scripts/subset-cjk.py")
 
-HEAD_KEYS = re.compile(r"^(title|subtitle|name|name_latin|label|eyebrow|question|kv_alt|.*Title|.*_title|.*_label|nodes|prompts|line|tagline|status)$")
+HEAD_KEYS = re.compile(r"^(title|subtitle|name|name_latin|label|eyebrow|question|kv_alt|.*Title|.*_title|.*_label|nodes|prompts|line|tagline|status|proof|claim)$")
 SHORT = 28  # strings this short are headings, labels, names; paragraphs are longer
 chars = set()
 
 def walk(node, key=""):
     if isinstance(node, dict):
         for k, v in node.items():
-            walk(v, k)
+            # {"claim": {"zh": ..., "en": ...}}: the language layer keeps the key
+            # it belongs to, or no split field would ever match HEAD_KEYS
+            walk(v, key if k in ("zh", "en") else k)
     elif isinstance(node, list):
         # collab.json keeps [title, body] pairs: the title is the first element
         if len(node) == 2 and all(isinstance(x, str) for x in node):

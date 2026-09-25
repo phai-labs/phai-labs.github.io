@@ -11,7 +11,7 @@
     "build": "eleventy",
     "deploy": "node scripts/deploy.mjs",
     "clean": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\"",
-    "fonts": "python scripts/subset-cjk.py"
+    "fonts": "python3 scripts/subset-cjk.py"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6"
