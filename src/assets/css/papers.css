@@ -1,12 +1,12 @@
-/* PhAI Labs -- /papers/ and /papers/<slug>/
+/* PhAI Labs -- the paper archive (/tech/#papers) and /papers/<slug>/
    ByteDance Seed's publications shape (date column, collapsed abstract, then a
    record page of label/value rows) in this site's dark editorial type. Loaded
    only where `papersCss` is set, so it costs nothing on the rest of the site.
    Tokens, .shell, .btn, .hero--page and .rv all come from site.css. */
 
 /* ================================================ 1. the archive list */
-.sec--pubs{padding-top:clamp(1rem,3vh,2.5rem)}
 .pubs{border-top:1px solid var(--rule)}
+.sec--papers .pubs{margin-top:clamp(2rem,4vh,3rem)}
 .pub{
   display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);
   gap:.6rem var(--gap);padding:2rem 0 2.2rem;border-bottom:1px solid var(--rule-soft);
@@ -43,10 +43,6 @@
 .pub__pending{
   padding:.2rem .55rem;border:1px solid var(--amber);border-radius:999px;
   color:var(--amber);font-size:.6rem;
-}
-.pubs__count{
-  margin-top:1.4rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink-4);
 }
 
 /* ================================================ 2. the record page */

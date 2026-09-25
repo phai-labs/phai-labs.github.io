@@ -23,6 +23,9 @@ eleventyExcludeFromCollections: true
 <html lang="{{ s.lang }}">
 <head>
 <meta charset="utf-8">
+{#- A stub hop is not a reader's choice: no referrer, so lang-route.njk on the
+    record page still sends an English-language browser to /en/ (as papers.njk). -#}
+<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ p.title }} — {{ s.site_name }}</title>
 <link rel="canonical" href="{{ site.url }}{{ to }}">

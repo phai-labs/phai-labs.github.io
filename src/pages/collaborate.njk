@@ -74,22 +74,19 @@ eleventyComputed:
 <section class="sec sec--dfm" data-field="flow" id="dfm">
   <div class="shell">
     <p class="eyebrow"><span class="num">03</span>{{ t.dfm.label }}</p>
-    <div class="split split--figure">
+    <div class="split">
+      <h2 class="display-2">{{ br(t.dfm.title) }}</h2>
       <div>
-        <h2 class="display-2">{{ br(t.dfm.title) }}</h2>
         <div class="prose"><p>{{ t.dfm.body }}</p><p class="prose__note">{{ t.dfm.note }}</p></div>
         <p class="links">
           {%- set rl = {label: t.dfm.report, key: 'dfm_report'} %}{% include "components/rlink.njk" %}
           {%- set rl = {label: t.dfm.github, key: 'dfm_github'} %}{% include "components/rlink.njk" %}
         </p>
       </div>
-      <figure class="figure figure--dfm">
-        <a href="/assets/img/dfm-diagram-{{ lang }}.png" target="_blank" rel="noopener">
-          <img src="/assets/img/dfm-diagram-{{ lang }}.webp" width="1543" height="1019" loading="lazy" alt="{{ 'DFM 发现基座模型技术示意图' if lang == 'zh' else 'Discovery Foundation Models technical diagram' }}">
-        </a>
-        <figcaption>{{ t.dfm.loopCaption }} · {{ t.dfm.loop | join(' → ') }}</figcaption>
-      </figure>
     </div>
+    {#- The DFM overview needs the full width to stay legible; beside the copy
+        it would render its labels at about 7px. -#}
+    {%- include "components/ovfig.njk" %}
     <div class="modules">
       <p class="modules__title">{{ t.dfm.modulesTitle }}</p>
       <p class="modules__note">{{ t.dfm.modulesNote }}</p>

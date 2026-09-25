@@ -256,6 +256,11 @@ export default function (eleventyConfig) {
     return esc.replace(/PhAI(\s+Labs)?/g, (m) => `<span class="brand">${m}</span>`);
   });
   eleventyConfig.addFilter("published", (list) => list.filter((a) => !a.draft));
+  // The first entry whose `key` equals `value`, or undefined. Nunjucks'
+  // selectattr takes no test argument, so `selectattr('slug', 'equalto', x)`
+  // quietly filters on truthiness instead -- this is the lookup it can't do.
+  eleventyConfig.addFilter("findBy", (list, key, value) =>
+    (list || []).find((x) => x && x[key] === value));
   // Build-time "today" in Beijing, the lab's own timezone. A 09:00 Beijing
   // deploy is still the previous day in UTC, and a UTC-based feed would go on
   // featuring yesterday's release all morning.

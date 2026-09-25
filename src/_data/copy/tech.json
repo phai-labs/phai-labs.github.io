@@ -1,9 +1,10 @@
 {
   "zh": {
     "hero": {
-      "eyebrow": "PhAI Labs · 技术",
+      "eyebrow": "PhAI Labs · 技术与论文",
       "title": "面向*科学发现*的技术体系",
-      "lede": "PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的研究范式；ScienceBuddy、ScienceIDE 与 JEPA-Anything 是三个彼此独立的研究与工程方向，分别从交互反馈、可复用的科学环境和世界状态预测展开。"
+      "lede": "PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的研究范式；ScienceBuddy、ScienceIDE 与 JEPA-Anything 是三个彼此独立的研究与工程方向，分别从交互反馈、可复用的科学环境和世界状态预测展开。",
+      "description": "PhAI Labs 的技术与论文：DFM 研究范式，ScienceBuddy、ScienceIDE 与 JEPA-Anything 三个研究方向，以及全部技术报告与论文。"
     },
     "direction": {
       "title": "PhAI 的技术方向",
@@ -84,6 +85,11 @@
         ],
         "status": "当前为早期产品 / 研究预览形态，具体开放能力、演示方式和使用入口以实际版本为准。产品入口于 9 月 16 日开放。",
         "links": [
+          {
+            "label": "产品介绍",
+            "href": "/products/#sciencebuddy",
+            "key": "sciencebuddy_product"
+          },
           {
             "label": "访问 ScienceBuddy",
             "key": "sciencebuddy"
@@ -203,9 +209,10 @@
   },
   "en": {
     "hero": {
-      "eyebrow": "PhAI Labs · Tech",
+      "eyebrow": "PhAI Labs · Tech & Papers",
       "title": "Technology for scientific *discovery*",
-      "lede": "PhAI Labs' technical work turns on one question: how can AI systems take part in real scientific discovery. DFM is the research paradigm we propose for it; ScienceBuddy, ScienceIDE and JEPA-Anything are three independent research and engineering directions, working from interactive feedback, reusable scientific environments and world-state prediction respectively."
+      "lede": "PhAI Labs' technical work turns on one question: how can AI systems take part in real scientific discovery. DFM is the research paradigm we propose for it; ScienceBuddy, ScienceIDE and JEPA-Anything are three independent research and engineering directions, working from interactive feedback, reusable scientific environments and world-state prediction respectively.",
+      "description": "PhAI Labs' technology and papers: the DFM research paradigm, three research directions (ScienceBuddy, ScienceIDE and JEPA-Anything), and every technical report and paper."
     },
     "direction": {
       "title": "Our technical direction",
@@ -286,6 +293,11 @@
         ],
         "status": "An early product / research preview: the capabilities opened, demonstrations and entry points follow the actual version. The product entry opens on 16 September.",
         "links": [
+          {
+            "label": "Product page",
+            "href": "/products/#sciencebuddy",
+            "key": "sciencebuddy_product"
+          },
           {
             "label": "Open ScienceBuddy",
             "key": "sciencebuddy"

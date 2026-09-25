@@ -7,9 +7,10 @@ pagination:
 permalink: "{{ '/tech/' | localeUrl(lang) }}index.html"
 layout: layouts/base.njk
 pageKey: tech
+papersCss: true
 eleventyComputed:
   title: "{{ copy.tech[lang].hero.title | plain | safe }}"
-  description: "{{ copy.tech[lang].hero.lede | safe }}"
+  description: "{{ copy.tech[lang].hero.description | safe }}"
   ogImage: "/assets/img/dfm-diagram-{{ lang }}.webp"
 ---
 {%- set t = copy.tech[lang] -%}
@@ -20,7 +21,8 @@ eleventyComputed:
   ['sciencebuddy', 'ScienceBuddy'],
   ['scienceide', 'ScienceIDE'],
   ['jepa', 'JEPA-Anything'],
-  ['roadmap', '路线' if lang == 'zh' else 'Roadmap']
+  ['roadmap', '路线' if lang == 'zh' else 'Roadmap'],
+  ['papers', s.pub_anchor]
 ] -%}
 
 <section class="hero hero--page hero--tech" id="top" data-field="flow">
@@ -28,6 +30,9 @@ eleventyComputed:
     <p class="eyebrow">{{ t.hero.eyebrow | brand | safe }}</p>
     <h1 class="display">{{ t.hero.title | stagger(lang) | safe }}</h1>
     <p class="lede">{{ t.hero.lede }}</p>
+    {#- Technology reads first and the papers close the page, so the one reader
+        who came for a paper gets a way straight down to them. -#}
+    <p class="actions"><a class="btn" href="#papers">{{ s.pub_jump }} <span aria-hidden="true">↓</span></a></p>
     {%- set nodes = t.loop.nodes %}{% set amber = t.loop.amber %}
     {%- include "components/loop.njk" %}
   </div>
@@ -52,13 +57,7 @@ eleventyComputed:
       <p class="lede">{{ t.dfm.what_it_is }}</p>
     </div>
 
-    <figure class="figure figure--dfm figure--wide">
-      <a href="/assets/img/dfm-diagram-{{ lang }}.png" target="_blank" rel="noopener">
-        <img src="/assets/img/dfm-diagram-{{ lang }}.webp" width="1543" height="1019" loading="lazy"
-             alt="{{ 'DFM 发现基座模型技术示意图：智能扩展的三个阶段、当前基座模型与发现基座模型的对比、递归发现闭环' if lang == 'zh' else 'DFM technical diagram: three stages of intelligence, current foundation models versus discovery foundation models, and the recursive discovery loop' }}">
-      </a>
-      <figcaption>{{ 'DFM 技术示意图 · 点击查看大图' if lang == 'zh' else 'DFM technical diagram · click to open full size' }}</figcaption>
-    </figure>
+    {%- include "components/ovfig.njk" %}
 
     <div class="prose prose--cols">{% for p in t.dfm.paradigm %}<p>{{ p }}</p>{% endfor %}</div>
 
@@ -101,7 +100,7 @@ eleventyComputed:
       <div class="prose">{% for p in pr.body %}<p>{{ p }}</p>{% endfor %}</div>
       <p class="prose__note">{{ pr.status }}</p>
       <p class="links">
-        {%- for rl in pr.links %}{% include "components/rlink.njk" %}{% endfor %}
+        {%- for l in pr.links %}{% set rl = {label: l.label, key: l.key, href: (l.href | localeUrl(lang)) if (l.href and l.href[0] == '/') else l.href} %}{% include "components/rlink.njk" %}{% endfor %}
       </p>
     </div>
   </div>
@@ -142,5 +141,44 @@ eleventyComputed:
       </ol>
       <p class="actions"><a class="btn" href="{{ '/news/' | localeUrl(lang) }}">{{ s.all_news }} →</a></p>
     </div>
+  </div>
+</section>
+
+{#- The paper archive that used to be /papers/, now the close of this page:
+    the technology above says what the lab is building, the records below are
+    where each piece is written up. /papers/ redirects here (#papers), and the
+    record pages stay at /papers/<slug>/ -- Scholar needs each PDF beside its
+    abstract page, so those URLs cannot move. -#}
+<section class="sec sec--papers" data-field="calm" id="papers">
+  <div class="shell">
+    <p class="eyebrow">{{ s.pub_anchor }}<span class="sep">·</span>{{ s.pub_count | replace("{n}", publications.length) }}</p>
+    <div class="split">
+      <h2 class="display-2">{{ s.pub_headline }}</h2>
+      <p class="lede">{{ s.pub_lede }}</p>
+    </div>
+    {%- if publications.length %}
+    <ol class="pubs">
+      {%- for p in publications %}
+      {%- set r = site.releases[p.release_key] if p.release_key and site.releases[p.release_key] else null %}
+      <li class="pub rv" style="--k:{{ loop.index0 }}">
+        <p class="pub__meta">
+          <time datetime="{{ p.date }}">{{ p.date | fmtDate(lang) }}</time>
+          {%- if p.topic %}<span class="pub__topic">{{ p.topic }}</span>{% endif %}
+        </p>
+        <div class="pub__body">
+          <h3 class="pub__title"><a href="{{ p.slug | paperUrl(lang) }}">{{ p.title }}</a></h3>
+          {%- if p.authors and p.authors.length %}<p class="pub__authors">{{ p.authors | authorLine }}</p>{% endif %}
+          <p class="pub__abs">{{ p.abstract }}</p>
+          <p class="pub__foot">
+            <span class="pub__venue">{{ p | venueLabel }}</span>
+            {%- if r and not r.live %}<span class="pub__pending">{{ r.date | releaseLabel(lang) }}</span>{% endif %}
+          </p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+    {%- else %}
+    <p class="lede">{{ s.pub_empty }}</p>
+    {%- endif %}
   </div>
 </section>

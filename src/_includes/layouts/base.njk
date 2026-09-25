@@ -48,6 +48,10 @@
 <link rel="stylesheet" href="/assets/css/papers.css">
 {%- endif %}
 <link rel="stylesheet" href="/assets/css/pulse.css">
+{#- Without script nothing ever adds `.in`, so anything the reveal system or a
+    diagram parks at opacity 0 would stay invisible: show it finished instead.
+    The list mirrors the reduced-motion block at the top of site.css. -#}
+<noscript><style>.rv,.w,.loop__node i,.loop__node span,.person,.person::after,.cst__n{opacity:1!important;transform:none!important;filter:none!important}.sec::before,.loop::before,.people::before,.timeline--nodes::before{transform:none!important}.cst__e,.dg__draw{stroke-dashoffset:0!important}.dg__fade{opacity:var(--o,1)!important}</style></noscript>
 {%- block head %}{% endblock %}
 </head>
 <body class="page-{{ pageKey }}">
@@ -127,6 +131,9 @@
 <script src="/assets/js/field.js" defer></script>
 {%- if papersCss %}
 <script src="/assets/js/paper.js" defer></script>
+{%- endif %}
+{%- if player %}
+<script src="/assets/js/player.js" defer></script>
 {%- endif %}
 {%- if heroKv %}
 <script src="/assets/js/orb.js" defer></script>

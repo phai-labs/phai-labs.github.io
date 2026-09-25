@@ -1,0 +1,16 @@
+{#- The DFM overview (the paper's Figure 1, drawn by scripts/gen-dfm-overview.py)
+    at full width, captioned like the other diagrams: the one-line claim, then
+    the hint. Claim, alt text and the swipe hint live in diagrams.json
+    `overview`. data-reveal reveals the figure as one unit and hands `.in` to
+    the drawing inside it. Used on /tech/ and /collaborate/. -#}
+{%- set ov = diagrams.overview -%}
+<figure class="figure figure--dfm figure--wide ovfig" data-reveal>
+  <div class="ovfig__art" role="img" aria-label="{{ ov.alt[lang] }}">
+    {%- include "diagrams/dfm-overview.njk" %}
+  </div>
+  <figcaption class="ovfig__cap">
+    <p class="dgfig__claim">{{ ov.claim[lang] }}</p>
+    <p class="dgfig__hint">{{ i18n[lang].hover_hint }}</p>
+    <p class="ovfig__swipe">{{ ov.swipe[lang] }}</p>
+  </figcaption>
+</figure>

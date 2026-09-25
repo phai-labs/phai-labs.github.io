@@ -16,7 +16,10 @@
   var KEY = 'phai-lang';
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
-    if (a) { try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {} }
+    if (!a) return;
+    try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {}
+    // both trees come from the same templates, so a section id exists on both sides
+    if (location.hash) a.setAttribute('href', a.getAttribute('href').split('#')[0] + location.hash);
   });
 {%- if lang == 'zh' %}
   var pref = null;

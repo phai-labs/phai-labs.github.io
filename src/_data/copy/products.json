@@ -1,0 +1,128 @@
+{
+  "zh": {
+    "eyebrow": "PhAI Labs · 产品",
+    "title": "从研究，到科学家\u200b手中的工具",
+    "description": "PhAI Labs 的产品：ScienceBuddy，越用越懂你的科研搭档。",
+    "lede": "每一个产品都来自我们的一条研究方向。",
+    "items": [
+      {
+        "key": "sciencebuddy",
+        "name": "ScienceBuddy",
+        "release": "sciencebuddy",
+        "links": {
+          "home": "sciencebuddy",
+          "github": "sciencebuddy_github",
+          "post": "sciencebuddy_video"
+        },
+        "paper": "sciencebuddy",
+        "news": "sciencebuddy",
+        "kind": "交互式科研工作空间",
+        "tagline": "越用越懂你的科研搭档",
+        "lede": "把数据、图像和文献放进同一个工作空间，直接提问。它调用科学工具完成检索、计算和分析，每一步都留下记录。",
+        "cta": "免费使用",
+        "video": {
+          "src": "/assets/video/sciencebuddy-demo.mp4",
+          "poster": "/assets/img/sciencebuddy/demo-poster.jpg",
+          "duration": "0:33",
+          "label": "产品视频",
+          "play": "播放 ScienceBuddy 产品视频",
+          "source": "X 原帖"
+        },
+        "features": [
+          {
+            "title": "带着材料来提问",
+            "body": "文档、图像、表格和生物序列，和问题一起提交。"
+          },
+          {
+            "title": "科学工具，开箱即用",
+            "body": "22 个模块、224 个工具，覆盖基因组学、药理学、生物成像、文献检索与数据库查询，计算由 GPU 加速。"
+          },
+          {
+            "title": "每一步都查得到",
+            "body": "每次工具调用的输入和输出都有记录，结论有据可查。"
+          },
+          {
+            "title": "从你的反馈里学习",
+            "body": "你的追问、修改和采纳，都会成为它下一次做得更好的依据。"
+          }
+        ],
+        "proof": "已在复旦大学、上海交通大学、中国科学院\u200b等科研机构\u200b投入使用。",
+        "domains": [
+          "基因组学",
+          "分子与癌症生物学",
+          "药理学",
+          "生物成像"
+        ],
+        "labels": {
+          "report": "技术报告",
+          "github": "GitHub",
+          "news": "发布公告"
+        },
+        "credit": "由 PhAI Labs 发起，沐晨科技（Muchen AI）联合研发。"
+      }
+    ]
+  },
+  "en": {
+    "eyebrow": "PhAI Labs · Products",
+    "title": "Research, built into tools scientists use every day",
+    "description": "Products from PhAI Labs: ScienceBuddy, a research partner that gets better the more you work with it.",
+    "lede": "Each one grows out of a line of our research.",
+    "items": [
+      {
+        "key": "sciencebuddy",
+        "name": "ScienceBuddy",
+        "release": "sciencebuddy",
+        "links": {
+          "home": "sciencebuddy",
+          "github": "sciencebuddy_github",
+          "post": "sciencebuddy_video"
+        },
+        "paper": "sciencebuddy",
+        "news": "sciencebuddy",
+        "kind": "Interactive research workspace",
+        "tagline": "A research partner that gets better the more you work with it",
+        "lede": "Put your data, images and papers in one workspace and ask. It runs the scientific tools to search, compute and analyse, and records every step.",
+        "cta": "Use it free",
+        "video": {
+          "src": "/assets/video/sciencebuddy-demo.mp4",
+          "poster": "/assets/img/sciencebuddy/demo-poster.jpg",
+          "duration": "0:33",
+          "label": "Product video",
+          "play": "Play the ScienceBuddy product video",
+          "source": "Original post on X"
+        },
+        "features": [
+          {
+            "title": "Bring your material",
+            "body": "Documents, images, tables and biological sequences go in with the question."
+          },
+          {
+            "title": "Tools, ready to run",
+            "body": "224 tools in 22 modules across genomics, pharmacology, bioimaging, literature search and database queries, on GPU-accelerated compute."
+          },
+          {
+            "title": "Every step on the record",
+            "body": "Each tool call is logged with its inputs and outputs, so any answer can be traced."
+          },
+          {
+            "title": "Learns from you",
+            "body": "Every follow-up, edit and approval teaches it, so the next run fits how you work."
+          }
+        ],
+        "proof": "In use at Fudan University, Shanghai Jiao Tong University, the Chinese Academy of Sciences and other research institutions.",
+        "domains": [
+          "Genomics",
+          "Molecular and cancer biology",
+          "Pharmacology",
+          "Bioimaging"
+        ],
+        "labels": {
+          "report": "Technical report",
+          "github": "GitHub",
+          "news": "Launch announcement"
+        },
+        "credit": "Initiated by PhAI Labs and co-developed with Muchen AI."
+      }
+    ]
+  }
+}

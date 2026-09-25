@@ -1,0 +1,102 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "{{ '/products/' | localeUrl(lang) }}index.html"
+layout: layouts/base.njk
+pageKey: products
+player: true
+eleventyComputed:
+  title: "{{ i18n[lang].nav | navLabel('products') | plain | safe }}"
+  description: "{{ copy.products[lang].description | safe }}"
+  ogImage: "{% set p0 = copy.products[lang].items[0] %}{% set r0 = site.releases[p0.release] if p0.release else false %}{{ '' if (r0 and not r0.live) else p0.video.poster }}"
+---
+{%- set t = copy.products[lang] -%}
+{%- set s = i18n[lang] -%}
+{#- Products, one block each, from copy/products.json `items`. What a scientist
+    does with the thing: a film and four lines. The research behind it (the
+    self-improvement loops, the benchmark numbers) stays on /tech/ and the
+    paper page, one link away.
+
+    Each item names what it draws on instead of having it guessed from its key:
+    `release` is its entry in site.releases, `links.home / github / post` are
+    site.links keys, `paper` and `news` are record slugs. Any of them missing or
+    empty simply does not render. While the release is not live the product's
+    own links and film stay off the page and the button shows the date, the way
+    components/rlink.njk handles every other project link.
+    Lookups use `or false`: a variable set to undefined in Nunjucks falls back
+    to the global data of the same name, so a missing record must not be left
+    undefined. -#}
+
+<section class="hero hero--page hero--products" id="top" data-field="flow">
+  <div class="shell">
+    <p class="eyebrow">{{ t.eyebrow | brand | safe }}</p>
+    <h1 class="display">{{ t.title }}</h1>
+    <p class="lede">{{ t.lede }}</p>
+  </div>
+</section>
+
+{%- for p in t.items %}
+{%- set rel = site.releases[p.release] if p.release else false %}
+{%- set gated = rel and not rel.live %}
+{%- set home = (site.links[p.links.home] if p.links and p.links.home else '') or '' %}
+{%- set github = (site.links[p.links.github] if p.links and p.links.github else '') or '' %}
+{%- set post = (site.links[p.links.post] if p.links and p.links.post else '') or '' %}
+{%- set record = ((publications | findBy('slug', p.paper)) if p.paper else false) or false %}
+{%- set announcement = ((articles | findBy('slug', p.news)) if p.news else false) or false %}
+{%- set film = p.video and not gated %}
+<section class="sec sec--product" id="{{ p.key }}"{% if loop.first %} data-field="grid"{% endif %}>
+  <div class="shell phero{% if not film %} phero--solo{% endif %}">
+    <div class="phero__copy">
+      <p class="eyebrow"><span class="num">{{ loop.index | pad2 }}</span>{{ p.kind }}</p>
+      <h2 class="display-2 phero__name">{{ p.name }}</h2>
+      <p class="subtitle">{{ p.tagline }}</p>
+      <p class="lede">{{ p.lede }}</p>
+      {%- if gated %}
+      <p class="actions"><span class="link link--pending"><span>{{ p.cta }}</span><small>{{ rel.date | releaseLabel(lang) }}</small></span></p>
+      {%- elif home %}
+      <p class="actions"><a class="btn btn--primary" href="{{ home }}" target="_blank" rel="noopener">{{ p.cta }} <span aria-hidden="true">↗</span></a></p>
+      {%- endif %}
+    </div>
+    {%- if film %}
+    {#- Served from this site: the film plays here, in place, instead of
+        sending the reader off to X. The still is from mid-film -- the film
+        itself opens on black. -#}
+    <figure class="pvideo" data-player>
+      <div class="pvideo__frame">
+        <video class="pvideo__media" controls playsinline preload="none" poster="{{ p.video.poster }}" width="1280" height="720" aria-label="{{ p.video.label }} · {{ p.name }}">
+          <source src="{{ p.video.src }}" type="video/mp4">
+        </video>
+        <button class="pvideo__play" type="button" data-play aria-label="{{ p.video.play }}"><span class="pvideo__mark" aria-hidden="true"></span></button>
+      </div>
+      <figcaption class="pvideo__cap"><b>{{ p.video.label }}</b><span>{{ p.video.duration }}</span>{% if post %}<a class="pvideo__src" href="{{ post }}" target="_blank" rel="noopener">{{ p.video.source }} ↗</a>{% endif %}</figcaption>
+    </figure>
+    {%- endif %}
+  </div>
+
+  <div class="shell">
+    <ul class="pfeatures">
+      {%- for f in p.features %}
+      <li><h3>{{ f.title }}</h3><p>{{ f.body }}</p></li>
+      {%- endfor %}
+    </ul>
+
+    <div class="pproof">
+      {%- if p.proof %}<p class="pproof__line">{{ p.proof }}</p>{% endif %}
+      <div class="pproof__row">
+        <ul class="tags">{% for d in p.domains %}<li>{{ d }}</li>{% endfor %}</ul>
+        {%- if not gated %}
+        <p class="links">
+          {%- if record %}<a class="link" href="{{ record.slug | paperUrl(lang) }}">{{ p.labels.report }} →</a>{% endif %}
+          {%- if github %}<a class="link" href="{{ github }}" target="_blank" rel="noopener">{{ p.labels.github }} ↗</a>{% endif %}
+          {%- if announcement %}<a class="link" href="{{ ('/news/' + announcement.slug + '/') | localeUrl(lang) }}">{{ p.labels.news }} →</a>{% endif %}
+        </p>
+        {%- endif %}
+      </div>
+      {%- if p.credit %}<p class="prose__note pproof__credit">{{ p.credit }}</p>{% endif %}
+    </div>
+  </div>
+</section>
+{%- endfor %}

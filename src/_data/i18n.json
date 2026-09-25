@@ -6,13 +6,13 @@
     "nav": [
       {
         "key": "tech",
-        "label": "技术",
+        "label": "技术与论文",
         "href": "/tech/"
       },
       {
-        "key": "papers",
-        "label": "论文",
-        "href": "/papers/"
+        "key": "products",
+        "label": "产品",
+        "href": "/products/"
       },
       {
         "key": "news",
@@ -73,6 +73,8 @@
     "hover_hint": "把光标移到图上",
     "pub_headline": "技术报告与论文",
     "pub_lede": "PhAI Labs 的公开研究记录：技术报告、预印本与会议论文。",
+    "pub_jump": "查看论文",
+    "pub_anchor": "论文",
     "pub_abstract": "摘要",
     "pub_authors": "作者",
     "pub_record": "期刊/会议",
@@ -105,13 +107,13 @@
     "nav": [
       {
         "key": "tech",
-        "label": "Tech",
+        "label": "Tech & Papers",
         "href": "/tech/"
       },
       {
-        "key": "papers",
-        "label": "Papers",
-        "href": "/papers/"
+        "key": "products",
+        "label": "Products",
+        "href": "/products/"
       },
       {
         "key": "news",
@@ -172,6 +174,8 @@
     "hover_hint": "Move the cursor over the diagram",
     "pub_headline": "Technical reports and papers",
     "pub_lede": "The public research record of PhAI Labs: technical reports, preprints and conference papers.",
+    "pub_jump": "Jump to papers",
+    "pub_anchor": "Papers",
     "pub_abstract": "Abstract",
     "pub_authors": "Authors",
     "pub_record": "Venue",

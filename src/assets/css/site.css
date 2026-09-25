@@ -108,7 +108,10 @@ summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:n
 .mast__word{font-weight:600;font-size:1.02rem;letter-spacing:-.01em}
 .mast__word b{font-weight:400;color:var(--ink-2);margin-left:.3em}
 .mast__nav{display:flex;justify-content:center;gap:clamp(.9rem,2vw,1.9rem);font-size:.95rem;font-weight:600;color:var(--ink-2)}
-.mast__nav a{position:relative;padding:.35rem 0;transition:color .25s}
+.mast__nav a{position:relative;padding:.35rem 0;white-space:nowrap;transition:color .25s}
+/* just above the drawer breakpoint the English labels need a tighter gap, or the
+   unbreakable nav squeezes the brand column and distorts the lockup */
+@media(min-width:900px) and (max-width:959px){.mast__nav{gap:.75rem}}
 .mast__nav a:hover,.mast__nav a[aria-current="page"]{color:var(--ink)}
 .mast__nav a[aria-current="page"]::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--blue)}
 .mast__tools{display:flex;align-items:center;gap:.9rem}
@@ -251,7 +254,7 @@ body.drawer-open{overflow:hidden}
 .sec{position:relative;padding-block:var(--sec)}
 .sec + .sec{padding-top:0}
 .sec--statement,.sec--dfm,.sec--project,.sec--chapter,.sec--apply,.sec--join,.sec--roadmap,.sec--pillars,.sec--modules,.sec--collab,.sec--news,.sec--people,.sec--positions,.sec--milestones,.sec--timeline{padding-top:var(--sec)}
-.sec--statement::before,.sec--dfm::before,.sec--project::before,.sec--chapter::before,.sec--apply::before,.sec--roadmap::before,.sec--modules::before,.sec--collab::before,.sec--news::before,.sec--people::before,.sec--positions::before,.sec--milestones::before{
+.sec--statement::before,.sec--dfm::before,.sec--papers::before,.sec--project::before,.sec--chapter::before,.sec--apply::before,.sec--roadmap::before,.sec--modules::before,.sec--collab::before,.sec--news::before,.sec--people::before,.sec--positions::before,.sec--milestones::before{
   content:'';position:absolute;top:0;left:var(--pad);right:var(--pad);height:1px;background:var(--rule-soft)}
 
 /* type */
@@ -286,7 +289,7 @@ h3{font-family:var(--sans);font-weight:500;font-size:var(--t-3);line-height:1.35
 .prose strong{color:var(--ink);font-weight:500}
 .prose--lg{font-size:var(--t-lede);line-height:1.7}
 html[lang="zh-CN"] .prose--lg{line-height:1.9}
-.prose__note{color:var(--ink-3);font-size:var(--t-small)}
+.prose__note{text-wrap:pretty;color:var(--ink-3);font-size:var(--t-small)}
 .prose--cols{max-width:none;column-count:2;column-gap:var(--gap);margin-top:clamp(2rem,4vh,3rem)}
 .prose--cols p{break-inside:avoid}
 .note{display:flex;align-items:flex-start;gap:.6rem;margin-top:1.4rem;font-size:var(--t-small);color:var(--ink-3);max-width:36em}
@@ -343,6 +346,9 @@ html[lang="zh-CN"] .prose--lg{line-height:1.9}
 .subnav__inner::-webkit-scrollbar{display:none}
 .subnav__inner a{white-space:nowrap;padding:.25rem 0;border-bottom:1px solid transparent;transition:color .25s,border-color .25s}
 .subnav__inner a:hover,.subnav__inner a.is-active{color:var(--ink);border-bottom-color:var(--blue)}
+/* html's scroll-padding-top clears the masthead only; below a subnav an anchor
+   target also has to clear the subnav, or its eyebrow lands under it */
+.subnav ~ .sec[id]{scroll-margin-top:1.5rem}
 .is-scrolled .subnav{top:3.35rem}
 
 /* ============================================================ 5b. the field */
@@ -689,7 +695,7 @@ html[lang="zh-CN"] .dgfig__attrs b{letter-spacing:0}
 html[lang="en"] .dgfig__attrs b{font-size:clamp(1.15rem,1.45vw,1.4rem);line-height:1.3}
 .dgfig__attrs span{grid-column:2;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
 .dgfig .dgfig__cap{grid-area:cap;text-transform:none;margin-top:.9rem;display:flex;justify-content:space-between;gap:var(--gap);align-items:baseline}
-.dgfig__claim{margin:0;font-family:var(--serif);font-size:var(--t-3);line-height:1.5;color:var(--ink-2);max-width:34em}
+.dgfig__claim{text-wrap:pretty;margin:0;font-family:var(--serif);font-size:var(--t-3);line-height:1.5;color:var(--ink-2);max-width:34em}
 .dgfig__hint{margin:0;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);white-space:nowrap}
 .checks--dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.6rem 2rem;margin-top:1rem}
 .sec--instrument{padding-top:0}
@@ -1026,4 +1032,149 @@ html[lang="zh-CN"] .hero .eyebrow{letter-spacing:.12em}
   .uni__mark--seal{height:2.8rem}
   .uni__mark--wordmark{height:1.4rem}
   .uni__name{font-size:.55rem;letter-spacing:.06em}
+}
+
+/* ============================================================ 9. products: /products/ */
+/* One block per product: copy left, the film right, then four lines and where
+   it is in use. Blocks stack; a rule separates each from the one before. */
+.hero--products{padding-bottom:clamp(.5rem,2vh,1.5rem)}
+/* every block opens on the site's inset hairline, the first one included, so
+   the header reads as a list's title and product 01 as its first entry */
+.sec--product::before{content:'';position:absolute;top:0;left:var(--pad);right:var(--pad);height:1px;background:var(--rule-soft)}
+.hero--products + .sec--product,.sec--product + .sec--product{padding-top:clamp(2rem,5vh,3.5rem)}
+/* Chinese headings break at their comma, never inside a word; overflow-wrap
+   still breaks them if a phone is narrower than the longest phrase */
+html[lang="zh-CN"] .hero--products .display{word-break:keep-all;overflow-wrap:anywhere}
+.phero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.phero--solo{grid-template-columns:minmax(0,1fr)}
+.phero--solo .phero__copy{max-width:44rem}
+.phero__name{letter-spacing:-.03em;margin-bottom:0}
+.phero .lede,.pfeatures p,.pproof__credit{text-wrap:pretty}
+.phero .subtitle{color:var(--ink)}
+
+/* The film is served from this site and plays in place. Without the script it
+   is a plain <video controls>; with it (.is-ready) the controls wait behind one
+   play mark on the still until the reader starts it (.is-playing). */
+.pvideo{margin:0;min-width:0}
+.pvideo__frame{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;border-radius:14px;
+  border:1px solid var(--rule);background:#000;
+  box-shadow:0 40px 90px -50px rgba(155,167,255,.45);transition:border-color .3s var(--ease),box-shadow .5s var(--ease)}
+.pvideo__media{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+/* inside the frame: its overflow:hidden would clip an outside ring */
+.pvideo__media:focus-visible{outline:2px solid var(--blue);outline-offset:-3px}
+.pvideo__play{display:none}
+.pvideo.is-ready .pvideo__play{display:block;position:absolute;inset:0;z-index:1;width:100%;height:100%;padding:0;border:0;cursor:pointer;
+  background:radial-gradient(120% 90% at 50% 50%,transparent 55%,rgba(10,10,11,.45) 100%)}
+.pvideo.is-playing .pvideo__play{display:none}
+.pvideo__mark{position:absolute;left:1.1rem;bottom:1.1rem;width:3.4rem;height:3.4rem;border-radius:50%;
+  background:rgba(10,10,11,.55);border:1px solid rgba(240,238,232,.3);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .3s,border-color .3s,transform .4s var(--ease)}
+.pvideo__mark::before{content:'';position:absolute;left:55%;top:50%;transform:translate(-50%,-50%);
+  border-style:solid;border-width:.5rem 0 .5rem .8rem;border-color:transparent transparent transparent var(--ink);transition:border-color .3s}
+.pvideo__frame:hover{border-color:var(--blue-line);box-shadow:0 40px 100px -46px rgba(155,167,255,.6)}
+.pvideo__play:hover .pvideo__mark,.pvideo__play:focus-visible .pvideo__mark{background:var(--amber);border-color:var(--amber);transform:scale(1.06)}
+.pvideo__play:hover .pvideo__mark::before,.pvideo__play:focus-visible .pvideo__mark::before{border-left-color:#141008}
+.pvideo__play:focus-visible{outline:none;box-shadow:inset 0 0 0 2px var(--blue)}
+.pvideo__cap{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1rem;margin-top:.9rem;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.pvideo__cap b{font-weight:400;color:var(--ink-2)}
+.pvideo__src{margin-left:auto;color:var(--blue);transition:color .25s}
+.pvideo__src:hover{color:var(--blue-2)}
+
+.pfeatures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap);
+  margin-top:clamp(3rem,7vh,5rem);border-top:1px solid var(--rule);padding-top:clamp(1.8rem,4vh,2.6rem)}
+.pfeatures li::before{content:'';display:block;width:6px;height:6px;margin-bottom:1.1rem;border-radius:50%;
+  background:var(--blue);box-shadow:0 0 12px var(--blue-glow)}
+/* the last one is the loop -- feedback is amber everywhere on this site */
+.pfeatures li:last-child::before{background:var(--amber);box-shadow:0 0 12px var(--amber-glow)}
+.pfeatures p{margin-top:.55rem;color:var(--ink-2);font-size:var(--t-small);line-height:1.7}
+
+.pproof{margin-top:clamp(3rem,7vh,5rem)}
+.pproof__line{font-family:var(--serif);font-weight:400;font-size:var(--t-2);line-height:1.35;letter-spacing:-.01em;color:var(--ink);max-width:28em;text-wrap:balance}
+/* break at the enumeration commas rather than inside an institution's name;
+   overflow-wrap still breaks one if a phone cannot fit it on a line */
+html[lang="zh-CN"] .pproof__line{letter-spacing:0;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}
+.pproof__row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem var(--gap);margin-top:clamp(1.4rem,3vh,2rem)}
+.pproof__row .tags,.pproof__row .links{margin-top:0}
+.pproof__credit{margin-top:1.6rem}
+
+@media(max-width:899px){
+  .phero{grid-template-columns:1fr}
+  .pfeatures{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:560px){
+  .pfeatures{grid-template-columns:1fr}
+  .pvideo__mark{width:2.8rem;height:2.8rem;left:.8rem;bottom:.8rem}
+}
+
+/* ============================================================ 10. DFM overview (/tech/#dfm) */
+/* The paper's Figure 1 in the diagram grammar above: hairlines, no fills, one
+   blue in three strengths, a single amber element (the tested explanation).
+   Drawn by scripts/gen-dfm-overview.py; the viewBox is 1200 x 706. */
+.ovfig__art{width:100%;max-width:100%;aspect-ratio:1200/706}
+.ovfig .ovfig__cap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.6rem var(--gap);margin-top:.9rem;text-transform:none}
+.dg--ov .ov__panel{fill:none;stroke:var(--rule);stroke-width:1}
+.dg--ov .ov__panel--focus{stroke:var(--blue-line)}
+.dg--ov .ov__tile{fill:transparent;stroke:rgba(240,238,232,.08);stroke-width:1;transition:stroke .25s,fill .25s}
+.dg--ov .dg__hov:hover .ov__tile{stroke:var(--blue-line);fill:rgba(155,167,255,.04)}
+.dg--ov .ov__h{fill:var(--ink);font-size:17px;font-weight:500}
+.dg--ov .ov__h--band{font-size:16px}
+.dg--ov .ov__sub{fill:var(--ink-3);font-size:13px}
+.dg--ov .ov__ax{fill:var(--ink-3);font-size:13px}
+.dg--ov .ov__stage{font-size:14px}
+.dg--ov .ov__lab{fill:var(--ink);font-size:14.5px}
+.dg--ov .ov__lab--s,.dg--ov .ov__lab--step{fill:var(--ink-2);font-size:13.5px}
+.dg--ov .ov__small{fill:var(--ink-3);font-size:12.5px}
+.dg--ov .ov__flow{fill:var(--ink-2);font-size:12.5px}
+.dg--ov .ov__flow--it{fill:var(--ink-3)}
+html[lang="en"] .dg--ov .ov__flow--it{font-style:italic}
+.dg--ov .ov__act{fill:var(--ink-3);font-size:12.5px}
+/* the three stages: what humans wrote, what actions returned, what discovery makes */
+.dg--ov .ov__t1{stroke:rgba(155,167,255,.32)}
+.dg--ov .ov__t2{stroke:rgba(155,167,255,.62)}
+.dg--ov .ov__t3{stroke:var(--blue-2)}
+.dg--ov .ov__lt1{fill:rgba(155,167,255,.62)}
+.dg--ov .ov__lt2{fill:rgba(155,167,255,.85)}
+.dg--ov .ov__lt3{fill:var(--blue-2)}
+.dg--ov .ov__c,.dg--ov .ov__chev{fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.dg--ov .ov__sw{stroke-width:1.4;stroke-linecap:round}
+.dg--ov .ov__badge{fill:var(--bg);stroke:var(--blue-line);stroke-width:1;transition:stroke .25s}
+.dg--ov .ov__badge--strong{stroke:var(--blue-2)}
+.dg--ov .ov__badge--strong + text .dg__num{fill:var(--blue-2)}
+.dg--ov .dg__hov:hover .ov__badge{stroke:var(--blue)}
+.dg--ov .ov__n--dim{opacity:.55;transition:opacity .25s}
+.dg--ov .dg__hov:hover .ov__n--dim{opacity:1}
+.dg--ov .ov__glyph{fill:none;stroke:var(--ink-3);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+/* Dots and rings start when the figure is revealed, not when the page loads:
+   the figure is reached seconds in, and motion already under way would play
+   over paths and badges that are still fading in. Each keeps hidden through
+   its own delay. */
+.dg--ov .dg__mv{animation-name:none;animation-fill-mode:backwards}
+.in .dg--ov .dg__mv{animation-name:dgmove-fade}
+.dg--ov .dg__ring{animation-name:none;opacity:0}
+.in .dg--ov .dg__ring{animation-name:dgring}
+/* moving dots and pulse rings are decoration: never let one (visible or parked at
+   opacity 0) take the pointer from the badge it passes over. All diagrams. */
+.dg__mv,.dg__ring{pointer-events:none}
+.ovfig__swipe{display:none}
+@media(max-width:899px){
+  /* Below this width the drawing would shrink its type past reading size, so
+     it keeps a readable width and scrolls sideways in its own frame. The
+     max-width:none undoes the global svg{max-width:100%} reset. */
+  .ovfig__art{aspect-ratio:auto;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin}
+  .ovfig__art .dg--ov{width:980px;max-width:none;height:auto;aspect-ratio:1200/706}
+  .ovfig .dgfig__hint{display:none}
+  .ovfig__swipe{order:-1;display:block;margin:0;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+}
+
+/* ============================================================ 11. reduced motion, for every diagram */
+/* The .dg__draw / .dg__fade lines in the reduced-motion block near the top of
+   this file lose to the base rules that come after them (same specificity) and
+   to `.in .dg__*` (higher). Restated here, last, they win: every diagram shows
+   its finished state at once. */
+@media(prefers-reduced-motion:reduce){
+  .dg__draw,.in .dg__draw{stroke-dashoffset:0;animation:none}
+  .dg__fade,.in .dg__fade{opacity:var(--o,1);animation:none}
+  .dg__blink{animation:none;opacity:1}
+  .dg__grow{animation:none;width:460px}
 }

@@ -72,14 +72,6 @@
       "title": "从完成科研任务，\n走向参与科学发现",
       "body": "DFM（Discovery Foundation Models）不是一个单一模型，也不是要求所有系统按同一套流程运行的软件框架，而是 PhAI Labs 围绕 Discovery Intelligence 提出的一套研究范式、能力定义和系统组织方式。它通过形式化定义、流程图示、系统实例和真实科学案例，把“发现”从一个模糊概念具体化为一种可学习、可执行、可评测的模型系统能力。",
       "note": "DFM 科学家合作计划为这一范式引入真实科学问题、数据与验证条件，让系统在真实研究中形成判断。",
-      "loop": [
-        "部分理解的世界",
-        "有价值的未知",
-        "可研究的问题",
-        "解释与干预",
-        "经验证的新知识"
-      ],
-      "loopCaption": "递归科学发现闭环",
       "report": "DFM 技术报告",
       "github": "GitHub",
       "pending": "9 月 15 日公开",
@@ -442,14 +434,6 @@
       "title": "From completing tasks\nto participating in discovery",
       "body": "DFM (Discovery Foundation Models) is neither a single model nor a software framework that forces every system through one pipeline. It is the research paradigm, capability definition and system organisation that PhAI Labs proposes around Discovery Intelligence: through formal definitions, process diagrams, system instances and real scientific cases, it turns “discovery” from a vague notion into a capability of model systems that can be learned, executed and evaluated.",
       "note": "The DFM Scientist Collaboration Program brings real scientific problems, data and verification conditions into this paradigm, so systems form their judgement in real research.",
-      "loop": [
-        "Partially understood world",
-        "Valuable unknown",
-        "Researchable problem",
-        "Explanation & intervention",
-        "Validated new knowledge"
-      ],
-      "loopCaption": "Recursive discovery loop",
       "report": "DFM technical report",
       "github": "GitHub",
       "pending": "Public 15 Sep",

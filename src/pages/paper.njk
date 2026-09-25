@@ -6,7 +6,7 @@ pagination:
   addAllPagesToCollections: true
 permalink: "{{ ('/papers/' + pp.paper.slug + '/') | localeUrl(pp.lang) }}index.html"
 layout: layouts/base.njk
-pageKey: papers
+pageKey: tech
 fieldOff: true
 papersCss: true
 eleventyComputed:
@@ -122,5 +122,5 @@ eleventyComputed:
     </section>
   </div>
 
-  <p class="shell paper__back"><a href="{{ '/papers/' | localeUrl(lang) }}">← {{ s.pub_all }}</a></p>
+  <p class="shell paper__back"><a href="{{ '/tech/' | localeUrl(lang) }}#papers">← {{ s.pub_all }}</a></p>
 </article>

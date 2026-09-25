@@ -118,5 +118,19 @@
         "en": "Full-page motion"
       }
     ]
+  },
+  "overview": {
+    "claim": {
+      "zh": "发现基座模型，面向开放式发现智能：AI 不再只解决人给定的任务，而是参与提出问题、检验解释、积累新知识的整个过程。",
+      "en": "Discovery Foundation Models, toward open-ended discovery intelligence: AI that no longer only solves the tasks it is handed, but takes part in the whole process of asking, testing and adding to what is known."
+    },
+    "alt": {
+      "zh": "发现基座模型技术示意图：智能扩展的三个阶段（对话、智能体与编程、发现）；当前基座模型作用于预定义任务，发现基座模型作用于知识生产过程；以及从部分理解的世界到经验证的新知识的递归发现闭环。",
+      "en": "Discovery Foundation Models overview: three stages of intelligence scaling (chat, agent and coding, discovery); current foundation models operate on predefined tasks, discovery foundation models on the knowledge-production process; and the recursive discovery loop from a partially understood world to validated new knowledge."
+    },
+    "swipe": {
+      "zh": "左右滑动查看完整示意图",
+      "en": "Swipe to see the whole diagram"
+    }
   }
 }

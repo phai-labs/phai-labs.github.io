@@ -24,14 +24,21 @@ src/
     team.json         团队成员
     jobs.json         开放职位
     collab.json       DFM 科学家合作计划页的全部文案
-    copy/             各页面文案：home / tech / about / careers / investors
+    copy/             各页面文案：home / tech / about / careers / investors / products
+    diagrams.json     各示意图的一句话主张与三项属性（含 DFM 总览图 overview）
     news/             新闻，一篇一个 JSON 文件
+    papers/           论文，一篇一个 JSON 文件（字段见 papers/_README.md）
   _includes/
     layouts/base.njk  页面外壳：头部、导航、语言切换、页脚、SEO / OG
     components/       可复用片段
   pages/              每个页面一个模板，自动生成 zh 与 en 两份
-  assets/             css / js / img / fonts
+  assets/             css / js / img / fonts / video
+scripts/
+  gen-dfm-overview.py 生成 DFM 总览图 _includes/diagrams/dfm-overview.njk
+  subset-cjk.py       生成中文标题字体子集（pnpm fonts）
 ```
+
+论文归档在「技术与论文」页（`/tech/`）的末尾 `#papers`；`/papers/` 只是一个跳到那里的跳转页。每篇论文的详情页仍在 `/papers/<slug>/`——Google Scholar 要求 PDF 与摘要页同目录，这些地址不能动。
 
 ## 日常维护
 
@@ -65,6 +72,27 @@ src/
 ### 更新团队成员
 
 编辑 `src/_data/team.json`。`photo` 留空时页面显示预留的圆形头像位；拿到正式照片后放入 `src/assets/img/team/`，填入路径即可。链接留空的不显示。
+
+### 新增一个产品
+
+「产品」页（`/products/`）按 `src/_data/copy/products.json` 的 `items` 逐条渲染，一个产品一个区块，顺序即编号。复制 ScienceBuddy 那一条，`zh` 与 `en` 各加一份：
+
+```json
+{
+  "key": "sciencebuddy",              // 区块锚点：/products/#sciencebuddy
+  "name": "ScienceBuddy",
+  "release": "sciencebuddy",          // site.json releases 里的键；未 live 时按钮显示发布日期，链接与视频不出现
+  "links": { "home": "sciencebuddy", "github": "sciencebuddy_github", "post": "sciencebuddy_video" },  // site.json links 里的键
+  "paper": "sciencebuddy",            // 论文 slug，用于「技术报告」链接
+  "news": "sciencebuddy",             // 新闻 slug，用于「发布公告」链接
+  "kind": "…", "tagline": "…", "lede": "…", "cta": "…",
+  "video": { "src": "/assets/video/….mp4", "poster": "/assets/img/…/….jpg", "duration": "0:33", "label": "…", "play": "…", "source": "…" },
+  "features": [{ "title": "…", "body": "…" }],
+  "proof": "…", "domains": ["…"], "labels": { "report": "…", "github": "…", "news": "…" }, "credit": "…"
+}
+```
+
+任何一项留空或缺失就不显示；没有 `video` 的产品排成单栏。视频放在站内自己播放：`src/assets/video/`，H.264 + AAC 的 MP4，720p 足够，索引放在文件头（`moov` 在 `mdat` 之前）以便边下边播；封面取视频里有内容的一帧，不要用开头的黑帧。播放器是 `assets/js/player.js`，页面 front matter 写 `player: true` 才加载；关掉 JS 时退回浏览器自带的播放控件。
 
 ### 修改文案
 
@@ -103,6 +131,7 @@ src/
 | `sciencebuddy.njk` | 一段对话 | 科学家和 AI 搭档之间的对话气泡（提问 → 调用工具回应 → 追问/修改/否定 → 再次回应 → 采纳/重新运行），右侧的研究轨迹每一次交互记一笔，底部的工作环境条随反馈变长 |
 | `scienceide.njk` | 代码库变成一排工作台 | 左边一个真实的科研代码库，"变成"一排可以运行、可以打分、可以重复的工作台（加速/发现/修复/复现/集成），AI 在里面做任务，做对亮勾，结果用来训练 AI |
 | `jepa.njk` | 先预测，再行动 | 左边是已经看过的数据（图像、生物、临床、分子、控制、物理），汇成"现在的世界状态"，右边分出三条候选做法的预测结果：可行（琥珀）、没有效果、代价太高 |
+| `dfm-overview.njk` | 论文图 1 | 智能扩展的三个阶段、当前基座模型与发现基座模型的对比、递归发现闭环；由 `scripts/gen-dfm-overview.py` 生成（坐标、曲线采样、箭头角度都在脚本里算，改图改脚本再运行，两个文件一起提交），`components/ovfig.njk` 在技术页与合作页以全宽放置；三个阶段用同一种蓝的三档深浅区分，琥珀点在"用外部证据检验解释" |
 | `program.njk` | 两边各带什么来 | 科学家带来真实问题、数据与研究环境、实验与专家反馈，PhAI 带来假设、模型工具与分析、下一个实验，在中间"在真实实验里一起验证"（琥珀），结果回到科学家手里 |
 
 图内标签是 PR Brief 对应段落的白话改写，措辞守 Brief 的审核原则（DFM 不是框架或成品、三个工作彼此独立、JEPA 标注探索中）。每张图只有一个琥珀元素。动效全部是 CSS（进入视口时描线，`offset-path` 上的光点，脉冲），鼠标悬停高亮对应分组，`prefers-reduced-motion` 下显示画完的静图。
@@ -162,18 +191,20 @@ src/
 
 ## 部署
 
-`pnpm deploy`：以 `HIDE_DRAFTS=1` 构建，把产物推送到 `main` 分支。GitHub Pages 按仓库设置（Source: Deploy from a branch，main / root）直接发布 `main` 上的静态文件，自定义域名由 `src/CNAME` 提供，`.nojekyll` 让 GitHub 不再做 Jekyll 处理。
+`pnpm run deploy`（不能写成 `pnpm deploy`，那是 pnpm 自带的命令）：以 `HIDE_DRAFTS=1` 构建，把产物推送到 `main` 分支。GitHub Pages 按仓库设置（Source: Deploy from a branch，main / root）直接发布 `main` 上的静态文件，自定义域名由 `src/CNAME` 提供，`.nojekyll` 让 GitHub 不再做 Jekyll 处理。
 
-源码在 `rebuild` 分支，`main` 只放构建产物。改完源码：先在 `rebuild` 上 commit 并 push，再 `pnpm deploy`。发布日当天把对应项目的 `live` 改为 `true`（新闻则把 `draft` 改为 `false`），再 `pnpm deploy` 一次。
+源码在 `rebuild` 分支，`main` 只放构建产物。改完源码：先在 `rebuild` 上 commit 并 push，再 `pnpm run deploy`。发布日当天把对应项目的 `live` 改为 `true`（新闻则把 `draft` 改为 `false`），再 `pnpm run deploy` 一次。
 
 ## 字体
 
 IBM Plex（Sans / Serif / Mono）子集化后自托管于 `src/assets/fonts/`，OFL 许可。中文正文使用系统字体：苹方 / Noto Sans SC / 微软雅黑。
 
-中文标题用衬线。macOS 有宋体，但 Windows 只有 SimSun（大字号下很难看），所以站点自带一份 Noto Serif SC 子集 `NotoSerifSC-Display.woff2`（约 100 KB），只包含标题、名字、标签等短文本里实际出现的汉字；正文不用它。**改过标题类文案后要重新生成**（需要本机 Python 与 `fontTools`、`brotli`，以及安装了 Noto Serif SC 变量字体）：
+中文标题用衬线。macOS 有宋体，但 Windows 只有 SimSun（大字号下很难看），所以站点自带一份 Noto Serif SC 子集 `NotoSerifSC-Display.woff2`（约 100 KB），只包含标题、名字、标签等短文本里实际出现的汉字；正文不用它。**改过标题类文案后要重新生成**。需要 `python3 -m pip install --user fonttools brotli`，以及 Noto Serif SC **2.002** 变量字体——即 Google Fonts 仓库 `google/fonts` 在提交 `c124e801978b` 的 `ofl/notoserifsc/NotoSerifSC[wght].ttf`（之后的 2.003 改了几个字形，会让已有标题的字悄悄变样）：
 
 ```bash
-pnpm fonts        # 运行 scripts/subset-cjk.py，覆盖 src/assets/fonts/NotoSerifSC-Display.woff2
+NOTO_SERIF_SC=/path/to/NotoSerifSC[wght].ttf pnpm fonts   # 覆盖 src/assets/fonts/NotoSerifSC-Display.woff2
 ```
+
+收录规则在脚本的 `HEAD_KEYS` 与 `SHORT`：键名是标题类（title、name、tagline、proof、claim 等）或长度不超过 28 字的字符串；`{"zh": …, "en": …}` 这一层沿用上一层的键名。
 
 没生成也不会坏：子集里缺的字会回退到系统宋体，只是那几个字的字形不一致。
