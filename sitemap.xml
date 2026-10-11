@@ -31,6 +31,11 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/investors/"/>
   </url>
   <url>
+    <loc>https://phai-labs.com/news/rsi-anything/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/rsi-anything/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/rsi-anything/"/>
+  </url>
+  <url>
     <loc>https://phai-labs.com/news/jepa-anything/</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/jepa-anything/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/jepa-anything/"/>
@@ -54,6 +59,11 @@
     <loc>https://phai-labs.com/news/dfm-launch/</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/dfm-launch/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/dfm-launch/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/news/rsi-anything/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/rsi-anything/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/rsi-anything/"/>
   </url>
   <url>
     <loc>https://phai-labs.com/en/news/jepa-anything/</loc>
