@@ -687,7 +687,7 @@ a.dgfig__link:focus-visible .dg__n--amber{fill:var(--amber-2)}
 .dgfig__attrs li{display:grid;grid-template-columns:auto 1fr;column-gap:.7rem;align-items:baseline}
 .dgfig__attrs i{width:6px;height:6px;border-radius:50%;background:var(--blue);display:inline-block;transform:translateY(-2px)}
 .dgfig__attrs b{font-family:var(--serif);font-weight:400;font-size:var(--t-2);color:var(--ink);letter-spacing:-.01em}
-html[lang="zh-CN"] .dgfig__attrs b{letter-spacing:0}
+html[lang="zh-CN"] .dgfig__attrs b{letter-spacing:0;text-wrap:balance}
 /* The column is 13rem. "Evaluable" fits there at display size; "A workspace
    that improves" does not, and breaks into four lines. English labels are
    phrases where the Chinese ones are two or three characters, so the

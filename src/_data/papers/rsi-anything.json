@@ -63,6 +63,7 @@
   "abstract": "Recursive self-improvement (RSI) aims to transform interaction experience into persistent improvements, yet external feedback is costly and world-model predictions may become unreliable as policies evolve. We introduce RSI-Anything, a domain-general framework built on JEPA-Anything that uses predictive world models to guide action and learning-data selection. Observed feedback drives policy or workflow improvement and conditional world-model adaptation, while component and compatibility checks govern the retention of updated policy–model pairs. Across diverse computational and scientific domains, RSI-Anything demonstrates substantial gains. In code repair, with the coder fixed, success increases from 26.3% with a static verifier to 29.2% through predictive selection and 31.2% after world-model adaptation, at comparable test usage. Graphical user interface (GUI) evaluations showed higher task completion, while average actions decrease by 39.4%. Across five successive policy versions, laboratory-planning scores more than double from 21.80% to 46.01%. In reaction optimization, RSI-Anything achieves 96.15% mean best observed yield versus 82.16% for Bayesian optimization under the same 40-experiment budget. An end-to-end immune-science application further connects workflow evolution and predictive modeling with therapeutic hypothesis generation. These results demonstrate how predictive world models and retained system updates enable recursive improvement across diverse environments.",
   "pdf": "rsi-anything-technical-report-v1-2026-10.pdf",
   "release_key": "rsi",
+  "art": "rsi",
   "latest": true,
   "arxiv": "",
   "version_doi": "",
@@ -70,11 +71,43 @@
   "license": "",
   "zh": {
     "summary": "让世界模型进入递归自我改进的闭环：借助预测挑选送去外部评估的候选和用于学习的数据，用反馈更新策略或工作流，预测被判定不可靠时再尝试更新世界模型；更新须通过组件与兼容性检查才保留。论文在代码修复、GUI 交互、实验室操作规划和反应条件优化上做了评测，并给出一个免疫学端到端应用。",
-    "short": "RSI-Anything 跨领域递归自我改进"
+    "short": "RSI-Anything 基于世界模型的递归自我改进",
+    "subtitle": "基于世界模型的跨领域递归自我改进",
+    "role": "建立在 JEPA-Anything 之上：用世界模型的预测挑选值得真实检验的候选，用反馈改进策略或工作流，预测不可靠时再尝试更新世界模型，只保留通过检查的更新。",
+    "intro": [
+      "RSI-Anything 是一项关于递归自我改进（Recursive Self-Improvement, RSI）的方法研究，以 JEPA-Anything 作为跨领域的预测基础。",
+      "递归自我改进希望把每一轮交互得到的经验，变成系统在下一轮行动和学习时还能用上的持久改进。难点有两处：外部反馈的代价高，运行测试、做实验都要成本，能拿去真实检验的候选有限；策略一旦更新，它提出的候选就变了，世界模型原本可靠的预测未必还可靠。策略和世界模型各自变好，并不保证两者组合起来也变好。",
+      "RSI-Anything 的做法是：用世界模型的预测挑选候选，决定哪些值得拿去做外部评估、哪些经验用于学习；真实反馈回来后，用它改进策略或智能体工作流；只有当预测被判定为不可靠、且数据和预算都足够时，才尝试更新世界模型。两者可以按各自的节奏更新，新版本先通过各自的检查，组合起来还要在相同条件下与当前组合比较，达到预先设定的标准才保留。保留下来的这一组策略与世界模型，决定下一轮会提出什么候选、积累什么经验，改进由此一轮接一轮地延续。"
+    ],
+    "bullets_title": "评测场景",
+    "bullets": [
+      "代码修复",
+      "GUI 交互",
+      "实验室操作规划",
+      "反应条件优化",
+      "免疫学端到端应用"
+    ],
+    "note": "技术报告、GitHub 代码仓库与 Hugging Face 上的模型均已公开。"
   },
   "en": {
     "summary": "World models inside the recursive self-improvement loop: predictions guide which candidates receive external evaluation; feedback updates the policy or workflow, and the world model once its predictions prove unreliable; updates are kept only if they pass component and compatibility checks. Evaluated on code repair, GUI interaction, laboratory planning and reaction optimization, plus an end-to-end immune-science application.",
-    "short": "RSI-Anything, world models for recursive self-improvement"
+    "short": "RSI-Anything, world models for recursive self-improvement",
+    "subtitle": "Cross-domain recursive self-improvement with world models",
+    "role": "Built on JEPA-Anything: world-model predictions pick which candidates to test for real; feedback improves the policy or workflow, and the world model once its predictions prove unreliable; only updates that pass their checks are kept.",
+    "intro": [
+      "RSI-Anything is a method study of recursive self-improvement (RSI) that takes JEPA-Anything as its cross-domain predictive foundation.",
+      "Recursive self-improvement aims to turn what a system learns in one round of interaction into lasting improvements it still uses when it acts and learns in the next. Two things get in the way. External feedback is expensive: running tests or experiments costs something, so only a few candidates can be checked for real. And once the policy changes, so do the candidates it proposes, and a world model that predicted well before may no longer do so. Improving the policy and the world model separately does not guarantee that the pair works better together.",
+      "RSI-Anything uses world-model predictions to choose which candidates go out for external evaluation and which experience is used for learning. When real feedback comes back it improves the policy or the agent workflow, and the world model is adapted only when its predictions are judged unreliable and there is enough data and budget to do so. The two can update on their own schedules. Each new version first has to pass its own check, and the assembled pair is then compared with the current one under the same conditions; it is kept only if it meets criteria fixed in advance. The pair that is kept shapes which candidates the next round proposes and what experience it gathers, which is what makes the improvement recursive."
+    ],
+    "bullets_title": "Where it is evaluated",
+    "bullets": [
+      "Code repair",
+      "GUI interaction",
+      "Laboratory planning",
+      "Reaction optimization",
+      "An end-to-end immune-science application"
+    ],
+    "note": "The technical report, the GitHub repository and the models on Hugging Face are public."
   },
   "links": {
     "github": "https://github.com/Gen-Verse/RSI-Anything",
@@ -83,6 +116,7 @@
     "project": "",
     "demo": "",
     "video": "",
-    "x": ""
+    "x": "",
+    "product": ""
   }
 }

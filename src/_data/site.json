@@ -21,7 +21,10 @@
     "scienceide_github": "https://github.com/aitofound/ScienceIDE",
     "jepa_paper": "https://phai-labs.com/papers/jepa-anything/jepa-anything-technical-report-v1-2026-09.pdf",
     "jepa_models": "https://huggingface.co/collections/Gen-Verse/jepa-anything",
-    "jepa_code": "https://github.com/Gen-Verse/JEPA-Anything"
+    "jepa_code": "https://github.com/Gen-Verse/JEPA-Anything",
+    "rsi_paper": "https://phai-labs.com/papers/rsi-anything/rsi-anything-technical-report-v1-2026-10.pdf",
+    "rsi_models": "https://huggingface.co/datasets/Gen-Verse/RSI-Anything",
+    "rsi_code": "https://github.com/Gen-Verse/RSI-Anything"
   },
   "qr": {
     "rednote": "/assets/img/social/rednote-qr.png",

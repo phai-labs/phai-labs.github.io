@@ -75,6 +75,7 @@
     "pub_lede": "PhAI Labs 的公开研究记录：技术报告、预印本与会议论文。",
     "pub_jump": "查看论文",
     "pub_anchor": "论文",
+    "pub_intro": "介绍",
     "pub_abstract": "摘要",
     "pub_authors": "作者",
     "pub_record": "期刊/会议",
@@ -95,6 +96,7 @@
       "huggingface_model": "Hugging Face · 模型",
       "huggingface_data": "Hugging Face · 数据",
       "project": "项目主页",
+      "product": "产品介绍",
       "demo": "演示",
       "video": "视频",
       "x": "X"
@@ -176,6 +178,7 @@
     "pub_lede": "The public research record of PhAI Labs: technical reports, preprints and conference papers.",
     "pub_jump": "Jump to papers",
     "pub_anchor": "Papers",
+    "pub_intro": "Overview",
     "pub_abstract": "Abstract",
     "pub_authors": "Authors",
     "pub_record": "Venue",
@@ -196,6 +199,7 @@
       "huggingface_model": "Hugging Face · Models",
       "huggingface_data": "Hugging Face · Datasets",
       "project": "Project page",
+      "product": "Product page",
       "demo": "Demo",
       "video": "Video",
       "x": "X"

@@ -220,7 +220,7 @@ text(FX, 326, ["从解决任务", "到构建研究"], ["from solving tasks", "to
      "ov__flow ov__flow--it dg__fade", anchor="middle", lh=17, d=2.0)
 
 # ------------------------------------------------------------------ C. discovery foundation models
-text(CX + 20, 38, "发现基座模型", "Discovery Foundation Models", "ov__h dg__fade", d=.5)
+text(CX + 20, 38, "Discovery Foundation Models", "Discovery Foundation Models", "ov__h dg__fade", d=.5)
 text(CX + 20, 60, "作用于知识生产过程", "operating on the knowledge-production process", "ov__sub dg__fade", d=.55)
 C_ROWS = [
     ("识别有价值的未知", "问题发现与形式化", "Identify valuable unknowns", "problem discovery and formulation"),

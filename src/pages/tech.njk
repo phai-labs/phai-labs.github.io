@@ -18,10 +18,6 @@ eleventyComputed:
 {%- set anchors = [
   ['direction', '技术方向' if lang == 'zh' else 'Direction'],
   ['dfm', 'DFM'],
-  ['sciencebuddy', 'ScienceBuddy'],
-  ['scienceide', 'ScienceIDE'],
-  ['jepa', 'JEPA-Anything'],
-  ['roadmap', '路线' if lang == 'zh' else 'Roadmap'],
   ['papers', s.pub_anchor]
 ] -%}
 
@@ -80,69 +76,11 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="sec sec--statement" id="works">
-  <div class="shell split">
-    <div><p class="eyebrow"><span class="num">03</span>{{ '三个独立的研究与工程方向' if lang == 'zh' else 'Three independent directions' }}</p></div>
-    <div class="prose prose--lg"><p>{{ t.projects_intro }}</p></div>
-  </div>
-</section>
-
-{%- for pr in t.projects %}
-{%- set r = site.releases[pr.key] %}
-<section class="sec sec--project" data-field="grid" id="{{ pr.key }}">
-  <div class="shell split split--project">
-    <div>
-      <p class="eyebrow"><span class="num">0{{ loop.index + 3 }}</span>{{ s.independent }}<span class="sep">·</span>{{ r.date | dateShort(lang) }}</p>
-      <h2 class="display-2">{{ pr.name }}<span class="display-2__sub">{{ pr.subtitle }}</span></h2>
-      <p class="project__role">{{ pr.role }}</p>
-    </div>
-    <div>
-      <div class="prose">{% for p in pr.body %}<p>{{ p }}</p>{% endfor %}</div>
-      <p class="prose__note">{{ pr.status }}</p>
-      <p class="links">
-        {%- for l in pr.links %}{% set rl = {label: l.label, key: l.key, href: (l.href | localeUrl(lang)) if (l.href and l.href[0] == '/') else l.href} %}{% include "components/rlink.njk" %}{% endfor %}
-      </p>
-    </div>
-  </div>
-  <div class="shell">
-    {%- set dg = pr.key %}{% set dg_href = '' %}{% include "components/dgfig.njk" %}
-    {%- if pr.bullets.length %}
-    <p class="subhead">{{ pr.bullets_title }}</p>
-    <ul class="checks checks--dg">{% for b in pr.bullets %}<li>{{ b }}</li>{% endfor %}</ul>
-    {%- endif %}
-  </div>
-</section>
-{%- endfor %}
-
-<section class="sec sec--composition" data-field="flow" id="composition">
-  <div class="shell">
-    <p class="eyebrow"><span class="num">07</span>{{ t.composition.eyebrow }}</p>
-    <div class="split">
-      <h2 class="display-2">{{ t.composition.title }}</h2>
-      <p class="lede">{{ t.composition.body }}</p>
-    </div>
-    {%- set nodes = t.composition.nodes %}{% set amber = t.composition.amber %}
-    {%- include "components/loop.njk" %}
-    <p class="prose__note prose__note--wide">{{ t.composition.note }}</p>
-  </div>
-</section>
-
-<section class="sec sec--roadmap" data-field="calm" id="roadmap">
-  <div class="shell split">
-    <h2 class="display-2">{{ t.roadmap.title }}</h2>
-    <div>
-      <p class="lede">{{ t.roadmap.body }}</p>
-      {%- set cal = copy.home[lang].calendar %}
-      <p class="subhead">{{ cal.title }}</p>
-      <ol class="calendar">
-        {%- for c in cal.items %}{% set r = site.releases[c.key] %}
-        <li{% if r.live %} class="is-live"{% endif %}><time datetime="{{ r.date }}">{{ r.date | dateShort(lang) }}</time><span>{{ c.name }}</span></li>
-        {%- endfor %}
-      </ol>
-      <p class="actions"><a class="btn" href="{{ '/news/' | localeUrl(lang) }}">{{ s.all_news }} →</a></p>
-    </div>
-  </div>
-</section>
+{#- The page is about DFM. The works released around it -- ScienceBuddy,
+    ScienceIDE, JEPA-Anything and what follows -- are the paper records below;
+    each one's explanation and drawing lives on its own /papers/<slug>/ page
+    (`art` and zh/en `intro` in src/_data/papers/). The old project, roadmap and
+    composition sections were removed in October 2026. -#}
 
 {#- The paper archive that used to be /papers/, now the close of this page:
     the technology above says what the lab is building, the records below are
@@ -160,11 +98,18 @@ eleventyComputed:
     <ol class="pubs">
       {%- for p in publications %}
       {%- set r = site.releases[p.release_key] if p.release_key and site.releases[p.release_key] else null %}
-      <li class="pub rv" style="--k:{{ loop.index0 }}">
-        <p class="pub__meta">
+      {%- set c = p[lang] or {} %}
+      {#- The three works that used to have their own section here keep their
+          old anchors on their rows, so links to /tech/#sciencebuddy, #scienceide
+          and #jepa still land on that work. DFM keeps #dfm on its section. -#}
+      {%- set legacy = {sciencebuddy: 1, scienceide: 1, jepa: 1} %}
+      <li class="pub rv"{% if legacy[p.art] %} id="{{ p.art }}"{% endif %} style="--k:{{ loop.index0 }}">
+        <div class="pub__meta">
           <time datetime="{{ p.date }}">{{ p.date | fmtDate(lang) }}</time>
           {%- if p.topic %}<span class="pub__topic">{{ p.topic }}</span>{% endif %}
-        </p>
+          {%- if c.subtitle %}<p class="pub__sub">{{ c.subtitle }}</p>{% endif %}
+          {%- if c.role %}<p class="pub__role">{{ c.role }}</p>{% endif %}
+        </div>
         <div class="pub__body">
           <h3 class="pub__title"><a href="{{ p.slug | paperUrl(lang) }}">{{ p.title }}</a></h3>
           {%- if p.authors and p.authors.length %}<p class="pub__authors">{{ p.authors | authorLine }}</p>{% endif %}

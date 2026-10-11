@@ -17,6 +17,13 @@
 }
 .pub__meta time{color:var(--ink-2)}
 .pub__topic{color:var(--blue)}
+/* What the work is, in the page's own language, under the date and topic.
+   The column is set in mono caps; these two lines are prose, so they reset it. */
+.pub__sub,.pub__role{font-family:var(--sans);letter-spacing:0;text-transform:none}
+.pub__sub{margin-top:.45rem;font-size:.98rem;line-height:1.45;color:var(--ink)}
+.pub__role{font-size:.86rem;line-height:1.65;color:var(--ink-2);max-width:22em}
+/* Rows that carry an old /tech/#section id are deep-link targets under the sticky subnav. */
+.pub[id]{scroll-margin-top:1.5rem}
 .pub__body{grid-column:2;min-width:0}
 .pub__title{
   font-family:var(--serif);font-weight:400;font-size:var(--t-3);line-height:1.32;
@@ -75,6 +82,8 @@ html[lang="zh-CN"] .paper__title{max-width:22em;letter-spacing:-.025em}
   padding:.18rem .5rem;border:1px solid var(--rule);border-radius:999px;color:var(--amber);
 }
 
+/* The plain-language drawing for the work, between the actions and the rows. */
+.paper__fig .dgfig{margin-top:clamp(2.5rem,6vh,4rem)}
 .paper__rows{margin-top:clamp(2.5rem,6vh,4rem);border-top:1px solid var(--rule)}
 /* A narrow value column is what forces the abstract into a tall thin ribbon the
    reader has to scroll. Measured off Seed's own record page at 1440: label
@@ -96,6 +105,11 @@ html[lang="zh-CN"] .paper__title{max-width:22em;letter-spacing:-.025em}
   font-size:clamp(1rem,1.15vw,1.1rem);line-height:1.8;
 }
 .paper__note{margin-top:.55rem;font-size:.94rem;color:var(--ink-3)}
+.paper__sub{font-size:clamp(1.15rem,1.5vw,1.35rem);line-height:1.4;color:var(--ink)}
+.paper__role{margin-top:.45rem;font-size:1rem;line-height:1.7;color:var(--ink-2);max-width:40em}
+.paper__val--intro .prose{margin-top:1.4rem;max-width:44em;font-size:clamp(1rem,1.15vw,1.08rem);line-height:1.8}
+.paper__val--intro .subhead{margin-top:1.8rem}
+.paper__val--intro .paper__note{margin-top:1.6rem}
 .paper__note a{color:var(--blue);word-break:break-all}
 .paper__back{margin-block:clamp(2.5rem,6vh,4rem);font-size:var(--t-small)}
 .paper__back a{color:var(--ink-3);transition:color .25s var(--ease)}
@@ -127,7 +141,9 @@ html[lang="zh-CN"] .paper__title{max-width:22em;letter-spacing:-.025em}
 @media (max-width:860px){
   .pub,.paper__row{grid-template-columns:1fr;gap:.5rem}
   .pub__meta,.pub__body,.paper__label,.paper__val{grid-column:1}
-  .pub__meta{flex-direction:row;align-items:center;gap:.8rem}
+  .pub__meta{flex-direction:row;flex-wrap:wrap;align-items:center;gap:.4rem .8rem}
+  .pub__sub,.pub__role{flex-basis:100%;max-width:none}
+  .pub__sub{margin-top:.2rem}
   .pub__body{margin-top:.4rem}
   .paper__label{padding-top:0}
   .paper__val{margin-top:.2rem}

@@ -67,9 +67,11 @@ eleventyComputed:
         {%- else %}
         <span class="btn btn--wait">{{ s.pub_links.github }}<small>{{ (r.date | releaseLabel(lang)) if gated else s.pending }}</small></span>
         {%- endif %}
-        {%- for k in ['huggingface_model', 'huggingface_data', 'project', 'demo', 'video', 'x'] %}
+        {%- for k in ['huggingface_model', 'huggingface_data', 'project', 'product', 'demo', 'video', 'x'] %}
         {%- set href = p.links[k] if p.links else '' %}
-        {%- if href %}
+        {%- if href and href[0] == '/' %}
+        <a class="btn" href="{{ href | localeUrl(lang) }}">{{ s.pub_links[k] }} <span aria-hidden="true">→</span></a>
+        {%- elif href %}
         <a class="btn" href="{{ href }}" rel="noopener">{{ s.pub_links[k] }} <span aria-hidden="true">↗</span></a>
         {%- endif %}
         {%- endfor %}
@@ -83,7 +85,34 @@ eleventyComputed:
     </div>
   </header>
 
+  {%- set c = p[lang] or {} %}
+  {#- The plain-language account of the work and its drawing, moved here from
+      the old project sections of /tech/ in October 2026. Both are written in
+      the page's language; title, abstract and citation stay English. A record
+      without `art` or `intro` renders exactly as before. -#}
+  {%- if p.art %}
+  <div class="shell paper__fig">
+    {%- set dg = p.art %}{% set dg_href = '' %}{% include "components/dgfig.njk" %}
+  </div>
+  {%- endif %}
+
   <div class="shell paper__rows">
+    {%- if c.intro and c.intro.length %}
+    <section class="paper__row" id="overview">
+      <h2 class="paper__label">{{ s.pub_intro }}</h2>
+      <div class="paper__val paper__val--intro">
+        {%- if c.subtitle %}<p class="paper__sub">{{ c.subtitle }}</p>{% endif %}
+        {%- if c.role %}<p class="paper__role">{{ c.role }}</p>{% endif %}
+        <div class="prose">{% for para in c.intro %}<p>{{ para }}</p>{% endfor %}</div>
+        {%- if c.bullets and c.bullets.length %}
+        <p class="subhead">{{ c.bullets_title }}</p>
+        <ul class="checks checks--dg">{% for b in c.bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+        {%- endif %}
+        {%- if c.note %}<p class="paper__note">{{ c.note }}</p>{% endif %}
+      </div>
+    </section>
+    {%- endif %}
+
     <section class="paper__row">
       <h2 class="paper__label">{{ s.pub_abstract }}</h2>
       <div class="paper__val paper__val--abs"><p>{{ p.abstract }}</p></div>

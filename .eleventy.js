@@ -143,10 +143,14 @@ export default function (eleventyConfig) {
   // A paper flagged `latest` takes a seat as well. That is for work that
   // shipped as a report with no announcement in /news/, so its row opens the
   // paper page instead; its label is zh.short / en.short from the paper record.
-  eleventyConfig.addFilter("recentReleases", (lang, n = 4) => {
+  // Up to six rows: the strip is three across on a desktop, so six fills two
+  // rows; on a phone it is one column. A paper whose own announcement is already
+  // in the list (same slug) is not listed twice -- the announcement wins.
+  eleventyConfig.addFilter("recentReleases", (lang, n = 6) => {
     const today = todayCN();
+    const shipped = articles.filter((a) => a.category === "release" && a.date <= today);
     const papers = publications
-      .filter((p) => p.latest && p.date <= today)
+      .filter((p) => p.latest && p.date <= today && !shipped.some((a) => a.slug === p.slug))
       .map((p) => ({
         slug: p.slug,
         date: p.date,
@@ -154,7 +158,7 @@ export default function (eleventyConfig) {
         zh: { title: p.title, short: p.zh && p.zh.short },
         en: { title: p.title, short: p.en && p.en.short },
       }));
-    return [...articles.filter((a) => a.category === "release" && a.date <= today), ...papers]
+    return [...shipped, ...papers]
       .sort((x, y) => (x.date < y.date ? 1 : x.date > y.date ? -1 : 0))
       .slice(0, n)
       .map((a) => ({ ...factRow(a, a.date === today ? "today" : "past", lang), href: a.href }));

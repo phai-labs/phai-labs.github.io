@@ -29,7 +29,8 @@
   "related": [
     "dfm-launch",
     "sciencebuddy",
-    "scienceide"
+    "scienceide",
+    "rsi-anything"
   ],
   "zh": {
     "title": "JEPA-Anything · 跨领域统一科学世界模型：面向潜在世界模型的正交预测因子分解",

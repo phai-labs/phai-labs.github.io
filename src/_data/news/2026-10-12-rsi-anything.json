@@ -1,0 +1,66 @@
+{
+  "slug": "rsi-anything",
+  "date": "2026-10-12",
+  "draft": true,
+  "category": "release",
+  "cover": "",
+  "links": [
+    {
+      "label": {
+        "zh": "论文",
+        "en": "Paper"
+      },
+      "key": "rsi_paper"
+    },
+    {
+      "label": {
+        "zh": "模型",
+        "en": "Models"
+      },
+      "key": "rsi_models"
+    },
+    {
+      "label": {
+        "zh": "代码",
+        "en": "Code"
+      },
+      "key": "rsi_code"
+    }
+  ],
+  "related": [
+    "jepa-anything",
+    "sciencebuddy",
+    "dfm-launch"
+  ],
+  "zh": {
+    "title": "RSI-Anything · 跨领域递归自我改进：让世界模型参与系统的每一轮改进",
+    "summary": "RSI-Anything 把世界模型放进递归自我改进的闭环：先借助预测挑选值得拿去真实检验的候选，再用观测到的反馈改进策略或工作流，预测被判定不可靠时也尝试更新世界模型，只有通过检查的更新才会保留到下一轮。在代码模型固定的代码修复任务上，成功率从静态验证器的 26.3% 提高到 29.2%，更新世界模型后达到 31.2%。",
+    "body": [
+      "RSI-Anything 是一项关于递归自我改进（Recursive Self-Improvement, RSI）的方法研究，以 JEPA-Anything 作为跨领域的预测基础。",
+      "递归自我改进希望把每一轮交互得到的经验，变成系统在下一轮行动和学习时还能用上的持久改进。难点有两处：外部反馈的代价高，运行测试、做实验都要成本，能拿去真实检验的候选有限；策略一旦更新，它提出的候选就变了，世界模型原本可靠的预测未必还可靠。策略和世界模型各自变好，并不保证两者组合起来也变好。",
+      "RSI-Anything 的做法是：用世界模型的预测挑选候选，决定哪些值得拿去做外部评估、哪些经验用于学习；真实反馈回来后，用它改进策略或智能体工作流；只有当预测被判定为不可靠、且数据和预算都足够时，才尝试更新世界模型。两者可以按各自的节奏更新，新版本先通过各自的检查，组合起来还要在相同条件下与当前组合比较，达到预先设定的标准才保留。保留下来的这一组策略与世界模型，决定下一轮会提出什么候选、积累什么经验，改进由此一轮接一轮地延续。",
+      "论文在通用计算任务（代码修复、GUI 交互）、实验室操作规划和实验科学（反应条件优化）上做了评测，并给出一个免疫学的端到端应用，串起智能体工作流的演化、免疫世界模型的构建、带自我纠错的分析，以及前瞻性的治疗假设生成。",
+      "代码修复中，代码模型固定为 ReasonFlux-Coder-7B，每轮提出四个候选修改、只执行其中一个。在 200 道 CodeContests 题目、三个随机种子上，世界模型引导的选择把最终隐藏测试通过率从静态验证器的 26.3% 提高到 29.2%，再用执行反馈更新世界模型后达到 31.2%，每道题的在线测试调用次数基本相同。GUI 交互中，MiniWoB++ 勾选框任务的成功率从 51% 提高到 99%，平均操作步数减少 39.4%；在 OSWorld 上，任务成功率相对初始智能体提升 18.4%，相对 RLAnything 提升 5.5%（均为相对提升）。",
+      "实验室操作规划中，同一个 4B 策略在一次自我改进过程中先后产生的五个版本，在 LabHorizon F200 Level-2 上的得分从 21.80% 逐步提高到 46.01%。反应条件优化中，两组 Suzuki–Miyaura 偶联反应筛选在相同实验次数下的最佳产率都高于贝叶斯优化，其中流动化学 LC–MS 筛选在 40 次实验后的平均最佳产率为 96.15%，贝叶斯优化为 82.16%。免疫学应用最后提名了一个前瞻性的治疗假设：SIRPα 抑制联合 IL-36γ 轴调节，有待实验检验。",
+      "这些评测分别检验了框架的不同部分。策略与世界模型能否在同一任务中多轮持续地相互促进，还需要联合的多轮评测来确认；实验室结果评估的是与实验方案对齐的规划，真实执行需要在相应设备和流程上验证；化学结果限于报告的两组筛选和实验预算。以上是在论文选定的领域和任务上的观察。",
+      "技术报告、GitHub 代码仓库与 Hugging Face 上的模型均已公开。"
+    ],
+    "short": "RSI-Anything 基于世界模型的递归自我改进"
+  },
+  "en": {
+    "title": "RSI-Anything · recursive self-improvement across domains: world models in every round of improvement",
+    "summary": "RSI-Anything puts world models inside the recursive self-improvement loop: predictions pick which candidates are worth testing for real, observed feedback improves the policy or workflow, the world model is updated too once its predictions prove unreliable, and only updates that pass their checks carry into the next round. In code repair with the coder held fixed, success rises from 26.3% with a static verifier to 29.2% with predictive selection and 31.2% after world-model adaptation.",
+    "body": [
+      "RSI-Anything is a method study of recursive self-improvement (RSI) that takes JEPA-Anything as its cross-domain predictive foundation.",
+      "Recursive self-improvement aims to turn what a system learns in one round of interaction into lasting improvements it still uses when it acts and learns in the next. Two things get in the way. External feedback is expensive: running tests or experiments costs something, so only a few candidates can be checked for real. And once the policy changes, so do the candidates it proposes, and a world model that predicted well before may no longer do so. Improving the policy and the world model separately does not guarantee that the pair works better together.",
+      "RSI-Anything uses world-model predictions to choose which candidates go out for external evaluation and which experience is used for learning. When real feedback comes back it improves the policy or the agent workflow, and the world model is adapted only when its predictions are judged unreliable and there is enough data and budget to do so. The two can update on their own schedules. Each new version first has to pass its own check, and the assembled pair is then compared with the current one under the same conditions; it is kept only if it meets criteria fixed in advance. The pair that is kept shapes which candidates the next round proposes and what experience it gathers, which is what makes the improvement recursive.",
+      "The paper evaluates the framework on general computational tasks (code repair and GUI interaction), laboratory planning and experimental science (reaction optimization), and presents an end-to-end immune-science application that links agent-workflow evolution, construction of an immune world model, analysis with self-correction, and prospective therapeutic hypothesis generation.",
+      "In code repair the coder is fixed to ReasonFlux-Coder-7B, which proposes four candidate revisions per round, of which one is executed. Across 200 CodeContests tasks and three seeds, world-model-guided selection raises the final hidden-test pass rate from 26.3% with a static verifier to 29.2%, and adapting the world model with execution feedback brings it to 31.2%, with about the same number of online test calls per task. In GUI interaction, success on the MiniWoB++ checkbox task rises from 51% to 99% while average actions per episode fall by 39.4%; on OSWorld, task success improves by 18.4% relative to the initial agent and by 5.5% relative to RLAnything.",
+      "In laboratory planning, five successive versions of one 4B policy, produced by a single self-improvement process, raise the LabHorizon F200 Level-2 score step by step from 21.80% to 46.01%. In reaction optimization, both Suzuki–Miyaura screens reach a higher best yield than Bayesian optimization after the same number of experiments; in the flow LC–MS screen the mean best observed yield after 40 experiments is 96.15%, against 82.16% for Bayesian optimization. The immune-science application ends with a prospective therapeutic hypothesis, SIRPα inhibition combined with IL-36γ-axis modulation, which awaits experimental testing.",
+      "Each evaluation tests a different part of the framework. Whether the policy and the world model keep improving each other over many rounds within one task still needs joint multi-round evaluation; the laboratory results assess protocol-aligned planning, and real execution has to be checked on the relevant equipment and workflows; the chemistry results cover the two reported screens and their experiment budgets. These are observations on selected domains and tasks.",
+      "The technical report, the GitHub repository and the models on Hugging Face are public."
+    ],
+    "short": "RSI-Anything, world models for recursive self-improvement"
+  },
+  "art": "rsi"
+}
