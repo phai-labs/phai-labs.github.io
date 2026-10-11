@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://phai-labs.com/about/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/about/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/about/"/>
+    <loc>https://phai-labs.com/team/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/team/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/team/"/>
   </url>
   <url>
-    <loc>https://phai-labs.com/en/about/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/about/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/about/"/>
+    <loc>https://phai-labs.com/en/team/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/team/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/team/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/careers/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/careers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/careers/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/careers/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/careers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/careers/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/investors/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/investors/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/investors/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/investors/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/investors/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/investors/"/>
   </url>
   <url>
     <loc>https://phai-labs.com/news/jepa-anything/</loc>
@@ -61,14 +81,14 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/dfm-launch/"/>
   </url>
   <url>
-    <loc>https://phai-labs.com/careers/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/careers/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/careers/"/>
+    <loc>https://phai-labs.com/about/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/about/"/>
   </url>
   <url>
-    <loc>https://phai-labs.com/en/careers/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/careers/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/careers/"/>
+    <loc>https://phai-labs.com/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/about/"/>
   </url>
   <url>
     <loc>https://phai-labs.com/</loc>
@@ -81,16 +101,6 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/"/>
   </url>
   <url>
-    <loc>https://phai-labs.com/investors/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/investors/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/investors/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/en/investors/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/investors/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/investors/"/>
-  </url>
-  <url>
     <loc>https://phai-labs.com/news/</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/"/>
@@ -99,16 +109,6 @@
     <loc>https://phai-labs.com/en/news/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/"/>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/team/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/team/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/team/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/en/team/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/team/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/team/"/>
   </url>
   <url>
     <loc>https://phai-labs.com/collaborate/</loc>
@@ -141,6 +141,11 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/jepa-anything/"/>
   </url>
   <url>
+    <loc>https://phai-labs.com/papers/rsi-anything/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/rsi-anything/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/rsi-anything/"/>
+  </url>
+  <url>
     <loc>https://phai-labs.com/en/papers/dfm/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/dfm/"/>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/dfm/"/>
@@ -159,6 +164,11 @@
     <loc>https://phai-labs.com/en/papers/jepa-anything/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/jepa-anything/"/>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/jepa-anything/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/papers/rsi-anything/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/rsi-anything/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/rsi-anything/"/>
   </url>
   <url>
     <loc>https://phai-labs.com/products/</loc>

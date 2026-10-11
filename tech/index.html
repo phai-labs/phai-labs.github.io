@@ -499,7 +499,7 @@
   </div>
 </section><section class="sec sec--papers" data-field="calm" id="papers">
   <div class="shell">
-    <p class="eyebrow">论文<span class="sep">·</span>共 4 篇</p>
+    <p class="eyebrow">论文<span class="sep">·</span>共 5 篇</p>
     <div class="split">
       <h2 class="display-2">技术报告与论文</h2>
       <p class="lede">PhAI Labs 的公开研究记录：技术报告、预印本与会议论文。</p>
@@ -548,6 +548,18 @@
         <div class="pub__body">
           <h3 class="pub__title"><a href="/papers/jepa-anything/">JEPA-Anything: Learning Predictive Models across Different Worlds</a></h3><p class="pub__authors">Taoyong Cui, Zhongyao Wang, Xinyue Xu, Weiyang Liu, Zhaochen Yu, Yuying Zhang, Qiang Gao, Mengyue Yang, Wanli Ouyang, Pheng Ann Heng, Yingcheng Wu, Zhenfei Yin, Ling Yang</p>
           <p class="pub__abs">World modeling enables intelligence to anticipate consequences, guide interventions, and learn from interaction. Yet predictive models remain domain-specific: can a common learning principle support world modeling across radically different systems? We introduce JEPA-Anything, a domain-agnostic framework based on orthogonal predictive factorization (OPF). Extending joint-embedding predictive architectures, OPF decomposes latent targets into complementary factors, learns them through dedicated pathways, and recombines them within a shared predictive design. We evaluate JEPA-Anything across seven domains: vision, biology, clinical trajectories, control, molecular dynamics, physical fields, and weather. Experiments span representation learning, intervention prediction, out-of-distribution generalization, and long-horizon dynamics, including 10 matched dynamics tasks, forecasting of over 1,000 clinical events, and 100-step molecular rollouts across four systems. Against matched JEPA baselines, JEPA-Anything improves reported metrics on all 10 dynamics tasks and reduces single-intervention prediction error on Interventional Pong by 34.8%. It achieves the lowest one-step and 100-step molecular errors among compared methods in all four systems. Beyond prediction, a factor-nominated biological intervention receives experimental support in cell co-cultures, patient-derived organoids, tumor fragments, and mice; latent orbital modes recover the Keplerian scaling exponent with a fitted slope of −1.4991. These results support a common factorized predictive principle across heterogeneous worlds, connecting world modeling with intervention and experimentally grounded scientific discovery.</p>
+          <p class="pub__foot">
+            <span class="pub__venue">PhAI Labs Technical Report</span>
+          </p>
+        </div>
+      </li>
+      <li class="pub rv" style="--k:4">
+        <p class="pub__meta">
+          <time datetime="2026-10-10">2026年10月10日</time><span class="pub__topic">Self-Improvement</span>
+        </p>
+        <div class="pub__body">
+          <h3 class="pub__title"><a href="/papers/rsi-anything/">RSI-Anything: Unlocking Recursive Self-Improvement with World Models</a></h3><p class="pub__authors">Taoyong Cui, Pinxian Zeng, Wanghan Xu, Hao Xiao, Shuhan Xue, Qiang Gao, Wanli Ouyang, Pheng Ann Heng, Zhenfei Yin, Yingcheng Wu, Ling Yang</p>
+          <p class="pub__abs">Recursive self-improvement (RSI) aims to transform interaction experience into persistent improvements, yet external feedback is costly and world-model predictions may become unreliable as policies evolve. We introduce RSI-Anything, a domain-general framework built on JEPA-Anything that uses predictive world models to guide action and learning-data selection. Observed feedback drives policy or workflow improvement and conditional world-model adaptation, while component and compatibility checks govern the retention of updated policy–model pairs. Across diverse computational and scientific domains, RSI-Anything demonstrates substantial gains. In code repair, with the coder fixed, success increases from 26.3% with a static verifier to 29.2% through predictive selection and 31.2% after world-model adaptation, at comparable test usage. Graphical user interface (GUI) evaluations showed higher task completion, while average actions decrease by 39.4%. Across five successive policy versions, laboratory-planning scores more than double from 21.80% to 46.01%. In reaction optimization, RSI-Anything achieves 96.15% mean best observed yield versus 82.16% for Bayesian optimization under the same 40-experiment budget. An end-to-end immune-science application further connects workflow evolution and predictive modeling with therapeutic hypothesis generation. These results demonstrate how predictive world models and retained system updates enable recursive improvement across diverse environments.</p>
           <p class="pub__foot">
             <span class="pub__venue">PhAI Labs Technical Report</span>
           </p>
