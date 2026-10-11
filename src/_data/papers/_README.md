@@ -35,6 +35,7 @@ and builds `/papers/<slug>/` in both languages from it.
 | `arxiv` | Bare id, e.g. `2609.01234`. When present it leads the citation and the DOI drops to the archive line. |
 | `vanity` | Optional short link. `"dfm"` also answers at `/dfm/` and `/en/dfm/`, which redirect to the canonical page — that is the URL to print on a slide or inside the PDF. The stub is a 0-second meta refresh plus `rel=canonical` (GitHub Pages is static; there is no real 301), is kept out of `sitemap.xml`, and works with JavaScript disabled. A vanity that collides with a real page fails the build rather than overwriting it. |
 | `release_key` | Key into `site.releases`. While that release is `live: false`, the PDF / DOI / code buttons render as dated "pending" rows instead of dead links. Keep it set — a bare empty field means no gate. |
+| `latest` | Optional. `true` puts the paper on the homepage's 最新工作 / Latest work strip, which otherwise lists only release announcements from `src/_data/news/`. Use it for work that shipped as a report with no news post: the row opens the paper page and is labelled by `zh.short` / `en.short`. The strip keeps the four newest entries, so a new one pushes the oldest off. |
 
 Every link goes through the release gate. An entry with no `pdf`, `arxiv` or
 `version_doi` still renders a complete bibliographic record; only the buttons wait.

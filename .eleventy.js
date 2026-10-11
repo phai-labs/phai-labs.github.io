@@ -140,13 +140,24 @@ export default function (eleventyConfig) {
   // The homepage strip once a launch is over: what has actually shipped,
   // newest first. A release dated today keeps its badge; anything still ahead
   // is left to /news/, because this row is about what is out.
+  // A paper flagged `latest` takes a seat as well. That is for work that
+  // shipped as a report with no announcement in /news/, so its row opens the
+  // paper page instead; its label is zh.short / en.short from the paper record.
   eleventyConfig.addFilter("recentReleases", (lang, n = 4) => {
     const today = todayCN();
-    return articles
-      .filter((a) => a.category === "release" && a.date <= today)
+    const papers = publications
+      .filter((p) => p.latest && p.date <= today)
+      .map((p) => ({
+        slug: p.slug,
+        date: p.date,
+        href: `/papers/${p.slug}/`,
+        zh: { title: p.title, short: p.zh && p.zh.short },
+        en: { title: p.title, short: p.en && p.en.short },
+      }));
+    return [...articles.filter((a) => a.category === "release" && a.date <= today), ...papers]
       .sort((x, y) => (x.date < y.date ? 1 : x.date > y.date ? -1 : 0))
       .slice(0, n)
-      .map((a) => factRow(a, a.date === today ? "today" : "past", lang));
+      .map((a) => ({ ...factRow(a, a.date === today ? "today" : "past", lang), href: a.href }));
   });
 
   eleventyConfig.addFilter("articleHref", (slug, lang, fallback) => {
