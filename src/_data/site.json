@@ -55,6 +55,11 @@
       "date": "2026-09-18",
       "live": true,
       "url": ""
+    },
+    "rsi": {
+      "date": "2026-10-10",
+      "live": true,
+      "url": ""
     }
   },
   "_releases_readme": "Flip live to true on each release day. A project's product/page url is shown only when live; every other link key in links stays a pending row until it has an href.",

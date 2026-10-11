@@ -1,0 +1,85 @@
+{
+  "slug": "rsi-anything",
+  "status": "published",
+  "date": "2026-10-10",
+  "title": "RSI-Anything: Unlocking Recursive Self-Improvement with World Models",
+  "bibtitle": "{RSI-Anything}: Unlocking Recursive Self-Improvement with World Models",
+  "authors": [
+    {
+      "name": "Taoyong Cui",
+      "sort": "Cui, Taoyong"
+    },
+    {
+      "name": "Pinxian Zeng",
+      "sort": "Zeng, Pinxian"
+    },
+    {
+      "name": "Wanghan Xu",
+      "sort": "Xu, Wanghan"
+    },
+    {
+      "name": "Hao Xiao",
+      "sort": "Xiao, Hao"
+    },
+    {
+      "name": "Shuhan Xue",
+      "sort": "Xue, Shuhan"
+    },
+    {
+      "name": "Qiang Gao",
+      "sort": "Gao, Qiang"
+    },
+    {
+      "name": "Wanli Ouyang",
+      "sort": "Ouyang, Wanli"
+    },
+    {
+      "name": "Pheng Ann Heng",
+      "sort": "Heng, Pheng Ann",
+      "corresponding": true
+    },
+    {
+      "name": "Zhenfei Yin",
+      "sort": "Yin, Zhenfei",
+      "corresponding": true
+    },
+    {
+      "name": "Yingcheng Wu",
+      "sort": "Wu, Yingcheng",
+      "corresponding": true
+    },
+    {
+      "name": "Ling Yang",
+      "sort": "Yang, Ling",
+      "corresponding": true
+    }
+  ],
+  "venue": "PhAI Labs Technical Report",
+  "type": "technical-report",
+  "number": "PHAI-TR-2026-05",
+  "version": "v1",
+  "topic": "Self-Improvement",
+  "bibkey": "cui2026rsi",
+  "abstract": "Recursive self-improvement (RSI) aims to transform interaction experience into persistent improvements, yet external feedback is costly and world-model predictions may become unreliable as policies evolve. We introduce RSI-Anything, a domain-general framework built on JEPA-Anything that uses predictive world models to guide action and learning-data selection. Observed feedback drives policy or workflow improvement and conditional world-model adaptation, while component and compatibility checks govern the retention of updated policy–model pairs. Across diverse computational and scientific domains, RSI-Anything demonstrates substantial gains. In code repair, with the coder fixed, success increases from 26.3% with a static verifier to 29.2% through predictive selection and 31.2% after world-model adaptation, at comparable test usage. Graphical user interface (GUI) evaluations showed higher task completion, while average actions decrease by 39.4%. Across five successive policy versions, laboratory-planning scores more than double from 21.80% to 46.01%. In reaction optimization, RSI-Anything achieves 96.15% mean best observed yield versus 82.16% for Bayesian optimization under the same 40-experiment budget. An end-to-end immune-science application further connects workflow evolution and predictive modeling with therapeutic hypothesis generation. These results demonstrate how predictive world models and retained system updates enable recursive improvement across diverse environments.",
+  "pdf": "rsi-anything-technical-report-v1-2026-10.pdf",
+  "release_key": "rsi",
+  "arxiv": "",
+  "version_doi": "",
+  "concept_doi": "",
+  "license": "",
+  "zh": {
+    "summary": "让世界模型进入递归自我改进的闭环：借助预测挑选送去外部评估的候选和用于学习的数据，用反馈更新策略或工作流，预测被判定不可靠时再尝试更新世界模型；更新须通过组件与兼容性检查才保留。论文在代码修复、GUI 交互、实验室操作规划和反应条件优化上做了评测，并给出一个免疫学端到端应用。"
+  },
+  "en": {
+    "summary": "World models inside the recursive self-improvement loop: predictions guide which candidates receive external evaluation; feedback updates the policy or workflow, and the world model once its predictions prove unreliable; updates are kept only if they pass component and compatibility checks. Evaluated on code repair, GUI interaction, laboratory planning and reaction optimization, plus an end-to-end immune-science application."
+  },
+  "links": {
+    "github": "",
+    "huggingface_model": "",
+    "huggingface_data": "",
+    "project": "",
+    "demo": "",
+    "video": "",
+    "x": ""
+  }
+}
