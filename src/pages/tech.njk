@@ -16,7 +16,6 @@ eleventyComputed:
 {%- set t = copy.tech[lang] -%}
 {%- set s = i18n[lang] -%}
 {%- set anchors = [
-  ['direction', '技术方向' if lang == 'zh' else 'Direction'],
   ['dfm', 'DFM'],
   ['papers', s.pub_anchor]
 ] -%}
@@ -38,16 +37,9 @@ eleventyComputed:
   <div class="shell subnav__inner">{% for a in anchors %}<a href="#{{ a[0] }}">{{ a[1] }}</a>{% endfor %}</div>
 </nav>
 
-<section class="sec sec--statement" id="direction">
-  <div class="shell split">
-    <div><p class="eyebrow"><span class="num">01</span>{{ t.direction.title | brand | safe }}</p></div>
-    <div class="prose prose--lg">{% for p in t.direction.body %}<p>{{ p }}</p>{% endfor %}</div>
-  </div>
-</section>
-
 <section class="sec sec--dfm" data-field="flow" id="dfm">
   <div class="shell">
-    <p class="eyebrow"><span class="num">02</span>{{ t.dfm.title }}</p>
+    <p class="eyebrow">{{ t.dfm.title }}</p>
     <div class="split">
       <h2 class="display-2">{{ t.dfm.heading }}</h2>
       <p class="lede">{{ t.dfm.what_it_is }}</p>
@@ -67,20 +59,19 @@ eleventyComputed:
     </ol>
 
     <p class="links">
-      {%- if site.links.dfm_report %}<a class="link" href="{{ site.links.dfm_report }}">{{ t.dfm.links.report_label }} ↗</a>
-      {%- else %}<span class="link link--pending"><span>{{ t.dfm.links.report_label }}</span><small>{{ t.dfm.links.pending_label }}</small></span>{% endif %}
-      {%- if site.links.dfm_github %}<a class="link" href="{{ site.links.dfm_github }}">{{ t.dfm.links.github_label }} ↗</a>
-      {%- else %}<span class="link link--pending"><span>{{ t.dfm.links.github_label }}</span><small>{{ t.dfm.links.pending_label }}</small></span>{% endif %}
+      {%- if site.links.dfm_report %}<a class="link" href="{{ site.links.dfm_report }}">{{ t.dfm.links.report_label }} ↗</a>{% endif %}
+      {%- if site.links.dfm_github %}<a class="link" href="{{ site.links.dfm_github }}">{{ t.dfm.links.github_label }} ↗</a>{% endif %}
     </p>
     <p class="prose__note prose__note--wide">{{ t.dfm.github_note }}</p>
   </div>
 </section>
 
 {#- The page is about DFM. The works released around it -- ScienceBuddy,
-    ScienceIDE, JEPA-Anything and what follows -- are the paper records below;
-    each one's explanation and drawing lives on its own /papers/<slug>/ page
-    (`art` and zh/en `intro` in src/_data/papers/). The old project, roadmap and
-    composition sections were removed in October 2026. -#}
+    ScienceIDE, JEPA-Anything and what follows -- are the paper records below,
+    each with its drawing at thumbnail size; the full-size drawing and the
+    explanation live on its own /papers/<slug>/ page (`art` and zh/en `intro`
+    in src/_data/papers/). The old project, roadmap, composition and direction
+    sections were removed in October 2026. -#}
 
 {#- The paper archive that used to be /papers/, now the close of this page:
     the technology above says what the lab is building, the records below are
@@ -99,21 +90,21 @@ eleventyComputed:
       {%- for p in publications %}
       {%- set r = site.releases[p.release_key] if p.release_key and site.releases[p.release_key] else null %}
       {%- set c = p[lang] or {} %}
-      {#- The three works that used to have their own section here keep their
-          old anchors on their rows, so links to /tech/#sciencebuddy, #scienceide
-          and #jepa still land on that work. DFM keeps #dfm on its section. -#}
-      {%- set legacy = {sciencebuddy: 1, scienceide: 1, jepa: 1} %}
-      <li class="pub rv"{% if legacy[p.art] %} id="{{ p.art }}"{% endif %} style="--k:{{ loop.index0 }}">
+      {%- set href = p.slug | paperUrl(lang) %}
+      {#- Each row's id is its drawing key, so a paper page's back link lands on
+          its own row and the old /tech/#sciencebuddy, #scienceide and #jepa
+          links still land on that work. DFM keeps #dfm on its section. -#}
+      <li class="pub rv"{% if p.art and p.art != 'dfm' %} id="{{ p.art }}"{% endif %} style="--k:{{ loop.index0 }}">
         <div class="pub__meta">
           <time datetime="{{ p.date }}">{{ p.date | fmtDate(lang) }}</time>
-          {%- if p.topic %}<span class="pub__topic">{{ p.topic }}</span>{% endif %}
-          {%- if c.subtitle %}<p class="pub__sub">{{ c.subtitle }}</p>{% endif %}
           {%- if c.role %}<p class="pub__role">{{ c.role }}</p>{% endif %}
+          {#- The drawing at thumbnail size; the title is the row's real link,
+              so this copy stays out of the tab order and the reading order. #}
+          {%- if p.art %}<a class="pub__art" href="{{ href }}" tabindex="-1" aria-hidden="true">{% set dg = p.art %}{% include "components/diagram.njk" %}</a>{% endif %}
         </div>
         <div class="pub__body">
-          <h3 class="pub__title"><a href="{{ p.slug | paperUrl(lang) }}">{{ p.title }}</a></h3>
+          <h3 class="pub__title"><a href="{{ href }}">{{ p.title }}</a></h3>
           {%- if p.authors and p.authors.length %}<p class="pub__authors">{{ p.authors | authorLine }}</p>{% endif %}
-          <p class="pub__abs">{{ p.abstract }}</p>
           <p class="pub__foot">
             <span class="pub__venue">{{ p | venueLabel }}</span>
             {%- if r and not r.live %}<span class="pub__pending">{{ r.date | releaseLabel(lang) }}</span>{% endif %}

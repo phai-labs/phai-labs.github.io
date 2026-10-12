@@ -1,18 +1,10 @@
 {
   "zh": {
     "hero": {
-      "eyebrow": "PhAI Labs · 技术与论文",
+      "eyebrow": "PhAI Labs · 技术",
       "title": "面向*科学发现*的技术体系",
       "lede": "PhAI Labs 的技术工作围绕一个问题展开：如何让 AI 系统参与真实的科学发现。DFM 是我们为此提出的研究范式；DFM 技术报告与此后陆续独立发布的各项工作，收录在页面末尾。",
-      "description": "PhAI Labs 的技术与论文：DFM 研究范式，以及围绕它发布的全部技术报告与论文。"
-    },
-    "direction": {
-      "title": "PhAI 的技术方向",
-      "body": [
-        "今天的 AI 已经能够检索文献、生成代码、处理数据并辅助完成部分科研任务。但真正的科学发现，往往始于一个尚未被清晰定义的问题，并经历假设形成、证据组织、工具调用、实验验证以及持续修正。这些过程无法只在标准数据集或封闭任务中完成。",
-        "公开数据已经见底。模型训练最缺的不是更多文本，而是带有真实结果的科学数据：一个假设被验证或被推翻，一个实验成功或失败。这样的数据无法从网上抓取，只能在真实科研过程中产生。",
-        "因此我们把方向定在科学智能本身：让系统从真实任务和环境反馈中持续学习、验证并改进。数据训练模型，模型设计下一个实验；实验返回的每一个结果，包括失败，都成为下一轮训练的信号。这是 PhAI Labs 长期关注大模型、强化学习、智能体与科学智能的原因，也是 DFM 的出发点。"
-      ]
+      "description": "PhAI Labs 的技术：DFM 研究范式，以及围绕它发布的全部技术报告与论文。"
     },
     "dfm": {
       "title": "DFM · Discovery Foundation Models",
@@ -50,8 +42,7 @@
       ],
       "links": {
         "report_label": "DFM 技术报告",
-        "github_label": "GitHub",
-        "pending_label": "9 月 15 日公开"
+        "github_label": "GitHub"
       },
       "heading": "围绕 Discovery Intelligence 的研究范式",
       "github_note": "DFM 技术研究版图仓库呈现 Discovery Loop 的概念结构、研究方向、开源计划、Demo 和开发者协作机会。仓库中的研究目录和方向标记，是对未来研究范围的公开预留，不代表对应实现均已完成或发布。",
@@ -77,18 +68,10 @@
   },
   "en": {
     "hero": {
-      "eyebrow": "PhAI Labs · Tech & Papers",
+      "eyebrow": "PhAI Labs · Technology",
       "title": "Technology for scientific *discovery*",
       "lede": "PhAI Labs' technical work turns on one question: how can AI systems take part in real scientific discovery. DFM is the research paradigm we propose for it; its technical report and the works released independently since are collected at the end of this page.",
-      "description": "PhAI Labs' technology and papers: the DFM research paradigm, and every technical report and paper released around it."
-    },
-    "direction": {
-      "title": "Our technical direction",
-      "body": [
-        "AI can already retrieve literature, generate code, process data and assist with parts of the research workflow. But discovery usually begins with a question that is not yet well defined, and advances through hypotheses, evidence, tools, experiments and continuous revision. That process cannot happen only on static benchmarks or closed tasks.",
-        "Intelligence has run out of internet. Published data is static and already trained on. What the frontier is short of is scientific data with a verified outcome attached: a hypothesis confirmed or rejected, an experiment that worked or failed. That data cannot be scraped. It has to be produced, inside real research.",
-        "So our direction is scientific intelligence itself: systems that keep learning, verifying and improving through real tasks and environmental feedback. Data trains the model; the model designs the next experiment; what comes back, including every failure, is the signal for the next round. This is why PhAI Labs works on foundation models, reinforcement learning, agents and scientific intelligence, and it is where DFM starts."
-      ]
+      "description": "PhAI Labs' technology: the DFM research paradigm, and every technical report and paper released around it."
     },
     "dfm": {
       "title": "DFM · Discovery Foundation Models",
@@ -126,8 +109,7 @@
       ],
       "links": {
         "report_label": "DFM technical report",
-        "github_label": "GitHub",
-        "pending_label": "Public 15 Sep"
+        "github_label": "GitHub"
       },
       "heading": "A research paradigm around Discovery Intelligence",
       "github_note": "The DFM research-map repository carries the conceptual structure of the Discovery Loop, research directions, the open-source plan, demos and how to collaborate. Its directories and direction markers reserve future scope in public; they do not mean the corresponding implementations are finished or released.",

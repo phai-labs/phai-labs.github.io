@@ -38,7 +38,7 @@ scripts/
   subset-cjk.py       生成中文标题字体子集（pnpm fonts）
 ```
 
-论文归档在「技术与论文」页（`/tech/`）的末尾 `#papers`；`/papers/` 只是一个跳到那里的跳转页。每篇论文的详情页仍在 `/papers/<slug>/`——Google Scholar 要求 PDF 与摘要页同目录，这些地址不能动。
+论文归档在「技术」页（`/tech/`）的末尾 `#papers`；`/papers/` 只是一个跳到那里的跳转页。每篇论文的详情页仍在 `/papers/<slug>/`——Google Scholar 要求 PDF 与摘要页同目录，这些地址不能动。
 
 ## 日常维护
 

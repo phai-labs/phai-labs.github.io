@@ -6,7 +6,7 @@ hreflang, og:url, sitemap, citation_abstract_html_url and the BibTeX `url`
 all derive from it, so renaming a paper means editing exactly one string.
 Keep slugs short (`dfm`, not `discovery-foundation-models`): the URL gets
 printed on slides and in PDFs.
-`.eleventy.js` loads this directory into the `publications` global (newest first)
+`.eleventy.js` loads this directory into the `publications` global (oldest first, the launch order)
 and builds `/papers/<slug>/` in both languages from it.
 
 ## Adding a paper
@@ -36,8 +36,8 @@ and builds `/papers/<slug>/` in both languages from it.
 | `vanity` | Optional short link. `"dfm"` also answers at `/dfm/` and `/en/dfm/`, which redirect to the canonical page — that is the URL to print on a slide or inside the PDF. The stub is a 0-second meta refresh plus `rel=canonical` (GitHub Pages is static; there is no real 301), is kept out of `sitemap.xml`, and works with JavaScript disabled. A vanity that collides with a real page fails the build rather than overwriting it. |
 | `release_key` | Key into `site.releases`. While that release is `live: false`, the PDF / DOI / code buttons render as dated "pending" rows instead of dead links. Keep it set — a bare empty field means no gate. |
 | `latest` | Optional. `true` puts the paper on the homepage's 最新工作 / Latest work strip, which otherwise lists only release announcements from `src/_data/news/`. Use it for work that shipped as a report with no news post: the row opens the paper page and is labelled by `zh.short` / `en.short`. The strip keeps the six newest entries, so a new one pushes the oldest off. |
-| `art` | Optional. Key of the drawing in `src/_includes/diagrams/` (and its claim/attributes in `src/_data/diagrams.json`), shown full width under the paper page's buttons. `sciencebuddy`, `scienceide` and `jepa` also become the row ids on `/tech/#papers`, so the old `/tech/#sciencebuddy` section links still land on the work. |
-| `zh` / `en` overview | Optional, per language, all shown in the page's language: `subtitle` (one-line positioning, also under the topic in the `/tech/` list), `role` (one sentence, also in the list), and on the paper page an 介绍 / Overview row: `intro` (paragraphs), `bullets_title` + `bullets`, `note` (availability line). `summary` stays the meta description; `short` labels the homepage strip. Not to be confused with top-level `status`, the visibility switch. |
+| `art` | Optional. Key of the drawing in `src/_includes/diagrams/` (and its claim/attributes in `src/_data/diagrams.json`), shown full width under the paper page's buttons and as a thumbnail in the paper's row on `/tech/#papers`. Every row except DFM's also takes the key as its id (DFM's section is `#dfm`), so a paper page's back link lands on its row and the old `/tech/#sciencebuddy`, `#scienceide` and `#jepa` links still land on the work. |
+| `zh` / `en` overview | Optional, per language, all shown in the page's language: `subtitle` (one-line positioning), `role` (one sentence, also under the date in the `/tech/` list), and on the paper page an 介绍 / Overview row: `intro` (paragraphs), `bullets_title` + `bullets`, `note` (availability line). `summary` stays the meta description; `short` labels the homepage strip. Not to be confused with top-level `status`, the visibility switch. |
 | `links.product` | Optional. A site page about the product (e.g. `/products/#sciencebuddy`); an internal path is localized and gets →, unlike the off-site slots. |
 
 Every link goes through the release gate. An entry with no `pdf`, `arxiv` or

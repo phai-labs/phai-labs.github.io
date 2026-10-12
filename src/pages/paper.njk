@@ -153,5 +153,6 @@ eleventyComputed:
     </section>
   </div>
 
-  <p class="shell paper__back"><a href="{{ '/tech/' | localeUrl(lang) }}#papers">← {{ s.pub_all }}</a></p>
+  {#- Back to this work's own block on /tech/ (DFM's section is #dfm). #}
+  <p class="shell paper__back"><a href="{{ '/tech/' | localeUrl(lang) }}#{{ p.art or 'papers' }}">← {{ s.pub_back }}</a></p>
 </article>
