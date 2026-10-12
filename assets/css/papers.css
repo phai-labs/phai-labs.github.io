@@ -1,5 +1,5 @@
 /* PhAI Labs -- the paper archive (/tech/#papers) and /papers/<slug>/
-   ByteDance Seed's publications shape (date column, collapsed abstract, then a
+   ByteDance Seed's publications shape (a date column beside the record, then a
    record page of label/value rows) in this site's dark editorial type. Loaded
    only where `papersCss` is set, so it costs nothing on the rest of the site.
    Tokens, .shell, .btn, .hero--page and .rv all come from site.css. */
@@ -16,13 +16,24 @@
   font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
 }
 .pub__meta time{color:var(--ink-2)}
-.pub__topic{color:var(--blue)}
-/* What the work is, in the page's own language, under the date and topic.
-   The column is set in mono caps; these two lines are prose, so they reset it. */
-.pub__sub,.pub__role{font-family:var(--sans);letter-spacing:0;text-transform:none}
-.pub__sub{margin-top:.45rem;font-size:.98rem;line-height:1.45;color:var(--ink)}
-.pub__role{font-size:.86rem;line-height:1.65;color:var(--ink-2);max-width:22em}
-/* Rows that carry an old /tech/#section id are deep-link targets under the sticky subnav. */
+/* What the work is, in the page's own language, under the date. The column is
+   set in mono caps; this line is prose, so it resets it. */
+.pub__role{font-family:var(--sans);letter-spacing:0;text-transform:none;font-size:.88rem;line-height:1.65;color:var(--ink-2)}
+/* The work's drawing (diagrams/<art>.njk) scaled down whole to the column:
+   the same 1200x450 frame, the same motion, started by the row's .in. */
+.pub__art{display:block;align-self:stretch;margin-top:.5rem;aspect-ratio:1200/450;transition:opacity .25s var(--ease)}
+.pub__art .dg{display:block;width:100%;height:100%}
+.pub__art:hover{opacity:.85}
+/* At under a quarter of full size a 1.2-unit line and a 2.6-unit moving dot
+   fall below a pixel, so the thumbnail thickens both: a stroke in the dot's
+   own colour widens it without touching its radius or its path. */
+.pub__art .dg__p{stroke-width:2.6}
+.pub__art .dg__faint,.pub__art .dg__box,.pub__art .dg__ray{stroke-width:2}
+.pub__art .dg__n{stroke:var(--blue);stroke-width:3}
+.pub__art .dg__n--amber{stroke:var(--amber)}
+.pub__art .dg__mv{stroke:var(--blue-2);stroke-width:5}
+.pub__art .dg__mv--amber{stroke:var(--amber)}
+/* Each row carries an id (its drawing key) and is a deep-link target under the sticky subnav. */
 .pub[id]{scroll-margin-top:1.5rem}
 .pub__body{grid-column:2;min-width:0}
 .pub__title{
@@ -34,13 +45,6 @@
 .pub__authors{
   margin-top:.5rem;font-size:.84rem;color:var(--ink-3);font-style:italic;
   font-family:var(--serif);
-}
-/* The abstract is present in full for anything that reads the markup and
-   collapsed to three lines for anything that reads the page -- the same effect
-   Seed gets by truncating server-side, without throwing the text away. */
-.pub__abs{
-  margin-top:.7rem;color:var(--ink-2);font-size:var(--t-small);line-height:1.65;max-width:46em;
-  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden;
 }
 .pub__foot{
   margin-top:.85rem;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem;
@@ -141,9 +145,6 @@ html[lang="zh-CN"] .paper__title{max-width:22em;letter-spacing:-.025em}
 @media (max-width:860px){
   .pub,.paper__row{grid-template-columns:1fr;gap:.5rem}
   .pub__meta,.pub__body,.paper__label,.paper__val{grid-column:1}
-  .pub__meta{flex-direction:row;flex-wrap:wrap;align-items:center;gap:.4rem .8rem}
-  .pub__sub,.pub__role{flex-basis:100%;max-width:none}
-  .pub__sub{margin-top:.2rem}
   .pub__body{margin-top:.4rem}
   .paper__label{padding-top:0}
   .paper__val{margin-top:.2rem}
