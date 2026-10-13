@@ -45,24 +45,13 @@ eleventyComputed:
       <p class="lede">{{ t.dfm.what_it_is }}</p>
     </div>
 
-    {%- include "components/ovfig.njk" %}
-
-    <div class="prose prose--cols">{% for p in t.dfm.paradigm %}<p>{{ p }}</p>{% endfor %}</div>
-
-    {%- set dg = 'dfm' %}{% set dg_href = '' %}{% include "components/dgfig.njk" %}
-
-    <p class="subhead">{{ t.dfm.modules_title }}</p>
-    <ol class="capabilities">
-      {%- for m in t.dfm.modules %}
-      <li><span class="num">0{{ loop.index }}</span><h3>{{ m.name }}</h3><p>{{ m.body }}</p></li>
-      {%- endfor %}
-    </ol>
+    {#- The figure alone: its caption and hover hint stay on /collaborate/. #}
+    {%- set ov_bare = true %}{% include "components/ovfig.njk" %}{% set ov_bare = false %}
 
     <p class="links">
       {%- if site.links.dfm_report %}<a class="link" href="{{ site.links.dfm_report }}">{{ t.dfm.links.report_label }} ↗</a>{% endif %}
       {%- if site.links.dfm_github %}<a class="link" href="{{ site.links.dfm_github }}">{{ t.dfm.links.github_label }} ↗</a>{% endif %}
     </p>
-    <p class="prose__note prose__note--wide">{{ t.dfm.github_note }}</p>
   </div>
 </section>
 
