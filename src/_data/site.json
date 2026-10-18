@@ -24,7 +24,12 @@
     "jepa_code": "https://github.com/Gen-Verse/JEPA-Anything",
     "rsi_paper": "https://phai-labs.com/papers/rsi-anything/rsi-anything-technical-report-v1-2026-10.pdf",
     "rsi_models": "https://huggingface.co/datasets/Gen-Verse/RSI-Anything",
-    "rsi_code": "https://github.com/Gen-Verse/RSI-Anything"
+    "rsi_code": "https://github.com/Gen-Verse/RSI-Anything",
+    "discoveryrsi_paper": "https://phai-labs.com/papers/discoveryrsi/discoveryrsi-technical-report-v1-2026-10.pdf",
+    "discoveryrsi_models": "https://huggingface.co/collections/Gen-Verse/discoveryrsi",
+    "discoveryrsi_data": "https://huggingface.co/datasets/Gen-Verse/DiscoveryRSI-Hypothesis-Task-Examples",
+    "discoveryrsi_code": "https://github.com/Gen-Verse/DiscoveryRSI",
+    "discoveryrsi_live": ""
   },
   "qr": {
     "rednote": "/assets/img/social/rednote-qr.png",
@@ -61,6 +66,11 @@
     },
     "rsi": {
       "date": "2026-10-10",
+      "live": true,
+      "url": ""
+    },
+    "discoveryrsi": {
+      "date": "2026-10-19",
       "live": true,
       "url": ""
     }

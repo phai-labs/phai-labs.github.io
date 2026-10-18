@@ -1,0 +1,186 @@
+{
+  "slug": "discoveryrsi",
+  "status": "published",
+  "date": "2026-10-19",
+  "title": "DiscoveryRSI: Recursively Learning to Discover Valuable Hypotheses",
+  "bibtitle": "{DiscoveryRSI}: Recursively Learning to Discover Valuable Hypotheses",
+  "authors": [
+    {
+      "name": "Jianyuan Zhong",
+      "sort": "Zhong, Jianyuan",
+      "equal": true
+    },
+    {
+      "name": "Chenwei Wu",
+      "sort": "Wu, Chenwei",
+      "equal": true
+    },
+    {
+      "name": "Zhaochen Yu",
+      "sort": "Yu, Zhaochen",
+      "equal": true
+    },
+    {
+      "name": "Xixian Jiang",
+      "sort": "Jiang, Xixian"
+    },
+    {
+      "name": "Jiajun Fan",
+      "sort": "Fan, Jiajun"
+    },
+    {
+      "name": "Xuewei Li",
+      "sort": "Li, Xuewei"
+    },
+    {
+      "name": "Hao Xiao",
+      "sort": "Xiao, Hao"
+    },
+    {
+      "name": "Xilin Dai",
+      "sort": "Dai, Xilin"
+    },
+    {
+      "name": "Junyang Wang",
+      "sort": "Wang, Junyang"
+    },
+    {
+      "name": "Jiaru Zou",
+      "sort": "Zou, Jiaru"
+    },
+    {
+      "name": "Zhiqing Cui",
+      "sort": "Cui, Zhiqing"
+    },
+    {
+      "name": "Boyuan Zheng",
+      "sort": "Zheng, Boyuan"
+    },
+    {
+      "name": "Jing Xiong",
+      "sort": "Xiong, Jing"
+    },
+    {
+      "name": "Zhen Zhang",
+      "sort": "Zhang, Zhen"
+    },
+    {
+      "name": "Qiang Gao",
+      "sort": "Gao, Qiang"
+    },
+    {
+      "name": "Michael Morley",
+      "sort": "Morley, Michael"
+    },
+    {
+      "name": "Luis Nakayama",
+      "sort": "Nakayama, Luis"
+    },
+    {
+      "name": "Qiang Xu",
+      "sort": "Xu, Qiang"
+    },
+    {
+      "name": "Liyue Shen",
+      "sort": "Shen, Liyue"
+    },
+    {
+      "name": "Tao Gui",
+      "sort": "Gui, Tao"
+    },
+    {
+      "name": "Leo Anthony Celi",
+      "sort": "Celi, Leo Anthony",
+      "corresponding": true
+    },
+    {
+      "name": "James Zou",
+      "sort": "Zou, James",
+      "corresponding": true
+    },
+    {
+      "name": "Zhenfei Yin",
+      "sort": "Yin, Zhenfei",
+      "corresponding": true
+    },
+    {
+      "name": "Yingcheng Wu",
+      "sort": "Wu, Yingcheng",
+      "corresponding": true
+    },
+    {
+      "name": "Ling Yang",
+      "sort": "Yang, Ling",
+      "corresponding": true
+    }
+  ],
+  "venue": "PhAI Labs Technical Report",
+  "type": "technical-report",
+  "number": "PHAI-TR-2026-06",
+  "version": "v1",
+  "topic": "Hypothesis Discovery",
+  "bibkey": "zhong2026discoveryrsi",
+  "abstract": "Scientific discovery requires developing worthwhile hypotheses into practical investigations, yet learning from this evolving research process remains challenging. We introduce an operational definition of valuable and testable research hypotheses: evidence-grounded claims about consequential uncertainties, coupled with feasible investigations, explicit decision criteria, and alternative explanations. Our DiscoveryRSI framework develops hypothesis trees through multi-agent evolutionary search, compiles selected investigations into executable Harbor tasks, and recursively learns through three mechanisms: hypothesis credit optimization attributes scientific assessments to documented research contributions; harness replay identifies productive strategies and recurring failures to refine research workflows; and rediscovery applies accepted improvements to new investigations, generating further experience for subsequent learning. We also introduce DFM-Bench, which provides comprehensive assessment of hypothesis quality and cumulative research progress at the levels of hypotheses, revisions, development paths and research runs. Across four life-science domains, automated evaluation shows that hypothesis quality rises from 4.86 for the base model to 5.39 after two rounds of self-improvement, with the large gains in falsifiability and data resolvability. We further validate hypothesis quality through expert review, comparing our DiscoveryRSI-27B with other research agents. Preliminary human assessments show that DiscoveryRSI-27B scores higher than GPT-6 Luna on hypothesis importance and whether claims are plausible and evidence-bounded. DiscoveryRSI-27B achieved a 6.3% rate of hypothesis correspondence with research published after the model cutoff, largely outperform GPT-6 with 2.5% and Claude Opus 5 with 2.3%, while delivering greater human-rated improvement along research paths.",
+  "pdf": "discoveryrsi-technical-report-v1-2026-10.pdf",
+  "release_key": "discoveryrsi",
+  "art": "discoveryrsi",
+  "latest": true,
+  "arxiv": "",
+  "version_doi": "",
+  "concept_doi": "",
+  "license": "",
+  "zh": {
+    "summary": "让研究智能体从自己的研究经历中递归改进：多智能体演化搜索发展出可检验的研究假设树，选中的计算研究编译成可执行的 Harbor 任务，研究过程被完整保留，再通过假设贡献度优化、harness 回放和重新发现用于下一轮改进。论文同时提出 DFM-Bench，评估假设质量与研究进展的积累。",
+    "short": "DiscoveryRSI 递归学习发现有价值的假设",
+    "subtitle": "从研究经历中递归学习的假设发现",
+    "role": "多智能体演化搜索发展研究假设树，选中的研究编译成可执行任务；保留下来的研究记录用于训练模型、改进工作流，并在新问题上重新发现。",
+    "intro": [
+      "DiscoveryRSI 是一项关于研究智能体如何从自己的研究经历中持续改进的方法研究。论文先给出“有价值、可检验的研究假设”的操作性定义：围绕重要的不确定性提出有证据支撑的主张，并配有可行的研究方案、明确的判定标准和备择解释。",
+      "难点有两处。把一个假设变成可以执行的研究，需要落实数据要求和验证标准，同时不改变原本的研究问题。从研究经历中学习，还要知道该强化哪些贡献：一个假设最后得到的评价，并不说明是哪一步起了作用。可能一个智能体提出了解释，另一个加了关键的对照，第三个根据新证据修改了研究方案；如果只保留最终的提案，这些贡献就看不见了。",
+      "DiscoveryRSI 用多智能体演化搜索发展研究假设树，保留每个提案和每次修订背后的证据与决策；选中的计算研究被编译成可执行的 Harbor 任务，带有具体的输入、运行环境、产出要求和校验。保留下来的研究记录支撑三种相互衔接的改进机制：假设贡献度优化（hypothesis credit optimization）把对研究质量的评估归到有记录的具体贡献上，为相应的模型动作提供监督，论文用它训练了 DiscoveryRSI-27B；harness 回放（harness replay）从这些记录中找出有效的策略和反复出现的失败，改进智能体之间的协作、证据获取和研究分配；重新发现（rediscovery）把通过检验的模型和工作流更新用到新的研究问题上，产生下一轮学习所需的新经验。论文同时提出 DFM-Bench，评估假设、修订、发展路径和整轮研究的质量，任务的可执行性单独记录。"
+    ],
+    "bullets_title": "评测方式",
+    "bullets": [
+      "自动评分（DFM-Bench）：假设质量随自我改进轮次的变化",
+      "研究行为：各类研究动作所占比例的变化",
+      "专家指导下的人工评审：27 名评审者盲评 292 份提案",
+      "启发率：与模型截止日期之后发表的研究对照",
+      "电池领域：检验方法能否用到生命科学之外"
+    ],
+    "note": "技术报告、GitHub 代码仓库，以及 Hugging Face 上的模型和数据集见页面顶部的链接；直播即将开始。"
+  },
+  "en": {
+    "summary": "Research agents that improve recursively from their own research experience: multi-agent evolutionary search grows trees of testable hypotheses, selected investigations become executable Harbor tasks, the research record is kept in full, and hypothesis credit optimization, harness replay and rediscovery turn it into the next round of improvement. The paper also introduces DFM-Bench for hypothesis quality and cumulative research progress.",
+    "short": "DiscoveryRSI, recursively learning to discover valuable hypotheses",
+    "subtitle": "Hypothesis discovery that learns recursively from research experience",
+    "role": "Multi-agent evolutionary search grows research trees of hypotheses and compiles selected ones into executable tasks; the kept research record trains the model, refines the workflow and is applied to fresh questions.",
+    "intro": [
+      "DiscoveryRSI is a method study of how research agents can keep improving from their own research experience. The paper first gives an operational definition of a valuable and testable research hypothesis: an evidence-grounded claim about a consequential uncertainty, coupled with a feasible investigation, explicit decision criteria and alternative explanations.",
+      "Two things make this hard. Turning a hypothesis into an investigation that can actually run means pinning down its data requirements and verification criteria without changing the question it asks. Learning from research experience means knowing which contributions to reinforce, and a hypothesis's final assessment does not say which step mattered: one agent may have proposed the explanation, another added a useful control, a third revised the plan in response to new evidence. Keep only the final proposal and those contributions disappear.",
+      "DiscoveryRSI develops research trees of hypotheses through multi-agent evolutionary search and keeps the evidence and decisions behind every proposal and revision. Selected computational investigations are compiled into executable Harbor tasks with concrete inputs, environments, required outputs and verification checks. The retained research records support three coupled mechanisms. Hypothesis credit optimization attributes assessments of research quality to the documented contributions behind them and turns that into supervision for the associated model actions; the paper uses it to train DiscoveryRSI-27B. Harness replay reads the same records for productive strategies and recurring failures and changes how agents coordinate, access evidence and allocate effort. Rediscovery applies accepted model and harness updates to fresh questions, generating the experience the next round learns from. The paper also introduces DFM-Bench, which evaluates hypotheses, revisions, development paths and research runs, with the execution readiness of compiled tasks recorded separately."
+    ],
+    "bullets_title": "How it is evaluated",
+    "bullets": [
+      "Automated grading (DFM-Bench): hypothesis quality across rounds of self-improvement",
+      "Research behaviour: how the share of each research action changes",
+      "Expert-supervised human review: 27 reviewers assess 292 proposals blind",
+      "Inspiration rate: a comparison with research published after the model cutoff",
+      "A battery setting: whether the method carries beyond life science"
+    ],
+    "note": "The technical report, the GitHub repository, and the models and dataset on Hugging Face are linked at the top of this page; a live stream is coming soon."
+  },
+  "links": {
+    "github": "https://github.com/Gen-Verse/DiscoveryRSI",
+    "huggingface_model": "https://huggingface.co/collections/Gen-Verse/discoveryrsi",
+    "huggingface_data": "https://huggingface.co/datasets/Gen-Verse/DiscoveryRSI-Hypothesis-Task-Examples",
+    "project": "",
+    "demo": "",
+    "video": "",
+    "live": "",
+    "x": "",
+    "product": ""
+  },
+  "soon": {
+    "live": { "zh": "即将开播", "en": "Coming soon" }
+  }
+}

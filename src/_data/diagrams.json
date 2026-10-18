@@ -152,5 +152,25 @@
       "zh": "左右滑动查看完整示意图",
       "en": "Swipe to see the whole diagram"
     }
+  },
+  "discoveryrsi": {
+    "claim": {
+      "zh": "在研究中学会研究：假设树里留下的每一步，都成为下一轮改进的经验。",
+      "en": "Research that learns from its own research: every step kept in the hypothesis tree becomes experience for the next round."
+    },
+    "attrs": [
+      {
+        "zh": "假设树",
+        "en": "Hypothesis trees"
+      },
+      {
+        "zh": "可执行任务",
+        "en": "Executable tasks"
+      },
+      {
+        "zh": "递归改进",
+        "en": "Recursive improvement"
+      }
+    ]
   }
 }

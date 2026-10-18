@@ -95,11 +95,12 @@
     "pub_links": {
       "github": "GitHub",
       "huggingface_model": "Hugging Face · 模型",
-      "huggingface_data": "Hugging Face · 数据",
+      "huggingface_data": "Hugging Face · 数据集",
       "project": "项目主页",
       "product": "产品介绍",
       "demo": "演示",
       "video": "视频",
+      "live": "直播",
       "x": "X"
     }
   },
@@ -199,11 +200,12 @@
     "pub_links": {
       "github": "GitHub",
       "huggingface_model": "Hugging Face · Models",
-      "huggingface_data": "Hugging Face · Datasets",
+      "huggingface_data": "Hugging Face · Dataset",
       "project": "Project page",
       "product": "Product page",
       "demo": "Demo",
       "video": "Video",
+      "live": "Live",
       "x": "X"
     }
   }

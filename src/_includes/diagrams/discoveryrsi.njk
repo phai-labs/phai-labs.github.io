@@ -1,0 +1,116 @@
+<svg class="dg dg--drsi" viewBox="0 0 1200 450" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+
+{#- DiscoveryRSI, left to right: a research question grows a hypothesis tree
+    through the four actions; the selected hypothesis (the amber point) is
+    compiled into a Harbor task; every step is kept in the research record;
+    the record feeds hypothesis credit optimization (the model) and harness
+    replay (the workflow); updates that pass the development check go into
+    rediscovery, and the loop returns to fresh questions along the floor. -#}
+
+<g class='dg__hov dg__tree'>
+  <rect class='dg__hitf' x='30' y='40' width='400' height='370'/>
+  <text class='dg__t dg__fade' x='40' y='62' text-anchor='start' style='--d:0.1s'><tspan class='dg__num'>1</tspan> {{ '多智能体演化出假设树' if lang == 'zh' else 'A hypothesis tree, grown by agents' }}</text>
+  <text class='dg__t--s dg__fade' x='40' y='84' text-anchor='start' style='--d:0.2s'>{{ 'Lead 统筹生成与演化，每个版本都经过批评' if lang == 'zh' else 'a Lead coordinates; every version is critiqued' }}</text>
+
+  <path class='dg__p dg__draw' style='--d:0.3s' pathLength='1' d='M 110,270 C 140,270 140,195 170,195'/>
+  <path class='dg__p dg__draw' style='--d:0.3s' pathLength='1' d='M 110,270 C 140,270 140,320 170,320'/>
+  <path class='dg__p dg__draw' style='--d:0.7s' pathLength='1' d='M 170,195 C 205,195 205,150 240,150'/>
+  <path class='dg__p dg__draw' style='--d:0.7s' pathLength='1' d='M 170,195 C 205,195 205,240 240,240'/>
+  <path class='dg__p dg__draw' style='--d:0.7s' pathLength='1' d='M 170,320 L 240,320'/>
+  <path class='dg__p dg__draw' style='--d:1.1s' pathLength='1' d='M 240,150 L 315,150'/>
+  <path class='dg__p dg__draw' style='--d:1.1s' pathLength='1' d='M 240,240 C 278,240 278,280 315,280'/>
+  <path class='dg__p dg__dash dg__fade' style='--d:1.3s' d='M 240,320 C 278,320 278,280 315,280'/>
+  <path class='dg__p dg__faint dg__draw' style='--d:1.0s' pathLength='1' d='M 110,385 L 170,385'/>
+
+  <circle class='dg__box dg__fade' style='--d:0.2s' cx='110' cy='270' r='13'/>
+  <circle class='dg__n' cx='110' cy='270' r='5'/>
+  <text class='dg__t--s dg__fade' x='110' y='246' text-anchor='middle' style='--d:0.3s'>{{ '研究问题' if lang == 'zh' else 'Question' }}</text>
+  <circle class='dg__n dg__fade' style='--d:0.6s' cx='170' cy='195' r='4.5'/>
+  <circle class='dg__n dg__fade' style='--d:0.6s' cx='170' cy='320' r='4.5'/>
+  <circle class='dg__n dg__fade' style='--d:1.0s' cx='240' cy='150' r='4.5'/>
+  <circle class='dg__n dg__fade' style='--d:1.0s' cx='240' cy='240' r='4.5'/>
+  <circle class='dg__n dg__n--dim dg__fade' style='--d:1.0s' cx='240' cy='320' r='4'/>
+  <circle class='dg__n dg__fade' style='--d:1.5s' cx='315' cy='280' r='4.5'/>
+  <circle class='dg__n dg__n--dim dg__fade' style='--d:1.0s' cx='110' cy='385' r='4'/>
+  <circle class='dg__n dg__n--dim dg__fade' style='--d:1.2s' cx='170' cy='385' r='4'/>
+
+  <text class='dg__t--k dg__fade' x='278' y='170' text-anchor='middle' style='--d:1.3s'>evolve</text>
+  <text class='dg__t--k dg__fade' x='205' y='311' text-anchor='middle' style='--d:1.0s'>repair</text>
+  <text class='dg__t--k dg__fade' x='327' y='298' text-anchor='start' style='--d:1.6s'>crossover</text>
+  <text class='dg__t--k dg__fade' x='140' y='376' text-anchor='middle' style='--d:1.2s'>restart</text>
+
+  <circle class='dg__n dg__n--amber dg__fade' style='--d:1.5s' cx='315' cy='150' r='6.5'/>
+  <circle class='dg__ring' style='animation-delay:2.4s' cx='315' cy='150' r='12'/>
+  <text class='dg__t--s dg__fade' x='315' y='130' text-anchor='middle' style='--d:1.6s'>{{ '选中的假设' if lang == 'zh' else 'selected' }}</text>
+</g>
+<circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 110,270 C 140,270 140,195 170,195 C 205,195 205,150 240,150 L 315,150');--dur:5s;--delay:0s"/>
+<circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 110,270 C 140,270 140,320 170,320 L 240,320 C 278,320 278,280 315,280');--dur:5s;--delay:-2.5s"/>
+
+<g class='dg__hov dg__task'>
+  <path class='dg__p dg__draw' style='--d:1.7s' pathLength='1' d='M 323,150 C 400,150 400,144 468,144'/>
+  <path class='dg__hit' d='M 323,150 C 400,150 400,144 468,144'/>
+  <path class='dg__p dg__fade' style='--d:2.1s' d='M 461,139 L 468,144 L 461,149'/>
+  <rect class='dg__box dg__fade' style='--d:1.9s' x='470' y='96' width='130' height='96' rx='8'/>
+  <text class='dg__t dg__fade' x='470' y='76' text-anchor='start' style='--d:1.9s'><tspan class='dg__num'>2</tspan> {{ '编译成 Harbor 任务' if lang == 'zh' else 'Compiled into a Harbor task' }}</text>
+  <path class='dg__tick dg__tick--blue dg__fade' style='--d:2.0s' d='M 484,115 l 3,3 l 6,-7'/><text class='dg__t--k dg__fade' x='500' y='120' style='--d:2.0s'>{{ '输入' if lang == 'zh' else 'inputs' }}</text>
+  <path class='dg__tick dg__tick--blue dg__fade' style='--d:2.1s' d='M 484,137 l 3,3 l 6,-7'/><text class='dg__t--k dg__fade' x='500' y='142' style='--d:2.1s'>{{ '环境' if lang == 'zh' else 'environment' }}</text>
+  <path class='dg__tick dg__tick--blue dg__fade' style='--d:2.2s' d='M 484,159 l 3,3 l 6,-7'/><text class='dg__t--k dg__fade' x='500' y='164' style='--d:2.2s'>{{ '产出' if lang == 'zh' else 'outputs' }}</text>
+  <path class='dg__tick dg__tick--blue dg__fade' style='--d:2.3s' d='M 484,181 l 3,3 l 6,-7'/><text class='dg__t--k dg__fade' x='500' y='186' style='--d:2.3s'>{{ '校验' if lang == 'zh' else 'checks' }}</text>
+</g>
+<circle class='dg__mv dg__mv--fade dg__mv--amber' r='2.6' style="offset-path:path('M 323,150 C 400,150 400,144 468,144');--dur:4s;--delay:-1s"/>
+
+<g class='dg__hov dg__rec'>
+  <path class='dg__p dg__dash dg__fade' style='--d:2.2s' d='M 535,192 L 535,268'/>
+  <path class='dg__p dg__dash dg__fade' style='--d:2.2s' d='M 323,282 C 400,282 420,292 468,292'/>
+  <path class='dg__p dg__dash dg__fade' style='--d:2.3s' d='M 178,385 C 320,385 400,322 468,322'/>
+  <path class='dg__hit' d='M 323,282 C 400,282 420,292 468,292'/>
+  <rect class='dg__box dg__fade' style='--d:2.4s' x='470' y='270' width='130' height='76' rx='8'/>
+  <path class='dg__p dg__faint dg__fade' style='--d:2.5s' d='M 486,290 L 584,290 M 486,306 L 570,306 M 486,322 L 578,322'/>
+  <circle class='dg__n dg__fade' style='--d:2.6s' cx='584' cy='336' r='3'/>
+  <text class='dg__t dg__fade' x='470' y='370' text-anchor='start' style='--d:2.5s'><tspan class='dg__num'>3</tspan> {{ '研究记录完整保留' if lang == 'zh' else 'The research record is kept' }}</text>
+  <text class='dg__t--s dg__fade' x='470' y='392' text-anchor='start' style='--d:2.6s'>{{ '证据 · 决策 · 评估 · 贡献' if lang == 'zh' else 'evidence · decisions ·' }}</text>
+  <text class='dg__t--s dg__fade' x='470' y='410' text-anchor='start' style='--d:2.7s'>{{ '' if lang == 'zh' else 'assessments · contributions' }}</text>
+</g>
+<circle class='dg__mv dg__mv--fade' r='2.2' style="offset-path:path('M 323,282 C 400,282 420,292 468,292');--dur:4.5s;--delay:-0.5s"/>
+<circle class='dg__mv dg__mv--fade' r='2.2' style="offset-path:path('M 535,192 L 535,268');--dur:3.5s;--delay:-2s"/>
+
+<g class='dg__hov dg__credit'>
+  <path class='dg__p dg__draw' style='--d:2.7s' pathLength='1' d='M 600,300 C 645,300 645,200 690,200 L 930,200 C 965,200 965,280 1000,280'/>
+  <path class='dg__hit' d='M 600,300 C 645,300 645,200 690,200 L 930,200'/>
+  <circle class='dg__box dg__fade' style='--d:2.9s' cx='690' cy='200' r='9'/>
+  <circle class='dg__n dg__fade' style='--d:2.9s' cx='690' cy='200' r='4.5'/>
+  <text class='dg__t dg__fade' x='706' y='186' text-anchor='start' style='--d:3.0s'><tspan class='dg__num'>4</tspan> {{ '假设贡献度优化' if lang == 'zh' else 'Hypothesis credit optimization' }}</text>
+  <text class='dg__t--s dg__fade' x='706' y='222' text-anchor='start' style='--d:3.1s'>{{ '评估归到具体贡献，训练 DiscoveryRSI-27B' if lang == 'zh' else 'credits the steps behind each assessment' }}</text>
+  <text class='dg__t--s dg__fade' x='706' y='241' text-anchor='start' style='--d:3.2s'>{{ '' if lang == 'zh' else 'and trains DiscoveryRSI-27B' }}</text>
+</g>
+<g class='dg__hov dg__replay'>
+  <path class='dg__p dg__draw' style='--d:2.7s' pathLength='1' d='M 600,320 C 645,320 645,360 690,360 L 930,360 C 965,360 965,280 1000,280'/>
+  <path class='dg__hit' d='M 600,320 C 645,320 645,360 690,360 L 930,360'/>
+  <circle class='dg__box dg__fade' style='--d:2.9s' cx='690' cy='360' r='9'/>
+  <circle class='dg__n dg__fade' style='--d:2.9s' cx='690' cy='360' r='4.5'/>
+  <text class='dg__t dg__fade' x='706' y='346' text-anchor='start' style='--d:3.0s'>{{ 'harness 回放' if lang == 'zh' else 'Harness replay' }}</text>
+  <text class='dg__t--s dg__fade' x='706' y='382' text-anchor='start' style='--d:3.1s'>{{ '找出有效策略与反复的失败，改进工作流' if lang == 'zh' else 'finds what works and what keeps failing,' }}</text>
+  <text class='dg__t--s dg__fade' x='706' y='401' text-anchor='start' style='--d:3.2s'>{{ '' if lang == 'zh' else 'and refines the workflow' }}</text>
+</g>
+<circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 600,300 C 645,300 645,200 690,200 L 930,200 C 965,200 965,280 1000,280');--dur:6s;--delay:-1s"/>
+<circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 600,320 C 645,320 645,360 690,360 L 930,360 C 965,360 965,280 1000,280');--dur:6s;--delay:-4s"/>
+
+<g class='dg__hov dg__bs'>
+  <circle class='dg__hitf' cx='1000' cy='280' r='26'/>
+  <circle class='dg__box dg__fade' style='--d:3.3s' cx='1000' cy='280' r='12'/>
+  <path class='dg__tick dg__tick--blue dg__fade' style='--d:3.4s' d='M 994,280 l 4,4 l 8,-9'/>
+  <circle class='dg__ring dg__ring--slow' style='animation-delay:3.6s' cx='1000' cy='280' r='15'/>
+  <text class='dg__t--k dg__fade' x='1000' y='316' text-anchor='middle' style='--d:3.4s'>{{ '开发集检验' if lang == 'zh' else 'dev-set check' }}</text>
+</g>
+
+<g class='dg__hov dg__next'>
+  <path class='dg__p dg__draw dg__draw--slow' style='--d:3.5s' pathLength='1' d='M 1012,280 L 1080,280 C 1150,280 1160,330 1160,372 C 1160,428 1110,432 1040,432 L 150,432 C 60,432 52,300 96,276'/>
+  <path class='dg__hit' d='M 1012,280 L 1080,280 C 1150,280 1160,330 1160,372'/>
+  <text class='dg__t dg__fade' x='1098' y='226' text-anchor='middle' style='--d:3.6s'><tspan class='dg__num'>5</tspan> {{ '重新发现' if lang == 'zh' else 'Rediscovery' }}</text>
+  <text class='dg__t--s dg__fade' x='1098' y='248' text-anchor='middle' style='--d:3.7s'>{{ '新问题，用更新后的' if lang == 'zh' else 'fresh questions, with the' }}</text>
+  <text class='dg__t--s dg__fade' x='1098' y='266' text-anchor='middle' style='--d:3.8s'>{{ '模型与工作流' if lang == 'zh' else 'updated model and workflow' }}</text>
+  <text class='dg__t--k dg__fade' x='300' y='424' text-anchor='middle' style='--d:4.0s'>{{ '下一轮' if lang == 'zh' else 'next round' }}</text>
+</g>
+<circle class='dg__mv dg__mv--fade' r='3' style="offset-path:path('M 1012,280 L 1080,280 C 1150,280 1160,330 1160,372 C 1160,428 1110,432 1040,432 L 150,432 C 60,432 52,300 96,276');--dur:14s;--delay:0s"/>
+<circle class='dg__mv dg__mv--fade' r='3' style="offset-path:path('M 1012,280 L 1080,280 C 1150,280 1160,330 1160,372 C 1160,428 1110,432 1040,432 L 150,432 C 60,432 52,300 96,276');--dur:14s;--delay:-7s"/>
+</svg>

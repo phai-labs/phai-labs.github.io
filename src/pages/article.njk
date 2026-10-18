@@ -49,7 +49,8 @@ eleventyComputed:
     <ul class="links">
       {%- for l in a.links %}
       {%- set label = l.label[lang] if (l.label and l.label[lang]) else l.label %}
-      {%- set rl = {label: label, key: l.key, href: (l.href | localeUrl(lang)) if (l.href and l.href[0] == '/') else l.href} %}
+      {%- set soon = ((l.soon[lang] if l.soon[lang] else s.pending) if l.soon else '') %}
+      {%- set rl = {label: label, key: l.key, href: (l.href | localeUrl(lang)) if (l.href and l.href[0] == '/') else l.href, soon: soon} %}
       <li>{% include "components/rlink.njk" %}</li>
       {%- endfor %}
     </ul>

@@ -67,9 +67,15 @@ eleventyComputed:
         {%- else %}
         <span class="btn btn--wait">{{ s.pub_links.github }}<small>{{ (r.date | releaseLabel(lang)) if gated else s.pending }}</small></span>
         {%- endif %}
-        {%- for k in ['huggingface_model', 'huggingface_data', 'project', 'product', 'demo', 'video', 'x'] %}
+        {#- A slot named in p.soon is announced but not open yet: it shows as a
+            "coming soon" pill and never as a link, even if an href is already
+            filled in, so the address stays out of the page until it opens. -#}
+        {%- for k in ['huggingface_model', 'huggingface_data', 'project', 'product', 'demo', 'video', 'live', 'x'] %}
         {%- set href = p.links[k] if p.links else '' %}
-        {%- if href and href[0] == '/' %}
+        {%- set soon = p.soon[k] if p.soon else null %}
+        {%- if soon %}
+        <span class="btn btn--wait">{{ s.pub_links[k] }}<small>{{ soon[lang] if soon[lang] else s.pending }}</small></span>
+        {%- elif href and href[0] == '/' %}
         <a class="btn" href="{{ href | localeUrl(lang) }}">{{ s.pub_links[k] }} <span aria-hidden="true">→</span></a>
         {%- elif href %}
         <a class="btn" href="{{ href }}" rel="noopener">{{ s.pub_links[k] }} <span aria-hidden="true">↗</span></a>

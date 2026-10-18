@@ -1,0 +1,81 @@
+{
+  "slug": "discoveryrsi",
+  "date": "2026-10-19",
+  "category": "release",
+  "cover": "",
+  "links": [
+    {
+      "label": {
+        "zh": "论文",
+        "en": "Paper"
+      },
+      "key": "discoveryrsi_paper"
+    },
+    {
+      "label": {
+        "zh": "模型",
+        "en": "Models"
+      },
+      "key": "discoveryrsi_models"
+    },
+    {
+      "label": {
+        "zh": "数据集",
+        "en": "Dataset"
+      },
+      "key": "discoveryrsi_data"
+    },
+    {
+      "label": {
+        "zh": "代码",
+        "en": "Code"
+      },
+      "key": "discoveryrsi_code"
+    },
+    {
+      "label": {
+        "zh": "直播",
+        "en": "Live"
+      },
+      "key": "discoveryrsi_live",
+      "soon": {
+        "zh": "即将开播",
+        "en": "Coming soon"
+      }
+    }
+  ],
+  "related": [
+    "rsi-anything",
+    "sciencebuddy",
+    "dfm-launch"
+  ],
+  "zh": {
+    "title": "DiscoveryRSI · 递归学习发现有价值的假设：让研究智能体从自己的研究经历中持续改进",
+    "summary": "DiscoveryRSI 让研究智能体从自己的研究经历中递归改进：研究假设的每一次修订，连同背后的证据和决策都被保留下来，用于训练模型、改进工作流和开展新的研究。与模型截止日期之后发表的研究对照，DiscoveryRSI-27B 有 6.3% 的假设能找到可据以继续研究的具体联系，在参与对照的模型中最高。",
+    "body": [
+      "DiscoveryRSI 是一项关于研究智能体如何从自己的研究经历中持续改进的方法研究。论文先给出“有价值、可检验的研究假设”的操作性定义：围绕重要的不确定性提出有证据支撑的主张，并配有可行的研究方案、明确的判定标准和备择解释。",
+      "难点有两处。把一个假设变成可以执行的研究，需要落实数据要求和验证标准，同时不改变原本的研究问题。从研究经历中学习，还要知道该强化哪些贡献：一个假设最后得到的评价，并不说明是哪一步起了作用。可能一个智能体提出了解释，另一个加了关键的对照，第三个根据新证据修改了研究方案；如果只保留最终的提案，这些贡献就看不见了。",
+      "DiscoveryRSI 用多智能体演化搜索发展研究假设树，保留每个提案和每次修订背后的证据与决策，选中的计算研究被编译成可执行的 Harbor 任务。这些研究记录支撑三种相互衔接的改进机制：假设贡献度优化（hypothesis credit optimization）把对研究质量的评估归到有记录的具体贡献上，用来训练 DiscoveryRSI-27B；harness 回放（harness replay）从记录中找出有效的策略和反复出现的失败，改进智能体的工作流；重新发现（rediscovery）把通过检验的更新用到新的研究问题上，产生下一轮学习所需的经验。论文同时提出 DFM-Bench，从假设、修订、发展路径和整轮研究几个层面评估研究质量和进展。",
+      "论文在临床与人群健康、治疗靶点优先排序、疾病机制和人群多组学四个生命科学领域上评测，另用一个电池领域检验方法能否用到生命科学之外。从研究经历中学到的，主要是把研究方案写得更能检验：两轮自我改进后，假设的平均质量分从 4.86 提高到 5.39，提高集中在可检验性上：可证伪性从 4.00 到 6.20，备择解释从 4.44 到 5.98，数据能否回答问题从 3.73 到 4.99。推进或修复已有假设的 episode 占比也从 77.5% 提高到 91.7%，另起新问题的从 21.7% 降到 5.0%。",
+      "专家指导下的人工评审中，27 名具有生物医学或临床研究背景的评审者盲评了 292 份提案。DiscoveryRSI-27B 每次修订平均提高 0.07 分，GPT-5.6 Sol 为 0.03，GPT-6 Luna 为 −0.01。与模型截止日期之后发表的研究对照，DiscoveryRSI-27B 有 6.3% 的假设能找到可据以继续研究的具体联系，例如可用的实验设计、对照、测量方法或可检验的证据缺口，在参与对照的模型中最高。",
+      "这些结果各有边界。两轮自我改进后，重要性和新颖性的自动评分有所下降，提高主要体现在研究方案的设计上；人工评审是初步结果，修订的比较在研究树内部进行；与已发表研究的对照是描述性比较，各组的样本量和截止日期不同，研究者是否会真的采纳这些假设，还需要前瞻性的追踪。",
+      "技术报告、GitHub 代码仓库，以及 Hugging Face 上的模型和数据集见下方链接；DiscoveryRSI 的直播也即将开始。"
+    ],
+    "short": "DiscoveryRSI 递归学习发现有价值的假设"
+  },
+  "en": {
+    "title": "DiscoveryRSI · recursively learning to discover valuable hypotheses: research agents that improve from their own research experience",
+    "summary": "DiscoveryRSI lets research agents improve recursively from their own research experience: every revision of a hypothesis is kept with the evidence and decisions behind it, and that record trains the model, refines the workflow and opens new investigations. Against research published after the model cutoff, 6.3% of DiscoveryRSI-27B's hypotheses have a concrete connection a researcher could build on, the highest among the models compared.",
+    "body": [
+      "DiscoveryRSI is a method study of how research agents can keep improving from their own research experience. The paper first gives an operational definition of a valuable and testable research hypothesis: an evidence-grounded claim about a consequential uncertainty, coupled with a feasible investigation, explicit decision criteria and alternative explanations.",
+      "Two things make this hard. Turning a hypothesis into an investigation that can actually run means pinning down its data requirements and verification criteria without changing the question it asks. Learning from research experience means knowing which contributions to reinforce, and a hypothesis's final assessment does not say which step mattered: one agent may have proposed the explanation, another added a useful control, a third revised the plan in response to new evidence. Keep only the final proposal and those contributions disappear.",
+      "DiscoveryRSI develops research trees of hypotheses through multi-agent evolutionary search, keeps the evidence and decisions behind every proposal and revision, and compiles selected computational investigations into executable Harbor tasks. These records support three coupled mechanisms. Hypothesis credit optimization attributes assessments of research quality to the documented contributions behind them and uses that to train DiscoveryRSI-27B. Harness replay reads the records for productive strategies and recurring failures and refines the agents' workflow. Rediscovery applies accepted updates to fresh questions, generating the experience the next round learns from. The paper also introduces DFM-Bench, which assesses research quality and progress at the level of hypotheses, revisions, development paths and whole research runs.",
+      "The paper evaluates on four life-science domains, clinical and population health, therapeutic target prioritization, disease mechanisms and population multi-omics, and adds a battery setting to test whether the method carries beyond life science. What the agents learn from research experience is mainly how to make an investigation testable: after two rounds of self-improvement, mean hypothesis quality rises from 4.86 to 5.39, with the gains concentrated in testability: falsifiability 4.00 to 6.20, alternative explanations 4.44 to 5.98 and data resolvability 3.73 to 4.99. The share of episodes that develop or repair an existing hypothesis also rises from 77.5% to 91.7%, while the share that restart with a new question falls from 21.7% to 5.0%.",
+      "In an expert-supervised human review, 27 reviewers with biomedical or clinical research backgrounds assessed 292 proposals blind. The mean score change per revision is +0.07 for DiscoveryRSI-27B, +0.03 for GPT-5.6 Sol and −0.01 for GPT-6 Luna. Against research published after the model cutoff, 6.3% of DiscoveryRSI-27B's hypotheses have a concrete connection a researcher could build on, such as a usable experimental design, comparator, measurement or testable evidence gap, the highest among the models compared.",
+      "Each result has its limits. After two rounds the automated importance and novelty scores fall, so the gains are in how investigations are designed. The human assessments are preliminary, and the revision comparisons are made within research trees. The comparison with published research is descriptive: group sizes and cutoffs differ, and whether researchers adopt these hypotheses needs prospective tracking.",
+      "The technical report, the GitHub repository, and the models and dataset on Hugging Face are linked below, and a DiscoveryRSI live stream is coming soon."
+    ],
+    "short": "DiscoveryRSI, recursively learning to discover valuable hypotheses"
+  },
+  "art": "discoveryrsi"
+}
