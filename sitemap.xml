@@ -31,66 +31,6 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/investors/"/>
   </url>
   <url>
-    <loc>https://phai-labs.com/news/rsi-anything/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/rsi-anything/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/rsi-anything/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/news/jepa-anything/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/jepa-anything/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/jepa-anything/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/news/scienceide/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/scienceide/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/scienceide/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/news/sciencebuddy/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/sciencebuddy/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/sciencebuddy/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/news/scientist-collaboration/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/scientist-collaboration/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/scientist-collaboration/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/news/dfm-launch/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/dfm-launch/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/dfm-launch/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/en/news/rsi-anything/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/rsi-anything/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/rsi-anything/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/en/news/jepa-anything/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/jepa-anything/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/jepa-anything/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/en/news/scienceide/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/scienceide/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/scienceide/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/en/news/sciencebuddy/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/sciencebuddy/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/sciencebuddy/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/en/news/scientist-collaboration/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/scientist-collaboration/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/scientist-collaboration/"/>
-  </url>
-  <url>
-    <loc>https://phai-labs.com/en/news/dfm-launch/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/dfm-launch/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/dfm-launch/"/>
-  </url>
-  <url>
     <loc>https://phai-labs.com/about/</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/about/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/about/"/>
@@ -141,6 +81,16 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/products/"/>
   </url>
   <url>
+    <loc>https://phai-labs.com/tech/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/tech/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/tech/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/tech/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/tech/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/tech/"/>
+  </url>
+  <url>
     <loc>https://phai-labs.com/papers/dfm/</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/dfm/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/dfm/"/>
@@ -164,6 +114,11 @@
     <loc>https://phai-labs.com/papers/rsi-anything/</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/rsi-anything/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/rsi-anything/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/papers/discoveryrsi/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/discoveryrsi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/discoveryrsi/"/>
   </url>
   <url>
     <loc>https://phai-labs.com/en/papers/dfm/</loc>
@@ -191,13 +146,78 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/rsi-anything/"/>
   </url>
   <url>
-    <loc>https://phai-labs.com/tech/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/tech/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/tech/"/>
+    <loc>https://phai-labs.com/en/papers/discoveryrsi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/papers/discoveryrsi/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/papers/discoveryrsi/"/>
   </url>
   <url>
-    <loc>https://phai-labs.com/en/tech/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/tech/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/tech/"/>
+    <loc>https://phai-labs.com/news/discoveryrsi/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/discoveryrsi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/discoveryrsi/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/news/rsi-anything/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/rsi-anything/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/rsi-anything/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/news/jepa-anything/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/jepa-anything/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/jepa-anything/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/news/scienceide/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/scienceide/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/scienceide/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/news/sciencebuddy/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/sciencebuddy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/sciencebuddy/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/news/scientist-collaboration/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/scientist-collaboration/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/scientist-collaboration/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/news/dfm-launch/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/dfm-launch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/dfm-launch/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/news/discoveryrsi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/discoveryrsi/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/discoveryrsi/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/news/rsi-anything/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/rsi-anything/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/rsi-anything/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/news/jepa-anything/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/jepa-anything/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/jepa-anything/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/news/scienceide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/scienceide/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/scienceide/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/news/sciencebuddy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/sciencebuddy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/sciencebuddy/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/news/scientist-collaboration/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/scientist-collaboration/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/scientist-collaboration/"/>
+  </url>
+  <url>
+    <loc>https://phai-labs.com/en/news/dfm-launch/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/dfm-launch/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/dfm-launch/"/>
   </url>
 </urlset>
