@@ -2,7 +2,7 @@
   "zh": {
     "eyebrow": "PhAI Labs · 产品",
     "title": "从研究，到科学家\u200b手中的工具",
-    "description": "PhAI Labs 的产品：ScienceBuddy，越用越懂你的科研搭档。",
+    "description": "PhAI Labs 的产品：ScienceBuddy，越用越懂你的科研搭档；DiscoveryRSI，让每一轮研究成为下一轮的经验。",
     "lede": "每一个产品都来自我们的一条研究方向。",
     "items": [
       {
@@ -58,13 +58,70 @@
           "github": "GitHub",
           "news": "发布公告"
         }
+      },
+      {
+        "key": "discoveryrsi",
+        "name": "DiscoveryRSI",
+        "release": "discoveryrsi",
+        "links": {
+          "home": "discoveryrsi_live"
+        },
+        "kind": "科学发现 · 递归自我改进",
+        "tagline": "让每一轮研究，成为下一轮的经验",
+        "lede": "从提出假设到修订方案，记录每一步背后的证据，学习关键贡献，让通过评估的改进进入下一轮研究。",
+        "cta": "观看研究过程",
+        "soon": "即将开播",
+        "quick": [
+          {
+            "label": "论文",
+            "paper": "discoveryrsi"
+          },
+          {
+            "label": "代码",
+            "link": "discoveryrsi_code"
+          },
+          {
+            "label": "模型",
+            "link": "discoveryrsi_models"
+          }
+        ],
+        "card": {
+          "kicker": "PhAI Labs / DiscoveryRSI",
+          "title": [
+            "科学假设",
+            "如何越改越好"
+          ],
+          "caption": "DiscoveryRSI · 从假设迭代到持续学习"
+        },
+        "video": {
+          "src": "/assets/video/discoveryrsi-film.mp4",
+          "poster": "/assets/img/discoveryrsi/film-poster.jpg",
+          "duration": "0:40",
+          "label": "研究介绍",
+          "play": "播放 DiscoveryRSI 研究介绍视频"
+        },
+        "numbered": true,
+        "features": [
+          {
+            "title": "假设演变，可追溯",
+            "body": "每次修改都与证据和检验方案保持关联。"
+          },
+          {
+            "title": "关键贡献，能学习",
+            "body": "把找到证据、补充对照等贡献转化为学习信号。"
+          },
+          {
+            "title": "跨轮改进，再验证",
+            "body": "将通过评估的更新带到新的研究任务中检验。"
+          }
+        ]
       }
     ]
   },
   "en": {
     "eyebrow": "PhAI Labs · Products",
     "title": "Research, built into tools scientists use every day",
-    "description": "Products from PhAI Labs: ScienceBuddy, a research partner that gets better the more you work with it.",
+    "description": "Products from PhAI Labs: ScienceBuddy, a research partner that gets better the more you work with it, and DiscoveryRSI, which turns every round of research into experience for the next.",
     "lede": "Each one grows out of a line of our research.",
     "items": [
       {
@@ -120,6 +177,63 @@
           "github": "GitHub",
           "news": "Launch announcement"
         }
+      },
+      {
+        "key": "discoveryrsi",
+        "name": "DiscoveryRSI",
+        "release": "discoveryrsi",
+        "links": {
+          "home": "discoveryrsi_live"
+        },
+        "kind": "Self-improving scientific discovery",
+        "tagline": "Every round of research becomes experience for the next",
+        "lede": "From proposing a hypothesis to revising its plan, it records the evidence behind every step, learns which contributions mattered, and carries the improvements that pass evaluation into the next round of research.",
+        "cta": "Watch the research",
+        "soon": "Coming soon",
+        "quick": [
+          {
+            "label": "Paper",
+            "paper": "discoveryrsi"
+          },
+          {
+            "label": "Code",
+            "link": "discoveryrsi_code"
+          },
+          {
+            "label": "Models",
+            "link": "discoveryrsi_models"
+          }
+        ],
+        "card": {
+          "kicker": "PhAI Labs / DiscoveryRSI",
+          "title": [
+            "How scientific hypotheses",
+            "get better, round by round"
+          ],
+          "caption": "DiscoveryRSI · From iterating on hypotheses to learning continuously"
+        },
+        "video": {
+          "src": "/assets/video/discoveryrsi-film.mp4",
+          "poster": "/assets/img/discoveryrsi/film-poster.jpg",
+          "duration": "0:40",
+          "label": "Research film",
+          "play": "Play the DiscoveryRSI research film"
+        },
+        "numbered": true,
+        "features": [
+          {
+            "title": "Every revision traceable",
+            "body": "Each change stays tied to its evidence and its test plan."
+          },
+          {
+            "title": "Key contributions, learned",
+            "body": "Contributions such as finding evidence or adding a control become learning signals."
+          },
+          {
+            "title": "Improved, then tested again",
+            "body": "Updates that pass evaluation are carried to new research tasks and tested there."
+          }
+        ]
       }
     ]
   }

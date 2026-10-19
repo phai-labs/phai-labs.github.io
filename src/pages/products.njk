@@ -28,7 +28,17 @@ eleventyComputed:
     components/rlink.njk handles every other project link.
     Lookups use `or false`: a variable set to undefined in Nunjucks falls back
     to the global data of the same name, so a missing record must not be left
-    undefined. -#}
+    undefined.
+
+    Optional, per item (DiscoveryRSI uses all of them):
+      soon      the main button's place while `links.home` is still empty: a
+                stated "coming soon", never a dead button
+      quick     small links under the button: `paper` (a record slug, opened
+                here) or `link` (a site.links key, opened in a new tab)
+      card      the film sits inside a card with its own kicker and title, and
+                a play line under the still; `caption` goes under the card
+      numbered  the features carry 01, 02, 03 instead of dots
+    The proof block renders only when the item has proof, domains or a credit. -#}
 
 <section class="hero hero--page hero--products" id="top" data-field="flow">
   <div class="shell">
@@ -47,6 +57,7 @@ eleventyComputed:
 {%- set record = ((publications | findBy('slug', p.paper)) if p.paper else false) or false %}
 {%- set announcement = ((articles | findBy('slug', p.news)) if p.news else false) or false %}
 {%- set film = p.video and not gated %}
+{%- set card = (p.card if film else false) or false %}
 <section class="sec sec--product" id="{{ p.key }}"{% if loop.first %} data-field="grid"{% endif %}>
   <div class="shell phero{% if not film %} phero--solo{% endif %}">
     <div class="phero__copy">
@@ -58,31 +69,61 @@ eleventyComputed:
       <p class="actions"><span class="link link--pending"><span>{{ p.cta }}</span><small>{{ rel.date | releaseLabel(lang) }}</small></span></p>
       {%- elif home %}
       <p class="actions"><a class="btn btn--primary" href="{{ home }}" target="_blank" rel="noopener">{{ p.cta }} <span aria-hidden="true">↗</span></a></p>
+      {%- elif p.soon %}
+      <p class="actions"><span class="btn btn--soon">{{ p.cta }}<small>{{ p.soon }}</small></span></p>
+      {%- endif %}
+      {%- if p.quick and not gated %}
+      <p class="links phero__links">
+        {%- for q in p.quick %}
+        {%- set qrec = ((publications | findBy('slug', q.paper)) if q.paper else false) or false %}
+        {%- set qurl = (site.links[q.link] if q.link else '') or '' %}
+        {%- if qrec %}<a class="link" href="{{ qrec.slug | paperUrl(lang) }}">{{ q.label }} <span aria-hidden="true">→</span></a>
+        {%- elif qurl %}<a class="link" href="{{ qurl }}" target="_blank" rel="noopener">{{ q.label }} <span aria-hidden="true">↗</span></a>{% endif %}
+        {%- endfor %}
+      </p>
       {%- endif %}
     </div>
     {%- if film %}
     {#- Served from this site: the film plays here, in place, instead of
         sending the reader off to X. The still is from mid-film -- the film
-        itself opens on black. -#}
-    <figure class="pvideo" data-player>
+        itself opens on black. In a card, the play line under the still is
+        the visible control; the still stays clickable too, with no second
+        tab stop. -#}
+    <figure class="pvideo{% if card %} pvideo--card{% endif %}" data-player>
+      {%- if card %}
+      <div class="pcard">
+        <p class="pcard__kicker">{{ card.kicker }}</p>
+        <p class="pcard__title">{% for l in card.title %}<span>{{ l }}</span>{% endfor %}</p>
+      {%- endif %}
       <div class="pvideo__frame">
         <video class="pvideo__media" controls playsinline preload="none" poster="{{ p.video.poster }}" width="1280" height="720" aria-label="{{ p.video.label }} · {{ p.name }}">
           <source src="{{ p.video.src }}" type="video/mp4">
         </video>
+        {%- if card %}
+        <button class="pvideo__play" type="button" data-play tabindex="-1" aria-hidden="true"></button>
+        {%- else %}
         <button class="pvideo__play" type="button" data-play aria-label="{{ p.video.play }}"><span class="pvideo__mark" aria-hidden="true"></span></button>
+        {%- endif %}
       </div>
+      {%- if card %}
+        <button class="pcard__play" type="button" data-play aria-label="{{ p.video.play }}"><span class="pcard__icon" aria-hidden="true"></span><b>{{ p.video.label }}</b><span>· {{ p.video.duration }}</span></button>
+      </div>
+      {%- if card.caption %}<figcaption class="pcard__cap">{{ card.caption }}</figcaption>{% endif %}
+      {%- else %}
       <figcaption class="pvideo__cap"><b>{{ p.video.label }}</b><span>{{ p.video.duration }}</span>{% if post %}<a class="pvideo__src" href="{{ post }}" target="_blank" rel="noopener">{{ p.video.source }} ↗</a>{% endif %}</figcaption>
+      {%- endif %}
     </figure>
     {%- endif %}
   </div>
 
   <div class="shell">
-    <ul class="pfeatures">
+    <ul class="pfeatures{% if p.numbered %} pfeatures--num{% endif %}{% if p.features.length == 3 %} pfeatures--3{% endif %}">
       {%- for f in p.features %}
-      <li><h3>{{ f.title }}</h3><p>{{ f.body }}</p></li>
+      <li>{% if p.numbered %}<span class="pfeatures__n">{{ loop.index | pad2 }}</span>{% endif %}<h3>{{ f.title }}</h3><p>{{ f.body }}</p></li>
       {%- endfor %}
     </ul>
 
+    {%- if p.proof or p.domains or p.credit %}
     <div class="pproof">
       {%- if p.proof %}<p class="pproof__line">{{ p.proof }}</p>{% endif %}
       <div class="pproof__row">
@@ -97,6 +138,7 @@ eleventyComputed:
       </div>
       {%- if p.credit %}<p class="prose__note pproof__credit">{{ p.credit }}</p>{% endif %}
     </div>
+    {%- endif %}
   </div>
 </section>
 {%- endfor %}

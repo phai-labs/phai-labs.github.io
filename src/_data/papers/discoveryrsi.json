@@ -147,7 +147,7 @@
       "启发率：与模型截止日期之后发表的研究对照",
       "电池领域：检验方法能否用到生命科学之外"
     ],
-    "note": "技术报告、GitHub 上的代码，以及 Hugging Face 上的模型和数据集均已公开；直播即将开始。"
+    "note": "技术报告、GitHub 上的代码，以及 Hugging Face 上的模型和数据集均已公开；直播已经开始。"
   },
   "en": {
     "summary": "Research agents that improve recursively from their own research experience: multi-agent evolutionary search grows trees of testable hypotheses, selected investigations become executable Harbor tasks, the research record is kept in full, and hypothesis credit optimization, harness replay and rediscovery turn it into the next round of improvement. The paper also introduces DFM-Bench for hypothesis quality and cumulative research progress.",
@@ -167,7 +167,7 @@
       "Inspiration rate: a comparison with research published after the model cutoff",
       "A battery setting: whether the method carries beyond life science"
     ],
-    "note": "The technical report, the code on GitHub, and the models and dataset on Hugging Face are public; a live stream is coming soon."
+    "note": "The technical report, the code on GitHub, and the models and dataset on Hugging Face are public, and the live stream has started."
   },
   "links": {
     "github": "https://github.com/Gen-Verse/DiscoveryRSI",
@@ -176,11 +176,8 @@
     "project": "",
     "demo": "",
     "video": "",
-    "live": "",
+    "live": "https://foundry-arena.rsi-arena.workers.dev/arena",
     "x": "",
     "product": ""
-  },
-  "soon": {
-    "live": { "zh": "即将开播", "en": "Coming soon" }
   }
 }

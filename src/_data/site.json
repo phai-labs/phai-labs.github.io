@@ -29,7 +29,7 @@
     "discoveryrsi_models": "https://huggingface.co/collections/Gen-Verse/discoveryrsi",
     "discoveryrsi_data": "https://huggingface.co/datasets/Gen-Verse/DiscoveryRSI-Hypothesis-Task-Examples",
     "discoveryrsi_code": "https://github.com/Gen-Verse/DiscoveryRSI",
-    "discoveryrsi_live": ""
+    "discoveryrsi_live": "https://foundry-arena.rsi-arena.workers.dev/arena"
   },
   "qr": {
     "rednote": "/assets/img/social/rednote-qr.png",

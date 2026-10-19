@@ -9,8 +9,9 @@
 
   players.forEach((fig) => {
     const video = fig.querySelector('video');
-    const start = fig.querySelector('[data-play]');
-    if (!video || !start) return;
+    // a film in a card has two: the still itself and the play line under it
+    const starts = fig.querySelectorAll('[data-play]');
+    if (!video || !starts.length) return;
 
     video.controls = false;
     fig.classList.add('is-ready');
@@ -19,12 +20,12 @@
       fig.classList.add('is-playing');
       video.controls = true;
     };
-    start.addEventListener('click', () => {
+    starts.forEach((start) => start.addEventListener('click', () => {
       reveal();
       const p = video.play();
       if (p && p.catch) p.catch(() => {}); // a refused autoplay leaves the controls to the reader
       video.focus({ preventScroll: true });
-    });
+    }));
     // Played some other way (keyboard shortcut, picture-in-picture): same result.
     video.addEventListener('play', () => {
       reveal();
