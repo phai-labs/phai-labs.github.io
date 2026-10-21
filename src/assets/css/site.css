@@ -990,18 +990,18 @@ html[lang="zh-CN"] .hero .eyebrow{letter-spacing:.12em}
 /* ---------------------------------------- collaborating institutions (team) */
 /* Marks sit straight on the page ground in their own colours -- no plate, no
    recolouring, the way aitonomy.org does it. An explicit column count rather
-   than flex-wrap: nine marks left to wrap on their own settle into 8+1, and a
-   single stranded logo reads as a mistake. Nine across, then 5+4, then 3+3+3. */
+   than flex-wrap, so a row never ends with a single stranded logo, which
+   reads as a mistake. Six marks: six across, then 3+3. */
 .sec--unis{padding-top:clamp(1rem,3vh,2.5rem)}
 .unis{
-  display:grid;grid-template-columns:repeat(9,minmax(0,1fr));
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
   gap:clamp(1.4rem,2.6vh,2.1rem) clamp(.5rem,1.2vw,1.2rem);
   align-items:end;justify-items:center;
   margin-top:clamp(1rem,2.2vh,1.8rem);
   padding-block:clamp(2.1rem,4.6vh,3.2rem);
   border-block:1px solid var(--rule);
 }
-.uni{display:flex;flex-direction:column;align-items:center;gap:.75rem;width:100%;min-width:0}
+.uni{display:flex;flex-direction:column;align-items:center;gap:1rem;width:100%;min-width:0}
 .uni__mark{
   display:block;width:auto;max-width:100%;opacity:.92;
   transition:transform .4s var(--ease),opacity .4s var(--ease);
@@ -1014,24 +1014,24 @@ html[lang="zh-CN"] .hero .eyebrow{letter-spacing:.12em}
          drop-shadow(0 0 1.5px rgba(255,255,255,.72))
          drop-shadow(0 0 4px rgba(255,255,255,.3));
 }
-.uni__mark--seal{height:3.4rem}
-.uni__mark--wordmark{height:1.7rem}
+.uni__mark--seal{height:5.2rem}
+.uni__mark--wordmark{height:2.6rem}
 .uni:hover .uni__mark{opacity:1;transform:translateY(-3px)}
 .uni__name{
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;
+  font-family:var(--mono);font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;
   color:var(--ink-3);text-align:center;line-height:1.45;text-wrap:balance;
   transition:color .4s var(--ease);
 }
 .uni:hover .uni__name{color:var(--ink-2)}
 @media(max-width:1040px){
-  .unis{grid-template-columns:repeat(5,minmax(0,1fr));gap:1.8rem .8rem}
+  .unis{grid-template-columns:repeat(3,minmax(0,1fr));gap:2.2rem .8rem}
 }
 @media(max-width:700px){
-  .unis{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem .6rem;padding-block:1.8rem}
-  .uni{gap:.55rem}
-  .uni__mark--seal{height:2.8rem}
-  .uni__mark--wordmark{height:1.4rem}
-  .uni__name{font-size:.55rem;letter-spacing:.06em}
+  .unis{gap:1.6rem .6rem;padding-block:1.8rem}
+  .uni{gap:.65rem}
+  .uni__mark--seal{height:3.6rem}
+  .uni__mark--wordmark{height:1.8rem}
+  .uni__name{font-size:.66rem;letter-spacing:.06em}
 }
 
 /* ============================================================ 9. products: /products/ */

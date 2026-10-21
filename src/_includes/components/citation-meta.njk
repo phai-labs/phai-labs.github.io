@@ -4,16 +4,16 @@
     Eleventy's `layout:` chaining passes rendered content rather than using
     Nunjucks inheritance, so a block override here would silently emit nothing.
 
-    Emitted on the Chinese tree only, which is this site's root and x-default.
+    Emitted on the English tree only, which is this site's root and x-default.
     Scholar requires citation_pdf_url to point at a file in the same subdirectory
-    as the HTML abstract; the PDF lives beside /papers/<slug>/, so the English
-    mirror at /en/papers/<slug>/ cannot satisfy that rule and claiming otherwise
+    as the HTML abstract; the PDF lives beside /papers/<slug>/, so the Chinese
+    mirror at /zh/papers/<slug>/ cannot satisfy that rule and claiming otherwise
     would be worse than staying quiet. Titles and abstracts are English on both
     trees anyway, so the indexed record reads correctly either way.
 
     Scholar treats the whole page as untagged if title, first author or year is
     missing, so every tag below is either always present or omitted as a set. -#}
-{%- if lang == 'zh' -%}
+{%- if lang == 'en' -%}
 {#- No author list means no usable record, so the whole block stays off. -#}
 {%- for p in publications -%}
 {%- if p.slug == citeSlug and p.authors and p.authors.length -%}

@@ -8,9 +8,16 @@
     whatever its href, for something announced but not open yet. -#}
 {%- set base = (rl.key.split('_')[0]) if rl.key else '' -%}
 {%- set r = site.releases[base] if base and site.releases[base] else null -%}
+{%- set fromData = true -%}
 {%- if rl.key and site.links[rl.key] is defined %}{% set href = site.links[rl.key] %}
 {%- elif r and rl.key == base %}{% set href = r.url %}
-{%- else %}{% set href = rl.href %}{% endif -%}
+{%- else %}{% set href = rl.href %}{% set fromData = false %}{% endif -%}
+{#- A page on this site named in site.json opens in the reader's language
+    (callers localize their own rl.href); files such as PDFs have no language. -#}
+{%- if fromData and href and href[0] == '/' and href[1] != '/' -%}
+{%- set hp = href.split('#')[0].split('?')[0] -%}
+{%- if not hp.startsWith('/assets/') and not ('.' in (hp.split('/') | last)) %}{% set href = href | localeUrl(lang) %}{% endif -%}
+{%- endif -%}
 {%- set gated = r and not r.live -%}
 {%- if rl.soon %}<span class="link link--pending"><span>{{ rl.label }}</span><small>{{ rl.soon }}</small></span>
 {%- elif href and not gated %}<a class="link link--live" href="{{ href }}">{{ rl.label }} {{ '→' if href[0] == '/' else '↗' }}</a>

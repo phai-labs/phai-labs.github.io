@@ -1,13 +1,19 @@
 // PhAI Labs site -- Eleventy configuration
 //
-// Static output for GitHub Pages. Chinese is the default tree at "/", English
-// mirrors it under "/en/". Every page template paginates over `langs` and emits
+// Static output for GitHub Pages. English is the default tree at "/", Chinese
+// mirrors it under "/zh/". Every page template paginates over `langs` and emits
 // both trees from the same data, so zh and en are never edited in two places.
+// Until October 2026 it was the other way round (Chinese at "/", English under
+// "/en/"); the old /en/ addresses still answer, see the eleventy.after hook.
 
-import { readdirSync, readFileSync } from "node:fs";
-import { join } from "node:path";
+import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
 
 const LANGS = ["zh", "en"];
+const SITE = JSON.parse(readFileSync(join(process.cwd(), "src", "_data", "site.json"), "utf8"));
+// "/tech/" -> "/tech/" for en, "/zh/tech/" for zh
+const ZH = "/zh";
+const loc = (url, lang) => (lang === "zh" ? `${ZH}${url === "/" ? "/" : url}` : url);
 const NEWS_DIR = join(process.cwd(), "src", "_data", "news");
 const PAPERS_DIR = join(process.cwd(), "src", "_data", "papers");
 
@@ -75,7 +81,8 @@ export default function (eleventyConfig) {
   );
 
   // Short links. A paper with `vanity: "dfm"` also answers at /dfm/ and
-  // /en/dfm/, which is what gets printed on a slide or inside the PDF. The
+  // /zh/dfm/ (and at the old /en/dfm/), which is what gets printed on a slide
+  // or inside the PDF. The
   // stub redirects; /papers/<slug>/ stays the canonical URL everywhere else.
   // A vanity that collides with a real page is caught at build time -- Eleventy
   // refuses two templates writing the same output path.
@@ -86,10 +93,7 @@ export default function (eleventyConfig) {
   );
 
   // -- filters -------------------------------------------------------------
-  // "/tech/" -> "/tech/" for zh, "/en/tech/" for en
-  eleventyConfig.addFilter("localeUrl", (url, lang) =>
-    lang === "en" ? `/en${url === "/" ? "/" : url}` : url
-  );
+  eleventyConfig.addFilter("localeUrl", loc);
   // A link to an article that may still be a draft. `articles` is already
   // filtered by draft state, so in a HIDE_DRAFTS build an unpublished slug is
   // simply absent -- and the row falls back to a page that does exist instead
@@ -167,7 +171,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("articleHref", (slug, lang, fallback) => {
     const live = slug && articles.some((a) => a.slug === slug);
     const url = live ? `/news/${slug}/` : fallback;
-    return lang === "en" ? `/en${url === "/" ? "/" : url}` : url;
+    return loc(url, lang);
   });
 
   // -- publications ---------------------------------------------------------
@@ -191,9 +195,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("authorSort", (a) => a.sort || a.name);
   eleventyConfig.addFilter("scholarDate", (iso) => iso.replace(/-/g, "/"));
   eleventyConfig.addFilter("year", (iso) => iso.slice(0, 4));
-  eleventyConfig.addFilter("paperUrl", (slug, lang) =>
-    lang === "en" ? `/en/papers/${slug}/` : `/papers/${slug}/`
-  );
+  eleventyConfig.addFilter("paperUrl", (slug, lang) => loc(`/papers/${slug}/`, lang));
 
   // The venue row. A paper that has not been accepted anywhere still has a
   // home, and for this lab that home is arXiv -- so an empty `venue` reads
@@ -257,7 +259,7 @@ export default function (eleventyConfig) {
 
   // the sibling URL in the other language, for the zh | EN switch
   eleventyConfig.addFilter("switchUrl", (url, lang) =>
-    lang === "en" ? url.replace(/^\/en/, "") || "/" : `/en${url}`
+    lang === "zh" ? url.replace(/^\/zh(?=\/)/, "") : `${ZH}${url}`
   );
   // pick a language field from an object with zh/en keys
   eleventyConfig.addFilter("t", (obj, lang) =>
@@ -381,6 +383,59 @@ export default function (eleventyConfig) {
     const lines = edges.map(([i, j], k) => `<line class="cst__e" style="--i:${k}" x1="${f(pts[i][0])}" y1="${f(pts[i][1])}" x2="${f(pts[j][0])}" y2="${f(pts[j][1])}" pathLength="1"/>`).join("");
     const dots = pts.map((p, i) => `<circle class="cst__n${i === amber ? " cst__n--amber" : ""}" style="--i:${i}" cx="${f(p[0])}" cy="${f(p[1])}" r="${i === amber ? 4.5 : deg[i] > 2 ? 3 : 2.2}"/>`).join("");
     return `<svg class="cst" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">${lines}${dots}</svg>`;
+  });
+
+  // -- old English addresses ----------------------------------------------
+  // English lived under /en/ until October 2026, and those links are printed in
+  // PDFs and slides and posted elsewhere. Every English page Eleventy writes
+  // also gets a stub at its old /en/ address, built the same way as the vanity
+  // stubs (paper-vanity.njk): instant refresh, rel=canonical, location.replace.
+  // Written after the build so the list is every English page, including the
+  // stubs that are excluded from collections.
+  const attr = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+  const legacyStub = (to) => `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhAI Labs</title>
+<link rel="canonical" href="${attr(SITE.url + to)}">
+<meta http-equiv="refresh" content="0; url=${attr(to)}">
+<style>
+  html{color-scheme:dark}
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0a0a0b;
+       color:rgba(240,238,232,.68);font:400 15px/1.7 system-ui,-apple-system,'Segoe UI',sans-serif;
+       padding:1.5rem;text-align:center}
+  a{color:#9ba7ff}
+</style>
+</head>
+<body>
+<p>Redirecting to <a href="${attr(to)}">${attr(SITE.url + to)}</a></p>
+<script>location.replace(${JSON.stringify(to)} + location.search + location.hash);</script>
+</body>
+</html>
+`;
+  // Retired pages, old address -> where their content went. The team page was
+  // dropped in October 2026; its institution wall now closes /about/.
+  const RETIRED = { "/team/": "/about/", "/en/team/": "/about/", "/zh/team/": "/zh/about/" };
+  // The output root comes from each page's own outputPath: the event's `dir`
+  // still says _site when the build is run with --output (scripts/deploy.mjs).
+  eleventyConfig.on("eleventy.after", ({ results }) => {
+    const write = (root, url, to) => {
+      const out = join(root, url, "index.html");
+      mkdirSync(dirname(out), { recursive: true });
+      writeFileSync(out, legacyStub(to));
+    };
+    let root = null;
+    for (const r of results || []) {
+      if (!r.url || !r.url.endsWith("/") || r.url.startsWith(`${ZH}/`) || !r.outputPath) continue;
+      const written = r.outputPath.replace(/\\/g, "/");
+      const tail = `${r.url}index.html`;
+      if (!written.endsWith(tail)) continue;
+      root = written.slice(0, -tail.length);
+      write(root, `/en${r.url}`, r.url);
+    }
+    if (root) for (const [from, to] of Object.entries(RETIRED)) write(root, from, to);
   });
 
   // -- dev server ----------------------------------------------------------

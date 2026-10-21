@@ -25,11 +25,6 @@
         "href": "/about/"
       },
       {
-        "key": "team",
-        "label": "团队",
-        "href": "/team/"
-      },
-      {
         "key": "careers",
         "label": "招聘",
         "href": "/careers/"
@@ -128,11 +123,6 @@
         "key": "about",
         "label": "About",
         "href": "/about/"
-      },
-      {
-        "key": "team",
-        "label": "Team",
-        "href": "/team/"
       },
       {
         "key": "careers",

@@ -14,19 +14,12 @@ eleventyExcludeFromCollections: true
     paper-vanity.njk: an instant meta refresh, which Google reads as permanent,
     plus rel=canonical naming the page (without the fragment, which is not part
     of a URL a crawler indexes). Excluded from collections so sitemap.xml lists
-    only /tech/. The record pages at /papers/<slug>/ are untouched.
-
-    no-referrer: /tech/'s language routing (components/lang-route.njk) treats
-    arriving from this site as a choice already made. A hop through this stub
-    is not a choice, so it must not leave this site's URL as the referrer --
-    otherwise an English-language reader following an old /papers/ link would
-    stay on the Chinese page instead of being sent to /en/tech/#papers. -#}
+    only /tech/. The record pages at /papers/<slug>/ are untouched. -#}
 <!DOCTYPE html>
 <html lang="{{ s.lang }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="referrer" content="no-referrer">
 <title>{{ s.pub_headline }} — {{ s.site_name }}</title>
 <link rel="canonical" href="{{ site.url }}{{ dest }}">
 <meta http-equiv="refresh" content="0; url={{ to }}">

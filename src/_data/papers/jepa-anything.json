@@ -110,7 +110,7 @@
       "How to ground experiment selection and scientific diagnosis in prediction",
       "How to reuse a latent world-state interface across domains"
     ],
-    "note": "The technical report and the Hugging Face model collection are public; the scope follows their actual state. This release includes no public demo."
+    "note": "The technical report and the Hugging Face model collection are public; what is open follows the actual state of the repository and the collection. This release includes no public demo."
   },
   "links": {
     "github": "https://github.com/Gen-Verse/JEPA-Anything",

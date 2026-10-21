@@ -32,7 +32,7 @@
       },
       "en": {
         "title": "Research Intern · Post-training and self-evolution",
-        "summary": "For master's and doctoral students, and strong undergraduates: post-training and self-evolution research on LLMs and agents. Interns who do well have the chance to publish as first author or core contributor. CNY 1,000-5,000 a day, negotiable for exceptional candidates.",
+        "summary": "For master's and doctoral students, and strong undergraduates: post-training and self-evolution research on LLMs and agents. Interns who do well have the chance to publish at top venues as first author or core contributor. CNY 1,000-5,000 a day, negotiable for exceptional candidates.",
         "responsibilities": [
           "RL post-training: reinforcement learning for reasoning and agent tasks, including GRPO and RLHF",
           "Reward and verifier modelling: reward models, verifiable rewards, self-correction",
@@ -40,7 +40,7 @@
           "Self-evolving harness: training and evaluation systems that keep improving"
         ],
         "requirements": [
-          "Master's or doctoral student in CS, AI, mathematics or physics; strong undergraduates welcome",
+          "Master's or doctoral student at a leading university in CS, AI, mathematics or physics; strong undergraduates welcome",
           "Research or project experience in reinforcement learning, large models or agents",
           "Genuine research drive and the ability to work through problems independently",
           "At least four days a week on site, for at least three consecutive months",

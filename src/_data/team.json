@@ -181,19 +181,6 @@
     },
     "list": [
       {
-        "zh": "清华大学",
-        "en": "Tsinghua",
-        "logo": "/assets/img/unis/tsinghua.png",
-        "kind": "seal",
-        "halo": true
-      },
-      {
-        "zh": "北京大学",
-        "en": "Peking University",
-        "logo": "/assets/img/unis/peking.svg",
-        "kind": "seal"
-      },
-      {
         "zh": "斯坦福大学",
         "en": "Stanford",
         "logo": "/assets/img/unis/stanford.png",
@@ -223,12 +210,6 @@
         "zh": "麻省理工学院",
         "en": "MIT",
         "logo": "/assets/img/unis/mit.svg",
-        "kind": "wordmark"
-      },
-      {
-        "zh": "字节跳动 Seed",
-        "en": "ByteDance Seed",
-        "logo": "/assets/img/unis/bytedance.svg",
         "kind": "wordmark"
       },
       {
