@@ -1,56 +1,44 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-lang="zh">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
 (function () {
-  var KEY = 'phai-lang';
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
     if (!a) return;
-    try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {}
     // both trees come from the same templates, so a section id exists on both sides
     if (location.hash) a.setAttribute('href', a.getAttribute('href').split('#')[0] + location.hash);
   });
-  var pref = null;
-  try { pref = localStorage.getItem(KEY); } catch (err) {}
-  if (pref === 'zh') return;
-  if (pref !== 'en') {
-    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|google|facebookexternalhit/i.test(navigator.userAgent)) return;
-    var ls = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
-    for (var i = 0; i < ls.length; i++) { if (/^zh\b/i.test(ls[i])) return; }
-    if (document.referrer.indexOf(location.origin + '/') === 0) return;
-  }
-  location.replace("/en/collaborate/" + location.search + location.hash);
 })();
 </script>
 
-<title>DFM 科学家合作计划 — PhAI Labs</title>
-<meta name="description" content="让真实的科学问题、数据与实验反馈进入下一代 AI 系统，共同探索从辅助科研到参与科学发现的路径。">
+<title>DFM Scientist Collaboration Program — PhAI Labs</title>
+<meta name="description" content="Connect real scientific questions, data and experimental feedback with next-generation AI—and explore how AI can move from assisting research to participating in discovery.">
 <link rel="canonical" href="https://phai-labs.com/collaborate/">
-<link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/collaborate/">
-<link rel="alternate" hreflang="en" href="https://phai-labs.com/en/collaborate/">
+<link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/zh/collaborate/">
+<link rel="alternate" hreflang="en" href="https://phai-labs.com/collaborate/">
 <link rel="alternate" hreflang="x-default" href="https://phai-labs.com/collaborate/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PhAI Labs">
-<meta property="og:title" content="DFM 科学家合作计划 — PhAI Labs">
-<meta property="og:description" content="让真实的科学问题、数据与实验反馈进入下一代 AI 系统，共同探索从辅助科研到参与科学发现的路径。">
+<meta property="og:title" content="DFM Scientist Collaboration Program — PhAI Labs">
+<meta property="og:description" content="Connect real scientific questions, data and experimental feedback with next-generation AI—and explore how AI can move from assisting research to participating in discovery.">
 <meta property="og:url" content="https://phai-labs.com/collaborate/">
 <meta property="og:image" content="https://phai-labs.com/assets/img/kv-static.webp">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0a0a0b">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preload" href="/assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/IBMPlexSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/NotoSerifSC-Display.woff2" as="font" type="font/woff2" crossorigin>
+  
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="stylesheet" href="/assets/css/pulse.css"><noscript><style>.rv,.w,.loop__node i,.loop__node span,.person,.person::after,.cst__n{opacity:1!important;transform:none!important;filter:none!important}.sec::before,.loop::before,.people::before,.timeline--nodes::before{transform:none!important}.cst__e,.dg__draw{stroke-dashoffset:0!important}.dg__fade{opacity:var(--o,1)!important}</style></noscript>
 </head>
 <body class="page-collaborate">
-<a class="skip" href="#main">跳到正文</a>
+<a class="skip" href="#main">Skip to content</a>
 <div class="progress" aria-hidden="true"><i></i></div><div class="rails" aria-hidden="true">
   <div class="rail rail--l"><i></i><b>+</b><i></i><b>+</b><i></i></div>
   <div class="rail rail--r"><i></i><b>+</b><i></i><b>+</b><i></i></div>
@@ -60,33 +48,31 @@
   <a class="mast__brand" href="/" aria-label="PhAI Labs">
     <img class="mast__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="PhAI Labs">
   </a>
-  <nav class="mast__nav" aria-label="主导航" data-nav>
-    <a href="/tech/">技术</a>
-    <a href="/products/">产品</a>
-    <a href="/news/">新闻动态</a>
-    <a href="/about/">关于我们</a>
-    <a href="/team/">团队</a>
-    <a href="/careers/">招聘</a>
-    <a href="/collaborate/" aria-current="page">合作</a>
+  <nav class="mast__nav" aria-label="Primary" data-nav>
+    <a href="/tech/">Technology</a>
+    <a href="/products/">Products</a>
+    <a href="/news/">News</a>
+    <a href="/about/">About</a>
+    <a href="/careers/">Careers</a>
+    <a href="/collaborate/" aria-current="page">Collaborate</a>
   </nav>
   <div class="mast__tools">
-    <a class="mast__lang" data-lang-switch="en" href="/en/collaborate/" hreflang="en" aria-label="Switch to English">EN</a>
-    <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请<span aria-hidden="true">↗</span></a>
+    <a class="mast__lang" data-lang-switch="zh" href="/zh/collaborate/" hreflang="zh-CN" aria-label="切换到中文">中文</a>
+    <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">Apply now<span aria-hidden="true">↗</span></a>
     <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
-      <span class="mast__menu-label">菜单</span><i></i><i></i>
+      <span class="mast__menu-label">Menu</span><i></i><i></i>
     </button>
   </div>
 </header>
-<nav class="drawer" id="mobile-nav" aria-label="移动端导航" data-drawer hidden>
-  <a href="/tech/">技术</a>
-  <a href="/products/">产品</a>
-  <a href="/news/">新闻动态</a>
-  <a href="/about/">关于我们</a>
-  <a href="/team/">团队</a>
-  <a href="/careers/">招聘</a>
-  <a href="/collaborate/" aria-current="page">合作</a>
-  <a class="drawer__lang" data-lang-switch="en" href="/en/collaborate/">EN</a>
-  <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请 ↗</a>
+<nav class="drawer" id="mobile-nav" aria-label="Mobile" data-drawer hidden>
+  <a href="/tech/">Technology</a>
+  <a href="/products/">Products</a>
+  <a href="/news/">News</a>
+  <a href="/about/">About</a>
+  <a href="/careers/">Careers</a>
+  <a href="/collaborate/" aria-current="page">Collaborate</a>
+  <a class="drawer__lang" data-lang-switch="zh" href="/zh/collaborate/">中文</a>
+  <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">Apply now ↗</a>
 </nav>
 
 <main id="main" class="main">
@@ -95,165 +81,165 @@
             data-cfg='{"cx":0.74,"cy":0.42,"r":0.27,"cxSm":0.56,"cySm":0.34,"rSm":0.22,"tilt":0.30,"roll":0.13,"motes":1900,"inner":1.07,"reach":1.5,"stars":false,"glow":0.95}'></canvas>
     <noscript>
       <img class="kv__img" src="/assets/img/kv-static.webp"
-           width="1672" height="941" alt="DFM 科学家合作计划主视觉">
+           width="1672" height="941" alt="DFM Scientist Collaboration Program key visual">
     </noscript>
   </div>
   <div class="shell hero__copy">
-    <p class="eyebrow"><span class="num">01</span><span class="brand">PhAI Labs</span> · 面向真实科学发现</p>
-    <h1 class="display">DFM 科学家合作计划</h1>
-    <p class="subtitle">寻找值得被 AI 重新探索的科学问题</p>
-    <p class="lede">让真实的科学问题、数据与实验反馈进入下一代 AI 系统，共同探索从辅助科研到参与科学发现的路径。</p>
+    <p class="eyebrow"><span class="num">01</span><span class="brand">PhAI Labs</span> · Toward real scientific discovery</p>
+    <h1 class="display"><span class="w" style="--i:0">DFM</span> <span class="w" style="--i:1">Scientist</span> <span class="w" style="--i:2">Collaboration</span> <span class="w" style="--i:3">Program</span></h1>
+    <p class="subtitle">Bring frontier questions into the loop of intelligence</p>
+    <p class="lede">Connect real scientific questions, data and experimental feedback with next-generation AI—and explore how AI can move from assisting research to participating in discovery.</p>
     <p class="actions">
-      <a class="btn btn--primary" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid">立即申请 <span aria-hidden="true">↗</span></a>
-      <a class="btn" href="#dfm">了解 DFM</a>
+      <a class="btn btn--primary" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid">Apply now <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="#dfm">Explore DFM</a>
     </p>
-    <p class="note"><i class="dot" aria-hidden="true"></i>首期重点关注生命科学与生物医学，同时面向化学、材料及其他前沿领域开放。</p>
+    <p class="note"><i class="dot" aria-hidden="true"></i>The first cohort prioritizes life science and biomedicine, while remaining open to chemistry, materials and other frontier fields.</p>
   </div>
-  <a class="scroll-cue" href="#why">向下探索</a>
+  <a class="scroll-cue" href="#why">Explore the program</a>
 </section>
 
-<nav class="subnav" aria-label="页内导航" data-subnav data-no-reveal>
-  <div class="shell subnav__inner"><a href="#why">为什么发起</a><a href="#dfm">什么是 DFM</a><a href="#questions">科学问题</a><a href="#who">合作对象</a><a href="#collaboration">合作方式</a><a href="#cases">探索案例</a><a href="#process">推进流程</a><a href="#faq">常见问题</a>
+<nav class="subnav" aria-label="On this page" data-subnav data-no-reveal>
+  <div class="shell subnav__inner"><a href="#why">Why</a><a href="#dfm">What is DFM</a><a href="#questions">Questions</a><a href="#who">Who</a><a href="#collaboration">Collaboration</a><a href="#cases">Cases</a><a href="#process">Process</a><a href="#faq">FAQ</a>
   </div>
 </nav>
 
 <section class="sec sec--statement" id="why">
   <div class="shell">
-    <p class="eyebrow"><span class="num">02</span>为什么发起这个计划</p>
+    <p class="eyebrow"><span class="num">02</span>Why this program</p>
     <div class="split">
-      <h2 class="display-2">科学发现需要的，<br>不只是一个更快的工具</h2>
-      <div class="prose"><p>今天的 AI 已经能够检索文献、生成代码、处理数据并辅助完成部分科研任务。但真正的科学发现，往往始于一个尚未被清晰定义的问题，并经历假设形成、证据组织、工具调用、实验验证以及持续修正。</p><p>这些过程无法只在标准数据集或封闭任务中完成。AI 需要进入真实科研环境，接触科学家真正关心的问题，理解不完整的数据与约束，并从实验和现实反馈中持续学习。</p></div>
+      <h2 class="display-2">Discovery needs more<br>than a faster tool</h2>
+      <div class="prose"><p>AI can already retrieve literature, generate code, process data and assist with parts of the research workflow. But discovery often begins with a question that is not yet well defined—and advances through hypotheses, evidence, tools, experiments and continuous revision.</p><p>That process cannot happen only on static benchmarks or closed tasks. AI must enter real research environments, confront incomplete data and constraints, and learn from experiments and reality.</p></div>
     </div>
     <ol class="principles">
-      <li><span class="num">01</span><h3>从真实问题出发</h3><p>不预设所有问题都已被形式化，而是从科学家面对的未知、瓶颈与异常现象出发。</p></li>
-      <li><span class="num">02</span><h3>在真实反馈中验证</h3><p>让模型输出接受数据、实验、专家判断与现实环境的检验。</p></li>
-      <li><span class="num">03</span><h3>在合作中持续演进</h3><p>沉淀可复用的问题、工具、数据与验证机制，让每一次探索成为下一次发现的起点。</p></li>
+      <li><span class="num">01</span><h3>Start with real questions</h3><p>Begin with the unknowns, bottlenecks and anomalies scientists actually face.</p></li>
+      <li><span class="num">02</span><h3>Verify through real feedback</h3><p>Subject model outputs to data, experiments, expert judgement and the physical world.</p></li>
+      <li><span class="num">03</span><h3>Improve through collaboration</h3><p>Turn questions, tools, data and verifiers into reusable infrastructure for the next discovery.</p></li>
     </ol>
   </div>
 </section>
 
 <section class="sec sec--instrument" data-field="calm" id="instrument">
   <div class="shell"><figure class="figure figure--wide dgfig dgfig--program">
-  <div class="dgfig__art"><a class="dgfig__link" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" aria-label="立即申请"><svg class="dg dg--program" viewBox="0 0 1200 450" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+  <div class="dgfig__art"><a class="dgfig__link" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" aria-label="Apply now"><svg class="dg dg--program" viewBox="0 0 1200 450" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
 
-<text class='dg__t dg__fade' x='230' y='68' text-anchor='middle' style='--d:0.4s'>科学家 · 实验室 带来</text>
-<text class='dg__t dg__fade' x='970' y='68' text-anchor='middle' style='--d:0.4s'>PhAI Labs 带来</text>
-<g class='dg__hov'><circle class='dg__n' cx='330' cy='130' r='4.5'/><text class='dg__t' x='312' y='135' text-anchor='end'>真实的科学问题</text><path class='dg__p dg__draw' pathLength='1' d='M 330,130 C 460,130 500,225 560,225'/></g>
+<text class='dg__t dg__fade' x='230' y='68' text-anchor='middle' style='--d:0.4s'>Scientists and labs bring</text>
+<text class='dg__t dg__fade' x='970' y='68' text-anchor='middle' style='--d:0.4s'>PhAI Labs brings</text>
+<g class='dg__hov'><circle class='dg__n' cx='330' cy='130' r='4.5'/><text class='dg__t' x='312' y='135' text-anchor='end'>Real scientific problems</text><path class='dg__p dg__draw' pathLength='1' d='M 330,130 C 460,130 500,225 560,225'/></g>
 <circle class='dg__mv dg__mv--fade' r='2.8' style="offset-path:path('M 330,130 C 460,130 500,225 560,225');--dur:6s;--delay:-1.0833333333333333s"/>
-<g class='dg__hov'><circle class='dg__n' cx='330' cy='225' r='4.5'/><text class='dg__t' x='312' y='230' text-anchor='end'>高价值数据与研究环境</text><path class='dg__p dg__draw' pathLength='1' d='M 330,225 C 460,225 500,225 560,225'/></g>
+<g class='dg__hov'><circle class='dg__n' cx='330' cy='225' r='4.5'/><text class='dg__t' x='312' y='230' text-anchor='end'>High-value data and research environments</text><path class='dg__p dg__draw' pathLength='1' d='M 330,225 C 460,225 500,225 560,225'/></g>
 <circle class='dg__mv dg__mv--fade' r='2.8' style="offset-path:path('M 330,225 C 460,225 500,225 560,225');--dur:6s;--delay:-1.875s"/>
-<g class='dg__hov'><circle class='dg__n' cx='330' cy='320' r='4.5'/><text class='dg__t' x='312' y='325' text-anchor='end'>实验与专家反馈</text><path class='dg__p dg__draw' pathLength='1' d='M 330,320 C 460,320 500,225 560,225'/></g>
+<g class='dg__hov'><circle class='dg__n' cx='330' cy='320' r='4.5'/><text class='dg__t' x='312' y='325' text-anchor='end'>Experiments and expert feedback</text><path class='dg__p dg__draw' pathLength='1' d='M 330,320 C 460,320 500,225 560,225'/></g>
 <circle class='dg__mv dg__mv--fade' r='2.8' style="offset-path:path('M 330,320 C 460,320 500,225 560,225');--dur:6s;--delay:-2.6666666666666665s"/>
-<g class='dg__hov'><circle class='dg__n' cx='870' cy='130' r='4.5'/><text class='dg__t' x='888' y='135' text-anchor='start'>把问题变成可研究的假设</text><path class='dg__p dg__draw' pathLength='1' d='M 870,130 C 740,130 700,225 640,225'/></g>
+<g class='dg__hov'><circle class='dg__n' cx='870' cy='130' r='4.5'/><text class='dg__t' x='888' y='135' text-anchor='start'>Turns problems into researchable hypotheses</text><path class='dg__p dg__draw' pathLength='1' d='M 870,130 C 740,130 700,225 640,225'/></g>
 <circle class='dg__mv dg__mv--fade' r='2.8' style="offset-path:path('M 870,130 C 740,130 700,225 640,225');--dur:6s;--delay:-4.083333333333333s"/>
-<g class='dg__hov'><circle class='dg__n' cx='870' cy='225' r='4.5'/><text class='dg__t' x='888' y='230' text-anchor='start'>模型、工具与分析</text><path class='dg__p dg__draw' pathLength='1' d='M 870,225 C 740,225 700,225 640,225'/></g>
+<g class='dg__hov'><circle class='dg__n' cx='870' cy='225' r='4.5'/><text class='dg__t' x='888' y='230' text-anchor='start'>Models, tools and analysis</text><path class='dg__p dg__draw' pathLength='1' d='M 870,225 C 740,225 700,225 640,225'/></g>
 <circle class='dg__mv dg__mv--fade' r='2.8' style="offset-path:path('M 870,225 C 740,225 700,225 640,225');--dur:6s;--delay:-4.875s"/>
-<g class='dg__hov'><circle class='dg__n' cx='870' cy='320' r='4.5'/><text class='dg__t' x='888' y='325' text-anchor='start'>设计下一个实验</text><path class='dg__p dg__draw' pathLength='1' d='M 870,320 C 740,320 700,225 640,225'/></g>
+<g class='dg__hov'><circle class='dg__n' cx='870' cy='320' r='4.5'/><text class='dg__t' x='888' y='325' text-anchor='start'>Designs the next experiment</text><path class='dg__p dg__draw' pathLength='1' d='M 870,320 C 740,320 700,225 640,225'/></g>
 <circle class='dg__mv dg__mv--fade' r='2.8' style="offset-path:path('M 870,320 C 740,320 700,225 640,225');--dur:6s;--delay:-5.666666666666666s"/>
-<g class='dg__hov dg__bs'><circle class='dg__hitf' cx='600' cy='225' r='40'/><circle class='dg__box' cx='600' cy='225' r='30'/><circle class='dg__n dg__n--amber' cx='600' cy='225' r='7'/><circle class='dg__ring' style='animation-delay:2.4s' cx='600' cy='225' r='14'/><text class='dg__t dg__fade' x='600' y='278' text-anchor='middle' style='--d:1.2s'>在真实实验里一起验证</text></g>
+<g class='dg__hov dg__bs'><circle class='dg__hitf' cx='600' cy='225' r='40'/><circle class='dg__box' cx='600' cy='225' r='30'/><circle class='dg__n dg__n--amber' cx='600' cy='225' r='7'/><circle class='dg__ring' style='animation-delay:2.4s' cx='600' cy='225' r='14'/><text class='dg__t dg__fade' x='600' y='278' text-anchor='middle' style='--d:1.2s'>Tested together in real experiments</text></g>
 <path class='dg__p dg__faint dg__dash dg__fade' style='--d:2s' d='M 600,262 C 600,380 420,380 330,345'/><path class='dg__p dg__fade' style='--d:2.4s' d='M 342,338 L 330,345 L 344,350'/>
-<text class='dg__t--s dg__fade' x='470' y='400' text-anchor='middle' style='--d:2.4s'>可检验的判断和新的假设，回到科学家手里</text>
+<text class='dg__t--s dg__fade' x='470' y='400' text-anchor='middle' style='--d:2.4s'>Verifiable judgements and new hypotheses go back to the scientist</text>
 <circle class='dg__mv dg__mv--amber dg__mv--fade' r='2.8' style="offset-path:path('M 600,262 C 600,380 420,380 330,345');--dur:6s;--delay:-2s"/>
-<text class='dg__t--k dg__fade' x='600' y='436' text-anchor='middle' style='--d:2.6s'>首期：生命科学与生物医学 · 同时面向化学、材料及其他前沿领域开放</text>
+<text class='dg__t--k dg__fade' x='600' y='436' text-anchor='middle' style='--d:2.6s'>First cohort: life science and biomedicine · also open to chemistry, materials and other frontier fields</text>
 </svg>
 
 </a></div>
-  <aside class="dgfig__attrs"><ul><li><i></i><b>真实问题</b><span>Real problems</span></li><li><i></i><b>真实数据与实验</b><span>Real data and experiments</span></li><li><i></i><b>一起验证</b><span>Tested together</span></li></ul>
+  <aside class="dgfig__attrs"><ul><li><i></i><b>Real problems</b></li><li><i></i><b>Real data and experiments</b></li><li><i></i><b>Tested together</b></li></ul>
   </aside>
   <figcaption class="dgfig__cap">
-    <p class="dgfig__claim">科学家带来真实问题、数据和实验反馈，PhAI 带来模型、工具和分析，在真实实验里一起验证，结果回到科学家手里。</p>
-    <p class="dgfig__hint">把光标移到图上</p>
+    <p class="dgfig__claim">Scientists bring real problems, data and experimental feedback; PhAI brings models, tools and analysis; results are tested together in real experiments and go back to the scientist.</p>
+    <p class="dgfig__hint">Move the cursor over the diagram</p>
   </figcaption>
 </figure>
 
-    <p class="actions"><a class="btn btn--primary" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid">立即申请 <span aria-hidden="true">↗</span></a></p>
+    <p class="actions"><a class="btn btn--primary" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid">Apply now <span aria-hidden="true">↗</span></a></p>
   </div>
 </section>
 
 <section class="sec sec--dfm" data-field="flow" id="dfm">
   <div class="shell">
-    <p class="eyebrow"><span class="num">03</span>什么是 DFM</p>
+    <p class="eyebrow"><span class="num">03</span>What is DFM</p>
     <div class="split">
-      <h2 class="display-2">从完成科研任务，<br>走向参与科学发现</h2>
+      <h2 class="display-2">From completing tasks<br>to participating in discovery</h2>
       <div>
-        <div class="prose"><p>DFM（Discovery Foundation Models）不是一个单一模型，也不是要求所有系统按同一套流程运行的软件框架，而是 PhAI Labs 围绕 Discovery Intelligence 提出的一套研究范式、能力定义和系统组织方式。它通过形式化定义、流程图示、系统实例和真实科学案例，把“发现”从一个模糊概念具体化为一种可学习、可执行、可评测的模型系统能力。</p><p class="prose__note">DFM 科学家合作计划为这一范式引入真实科学问题、数据与验证条件，让系统在真实研究中形成判断。</p></div>
-        <p class="links"><a class="link link--live" href="https://phai-labs.com/papers/dfm/dfm-technical-report-v1-2026-09.pdf">DFM 技术报告 ↗</a><a class="link link--live" href="https://github.com/Gen-Verse/DFM-Plans">GitHub ↗</a>
+        <div class="prose"><p>DFM (Discovery Foundation Models) is neither a single model nor a software framework that forces every system through one pipeline. It is the research paradigm, capability definition and system organisation that PhAI Labs proposes around Discovery Intelligence: through formal definitions, process diagrams, system instances and real scientific cases, it turns “discovery” from a vague notion into a capability of model systems that can be learned, executed and evaluated.</p><p class="prose__note">The DFM Scientist Collaboration Program brings real scientific problems, data and verification conditions into this paradigm, so systems form their judgement in real research.</p></div>
+        <p class="links"><a class="link link--live" href="https://phai-labs.com/papers/dfm/dfm-technical-report-v1-2026-09.pdf">DFM technical report ↗</a><a class="link link--live" href="https://github.com/Gen-Verse/DFM-Plans">GitHub ↗</a>
         </p>
       </div>
     </div><figure class="figure figure--dfm figure--wide ovfig" data-reveal>
-  <div class="ovfig__art" role="img" aria-label="Discovery Foundation Models 技术示意图：智能扩展的三个阶段（对话、智能体与编程、发现）；当前基座模型作用于预定义任务，Discovery Foundation Models 作用于知识生产过程；以及从部分理解的世界到经验证的新知识的递归发现闭环。"><svg class="dg dg--ov" viewBox="0 0 1200 706" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+  <div class="ovfig__art" role="img" aria-label="Discovery Foundation Models overview: three stages of intelligence scaling (chat, agent and coding, discovery); current foundation models operate on predefined tasks, discovery foundation models on the knowledge-production process; and the recursive discovery loop from a partially understood world to validated new knowledge."><svg class="dg dg--ov" viewBox="0 0 1200 706" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
 <rect class='ov__panel dg__draw' style='--d:0s' pathLength='1' x='0.5' y='0.5' width='372' height='467' rx='10'/>
 <rect class='ov__panel dg__draw' style='--d:0.15s' pathLength='1' x='388' y='0.5' width='280' height='467' rx='10'/>
 <rect class='ov__panel ov__panel--focus dg__draw' style='--d:0.3s' pathLength='1' x='796' y='0.5' width='403.5' height='467' rx='10'/>
 <rect class='ov__panel dg__draw' style='--d:0.45s' pathLength='1' x='0.5' y='488' width='1199' height='216' rx='10'/>
-<text class='ov__h dg__fade' x='24' y='38' text-anchor='start' style='--d:0.2s'>智能扩展的三个阶段</text>
+<text class='ov__h dg__fade' x='24' y='38' text-anchor='start' style='--d:0.2s'>Three stages of intelligence scaling</text>
 <g class='dg__fade' style='--d:.3s'><path class='dg__p dg__faint' d='M 52,262 L 52,68'/><path class='dg__p dg__faint' d='M 52,262 L 352,262'/><path class='dg__p dg__faint' d='M 48,74 L 52,66 L 56,74'/><path class='dg__p dg__faint' d='M 346,258 L 354,262 L 346,266'/></g>
-<text class='ov__ax dg__fade' x='32' y='166' text-anchor='middle' style='--d:0.4s' transform='rotate(-90 32 162)'>能力边界</text>
-<text class='ov__ax dg__fade' x='210' y='284' text-anchor='middle' style='--d:0.4s'>可扩展学习信号的演进</text>
+<text class='ov__ax dg__fade' x='32' y='166' text-anchor='middle' style='--d:0.4s' transform='rotate(-90 32 162)'>Capability frontier</text>
+<text class='ov__ax dg__fade' x='210' y='284' text-anchor='middle' style='--d:0.4s'>Evolution of scalable learning signals</text>
 <path class='ov__c ov__t1 dg__draw' style='--d:0.5s' pathLength='1' d='M 66,250 L 69.4,249.7 L 72.8,249.3 L 76.1,249 L 79.5,248.6 L 82.9,248.2 L 86.3,247.8 L 89.6,247.4 L 93,247 L 96.4,246.6 L 99.8,246.1 L 103.1,245.7 L 106.5,245.2 L 109.9,244.7 L 113.3,244.1 L 116.6,243.6 L 120,243 L 123.4,242.5 L 126.8,241.8 L 130.1,241.2 L 133.5,240.6 L 136.9,239.9 L 140.3,239.2 L 143.6,238.5 L 147,237.7 L 150.4,236.9 L 153.8,236.1 L 157.1,235.3 L 160.5,234.4'/>
 <path class='ov__c ov__t2 dg__draw' style='--d:1.0s' pathLength='1' d='M 160.5,234.4 L 163.5,233.6 L 166.5,232.8 L 169.5,231.9 L 172.4,231 L 175.4,230.1 L 178.4,229.2 L 181.4,228.2 L 184.3,227.2 L 187.3,226.2 L 190.3,225.1 L 193.3,224 L 196.3,222.9 L 199.2,221.7 L 202.2,220.5 L 205.2,219.3 L 208.2,218 L 211.2,216.6 L 214.1,215.3 L 217.1,213.8 L 220.1,212.4 L 223.1,210.9 L 226,209.3 L 229,207.7 L 232,206 L 235,204.3 L 238,202.5 L 240.9,200.7 L 243.9,198.8'/>
 <path class='ov__c ov__t3 dg__draw' style='--d:1.5s' pathLength='1' d='M 243.9,198.8 L 247.5,196.4 L 251.1,193.9 L 254.6,191.4 L 258.2,188.7 L 261.8,186 L 265.4,183.1 L 268.9,180.2 L 272.5,177.1 L 276.1,173.8 L 279.7,170.5 L 283.2,167 L 286.8,163.4 L 290.4,159.7 L 294,155.8 L 297.5,151.7 L 301.1,147.5 L 304.7,143.1 L 308.3,138.6 L 311.8,133.9 L 315.4,128.9 L 319,123.8 L 322.6,118.5 L 326.1,113 L 329.7,107.3 L 333.3,101.3 L 336.9,95.1 L 340.4,88.7 L 344,82'/>
 <path class='ov__c ov__t3 dg__fade' style='--d:2.6s' transform='translate(344,82) rotate(-61.8)' d='M -9,-5.2 L 0,0 L -9,5.2'/>
 <g class='dg__hov dg__fade' style='--d:0.9s'><circle class='ov__badge' cx='113.3' cy='244.1' r='9'/><text x='113.3' y='248.1' text-anchor='middle'><tspan class='dg__num'>1</tspan></text></g>
-<text class='ov__stage ov__lt1 dg__fade' x='113.3' y='228.1' text-anchor='middle' style='--d:0.9s'>对话</text>
+<text class='ov__stage ov__lt1 dg__fade' x='113.3' y='228.1' text-anchor='middle' style='--d:0.9s'>Chat</text>
 <g class='dg__hov dg__fade' style='--d:1.5s'><circle class='ov__badge' cx='202.2' cy='220.5' r='9'/><text x='202.2' y='224.5' text-anchor='middle'><tspan class='dg__num'>2</tspan></text></g>
-<text class='ov__stage ov__lt2 dg__fade' x='216.2' y='240.5' text-anchor='start' style='--d:1.5s'>智能体 / 编程</text>
+<text class='ov__stage ov__lt2 dg__fade' x='216.2' y='240.5' text-anchor='start' style='--d:1.5s'>Agent / Coding</text>
 <g class='dg__hov dg__fade' style='--d:2.2s'><circle class='ov__badge ov__badge--strong' cx='296.7' cy='152.6' r='9'/><text x='296.7' y='156.6' text-anchor='middle'><tspan class='dg__num'>3</tspan></text></g>
-<text class='ov__stage ov__lt3 dg__fade' x='280.7' y='156.6' text-anchor='end' style='--d:2.2s'>发现</text>
+<text class='ov__stage ov__lt3 dg__fade' x='280.7' y='156.6' text-anchor='end' style='--d:2.2s'>Discovery</text>
 <circle class='dg__ring dg__ring--slow' style='animation-delay:2.8s' cx='296.7' cy='152.6' r='12'/>
-<g class='dg__hov dg__fade' style='--d:1.0s'><line class='ov__sw ov__t1' x1='24' y1='305' x2='40' y2='305'/><text class='ov__lab ov__lab--s' x='52' y='310' text-anchor='start'>学习已有知识</text><text class='ov__small' x='52' y='328' text-anchor='start'>公共数据 + 预训练</text></g><g class='dg__hov dg__fade' style='--d:1.6s'><line class='ov__sw ov__t2' x1='24' y1='357' x2='40' y2='357'/><text class='ov__lab ov__lab--s' x='52' y='362' text-anchor='start'>从行动结果中学习</text><text class='ov__small' x='52' y='380' text-anchor='start'>可执行经验 + 测试反馈 + 迭代修正</text></g><g class='dg__hov dg__fade' style='--d:2.3s'><line class='ov__sw ov__t3' x1='24' y1='409' x2='40' y2='409'/><text class='ov__lab ov__lab--s' x='52' y='414' text-anchor='start'>创造并验证新知识</text><text class='ov__small' x='52' y='432' text-anchor='start'>可验证证据 + 发现策略 + 真实世界验证</text></g>
-<text class='ov__h dg__fade' x='408' y='38' text-anchor='start' style='--d:0.3s'>当前基座模型 / 大语言模型</text>
-<text class='ov__sub dg__fade' x='408' y='60' text-anchor='start' style='--d:0.35s'>作用于预定义任务</text>
+<g class='dg__hov dg__fade' style='--d:1.0s'><line class='ov__sw ov__t1' x1='24' y1='305' x2='40' y2='305'/><text class='ov__lab ov__lab--s' x='52' y='310' text-anchor='start'>Learn existing knowledge</text><text class='ov__small' x='52' y='328' text-anchor='start'>public data + pre-training</text></g><g class='dg__hov dg__fade' style='--d:1.6s'><line class='ov__sw ov__t2' x1='24' y1='347' x2='40' y2='347'/><text class='ov__lab ov__lab--s' x='52' y='352' text-anchor='start'>Learn from action outcomes</text><text class='ov__small' x='52' y='370' text-anchor='start'><tspan x='52' dy='0'>executable experience + test feedback</tspan><tspan x='52' dy='16'>+ iterative correction</tspan></text></g><g class='dg__hov dg__fade' style='--d:2.3s'><line class='ov__sw ov__t3' x1='24' y1='405' x2='40' y2='405'/><text class='ov__lab ov__lab--s' x='52' y='410' text-anchor='start'>Create and validate new knowledge</text><text class='ov__small' x='52' y='428' text-anchor='start'><tspan x='52' dy='0'>verifiable evidence + discovery policy</tspan><tspan x='52' dy='16'>+ real-world validation</tspan></text></g>
+<text class='ov__h dg__fade' x='408' y='38' text-anchor='start' style='--d:0.3s'>Current foundation models</text>
+<text class='ov__sub dg__fade' x='408' y='60' text-anchor='start' style='--d:0.35s'>LLMs, operating on predefined tasks</text>
 <line class='dg__p dg__faint dg__fade' style='--d:.5s' x1='404' y1='116.0' x2='404' y2='332.0'/>
 <g class='dg__hov dg__fade' style='--d:0.60s'><rect class='ov__tile' x='418' y='86' width='234' height='60' rx='8'/><circle class='dg__n ov__n--dim' cx='404' cy='116.0' r='3.5'/>
-<text class='ov__lab' x='434' y='112' text-anchor='start'>知识</text>
-<text class='ov__small' x='434' y='131' text-anchor='start'>预训练语料</text>
+<text class='ov__lab' x='434' y='112' text-anchor='start'>Knowledge</text>
+<text class='ov__small' x='434' y='131' text-anchor='start'>pre-training corpora</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:0.75s'><rect class='ov__tile' x='418' y='158' width='234' height='60' rx='8'/><circle class='dg__n ov__n--dim' cx='404' cy='188.0' r='3.5'/>
-<text class='ov__lab' x='434' y='184' text-anchor='start'>推理</text>
-<text class='ov__small' x='434' y='203' text-anchor='start'>多步推理</text>
+<text class='ov__lab' x='434' y='184' text-anchor='start'>Reasoning</text>
+<text class='ov__small' x='434' y='203' text-anchor='start'>multi-step reasoning</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:0.90s'><rect class='ov__tile' x='418' y='230' width='234' height='60' rx='8'/><circle class='dg__n ov__n--dim' cx='404' cy='260.0' r='3.5'/>
-<text class='ov__lab' x='434' y='256' text-anchor='start'>工具使用</text>
-<text class='ov__small' x='434' y='275' text-anchor='start'>搜索、代码、数据库</text>
+<text class='ov__lab' x='434' y='256' text-anchor='start'>Tool use</text>
+<text class='ov__small' x='434' y='275' text-anchor='start'>search, code, databases</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:1.05s'><rect class='ov__tile' x='418' y='302' width='234' height='60' rx='8'/><circle class='dg__n ov__n--dim' cx='404' cy='332.0' r='3.5'/>
-<text class='ov__lab' x='434' y='328' text-anchor='start'>智能体执行</text>
-<text class='ov__small' x='434' y='347' text-anchor='start'>长程工作流</text>
+<text class='ov__lab' x='434' y='328' text-anchor='start'>Agentic execution</text>
+<text class='ov__small' x='434' y='347' text-anchor='start'>long-horizon workflows</text>
 </g>
 <g class='dg__fade' style='--d:1.3s'><rect class='ov__glyph' x='408' y='423' width='10' height='8' rx='1.5'/><path class='ov__glyph' d='M 410,423 v -3 a 3,3 0 0 1 6,0 v 3'/></g>
-<text class='ov__small dg__fade' x='426' y='432' text-anchor='start' style='--d:1.3s'>研究结构：由人类固定</text>
-<text class='ov__flow dg__fade' x='732' y='118' text-anchor='middle' style='--d:1.3s'><tspan x='732' dy='0'>发现拓展</tspan><tspan x='732' dy='17'>能力边界</tspan></text>
+<text class='ov__small dg__fade' x='426' y='432' text-anchor='start' style='--d:1.3s'>Research structure: fixed by humans</text>
+<text class='ov__flow dg__fade' x='732' y='118' text-anchor='middle' style='--d:1.3s'><tspan x='732' dy='0'>Discovery</tspan><tspan x='732' dy='17'>expands the</tspan><tspan x='732' dy='17'>operating frontier</tspan></text>
 <path class='ov__chev ov__t1 dg__draw' style='--d:1.4s' pathLength='1' d='M 702,188 L 728,236.0 L 702,284'/>
 <path class='ov__chev ov__t2 dg__draw' style='--d:1.6s' pathLength='1' d='M 724,188 L 750,236.0 L 724,284'/>
 <path class='ov__chev ov__t3 dg__draw' style='--d:1.8s' pathLength='1' d='M 746,188 L 772,236.0 L 746,284'/>
 <circle class='dg__mv dg__mv--fade' r='2.8' style="offset-path:path('M 654,236.0 L 810,236.0');--dur:3.2s;--delay:2.2s"/>
 <circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 654,236.0 L 810,236.0');--dur:3.2s;--delay:3.8s"/>
-<text class='ov__flow ov__flow--it dg__fade' x='732' y='326' text-anchor='middle' style='--d:2.0s'><tspan x='732' dy='0'>从解决任务</tspan><tspan x='732' dy='17'>到构建研究</tspan></text>
+<text class='ov__flow ov__flow--it dg__fade' x='732' y='326' text-anchor='middle' style='--d:2.0s'><tspan x='732' dy='0'>from solving tasks</tspan><tspan x='732' dy='17'>to constructing</tspan><tspan x='732' dy='17'>research</tspan></text>
 <text class='ov__h dg__fade' x='816' y='38' text-anchor='start' style='--d:0.5s'>Discovery Foundation Models</text>
-<text class='ov__sub dg__fade' x='816' y='60' text-anchor='start' style='--d:0.55s'>作用于知识生产过程</text>
+<text class='ov__sub dg__fade' x='816' y='60' text-anchor='start' style='--d:0.55s'>operating on the knowledge-production process</text>
 <line class='dg__p dg__draw' style='--d:2.0s' pathLength='1' x1='812' y1='116.0' x2='812' y2='332.0'/>
 <g class='dg__hov dg__fade' style='--d:2.00s'><rect class='ov__tile' x='826' y='86' width='357.5' height='60' rx='8'/><circle class='dg__n' cx='812' cy='116.0' r='3.5'/>
-<text class='ov__lab' x='842' y='112' text-anchor='start'>识别有价值的未知</text>
-<text class='ov__small' x='842' y='131' text-anchor='start'>问题发现与形式化</text>
+<text class='ov__lab' x='842' y='112' text-anchor='start'>Identify valuable unknowns</text>
+<text class='ov__small' x='842' y='131' text-anchor='start'>problem discovery and formulation</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:2.15s'><rect class='ov__tile' x='826' y='158' width='357.5' height='60' rx='8'/><circle class='dg__n' cx='812' cy='188.0' r='3.5'/>
-<text class='ov__lab' x='842' y='184' text-anchor='start'>构建并修正研究结构</text>
-<text class='ov__small' x='842' y='203' text-anchor='start'>表征与假设</text>
+<text class='ov__lab' x='842' y='184' text-anchor='start'>Construct and revise research structure</text>
+<text class='ov__small' x='842' y='203' text-anchor='start'>representations and hypotheses</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:2.30s'><rect class='ov__tile' x='826' y='230' width='357.5' height='60' rx='8'/><circle class='dg__n' cx='812' cy='260.0' r='3.5'/>
-<text class='ov__lab' x='842' y='256' text-anchor='start'>用外部证据检验解释</text>
-<text class='ov__small' x='842' y='275' text-anchor='start'>干预与基于证据的修正</text>
+<text class='ov__lab' x='842' y='256' text-anchor='start'>Test explanations against external evidence</text>
+<text class='ov__small' x='842' y='275' text-anchor='start'>intervention and evidence-grounded revision</text>
 <circle class='dg__n--amber' cx='1165.5' cy='260' r='8'/><path class='dg__tick' d='M 1161.5,260 l 3,3 l 5.5,-6'/>
 </g>
 <g class='dg__hov dg__fade' style='--d:2.45s'><rect class='ov__tile' x='826' y='302' width='357.5' height='60' rx='8'/><circle class='dg__n' cx='812' cy='332.0' r='3.5'/>
-<text class='ov__lab' x='842' y='328' text-anchor='start'>跨任务提升发现能力</text>
-<text class='ov__small' x='842' y='347' text-anchor='start'>持续提升发现能力</text>
+<text class='ov__lab' x='842' y='328' text-anchor='start'>Improve discovery capability across tasks</text>
+<text class='ov__small' x='842' y='347' text-anchor='start'>continual discovery improvement</text>
 </g>
 <circle class='dg__ring' style='animation-delay:2.9s' cx='1165.5' cy='260' r='8'/>
 <circle class='dg__mv dg__mv--fade' r='3' style="offset-path:path('M 812,116.0 L 812,332.0');--dur:4.4s;--delay:3s"/>
 <g class='dg__fade' style='--d:2.8s'><path class='ov__glyph' d='M 826,425 A 5.5,5.5 0 1 0 826.5,430'/><path class='ov__glyph' d='M 823.5,423 L 826.5,425.4 L 823,427.5'/></g>
-<text class='ov__small dg__fade' x='834' y='432' text-anchor='start' style='--d:2.8s'>研究结构：模型行动与修正的对象</text>
+<text class='ov__small dg__fade' x='834' y='432' text-anchor='start' style='--d:2.8s'>Research structure: what the model acts on and revises</text>
 <g class='dg__fade' style='--d:3.10s'><path class='dg__p dg__dash' d='M 172,538 L 350,538'/></g>
 <path class='dg__p dg__fade' style='--d:3.2s' transform='translate(350,538) rotate(0)' d='M -6,-3.5 L 0,0 L -6,3.5'/>
 <g class='dg__fade' style='--d:3.25s'><path class='dg__p dg__dash' d='M 398,538 L 576,538'/></g>
@@ -265,70 +251,70 @@
 <g class='dg__fade' style='--d:3.8s'><path class='dg__p dg__dash' d='M 1076,538 L 1160,538 Q 1176,538 1176,554 L 1176,640 Q 1176,656 1160,656 L 40,656 Q 24,656 24,640 L 24,554 Q 24,538 40,538 L 124,538'/></g>
 <path class='dg__p dg__fade' style='--d:3.9s' transform='translate(124,538) rotate(0)' d='M -6,-3.5 L 0,0 L -6,3.5'/>
 <g class='dg__hov dg__fade' style='--d:3.00s'><circle class='ov__badge' cx='148' cy='538' r='16'/><text x='148' y='542' text-anchor='middle'><tspan class='dg__num'>1</tspan></text>
-<text class='ov__lab ov__lab--step' x='148' y='576' text-anchor='middle'>部分理解的世界</text>
+<text class='ov__lab ov__lab--step' x='148' y='576' text-anchor='middle'>Partially understood world</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:3.15s'><circle class='ov__badge' cx='374' cy='538' r='16'/><text x='374' y='542' text-anchor='middle'><tspan class='dg__num'>2</tspan></text>
-<text class='ov__lab ov__lab--step' x='374' y='576' text-anchor='middle'>有价值的未知</text>
+<text class='ov__lab ov__lab--step' x='374' y='576' text-anchor='middle'>Valuable unknowns</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:3.30s'><circle class='ov__badge' cx='600' cy='538' r='16'/><text x='600' y='542' text-anchor='middle'><tspan class='dg__num'>3</tspan></text>
-<text class='ov__lab ov__lab--step' x='600' y='576' text-anchor='middle'>可研究的问题</text>
+<text class='ov__lab ov__lab--step' x='600' y='576' text-anchor='middle'>Researchable problem</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:3.45s'><circle class='ov__badge' cx='826' cy='538' r='16'/><text x='826' y='542' text-anchor='middle'><tspan class='dg__num'>4</tspan></text>
-<text class='ov__lab ov__lab--step' x='826' y='576' text-anchor='middle'>解释与干预</text>
+<text class='ov__lab ov__lab--step' x='826' y='576' text-anchor='middle'>Explanation and intervention</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:3.60s'><circle class='ov__badge ov__badge--strong' cx='1052' cy='538' r='16'/><text x='1052' y='542' text-anchor='middle'><tspan class='dg__num'>5</tspan></text>
-<text class='ov__lab ov__lab--step' x='1052' y='576' text-anchor='middle'>经验证的新知识</text>
+<text class='ov__lab ov__lab--step' x='1052' y='576' text-anchor='middle'>Validated new knowledge</text>
 </g>
 <circle class='dg__ring dg__ring--slow' style='animation-delay:4.2s' cx='1052' cy='538' r='16'/>
 <g class='dg__hov dg__fade' style='--d:3.90s'><circle class='dg__n ov__n--dim' cx='148' cy='656' r='3.5'/>
-<text class='ov__act' x='148' y='680' text-anchor='middle'>更新对世界的理解</text>
+<text class='ov__act' x='148' y='680' text-anchor='middle'>update world understanding</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:4.00s'><circle class='dg__n ov__n--dim' cx='374' cy='656' r='3.5'/>
-<text class='ov__act' x='374' y='680' text-anchor='middle'>构建问题</text>
+<text class='ov__act' x='374' y='680' text-anchor='middle'>frame the problem</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:4.10s'><circle class='dg__n ov__n--dim' cx='600' cy='656' r='3.5'/>
-<text class='ov__act' x='600' y='680' text-anchor='middle'>生成假设</text>
+<text class='ov__act' x='600' y='680' text-anchor='middle'>generate hypotheses</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:4.20s'><circle class='dg__n ov__n--dim' cx='826' cy='656' r='3.5'/>
-<text class='ov__act' x='826' y='680' text-anchor='middle'>设计干预</text>
+<text class='ov__act' x='826' y='680' text-anchor='middle'>design interventions</text>
 </g>
 <g class='dg__hov dg__fade' style='--d:4.30s'><circle class='dg__n ov__n--dim' cx='1052' cy='656' r='3.5'/>
-<text class='ov__act' x='1052' y='680' text-anchor='middle'>收集新证据</text>
+<text class='ov__act' x='1052' y='680' text-anchor='middle'>collect new evidence</text>
 </g>
-<text class='ov__h ov__h--band dg__fade' x='600' y='612' text-anchor='middle' style='--d:2.9s'>递归发现闭环</text>
+<text class='ov__h ov__h--band dg__fade' x='600' y='612' text-anchor='middle' style='--d:2.9s'>Recursive discovery loop</text>
 <circle class='dg__mv dg__mv--fade' r='3.2' style="offset-path:path('M 148,538 L 1160,538 Q 1176,538 1176,554 L 1176,640 Q 1176,656 1160,656 L 40,656 Q 24,656 24,640 L 24,554 Q 24,538 40,538 L 148,538');--dur:14s;--delay:4.2s"/>
 <circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 148,538 L 1160,538 Q 1176,538 1176,554 L 1176,640 Q 1176,656 1160,656 L 40,656 Q 24,656 24,640 L 24,554 Q 24,538 40,538 L 148,538');--dur:14s;--delay:11.2s"/>
 </svg>
 
   </div>
   <figcaption class="ovfig__cap">
-    <p class="dgfig__claim">Discovery Foundation Models，面向开放式 Discovery Intelligence：AI 不再只解决人给定的任务，而是参与提出问题、检验解释、积累新知识的整个过程。</p>
-    <p class="dgfig__hint">把光标移到图上</p>
-    <p class="ovfig__swipe">左右滑动查看完整示意图</p>
+    <p class="dgfig__claim">Discovery Foundation Models, toward open-ended discovery intelligence: AI that no longer only solves the tasks it is handed, but takes part in the whole process of asking, testing and adding to what is known.</p>
+    <p class="dgfig__hint">Move the cursor over the diagram</p>
+    <p class="ovfig__swipe">Swipe to see the whole diagram</p>
   </figcaption>
 </figure>
 
     <div class="modules">
-      <p class="modules__title">三个独立的研究与工程方向</p>
-      <p class="modules__note">ScienceBuddy、ScienceIDE 和 JEPA-Anything 是三个完全独立的模块与研究方向，在产品形态、使用方式、论文和技术实现上彼此独立，不存在必须的调用或依赖关系。从未来愿景上看，三者可以形成一种可组合的研究路径：ScienceBuddy 通过科学家与智能体的交互收集反馈和研究轨迹；ScienceIDE 将这些数据和经验进一步组织为可复用的科学环境，用于任务执行、强化学习和模型训练；JEPA-Anything 则探索对多个科学环境和干预结果进行统一的状态预测和模拟。这是一种未来可能的组合方式，不代表三者当前已经完成集成，也不改变它们各自独立的定位。</p>
+      <p class="modules__title">Three independent research and engineering directions</p>
+      <p class="modules__note">ScienceBuddy, ScienceIDE and JEPA-Anything are three fully independent modules and research directions: independent in product form, usage, papers and implementation, with no required calls or dependencies between them. Looking ahead, the three could form a composable research path: ScienceBuddy collects feedback and research trajectories from the interaction between scientists and agents; ScienceIDE organises that data and experience into reusable scientific environments for task execution, reinforcement learning and model training; JEPA-Anything explores unified state prediction and simulation across multiple scientific environments and interventions. That is a possible future combination, not an integration that exists today, and it does not change their independent standing.</p>
       <div class="modules__grid modules__grid--3">
         <article class="module">
-          <span class="num">9 月 16 日</span>
-          <h3>ScienceBuddy · AI 科研搭档</h3>
-          <p class="module__tag">可交互的 Scientific Agent，探索真实科研交互中的 RSI in RSI</p>
-          <p>它重点探索一种交互式 Science RSI 形态：用户提出科学问题，智能体调用工具并给出回应；科学家的追问、修改、采纳、否定和重新运行形成反馈，进而推动科研智能体工作环境和 Harness 的持续演化。</p><a class="link link--live" href="https://science-buddy.io/">访问 ScienceBuddy ↗</a>
+          <span class="num">16 Sep</span>
+          <h3>ScienceBuddy · AI research partner</h3>
+          <p class="module__tag">An interactive Scientific Agent, exploring RSI in RSI in real research interaction</p>
+          <p>It focuses on an interactive form of Science RSI: a user poses a scientific question, the agent calls tools and answers; the scientist&#39;s follow-ups, edits, acceptances, rejections and re-runs become feedback that drives the research agent&#39;s workspace and harness to keep evolving.</p><a class="link link--live" href="https://science-buddy.io/">Open ScienceBuddy ↗</a>
         </article>
         <article class="module">
-          <span class="num">9 月 17 日</span>
-          <h3>ScienceIDE · 科学集成开发平台</h3>
-          <p class="module__tag">集成科学环境、代码、工具与训练流程的科学集成开发平台</p>
-          <p>它把真实科学代码、研究流程、任务目标和验证标准转化为可运行、可测量、可复现的科学环境，让研究者能够在真实科学场景中开展 Agent 执行、模型训练和强化学习研究。</p><a class="link link--live" href="https://aitonomy.org/projects/scienceide">ScienceIDE 项目主页 ↗</a>
+          <span class="num">17 Sep</span>
+          <h3>ScienceIDE · science integrated development platform</h3>
+          <p class="module__tag">A platform integrating scientific environments, code, tools and training pipelines</p>
+          <p>It turns real scientific code, research procedures, task goals and verification criteria into scientific environments that run, measure and reproduce, so that researchers can do agent execution, model training and reinforcement-learning research in real scientific settings.</p><a class="link link--live" href="https://aitonomy.org/projects/scienceide">ScienceIDE project page ↗</a>
         </article>
         <article class="module">
-          <span class="num">9 月 18 日</span>
-          <h3>JEPA-Anything · 跨领域统一科学世界模型</h3>
-          <p class="module__tag">面向跨领域状态预测、干预模拟和科学诊断的统一科学世界模型</p>
-          <p>它探索如何在视觉、生物、临床轨迹、控制、分子动力学、物理场和气象这七个领域中，学习能够预测世界状态变化的潜在表示，并为干预预测、状态合成和科学诊断提供统一接口。</p><a class="link link--live" href="https://phai-labs.com/papers/jepa-anything/jepa-anything-technical-report-v1-2026-09.pdf">JEPA-Anything 论文 ↗</a>
+          <span class="num">18 Sep</span>
+          <h3>JEPA-Anything · cross-domain unified science world model</h3>
+          <p class="module__tag">A unified science world model for cross-domain state prediction, intervention simulation and scientific diagnosis</p>
+          <p>It explores how to learn latent representations that predict changes in world state, and how to offer one interface for intervention prediction, state synthesis and scientific diagnosis. The seven domains are vision, biology, clinical trajectories, control, molecular dynamics, physical fields and weather.</p><a class="link link--live" href="https://phai-labs.com/papers/jepa-anything/jepa-anything-technical-report-v1-2026-09.pdf">JEPA-Anything paper ↗</a>
         </article>
       </div>
     </div>
@@ -337,103 +323,103 @@
 
 <section class="sec" id="questions">
   <div class="shell">
-    <p class="eyebrow"><span class="num">04</span>我们寻找什么</p>
-    <div class="split"><h2 class="display-2">什么样的问题值得共同探索？</h2><p class="lede">相比一个已被完整定义、只需要调用现成方法完成的任务，我们更关注那些具有真实科学价值、仍存在关键未知，并且能够获得数据或实验反馈的问题。</p></div>
+    <p class="eyebrow"><span class="num">04</span>What we look for</p>
+    <div class="split"><h2 class="display-2">What questions are worth exploring together?</h2><p class="lede">We are most interested in questions with real scientific value, a consequential unknown, and a path to data or experimental feedback—not tasks already fully specified and solved by an existing workflow.</p></div>
     <ol class="criteria">
-      <li><span class="num">01</span><h3>一个真正重要的未知</h3><p>它可能帮助我们理解尚未解释的现象、发现新的机制或规律，或形成新的研究方法，而不只是对既有流程的小幅优化。</p></li>
-      <li><span class="num">02</span><h3>一个尚未解决的瓶颈</h3><p>现有理论、模型、数据分析或实验方法还不能令人满意地回答它，并且失败原因本身值得研究。</p></li>
-      <li><span class="num">03</span><h3>一个可以进入的起点</h3><p>已经存在一定的数据、文献、工具、实验条件或领域知识，使双方可以建立第一步探索。</p></li>
-      <li><span class="num">04</span><h3>一个可以验证的反馈</h3><p>系统提出的判断或假设，能够通过数据分析、实验、专家判断或真实环境被支持、修正或推翻。</p></li>
+      <li><span class="num">01</span><h3>A consequential unknown</h3><p>A question that could explain an unresolved phenomenon, reveal a new mechanism or pattern, or lead to a new way of doing research.</p></li>
+      <li><span class="num">02</span><h3>A real bottleneck</h3><p>Current theory, models, data analysis or experiments do not provide a satisfying answer—and the failure itself is informative.</p></li>
+      <li><span class="num">03</span><h3>A workable starting point</h3><p>Some combination of data, literature, tools, experimental conditions or domain knowledge makes a first exploration possible.</p></li>
+      <li><span class="num">04</span><h3>A verifiable signal</h3><p>A hypothesis can be supported, corrected or rejected through data, experiments, expert judgement or the real world.</p></li>
     </ol>
     <div class="prompts" data-reveal>
-      <p class="prompts__title">可以从这些问题开始思考</p>
-      <ol><li><span class="num">01</span>你在研究中观察到了什么无法解释的现象？</li><li><span class="num">02</span>当前方法为什么还不能解决这个问题？</li><li><span class="num">03</span>已经具备哪些数据、工具或实验条件？</li><li><span class="num">04</span>什么结果会被视为实质性进展？</li></ol>
+      <p class="prompts__title">Questions to begin with</p>
+      <ol><li><span class="num">01</span>What phenomenon in your research remains unexplained?</li><li><span class="num">02</span>Why do current methods fail to resolve it?</li><li><span class="num">03</span>What data, tools or experimental conditions already exist?</li><li><span class="num">04</span>What outcome would count as meaningful progress?</li></ol>
     </div>
   </div>
 </section>
 
 <section class="sec" id="who">
   <div class="shell">
-    <p class="eyebrow"><span class="num">05</span>首期重点与合作对象</p>
-    <div class="split"><h2 class="display-2">让领域判断、数据与验证条件，<br>进入同一条发现链路</h2><p class="lede">计划面向高校、科研机构、实验室和产业研发团队中的科学家及研究人员。问题可以处于早期构思、数据积累、方法受阻或实验验证阶段。</p></div>
+    <p class="eyebrow"><span class="num">05</span>First cohort &amp; who should join</p>
+    <div class="split"><h2 class="display-2">Bring judgement, data and verification<br>into one discovery loop</h2><p class="lede">The program is open to researchers in universities, institutes, laboratories and industrial R&amp;D teams. Questions may be at the stage of early conception, data accumulation, methodological bottleneck or experimental validation.</p></div>
     <div class="focus">
       <div class="focus__main">
-        <h3>首期重点：生命科学与生物医学</h3>
-        <p>这些领域已经积累了大量多模态数据、专业工具和实验验证条件，同时仍存在大量复杂、开放且具有重要影响的科学问题。</p>
-        <ul class="tags"><li>组学与单细胞分析</li><li>疾病机制与生物标志物</li><li>分子、蛋白质与生物系统</li><li>实验设计与可验证假设</li></ul>
+        <h3>Initial focus: life science and biomedicine</h3>
+        <p>These fields combine rich multimodal data, specialized tools and experimental verification with a large number of open, consequential scientific questions.</p>
+        <ul class="tags"><li>Omics &amp; single-cell analysis</li><li>Disease mechanisms &amp; biomarkers</li><li>Molecules, proteins &amp; biological systems</li><li>Experiment design &amp; testable hypotheses</li></ul>
       </div>
-      <aside class="focus__aside"><h3>同时面向更多前沿领域开放</h3><p>对于具有重要科学价值、可获得数据或真实反馈，并适合通过模型推理、工具调用和持续验证推进的问题，我们同样欢迎来自化学、材料及其他领域的申请。</p></aside>
+      <aside class="focus__aside"><h3>Open to other frontier fields</h3><p>We also welcome questions in chemistry, materials and other fields when they carry clear scientific value, have access to data or real feedback, and can benefit from reasoning, tool use and iterative verification.</p></aside>
     </div>
-    <p class="subhead subhead--lead">我们希望与这样的研究者共同探索</p>
+    <p class="subhead subhead--lead">The collaborators we hope to explore with</p>
     <ol class="audience">
-      <li><span class="num">01</span><h3>有科学问题、希望系统引入 AI 能力的科学家与研究团队</h3><p>你知道哪些问题真正重要，也了解现有方法的局限，希望把大模型、科研 Agent 或自动化实验更系统地接进研究流程。我们从具体的研究瓶颈出发，一起判断 AI 能在哪些环节发挥作用，并共同设计和验证方案。</p></li>
-      <li><span class="num">02</span><h3>以计算、建模与仿真为主要手段的实验室</h3><p>你已经积累了专业数据、科研代码、计算模型或仿真环境，希望用 AI 拓展现有的分析与探索方法。我们一起看 AI 如何在其中开展可验证的研究任务。</p></li>
-      <li><span class="num">03</span><h3>希望把 AI 与实验研究结合的湿实验团队</h3><p>你能开展实验、获得观测数据、检验假设，也想知道 AI 能否帮上实验设计、结果分析和下一步方向的选择。我们一起把从提出问题到获得证据的链路接成闭环。</p></li>
-      <li><span class="num">04</span><h3>希望探索新型科研方式的青年 PI、博士后和博士生</h3><p>希望把 AI 深度带入科研过程、愿意共同探索新研究范式的青年研究者。有持续关注的问题、相关的研究积累，或想一起探索的方向，都欢迎提出合作意向。</p></li>
-      <li><span class="num">05</span><h3>面对复杂研发问题的产业研发团队</h3><p>你在研究产品或工艺背后的科学问题，已有业务场景、数据积累或测试条件，但现有方法仍难以解释关键现象，或需要大量试验才能找到可行方案。我们一起识别其中适合 AI 参与的环节，结合实际研发要求，用计算、仿真或实验评估进展。</p></li>
+      <li><span class="num">01</span><h3>Scientists and research groups with a question, wanting AI built in</h3><p>You know which questions matter and where current methods stop, and you want foundation models, research agents or automated experimentation wired into how you already work. We start from the specific bottleneck, work out where AI actually helps, then design and test the approach together.</p></li>
+      <li><span class="num">02</span><h3>Labs working mainly through computation, modelling and simulation</h3><p>You have specialist data, research code, computational models or simulation environments, and want AI to extend how you analyse and explore. We look at how AI can run verifiable research tasks inside them.</p></li>
+      <li><span class="num">03</span><h3>Wet labs looking to pair experiments with AI</h3><p>You run experiments, collect observations and test hypotheses, and want to know whether AI can help design the experiment, read the result or choose the next direction. We close the loop from question to evidence together.</p></li>
+      <li><span class="num">04</span><h3>Early-career PIs, postdocs and PhD students trying a new way of working</h3><p>Researchers who want AI deep in the research process and are willing to work out a new paradigm with us. If you have a question you keep returning to, relevant groundwork, or a direction you want to explore together, tell us about it.</p></li>
+      <li><span class="num">05</span><h3>Industrial R&amp;D teams facing hard development problems</h3><p>You are working on the science behind a product or a process, with business context, data or test conditions already in hand, but current methods cannot explain the key behaviour, or it takes too many trials to find something that works. We identify where AI fits and measure progress by computation, simulation or experiment, against your real requirements.</p></li>
     </ol>
   </div>
 </section>
 
 <section class="sec" id="collaboration">
   <div class="shell">
-    <p class="eyebrow"><span class="num">06</span>合作方式</p>
-    <h2 class="display-2">不是提交一个需求，<br>而是共同推进一项研究</h2>
+    <p class="eyebrow"><span class="num">06</span>Collaboration</p>
+    <h2 class="display-2">Not a request queue—<br>a research partnership</h2>
     <div class="exchange">
       <div class="exchange__col">
-        <h3><span class="brand">PhAI Labs</span> 可以提供</h3>
-        <dl class="offer"><div><dt>AI 研究与工程支持</dt><dd>围绕大模型、智能体、强化学习、工具调用与科学智能提供算法和工程支持。</dd></div><div><dt>模型、工具与计算资源</dt><dd>根据项目需要讨论相关模型、数据处理工具与计算资源。</dd></div><div><dt>问题建模与联合验证</dt><dd>共同把开放问题转化为可以探索、可以反馈并可以验证的研究路径。</dd></div><div><dt>成果沉淀与对外传播</dt><dd>对形成实质成果的项目，进一步探索联合研究、论文发表或开源发布。</dd></div><div><dt>长期共研与资金支持</dt><dd>对于经过早期验证、双方目标与投入匹配且具备持续研究价值的项目，可进一步探索长期联合研究及相应资金支持。具体方式由双方根据项目进展共同确定。</dd></div>
+        <h3>What <span class="brand">PhAI Labs</span> brings</h3>
+        <dl class="offer"><div><dt>AI research &amp; engineering</dt><dd>Support across foundation models, agents, reinforcement learning, tool use and scientific intelligence.</dd></div><div><dt>Models, tools &amp; compute</dt><dd>Project-specific access to relevant models, data tools and compute resources.</dd></div><div><dt>Problem formulation &amp; validation</dt><dd>Turn an open question into an explorable and verifiable research path.</dd></div><div><dt>Research outputs &amp; communication</dt><dd>Explore joint research, publications or open-source releases for substantive outcomes.</dd></div><div><dt>Long-term co-research &amp; funding support</dt><dd>Projects that demonstrate early validity, aligned goals and sustained research value may progress into longer-term joint research with corresponding funding support. The form of support will be determined together as the project develops.</dd></div>
         </dl>
       </div>
       <div class="exchange__col">
-        <h3>科学家提供与参与</h3>
-        <ul class="checks"><li>解释问题的重要性与现有方法的局限</li><li>提供必要的领域知识与已有研究材料</li><li>在授权范围内提供数据、工具或实验条件</li><li>对分析、假设与结果提供专业判断和验证反馈</li></ul>
+        <h3>What scientists bring</h3>
+        <ul class="checks"><li>Explain why the question matters and where current methods fail</li><li>Contribute essential domain knowledge and existing research context</li><li>Provide authorized access to data, tools or experimental conditions</li><li>Judge analyses and hypotheses, and provide verification feedback</li></ul>
       </div>
     </div>
     <div class="governance" data-reveal>
-      <p><strong>数据与知识产权</strong>进入实质性合作前，双方将通过书面协议明确数据使用范围、保密要求、成果发布、署名方式及知识产权安排。</p>
-      <ul><li>数据仅在明确授权范围内使用</li><li>是否用于模型训练或系统改进另行确认</li><li>未公开数据与结果按约定保护</li><li>论文、代码、模型与专利按贡献及协议确定</li></ul>
+      <p><strong>Data &amp; intellectual property</strong>Before substantive work begins, the parties will document data scope, confidentiality, publication, authorship and IP arrangements for the specific project.</p>
+      <ul><li>Use data only within an explicitly authorized scope</li><li>Clarify separately whether data may improve or train models</li><li>Protect unpublished data and results under agreed terms</li><li>Determine papers, code, models and patents through contribution and written agreement</li></ul>
     </div>
   </div>
 </section>
 
 <section class="sec" id="cases">
   <div class="shell">
-    <p class="eyebrow"><span class="num">07</span>探索案例</p>
-    <div class="split"><h2 class="display-2">从真实的科学问题出发</h2><div class="prose"><p>首批种子用户正在将真实科研问题带入测试。我们将在获得相关研究者授权后，逐步公开具有代表性的探索过程、阶段结果与经验。</p><p class="prose__note">与其只展示最终答案，我们更希望呈现问题如何被定义、AI 参与了哪些环节、科学家如何判断和反馈，以及研究如何因此向前推进。</p></div></div>
+    <p class="eyebrow"><span class="num">07</span>Exploration cases</p>
+    <div class="split"><h2 class="display-2">Begin with real scientific questions</h2><div class="prose"><p>The first seed users are bringing real research questions into testing. With their permission, we will share representative exploration processes, intermediate outcomes and lessons.</p><p class="prose__note">Rather than display only a final answer, we want to show how a problem was framed, where AI participated, how scientists judged the output, and how the research moved forward.</p></div></div>
     <div class="cases">
       <article class="case case--full" data-reveal>
         <div class="case__head">
-          <span class="case__no">案例 01</span>
+          <span class="case__no">Case 01</span>
           <h3 class="case__name">GALILEO</h3>
-          <p class="case__sub">具身 AI 科学家的自主治疗发现</p>
+          <p class="case__sub">Autonomous therapeutic discovery by an embodied AI scientist</p>
           <p class="case__full">Generalizable Agentic Laboratory Intelligence for Learning, Experimentation, and Optimization</p>
         </div>
         <div class="case__body">
-          <p class="case__intro">GALILEO 是 DFM 理念在生命科学领域的一次具象化实践：AI 不再是完成单个任务的工具，而是进入真实科研环境，从真实问题出发，在实验反馈中持续学习，参与科学发现的全过程。相关成果以预印本形式发于 bioRxiv（2026 年 6 月）。</p>
+          <p class="case__intro">GALILEO is the DFM idea made concrete in the life sciences: AI is no longer a tool that completes a single task but enters a real research environment, starts from a real question, keeps learning from experimental feedback and takes part in the whole process of discovery. The work is available as a bioRxiv preprint (June 2026).</p>
           <dl class="case__fields">
             <div>
-              <dt>研究问题</dt>
-              <dd><p>现有 AI 系统在生物医学中大多停留在“预测”阶段，预测靶点、预测分子性质，却无法走到真实的实验干预。GALILEO 要回答的核心问题是：AI 能否走出预测，在动态膜系统中自主完成“从候选多肽发现到湿实验验证”的完整闭环，找到可干预肿瘤免疫的治疗性靶点与分子？</p>
+              <dt>Research question</dt>
+              <dd><p>Most AI systems in biomedicine stop at prediction: predicting targets, predicting molecular properties, without reaching real experimental intervention. GALILEO asks whether AI can move past prediction and close the loop autonomously in a dynamic membrane system, from candidate peptide discovery to wet-lab validation, and find therapeutic targets and molecules that intervene in tumour immunity.</p>
               </dd>
             </div>
             <div>
-              <dt>已有条件</dt>
-              <dd><ul><li>临床知情的多肽先验库（CPP），为候选分子提供可追溯的起点</li><li>机器人固相多肽合成平台，支持 AI 设计的分子自动合成</li><li>多模态表型分析能力，涵盖膜电流、代谢通量、T 细胞功能等</li><li>TCGA、CPTAC、GEO、GTEx 等公开组学数据与湿实验验证团队</li></ul>
+              <dt>What was already in place</dt>
+              <dd><ul><li>A clinically informed peptide prior library (CPP) giving candidates a traceable starting point</li><li>A robotic solid-phase peptide synthesis platform that synthesises AI-designed molecules automatically</li><li>Multimodal phenotyping across membrane current, metabolic flux and T-cell function</li><li>Public omics data from TCGA, CPTAC, GEO and GTEx, plus a wet-lab validation team</li></ul>
               </dd>
             </div>
             <div>
-              <dt>AI 参与方式</dt>
-              <dd><p>GALILEO 以 OTAS（Observation–Thought–Action–Summary，观察–思考–行动–总结）推理循环为核心，自主执行：</p><ul><li>从多肽先验库中检索候选，并通过可审计的局部操作编辑序列</li><li>自主排序靶点分支，优先锁定 LRRC8C 与 SLC25A1 两条通路</li><li>根据湿实验反馈持续更新目标信念、序列策略、检测方案与机制假说</li><li>全过程可追溯、可审计，科学家可随时查看与介入</li></ul>
+              <dt>How AI takes part</dt>
+              <dd><p>GALILEO runs on an OTAS reasoning loop (Observation, Thought, Action, Summary) and executes autonomously:</p><ul><li>Retrieving candidates from the peptide prior library and editing sequences through auditable local operations</li><li>Ranking target branches on its own, prioritising the LRRC8C and SLC25A1 pathways</li><li>Updating target beliefs, sequence strategy, assay design and mechanistic hypotheses from wet-lab feedback</li><li>Keeping the whole process traceable and auditable, so scientists can inspect and intervene at any point</li></ul>
               </dd>
             </div>
             <div>
-              <dt>阶段进展</dt>
-              <dd><ul><li>已完成从预测到干预的闭环验证，成果发布于 bioRxiv 预印本</li><li>生成的多肽成功阻断 LRRC8C 电流、扰动渗透压与氧化还原稳态、促进肿瘤依赖性 T 细胞激活</li><li>SLC25A1 方向的多肽破坏柠檬酸输出代谢、降低细胞外酸中毒、增强 CD8+ T 细胞功能</li><li>正在推进成果公开与后续转化，案例细节将在研究者授权后逐步披露</li></ul>
+              <dt>Stage of progress</dt>
+              <dd><ul><li>The loop from prediction to intervention has been validated and released as a bioRxiv preprint</li><li>Generated peptides blocked LRRC8C current, perturbed osmotic and redox homeostasis and promoted tumour-dependent T-cell activation</li><li>Peptides on the SLC25A1 branch disrupted citrate export metabolism, reduced extracellular acidosis and strengthened CD8+ T-cell function</li><li>Publication and translation are under way; case details will be disclosed progressively once researchers authorise it</li></ul>
               </dd>
             </div>
           </dl>
-          <p class="case__take"><b>DFM 视角</b>GALILEO 体现了 DFM 的核心主张：从“完成科研任务”走向“参与科学发现”。AI 进入真实科研环境，接触科学家真正关心的问题，理解不完整数据与约束，从实验和现实反馈中持续学习，让每一次探索成为下一次发现的起点。</p><p class="case__link"><a href="https://www.biorxiv.org/content/10.64898/2026.06.10.731360v1">bioRxiv 预印本 <span aria-hidden="true">↗</span></a></p>
+          <p class="case__take"><b>The DFM view</b>GALILEO shows what DFM argues for: moving from completing research tasks to taking part in discovery. AI enters a real research environment, meets the questions scientists actually care about, works with incomplete data and real constraints, and keeps learning from experiments and reality, so each exploration becomes the starting point of the next discovery.</p><p class="case__link"><a href="https://www.biorxiv.org/content/10.64898/2026.06.10.731360v1">bioRxiv preprint <span aria-hidden="true">↗</span></a></p>
         </div>
       </article>
     </div>
@@ -442,14 +428,14 @@
 
 <section class="sec" id="process">
   <div class="shell">
-    <p class="eyebrow"><span class="num">08</span>后续推进流程</p>
-    <h2 class="display-2">从申请到共同研究</h2>
+    <p class="eyebrow"><span class="num">08</span>Collaboration process</p>
+    <h2 class="display-2">From application to joint research</h2>
     <ol class="steps">
-      <li><span class="num">01</span><h3>提交申请</h3><p>说明科学问题、已有进展、关键瓶颈，以及可以提供的数据或验证条件。</p></li>
-      <li><span class="num">02</span><h3>评估筛选</h3><p>综合科学价值、AI 参与空间、数据与验证条件，以及双方资源匹配度进行判断。</p></li>
-      <li><span class="num">03</span><h3>初步沟通</h3><p>PhAI Labs 与申请方进一步理解问题背景、合作诉求与现有研究基础。</p></li>
-      <li><span class="num">04</span><h3>共同设计</h3><p>明确研究目标、工作路径、人员投入、数据使用方式和阶段验证标准。</p></li>
-      <li><span class="num">05</span><h3>开展合作</h3><p>进入早期验证或深入共研，并根据真实反馈持续迭代和推进。</p></li>
+      <li><span class="num">01</span><h3>Apply</h3><p>Describe the scientific question, current progress, key bottlenecks, and available data or verification.</p></li>
+      <li><span class="num">02</span><h3>Evaluate &amp; select</h3><p>Assess scientific value, the role for AI, verification feasibility and mutual resource fit.</p></li>
+      <li><span class="num">03</span><h3>Initial conversation</h3><p>Clarify the scientific context, collaboration goals and current research foundation together.</p></li>
+      <li><span class="num">04</span><h3>Co-design</h3><p>Define goals, workflow, contributions, data use and stage-gate criteria together.</p></li>
+      <li><span class="num">05</span><h3>Collaborate</h3><p>Move into early validation or deeper joint research and iterate through real feedback.</p></li>
     </ol>
   </div>
 </section>
@@ -457,33 +443,33 @@
 <section class="sec" id="faq">
   <div class="shell split">
     <div>
-      <p class="eyebrow"><span class="num">09</span>常见问题</p>
-      <h2 class="display-2">你可能还想了解</h2>
+      <p class="eyebrow"><span class="num">09</span>Frequently asked questions</p>
+      <h2 class="display-2">What you may<br>want to know</h2>
     </div>
     <div class="faq" data-accordion data-reveal>
       <details open>
-        <summary><span class="num">01</span>什么样的问题更适合进入首期合作？</summary>
-        <p>我们优先关注具有明确科学价值、仍存在关键未知、AI 有实质参与空间，并能够获得数据、实验或专家反馈的问题。问题不需要已经完全形式化，但应当能够说明为什么重要，以及第一步可以从哪里开始。</p>
+        <summary><span class="num">01</span>What questions are the strongest fit for the first cohort?</summary>
+        <p>We prioritize consequential scientific unknowns where AI can make a substantive contribution and where data, experiments or expert feedback can support verification. The question need not be fully formalized, but its importance and a viable starting point should be clear.</p>
       </details>
       <details>
-        <summary><span class="num">02</span>问题还比较早期，尚未形成完整方案，可以申请吗？</summary>
-        <p>可以。识别有价值的未知并把它转化为可研究的问题，本身就是 DFM 希望参与的环节。申请时请尽量说明观察到的现象、现有方法的局限，以及目前掌握的线索或条件。</p>
+        <summary><span class="num">02</span>Can I apply with an early-stage question rather than a complete proposal?</summary>
+        <p>Yes. Identifying a valuable unknown and turning it into a researchable problem is itself part of the DFM agenda. Share the observation, the limits of current methods, and the evidence or conditions already available.</p>
       </details>
       <details>
-        <summary><span class="num">03</span>合作通常会从多大范围开始？</summary>
-        <p>我们倾向于先围绕一个边界清晰的子问题开展早期验证，确认问题建模、数据条件、AI 参与方式和验证路径是否成立，再决定是否进入更深入的联合研究。具体范围和节奏由双方共同设计。</p>
+        <summary><span class="num">03</span>How large is an initial collaboration?</summary>
+        <p>We prefer to begin with a bounded subproblem and test the problem formulation, data conditions, role for AI and verification path before considering deeper joint research. Scope and pace are co-designed.</p>
       </details>
       <details>
-        <summary><span class="num">04</span>PhAI Labs 如何判断是否适合合作？</summary>
-        <p>主要考虑科学问题的重要性、DFM 与科研 Agent 能否带来新的研究增量、数据或验证条件是否可行，以及双方在当前阶段能否投入匹配的研究与工程资源。</p>
+        <summary><span class="num">04</span>How does PhAI Labs evaluate fit?</summary>
+        <p>We consider scientific importance, whether DFM or the Research Agent can create genuine research leverage, the feasibility of data and verification, and whether both sides can commit the right research and engineering resources.</p>
       </details>
       <details>
-        <summary><span class="num">05</span>合作可能形成哪些成果？</summary>
-        <p>成果不预设为单一形式，可能包括经过验证的新假设、可复用的研究流程、工具或数据资产、模型与 Agent 能力改进，也可能进一步形成论文、开源项目或其他联合成果。</p>
+        <summary><span class="num">05</span>What outcomes can a collaboration produce?</summary>
+        <p>Outcomes may include a validated hypothesis, reusable research workflow, tool or data asset, model or Agent improvements, and where appropriate, papers, open-source releases or other joint outputs.</p>
       </details>
       <details>
-        <summary><span class="num">06</span>首次申请时，哪些内容不应直接提交？</summary>
-        <p>请勿直接上传患者隐私、临床敏感信息、受第三方限制的数据、未确认授权的材料或其他需要保密审查的内容。进入进一步沟通后，双方再确认合适的数据交换和保护方式。</p>
+        <summary><span class="num">06</span>What should not be included in the first application?</summary>
+        <p>Do not upload patient-identifiable, clinically sensitive, third-party restricted or otherwise unauthorized or confidential material. Appropriate data exchange and protection can be discussed later.</p>
       </details>
     </div>
   </div>
@@ -491,20 +477,20 @@
 
 <section class="sec sec--apply" id="apply">
   <div class="shell">
-    <p class="eyebrow"><span class="num">10</span>立即申请</p>
+    <p class="eyebrow"><span class="num">10</span>Apply now</p>
     <div class="split">
       <div>
-        <h2 class="display-2">从一个尚未被充分理解的问题开始</h2>
-        <p class="lede">不需要先把问题整理成完整的项目方案。请先告诉我们：你真正想理解的未知是什么，为什么它重要，目前的研究进展和主要困难是什么，以及已经具备哪些数据、工具或验证条件。</p>
+        <h2 class="display-2">Start with a question not yet fully understood</h2>
+        <p class="lede">You do not need a complete project proposal. Tell us what you want to understand, why it matters, where the current work is blocked, and what data, tools or verification conditions already exist.</p>
         <p class="actions">
-          <a class="btn btn--primary btn--lg" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid">立即申请 <span aria-hidden="true">↗</span></a>
-          <span class="actions__note">飞书问卷</span>
+          <a class="btn btn--primary btn--lg" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid">Apply now <span aria-hidden="true">↗</span></a>
+          <span class="actions__note">Feishu form</span>
         </p>
-        <p class="privacy">请勿在首次申请中直接上传患者隐私、临床敏感信息、受第三方限制的数据或其他尚未确认使用权限的材料。</p>
+        <p class="privacy">Please do not upload patient-identifiable, clinically sensitive, third-party restricted or otherwise unauthorized material in the initial submission.</p>
       </div>
       <aside class="materials" data-reveal>
-        <h3>申请信息</h3>
-        <ol><li><span class="num">01</span>填写 DFM 科学家合作计划申请表</li><li><span class="num">02</span>简要说明 1–2 个最希望推进的问题，以及当前进展、关键瓶颈与可用验证条件</li><li><span class="num">03</span>个人简历或研究主页，并附 1–2 项代表性成果</li></ol>
+        <h3>What to prepare</h3>
+        <ol><li><span class="num">01</span>Complete the DFM Scientist Collaboration Program form</li><li><span class="num">02</span>Briefly describe one or two questions you most want to advance, including current progress, bottlenecks and available validation conditions</li><li><span class="num">03</span>CV or research profile, plus one or two representative works</li></ol>
       </aside>
     </div>
   </div>
@@ -516,51 +502,50 @@
   <div class="foot__inner">
     <div class="foot__brand">
       <img class="foot__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="PhAI Labs" loading="lazy">
-      <p class="foot__line">面向真实科学发现的模型与数据基础设施</p>
+      <p class="foot__line">Model and data infrastructure for real scientific discovery</p>
     </div>
-    <nav class="foot__nav" aria-label="页脚导航">
-      <a href="/tech/">技术</a>
-      <a href="/products/">产品</a>
-      <a href="/news/">新闻动态</a>
-      <a href="/about/">关于我们</a>
-      <a href="/team/">团队</a>
-      <a href="/careers/">招聘</a>
-      <a href="/collaborate/">合作</a>
-      <a href="/investors/">投资者关系</a>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/tech/">Technology</a>
+      <a href="/products/">Products</a>
+      <a href="/news/">News</a>
+      <a href="/about/">About</a>
+      <a href="/careers/">Careers</a>
+      <a href="/collaborate/">Collaborate</a>
+      <a href="/investors/">Investor Relations</a>
     </nav><div class="foot__contact">
-      <span class="foot__label">联系</span>
+      <span class="foot__label">Contact</span>
       <ul class="foot__cs">
         <li>
-          <span class="foot__ckind">科研与技术合作</span>
-          <a href="mailto:yang@phai-labs.com">yang@phai-labs.com</a><span class="foot__cnote">联合研究、技术交流、产品技术问题</span>
+          <span class="foot__ckind">Research &amp; technical collaboration</span>
+          <a href="mailto:yang@phai-labs.com">yang@phai-labs.com</a><span class="foot__cnote">Joint research, technical exchange, product and technical questions</span>
         </li>
         <li>
-          <span class="foot__ckind">商务与产业合作</span>
-          <a href="mailto:wuyc@phai-labs.com">wuyc@phai-labs.com</a><span class="foot__cnote">企业合作、商业化、产业资源及客户需求</span>
+          <span class="foot__ckind">Business &amp; industry partnerships</span>
+          <a href="mailto:wuyc@phai-labs.com">wuyc@phai-labs.com</a><span class="foot__cnote">Enterprise partnerships, commercialisation, industry resources and customer needs</span>
         </li>
         <li>
-          <span class="foot__ckind">政府与机构合作</span>
+          <span class="foot__ckind">Government &amp; institutional relations</span>
           <a href="mailto:yin@phai-labs.com">yin@phai-labs.com</a>
         </li>
         <li>
-          <span class="foot__ckind">媒体与品牌合作</span>
+          <span class="foot__ckind">Media &amp; brand</span>
           <a href="mailto:social@phai-labs.com">social@phai-labs.com</a>
         </li>
       </ul>
       
 <p class="foot__social">
   <span class="foot__s">
-    <a href="https://www.xiaohongshu.com/user/profile/637a2ff5000000001f0156c2" data-mark="rednote" class="" rel="noopener" target="_blank" aria-label="小红书" title="小红书"><svg viewBox="0 7.71 24 8.57" aria-hidden="true" focusable="false"><path d="M22.405 9.879c.002.016.01.02.07.019h.725a.797.797 0 0 0 .78-.972.794.794 0 0 0-.884-.618.795.795 0 0 0-.692.794c0 .101-.002.666.001.777zm-11.509 4.808c-.203.001-1.353.004-1.685.003a2.528 2.528 0 0 1-.766-.126.025.025 0 0 0-.03.014L7.7 16.127a.025.025 0 0 0 .01.032c.111.06.336.124.495.124.66.01 1.32.002 1.981 0 .01 0 .02-.006.023-.015l.712-1.545a.025.025 0 0 0-.024-.036zM.477 9.91c-.071 0-.076.002-.076.01a.834.834 0 0 0-.01.08c-.027.397-.038.495-.234 3.06-.012.24-.034.389-.135.607-.026.057-.033.042.003.112.046.092.681 1.523.787 1.74.008.015.011.02.017.02.008 0 .033-.026.047-.044.147-.187.268-.391.371-.606.306-.635.44-1.325.486-1.706.014-.11.021-.22.03-.33l.204-2.616.022-.293c.003-.029 0-.033-.03-.034zm7.203 3.757a1.427 1.427 0 0 1-.135-.607c-.004-.084-.031-.39-.235-3.06a.443.443 0 0 0-.01-.082c-.004-.011-.052-.008-.076-.008h-1.48c-.03.001-.034.005-.03.034l.021.293c.076.982.153 1.964.233 2.946.05.4.186 1.085.487 1.706.103.215.223.419.37.606.015.018.037.051.048.049.02-.003.742-1.642.804-1.765.036-.07.03-.055.003-.112zm3.861-.913h-.872a.126.126 0 0 1-.116-.178l1.178-2.625a.025.025 0 0 0-.023-.035l-1.318-.003a.148.148 0 0 1-.135-.21l.876-1.954a.025.025 0 0 0-.023-.035h-1.56c-.01 0-.02.006-.024.015l-.926 2.068c-.085.169-.314.634-.399.938a.534.534 0 0 0-.02.191.46.46 0 0 0 .23.378.981.981 0 0 0 .46.119h.59c.041 0-.688 1.482-.834 1.972a.53.53 0 0 0-.023.172.465.465 0 0 0 .23.398c.15.092.342.12.475.12l1.66-.001c.01 0 .02-.006.023-.015l.575-1.28a.025.025 0 0 0-.024-.035zm-6.93-4.937H3.1a.032.032 0 0 0-.034.033c0 1.048-.01 2.795-.01 6.829 0 .288-.269.262-.28.262h-.74c-.04.001-.044.004-.04.047.001.037.465 1.064.555 1.263.01.02.03.033.051.033.157.003.767.009.938-.014.153-.02.3-.06.438-.132.3-.156.49-.419.595-.765.052-.172.075-.353.075-.533.002-2.33 0-4.66-.007-6.991a.032.032 0 0 0-.032-.032zm11.784 6.896c0-.014-.01-.021-.024-.022h-1.465c-.048-.001-.049-.002-.05-.049v-4.66c0-.072-.005-.07.07-.07h.863c.08 0 .075.004.075-.074V8.393c0-.082.006-.076-.08-.076h-3.5c-.064 0-.075-.006-.075.073v1.445c0 .083-.006.077.08.077h.854c.075 0 .07-.004.07.07v4.624c0 .095.008.084-.085.084-.37 0-1.11-.002-1.304 0-.048.001-.06.03-.06.03l-.697 1.519s-.014.025-.008.036c.006.01.013.008.058.008 1.748.003 3.495.002 5.243.002.03-.001.034-.006.035-.033v-1.539zm4.177-3.43c0 .013-.007.023-.02.024-.346.006-.692.004-1.037.004-.014-.002-.022-.01-.022-.024-.005-.434-.007-.869-.01-1.303 0-.072-.006-.071.07-.07l.733-.003c.041 0 .081.002.12.015.093.025.16.107.165.204.006.431.002 1.153.001 1.153zm2.67.244a1.953 1.953 0 0 0-.883-.222h-.18c-.04-.001-.04-.003-.042-.04V10.21c0-.132-.007-.263-.025-.394a1.823 1.823 0 0 0-.153-.53 1.533 1.533 0 0 0-.677-.71 2.167 2.167 0 0 0-1-.258c-.153-.003-.567 0-.72 0-.07 0-.068.004-.068-.065V7.76c0-.031-.01-.041-.046-.039H17.93s-.016 0-.023.007c-.006.006-.008.012-.008.023v.546c-.008.036-.057.015-.082.022h-.95c-.022.002-.028.008-.03.032v1.481c0 .09-.004.082.082.082h.913c.082 0 .072.128.072.128V11.19s.003.117-.06.117h-1.482c-.068 0-.06.082-.06.082v1.445s-.01.068.064.068h1.457c.082 0 .076-.006.076.079v3.225c0 .088-.007.081.082.081h1.43c.09 0 .082.007.082-.08v-3.27c0-.029.006-.035.033-.035l2.323-.003c.098 0 .191.02.28.061a.46.46 0 0 1 .274.407c.008.395.003.79.003 1.185 0 .259-.107.367-.33.367h-1.218c-.023.002-.029.008-.028.033.184.437.374.871.57 1.303a.045.045 0 0 0 .04.026c.17.005.34.002.51.003.15-.002.517.004.666-.01a2.03 2.03 0 0 0 .408-.075c.59-.18.975-.698.976-1.313v-1.981c0-.128-.01-.254-.034-.38 0 .078-.029-.641-.724-.998z"/></svg></a>
+    <a href="https://www.xiaohongshu.com/user/profile/637a2ff5000000001f0156c2" data-mark="rednote" class="is-word" rel="noopener" target="_blank" aria-label="RedNote" title="RedNote"><span class="foot__word">rednote</span></a>
     <span class="foot__qr">
-      <img src="/assets/img/social/rednote-qr.png" width="160" height="160" alt="小红书" loading="lazy" decoding="async">
-      <em>扫码关注</em>
+      <img src="/assets/img/social/rednote-qr.png" width="160" height="160" alt="RedNote" loading="lazy" decoding="async">
+      <em>Scan to follow</em>
     </span>
   </span>
   <span class="foot__s">
-    <button type="button" data-mark="wechat" class="" aria-label="微信公众号" title="微信公众号"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.027-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/></svg></button>
+    <button type="button" data-mark="wechat" class="" aria-label="WeChat" title="WeChat"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.027-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/></svg></button>
     <span class="foot__qr">
-      <img src="/assets/img/social/wechat-qr.png" width="160" height="160" alt="微信公众号" loading="lazy" decoding="async">
-      <em>扫码关注</em>
+      <img src="/assets/img/social/wechat-qr.png" width="160" height="160" alt="WeChat" loading="lazy" decoding="async">
+      <em>Scan to follow</em>
     </span>
   </span>
   <span class="foot__s">
@@ -571,10 +556,10 @@
     </div>
   </div>
   <div class="foot__base">
-    <span>© 2026 PhAI Labs. 保留所有权利。</span>
+    <span>© 2026 PhAI Labs. All rights reserved.</span>
     <span class="foot__domain"><svg class="pulse" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle class="d00" cx="1.0" cy="1.0" r="1"/><circle class="d01" cx="4.5" cy="1.0" r="1"/><circle class="d02" cx="8.0" cy="1.0" r="1"/><circle class="d03" cx="11.5" cy="1.0" r="1"/><circle class="d04" cx="15.0" cy="1.0" r="1"/><circle class="d10" cx="1.0" cy="4.5" r="1"/><circle class="d11" cx="4.5" cy="4.5" r="1"/><circle class="d12" cx="8.0" cy="4.5" r="1"/><circle class="d13" cx="11.5" cy="4.5" r="1"/><circle class="d14" cx="15.0" cy="4.5" r="1"/><circle class="d20" cx="1.0" cy="8.0" r="1"/><circle class="d21" cx="4.5" cy="8.0" r="1"/><circle class="d22 amber" cx="8.0" cy="8.0" r="1"/><circle class="d23" cx="11.5" cy="8.0" r="1"/><circle class="d24" cx="15.0" cy="8.0" r="1"/><circle class="d30" cx="1.0" cy="11.5" r="1"/><circle class="d31" cx="4.5" cy="11.5" r="1"/><circle class="d32" cx="8.0" cy="11.5" r="1"/><circle class="d33" cx="11.5" cy="11.5" r="1"/><circle class="d34" cx="15.0" cy="11.5" r="1"/><circle class="d40" cx="1.0" cy="15.0" r="1"/><circle class="d41" cx="4.5" cy="15.0" r="1"/><circle class="d42" cx="8.0" cy="15.0" r="1"/><circle class="d43" cx="11.5" cy="15.0" r="1"/><circle class="d44" cx="15.0" cy="15.0" r="1"/></svg>
 phai-labs.com</span>
-    <a class="foot__top" href="#top">返回顶部 ↑</a>
+    <a class="foot__top" href="#top">Back to top ↑</a>
   </div>
 </footer>
 

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
+    if (!a) return;
+    // both trees come from the same templates, so a section id exists on both sides
+    if (location.hash) a.setAttribute('href', a.getAttribute('href').split('#')[0] + location.hash);
+  });
+})();
+</script>
+
+<title>RSI-Anything: Unlocking Recursive Self-Improvement with World Models — PhAI Labs</title>
+<meta name="description" content="让世界模型进入递归自我改进的闭环：借助预测挑选送去外部评估的候选和用于学习的数据，用反馈更新策略或工作流，预测被判定不可靠时再尝试更新世界模型；更新须通过组件与兼容性检查才保留。论文在代码修复、GUI 交互、实验室操作规划和反应条件优化上做了评测，并给出一个免疫学端到端应用。">
+<link rel="canonical" href="https://phai-labs.com/zh/papers/rsi-anything/">
+<link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/zh/papers/rsi-anything/">
+<link rel="alternate" hreflang="en" href="https://phai-labs.com/papers/rsi-anything/">
+<link rel="alternate" hreflang="x-default" href="https://phai-labs.com/papers/rsi-anything/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PhAI Labs">
+<meta property="og:title" content="RSI-Anything: Unlocking Recursive Self-Improvement with World Models — PhAI Labs">
+<meta property="og:description" content="让世界模型进入递归自我改进的闭环：借助预测挑选送去外部评估的候选和用于学习的数据，用反馈更新策略或工作流，预测被判定不可靠时再尝试更新世界模型；更新须通过组件与兼容性检查才保留。论文在代码修复、GUI 交互、实验室操作规划和反应条件优化上做了评测，并给出一个免疫学端到端应用。">
+<meta property="og:url" content="https://phai-labs.com/zh/papers/rsi-anything/">
+<meta property="og:image" content="https://phai-labs.com/assets/img/kv-static.webp">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preload" href="/assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/IBMPlexSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/NotoSerifSC-Display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/papers.css">
+<link rel="stylesheet" href="/assets/css/pulse.css"><noscript><style>.rv,.w,.loop__node i,.loop__node span,.person,.person::after,.cst__n{opacity:1!important;transform:none!important;filter:none!important}.sec::before,.loop::before,.people::before,.timeline--nodes::before{transform:none!important}.cst__e,.dg__draw{stroke-dashoffset:0!important}.dg__fade{opacity:var(--o,1)!important}</style></noscript>
+</head>
+<body class="page-tech">
+<a class="skip" href="#main">跳到正文</a>
+<div class="progress" aria-hidden="true"><i></i></div><div class="rails" aria-hidden="true">
+  <div class="rail rail--l"><i></i><b>+</b><i></i><b>+</b><i></i></div>
+  <div class="rail rail--r"><i></i><b>+</b><i></i><b>+</b><i></i></div>
+</div>
+
+<header class="mast" data-mast>
+  <a class="mast__brand" href="/zh/" aria-label="PhAI Labs">
+    <img class="mast__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="PhAI Labs">
+  </a>
+  <nav class="mast__nav" aria-label="主导航" data-nav>
+    <a href="/zh/tech/" aria-current="page">技术</a>
+    <a href="/zh/products/">产品</a>
+    <a href="/zh/news/">新闻动态</a>
+    <a href="/zh/about/">关于我们</a>
+    <a href="/zh/careers/">招聘</a>
+    <a href="/zh/collaborate/">合作</a>
+  </nav>
+  <div class="mast__tools">
+    <a class="mast__lang" data-lang-switch="en" href="/papers/rsi-anything/" hreflang="en" aria-label="Switch to English">EN</a>
+    <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请<span aria-hidden="true">↗</span></a>
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
+      <span class="mast__menu-label">菜单</span><i></i><i></i>
+    </button>
+  </div>
+</header>
+<nav class="drawer" id="mobile-nav" aria-label="移动端导航" data-drawer hidden>
+  <a href="/zh/tech/" aria-current="page">技术</a>
+  <a href="/zh/products/">产品</a>
+  <a href="/zh/news/">新闻动态</a>
+  <a href="/zh/about/">关于我们</a>
+  <a href="/zh/careers/">招聘</a>
+  <a href="/zh/collaborate/">合作</a>
+  <a class="drawer__lang" data-lang-switch="en" href="/papers/rsi-anything/">EN</a>
+  <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请 ↗</a>
+</nav>
+
+<main id="main" class="main" data-field="off">
+<article class="paper" id="top">
+  <header class="shell paper__head">
+    <p class="paper__date"><time datetime="2026-10-10">2026-10-10</time></p>
+    <h1 class="display paper__title">RSI-Anything: Unlocking Recursive Self-Improvement with World Models</h1>
+
+    <div class="paper__acts">
+      <div class="paper__btns">
+        <a class="btn btn--primary" href="/papers/rsi-anything/rsi-anything-technical-report-v1-2026-10.pdf">下载 PDF</a>
+        <a class="btn" href="https://github.com/Gen-Verse/RSI-Anything" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="https://huggingface.co/datasets/Gen-Verse/RSI-Anything" rel="noopener">Hugging Face · 模型 <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="#cite">引用</a>
+      </div>
+
+      <nav class="paper__pager" aria-label="全部论文"><a class="btn btn--sm" href="/zh/papers/jepa-anything/"><span aria-hidden="true">←</span> 上一篇</a><a class="btn btn--sm" href="/zh/papers/discoveryrsi/">下一篇 <span aria-hidden="true">→</span></a>
+      </nav>
+    </div>
+  </header>
+  <div class="shell paper__fig"><figure class="figure figure--wide dgfig dgfig--rsi">
+  <div class="dgfig__art"><svg class="dg dg--rsi" viewBox="0 0 1200 450" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+
+<path class='dg__p dg__draw dg__draw--slow' pathLength='1' d='M 134,138 L 640,138 C 730,138 730,228 800,228 C 870,228 870,138 960,138 L 1130,138'/>
+<path class='dg__p dg__draw dg__draw--slow' pathLength='1' d='M 134,318 L 640,318 C 730,318 730,228 800,228 C 870,228 870,318 960,318 L 1130,318'/>
+<path class='dg__p dg__faint dg__dash dg__fade' style='--d:2.6s' d='M 1130,138 C 1152,138 1162,178 1172,198'/>
+<path class='dg__p dg__faint dg__dash dg__fade' style='--d:2.6s' d='M 1130,318 C 1152,318 1162,278 1172,258'/>
+<g class='dg__hov dg__pol'><circle class='dg__hitf' cx='110' cy='138' r='34'/><circle class='dg__box' cx='110' cy='138' r='24'/><circle class='dg__n' cx='110' cy='138' r='5'/><text class='dg__t' x='110' y='96' text-anchor='middle'>策略或工作流</text></g>
+<g class='dg__hov dg__wm'><circle class='dg__hitf' cx='110' cy='318' r='34'/><circle class='dg__box dg__breathe' cx='110' cy='318' r='24'/><circle class='dg__n' cx='110' cy='318' r='5'/><text class='dg__t' x='110' y='276' text-anchor='middle'>世界模型</text><text class='dg__t--s' x='110' y='366' text-anchor='middle'>基于 JEPA-Anything</text></g>
+<g class='dg__hov dg__ex'><path class='dg__p dg__draw' style='--d:0.6s' pathLength='1' d='M 200,146 L 200,310'/><path class='dg__hit' d='M 200,146 L 200,310'/><path class='dg__p dg__fade' style='--d:1.2s' d='M 195,303 L 200,310 L 205,303'/><text class='dg__t--s dg__fade' x='212' y='186' text-anchor='start' style='--d:0.8s'><tspan class='dg__num'>1</tspan> 几个候选做法</text></g>
+<circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 200,146 L 200,310');--dur:4s;--delay:0s"/>
+<circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 200,146 L 200,310');--dur:4s;--delay:-1.3s"/>
+<circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 200,146 L 200,310');--dur:4s;--delay:-2.6s"/>
+<g class='dg__hov dg__ex'><path class='dg__p dg__dash dg__fade' style='--d:0.9s' d='M 320,310 L 320,146'/><path class='dg__hit' d='M 320,310 L 320,146'/><path class='dg__p dg__fade' style='--d:1.4s' d='M 315,153 L 320,146 L 325,153'/><text class='dg__t--s dg__fade' x='332' y='274' text-anchor='start' style='--d:1.1s'><tspan class='dg__num'>2</tspan> 每个做法的预测结果</text><text class='dg__t--s dg__fade' x='332' y='294' text-anchor='start' style='--d:1.2s'>先比较，不必每个都去做</text></g>
+<circle class='dg__mv dg__mv--fade' r='2.4' style="offset-path:path('M 320,310 L 320,146');--dur:4s;--delay:-2s"/>
+<g class='dg__hov dg__test'><rect class='dg__box' x='480' y='44' width='40' height='36' rx='6'/><circle class='dg__n' cx='500' cy='62' r='4.5'/><path class='dg__p dg__draw' style='--d:1.2s' pathLength='1' d='M 488,132 L 488,80'/><path class='dg__p dg__fade' style='--d:1.6s' d='M 483,87 L 488,80 L 493,87'/><text class='dg__t--s dg__fade' x='476' y='108' text-anchor='end' style='--d:1.3s'>挑预测最好的那个</text><text class='dg__t dg__fade' x='534' y='60' text-anchor='start' style='--d:1.4s'><tspan class='dg__num'>3</tspan> 真实检验</text><text class='dg__t--s dg__fade' x='534' y='80' text-anchor='start' style='--d:1.5s'>跑测试 · 做实验 · 操作界面</text></g>
+<g class='dg__hov dg__fb'><path class='dg__p dg__draw' style='--d:1.6s' pathLength='1' d='M 512,80 L 512,312'/><path class='dg__hit' d='M 512,80 L 512,312'/><circle class='dg__n dg__fade' style='--d:1.9s' cx='512' cy='138' r='3.5'/><circle class='dg__n dg__fade' style='--d:2.0s' cx='512' cy='318' r='3.5'/><text class='dg__t--s dg__fade' x='524' y='222' text-anchor='start' style='--d:1.9s'><tspan class='dg__num'>4</tspan> 真实结果</text><text class='dg__t--s dg__fade' x='524' y='242' text-anchor='start' style='--d:2.0s'>两边都收到</text></g>
+<circle class='dg__mv dg__mv--fade' r='2.6' style="offset-path:path('M 488,138 L 488,62 L 512,62 L 512,318');--dur:6s;--delay:-1s"/>
+<g class='dg__hov dg__upd'><circle class='dg__box dg__fade' style='--d:2.0s' cx='620' cy='138' r='9'/><circle class='dg__n dg__fade' style='--d:2.0s' cx='620' cy='138' r='4.5'/><text class='dg__t--s dg__fade' x='620' y='118' text-anchor='middle' style='--d:2.1s'>用反馈改进</text></g>
+<g class='dg__hov dg__upd'><circle class='dg__hitf' cx='620' cy='318' r='16'/><circle class='dg__p dg__dash dg__fade' style='--d:2.1s' cx='620' cy='318' r='9'/><circle class='dg__n dg__n--dim dg__fade' style='--d:2.1s' cx='620' cy='318' r='3'/><text class='dg__t--s dg__fade' x='620' y='346' text-anchor='middle' style='--d:2.2s'>预测不准时才更新</text><text class='dg__t--s dg__fade' x='620' y='366' text-anchor='middle' style='--d:2.3s'>且数据和预算够用</text></g>
+<g class='dg__hov dg__bs'><circle class='dg__hitf' cx='800' cy='228' r='30'/><path class='dg__tick dg__tick--blue dg__fade' style='--d:2.3s' d='M 700,150 l 4,4 l 8,-9'/><text class='dg__t--k dg__fade' x='720' y='154' text-anchor='start' style='--d:2.3s'>各自检查</text><path class='dg__tick dg__tick--blue dg__fade' style='--d:2.3s' d='M 700,304 l 4,4 l 8,-9'/><text class='dg__t--k dg__fade' x='720' y='308' text-anchor='start' style='--d:2.3s'>各自检查</text><circle class='dg__n dg__n--amber dg__fade' style='--d:2.4s' cx='800' cy='228' r='7'/><circle class='dg__ring' style='animation-delay:3s' cx='800' cy='228' r='14'/><path class='dg__p dg__faint dg__dash dg__fade' style='--d:2.5s' d='M 800,248 L 800,380'/><text class='dg__t dg__fade' x='800' y='404' text-anchor='middle' style='--d:2.5s'><tspan class='dg__num'>5</tspan> 两者一起检查</text><text class='dg__t--s dg__fade' x='800' y='426' text-anchor='middle' style='--d:2.6s'>各自过关、彼此也配得上，才一起留下；否则沿用原来的这一对</text></g>
+<g class='dg__hov dg__next'><text class='dg__t dg__fade' x='1045' y='214' text-anchor='middle' style='--d:2.8s'>下一轮</text><text class='dg__t--s dg__fade' x='1045' y='238' text-anchor='middle' style='--d:2.9s'>留下的这一对</text><text class='dg__t--s dg__fade' x='1045' y='258' text-anchor='middle' style='--d:3.0s'>决定接下来提出什么、学什么</text></g>
+<circle class='dg__mv dg__mv--fade' r='3' style="offset-path:path('M 134,138 L 640,138 C 730,138 730,228 800,228 C 870,228 870,138 960,138 L 1130,138');--dur:14s;--delay:0s"/>
+<circle class='dg__mv dg__mv--fade' r='3' style="offset-path:path('M 134,318 L 640,318 C 730,318 730,228 800,228 C 870,228 870,318 960,318 L 1130,318');--dur:14s;--delay:0s"/>
+<circle class='dg__mv dg__mv--fade' r='3' style="offset-path:path('M 134,138 L 640,138 C 730,138 730,228 800,228 C 870,228 870,138 960,138 L 1130,138');--dur:14s;--delay:-7s"/>
+<circle class='dg__mv dg__mv--fade' r='3' style="offset-path:path('M 134,318 L 640,318 C 730,318 730,228 800,228 C 870,228 870,318 960,318 L 1130,318');--dur:14s;--delay:-7s"/>
+</svg>
+
+</div>
+  <aside class="dgfig__attrs"><ul><li><i></i><b>先预测</b><span>Predict first</span></li><li><i></i><b>真实反馈</b><span>Real feedback</span></li><li><i></i><b>成对检查</b><span>Checked as a pair</span></li></ul>
+  </aside>
+  <figcaption class="dgfig__cap">
+    <p class="dgfig__claim">先预测、再检验：策略和世界模型各自过关、彼此配得上，才一起带进下一轮。</p>
+    <p class="dgfig__hint">把光标移到图上</p>
+  </figcaption>
+</figure>
+
+  </div>
+
+  <div class="shell paper__rows">
+    <section class="paper__row" id="overview">
+      <h2 class="paper__label">介绍</h2>
+      <div class="paper__val paper__val--intro"><p class="paper__sub">基于世界模型的跨领域递归自我改进</p><p class="paper__role">建立在 JEPA-Anything 之上：用世界模型的预测挑选值得真实检验的候选，用反馈改进策略或工作流，预测不可靠时再尝试更新世界模型，只保留通过检查的更新。</p>
+        <div class="prose"><p>RSI-Anything 是一项关于递归自我改进（Recursive Self-Improvement, RSI）的方法研究，以 JEPA-Anything 作为跨领域的预测基础。</p><p>递归自我改进希望把每一轮交互得到的经验，变成系统在下一轮行动和学习时还能用上的持久改进。难点有两处：外部反馈的代价高，运行测试、做实验都要成本，能拿去真实检验的候选有限；策略一旦更新，它提出的候选就变了，世界模型原本可靠的预测未必还可靠。策略和世界模型各自变好，并不保证两者组合起来也变好。</p><p>RSI-Anything 的做法是：用世界模型的预测挑选候选，决定哪些值得拿去做外部评估、哪些经验用于学习；真实反馈回来后，用它改进策略或智能体工作流；只有当预测被判定为不可靠、且数据和预算都足够时，才尝试更新世界模型。两者可以按各自的节奏更新，新版本先通过各自的检查，组合起来还要在相同条件下与当前组合比较，达到预先设定的标准才保留。保留下来的这一组策略与世界模型，决定下一轮会提出什么候选、积累什么经验，改进由此一轮接一轮地延续。</p></div>
+        <p class="subhead">评测场景</p>
+        <ul class="checks checks--dg"><li>代码修复</li><li>GUI 交互</li><li>实验室操作规划</li><li>反应条件优化</li><li>免疫学端到端应用</li></ul><p class="paper__note">技术报告、GitHub 代码仓库与 Hugging Face 上的模型均已公开。</p>
+      </div>
+    </section>
+
+    <section class="paper__row">
+      <h2 class="paper__label">摘要</h2>
+      <div class="paper__val paper__val--abs"><p>Recursive self-improvement (RSI) aims to transform interaction experience into persistent improvements, yet external feedback is costly and world-model predictions may become unreliable as policies evolve. We introduce RSI-Anything, a domain-general framework built on JEPA-Anything that uses predictive world models to guide action and learning-data selection. Observed feedback drives policy or workflow improvement and conditional world-model adaptation, while component and compatibility checks govern the retention of updated policy–model pairs. Across diverse computational and scientific domains, RSI-Anything demonstrates substantial gains. In code repair, with the coder fixed, success increases from 26.3% with a static verifier to 29.2% through predictive selection and 31.2% after world-model adaptation, at comparable test usage. Graphical user interface (GUI) evaluations showed higher task completion, while average actions decrease by 39.4%. Across five successive policy versions, laboratory-planning scores more than double from 21.80% to 46.01%. In reaction optimization, RSI-Anything achieves 96.15% mean best observed yield versus 82.16% for Bayesian optimization under the same 40-experiment budget. An end-to-end immune-science application further connects workflow evolution and predictive modeling with therapeutic hypothesis generation. These results demonstrate how predictive world models and retained system updates enable recursive improvement across diverse environments.</p></div>
+    </section>
+    <section class="paper__row">
+      <h2 class="paper__label">作者</h2>
+      <div class="paper__val">
+        <p class="paper__authors">Taoyong Cui, Pinxian Zeng, Wanghan Xu, Hao Xiao, Shuhan Xue, Qiang Gao, Wanli Ouyang, Pheng Ann Heng, Zhenfei Yin, Yingcheng Wu, Ling Yang</p>
+      </div>
+    </section>
+
+    <section class="paper__row">
+      <h2 class="paper__label">期刊/会议</h2>
+      <div class="paper__val">
+        <p class="paper__authors">PhAI Labs Technical Report</p>
+      </div>
+    </section>
+
+    <section class="paper__row" id="cite">
+      <h2 class="paper__label">引用</h2>
+      <div class="paper__val">
+        <div class="cite" data-copy>
+          <p class="cite__cap">BibTeX</p>
+          <pre class="cite__text cite__text--bib" data-copy-src>@techreport{cui2026rsi,
+    title       = {{RSI-Anything}: Unlocking Recursive Self-Improvement with World Models},
+    author      = {Cui, Taoyong and Zeng, Pinxian and Xu, Wanghan and Xiao, Hao and Xue, Shuhan and Gao, Qiang and Ouyang, Wanli and Heng, Pheng Ann and Yin, Zhenfei and Wu, Yingcheng and Yang, Ling},
+    institution = {PhAI Labs},
+    type        = {Technical Report},
+    number      = {PHAI-TR-2026-05},
+    month       = {October},
+    year        = {2026},
+    url         = {https://phai-labs.com/papers/rsi-anything/},
+    note        = {Version v1}
+}</pre>
+          <button class="cite__btn" type="button" data-copy-btn data-done="已复制">复制</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <p class="shell paper__back"><a href="/zh/tech/#rsi">← 返回技术</a></p>
+</article>
+
+</main>
+
+<footer class="foot" data-reveal-scope>
+  <div class="foot__inner">
+    <div class="foot__brand">
+      <img class="foot__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="PhAI Labs" loading="lazy">
+      <p class="foot__line">面向真实科学发现的模型与数据基础设施</p>
+    </div>
+    <nav class="foot__nav" aria-label="页脚导航">
+      <a href="/zh/tech/">技术</a>
+      <a href="/zh/products/">产品</a>
+      <a href="/zh/news/">新闻动态</a>
+      <a href="/zh/about/">关于我们</a>
+      <a href="/zh/careers/">招聘</a>
+      <a href="/zh/collaborate/">合作</a>
+      <a href="/zh/investors/">投资者关系</a>
+    </nav><div class="foot__contact">
+      <span class="foot__label">联系</span>
+      <ul class="foot__cs">
+        <li>
+          <span class="foot__ckind">科研与技术合作</span>
+          <a href="mailto:yang@phai-labs.com">yang@phai-labs.com</a><span class="foot__cnote">联合研究、技术交流、产品技术问题</span>
+        </li>
+        <li>
+          <span class="foot__ckind">商务与产业合作</span>
+          <a href="mailto:wuyc@phai-labs.com">wuyc@phai-labs.com</a><span class="foot__cnote">企业合作、商业化、产业资源及客户需求</span>
+        </li>
+        <li>
+          <span class="foot__ckind">政府与机构合作</span>
+          <a href="mailto:yin@phai-labs.com">yin@phai-labs.com</a>
+        </li>
+        <li>
+          <span class="foot__ckind">媒体与品牌合作</span>
+          <a href="mailto:social@phai-labs.com">social@phai-labs.com</a>
+        </li>
+      </ul>
+      
+<p class="foot__social">
+  <span class="foot__s">
+    <a href="https://www.xiaohongshu.com/user/profile/637a2ff5000000001f0156c2" data-mark="rednote" class="" rel="noopener" target="_blank" aria-label="小红书" title="小红书"><svg viewBox="0 7.71 24 8.57" aria-hidden="true" focusable="false"><path d="M22.405 9.879c.002.016.01.02.07.019h.725a.797.797 0 0 0 .78-.972.794.794 0 0 0-.884-.618.795.795 0 0 0-.692.794c0 .101-.002.666.001.777zm-11.509 4.808c-.203.001-1.353.004-1.685.003a2.528 2.528 0 0 1-.766-.126.025.025 0 0 0-.03.014L7.7 16.127a.025.025 0 0 0 .01.032c.111.06.336.124.495.124.66.01 1.32.002 1.981 0 .01 0 .02-.006.023-.015l.712-1.545a.025.025 0 0 0-.024-.036zM.477 9.91c-.071 0-.076.002-.076.01a.834.834 0 0 0-.01.08c-.027.397-.038.495-.234 3.06-.012.24-.034.389-.135.607-.026.057-.033.042.003.112.046.092.681 1.523.787 1.74.008.015.011.02.017.02.008 0 .033-.026.047-.044.147-.187.268-.391.371-.606.306-.635.44-1.325.486-1.706.014-.11.021-.22.03-.33l.204-2.616.022-.293c.003-.029 0-.033-.03-.034zm7.203 3.757a1.427 1.427 0 0 1-.135-.607c-.004-.084-.031-.39-.235-3.06a.443.443 0 0 0-.01-.082c-.004-.011-.052-.008-.076-.008h-1.48c-.03.001-.034.005-.03.034l.021.293c.076.982.153 1.964.233 2.946.05.4.186 1.085.487 1.706.103.215.223.419.37.606.015.018.037.051.048.049.02-.003.742-1.642.804-1.765.036-.07.03-.055.003-.112zm3.861-.913h-.872a.126.126 0 0 1-.116-.178l1.178-2.625a.025.025 0 0 0-.023-.035l-1.318-.003a.148.148 0 0 1-.135-.21l.876-1.954a.025.025 0 0 0-.023-.035h-1.56c-.01 0-.02.006-.024.015l-.926 2.068c-.085.169-.314.634-.399.938a.534.534 0 0 0-.02.191.46.46 0 0 0 .23.378.981.981 0 0 0 .46.119h.59c.041 0-.688 1.482-.834 1.972a.53.53 0 0 0-.023.172.465.465 0 0 0 .23.398c.15.092.342.12.475.12l1.66-.001c.01 0 .02-.006.023-.015l.575-1.28a.025.025 0 0 0-.024-.035zm-6.93-4.937H3.1a.032.032 0 0 0-.034.033c0 1.048-.01 2.795-.01 6.829 0 .288-.269.262-.28.262h-.74c-.04.001-.044.004-.04.047.001.037.465 1.064.555 1.263.01.02.03.033.051.033.157.003.767.009.938-.014.153-.02.3-.06.438-.132.3-.156.49-.419.595-.765.052-.172.075-.353.075-.533.002-2.33 0-4.66-.007-6.991a.032.032 0 0 0-.032-.032zm11.784 6.896c0-.014-.01-.021-.024-.022h-1.465c-.048-.001-.049-.002-.05-.049v-4.66c0-.072-.005-.07.07-.07h.863c.08 0 .075.004.075-.074V8.393c0-.082.006-.076-.08-.076h-3.5c-.064 0-.075-.006-.075.073v1.445c0 .083-.006.077.08.077h.854c.075 0 .07-.004.07.07v4.624c0 .095.008.084-.085.084-.37 0-1.11-.002-1.304 0-.048.001-.06.03-.06.03l-.697 1.519s-.014.025-.008.036c.006.01.013.008.058.008 1.748.003 3.495.002 5.243.002.03-.001.034-.006.035-.033v-1.539zm4.177-3.43c0 .013-.007.023-.02.024-.346.006-.692.004-1.037.004-.014-.002-.022-.01-.022-.024-.005-.434-.007-.869-.01-1.303 0-.072-.006-.071.07-.07l.733-.003c.041 0 .081.002.12.015.093.025.16.107.165.204.006.431.002 1.153.001 1.153zm2.67.244a1.953 1.953 0 0 0-.883-.222h-.18c-.04-.001-.04-.003-.042-.04V10.21c0-.132-.007-.263-.025-.394a1.823 1.823 0 0 0-.153-.53 1.533 1.533 0 0 0-.677-.71 2.167 2.167 0 0 0-1-.258c-.153-.003-.567 0-.72 0-.07 0-.068.004-.068-.065V7.76c0-.031-.01-.041-.046-.039H17.93s-.016 0-.023.007c-.006.006-.008.012-.008.023v.546c-.008.036-.057.015-.082.022h-.95c-.022.002-.028.008-.03.032v1.481c0 .09-.004.082.082.082h.913c.082 0 .072.128.072.128V11.19s.003.117-.06.117h-1.482c-.068 0-.06.082-.06.082v1.445s-.01.068.064.068h1.457c.082 0 .076-.006.076.079v3.225c0 .088-.007.081.082.081h1.43c.09 0 .082.007.082-.08v-3.27c0-.029.006-.035.033-.035l2.323-.003c.098 0 .191.02.28.061a.46.46 0 0 1 .274.407c.008.395.003.79.003 1.185 0 .259-.107.367-.33.367h-1.218c-.023.002-.029.008-.028.033.184.437.374.871.57 1.303a.045.045 0 0 0 .04.026c.17.005.34.002.51.003.15-.002.517.004.666-.01a2.03 2.03 0 0 0 .408-.075c.59-.18.975-.698.976-1.313v-1.981c0-.128-.01-.254-.034-.38 0 .078-.029-.641-.724-.998z"/></svg></a>
+    <span class="foot__qr">
+      <img src="/assets/img/social/rednote-qr.png" width="160" height="160" alt="小红书" loading="lazy" decoding="async">
+      <em>扫码关注</em>
+    </span>
+  </span>
+  <span class="foot__s">
+    <button type="button" data-mark="wechat" class="" aria-label="微信公众号" title="微信公众号"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.027-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/></svg></button>
+    <span class="foot__qr">
+      <img src="/assets/img/social/wechat-qr.png" width="160" height="160" alt="微信公众号" loading="lazy" decoding="async">
+      <em>扫码关注</em>
+    </span>
+  </span>
+  <span class="foot__s">
+    <a href="https://x.com/PhAILabs" data-mark="x" class="" rel="noopener" target="_blank" aria-label="X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a>
+  </span>
+</p>
+
+    </div>
+  </div>
+  <div class="foot__base">
+    <span>© 2026 PhAI Labs. 保留所有权利。</span>
+    <span class="foot__domain"><svg class="pulse" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle class="d00" cx="1.0" cy="1.0" r="1"/><circle class="d01" cx="4.5" cy="1.0" r="1"/><circle class="d02" cx="8.0" cy="1.0" r="1"/><circle class="d03" cx="11.5" cy="1.0" r="1"/><circle class="d04" cx="15.0" cy="1.0" r="1"/><circle class="d10" cx="1.0" cy="4.5" r="1"/><circle class="d11" cx="4.5" cy="4.5" r="1"/><circle class="d12" cx="8.0" cy="4.5" r="1"/><circle class="d13" cx="11.5" cy="4.5" r="1"/><circle class="d14" cx="15.0" cy="4.5" r="1"/><circle class="d20" cx="1.0" cy="8.0" r="1"/><circle class="d21" cx="4.5" cy="8.0" r="1"/><circle class="d22 amber" cx="8.0" cy="8.0" r="1"/><circle class="d23" cx="11.5" cy="8.0" r="1"/><circle class="d24" cx="15.0" cy="8.0" r="1"/><circle class="d30" cx="1.0" cy="11.5" r="1"/><circle class="d31" cx="4.5" cy="11.5" r="1"/><circle class="d32" cx="8.0" cy="11.5" r="1"/><circle class="d33" cx="11.5" cy="11.5" r="1"/><circle class="d34" cx="15.0" cy="11.5" r="1"/><circle class="d40" cx="1.0" cy="15.0" r="1"/><circle class="d41" cx="4.5" cy="15.0" r="1"/><circle class="d42" cx="8.0" cy="15.0" r="1"/><circle class="d43" cx="11.5" cy="15.0" r="1"/><circle class="d44" cx="15.0" cy="15.0" r="1"/></svg>
+phai-labs.com</span>
+    <a class="foot__top" href="#top">返回顶部 ↑</a>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/field.js" defer></script>
+<script src="/assets/js/paper.js" defer></script>
+</body>
+</html>

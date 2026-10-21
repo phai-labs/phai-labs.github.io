@@ -1,56 +1,44 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-lang="zh">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
 (function () {
-  var KEY = 'phai-lang';
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest && e.target.closest('[data-lang-switch]');
     if (!a) return;
-    try { localStorage.setItem(KEY, a.getAttribute('data-lang-switch')); } catch (err) {}
     // both trees come from the same templates, so a section id exists on both sides
     if (location.hash) a.setAttribute('href', a.getAttribute('href').split('#')[0] + location.hash);
   });
-  var pref = null;
-  try { pref = localStorage.getItem(KEY); } catch (err) {}
-  if (pref === 'zh') return;
-  if (pref !== 'en') {
-    if (/bot|crawl|spider|slurp|preview|headless|lighthouse|google|facebookexternalhit/i.test(navigator.userAgent)) return;
-    var ls = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
-    for (var i = 0; i < ls.length; i++) { if (/^zh\b/i.test(ls[i])) return; }
-    if (document.referrer.indexOf(location.origin + '/') === 0) return;
-  }
-  location.replace("/en/news/sciencebuddy/" + location.search + location.hash);
 })();
 </script>
 
-<title>ScienceBuddy · AI 科研搭档：可交互的 Scientific Agent 与真实科研交互中的递归式自我改进 — PhAI Labs</title>
-<meta name="description" content="ScienceBuddy 是一项围绕科学家交互、科研反馈和智能体持续改进展开的独立研究与工程探索：科学家的追问、修改、采纳、否定和重新运行形成反馈，推动科研智能体的工作环境持续演化。">
+<title>ScienceBuddy · AI research partner: an interactive Scientific Agent and recursive self-improvement in real research — PhAI Labs</title>
+<meta name="description" content="ScienceBuddy is an independent research and engineering exploration built around interaction with scientists, research feedback and the continual improvement of agents: follow-ups, edits, acceptances, rejections and re-runs become feedback that keeps the research agent&#39;s workspace evolving.">
 <link rel="canonical" href="https://phai-labs.com/news/sciencebuddy/">
-<link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/news/sciencebuddy/">
-<link rel="alternate" hreflang="en" href="https://phai-labs.com/en/news/sciencebuddy/">
+<link rel="alternate" hreflang="zh-CN" href="https://phai-labs.com/zh/news/sciencebuddy/">
+<link rel="alternate" hreflang="en" href="https://phai-labs.com/news/sciencebuddy/">
 <link rel="alternate" hreflang="x-default" href="https://phai-labs.com/news/sciencebuddy/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PhAI Labs">
-<meta property="og:title" content="ScienceBuddy · AI 科研搭档：可交互的 Scientific Agent 与真实科研交互中的递归式自我改进 — PhAI Labs">
-<meta property="og:description" content="ScienceBuddy 是一项围绕科学家交互、科研反馈和智能体持续改进展开的独立研究与工程探索：科学家的追问、修改、采纳、否定和重新运行形成反馈，推动科研智能体的工作环境持续演化。">
+<meta property="og:title" content="ScienceBuddy · AI research partner: an interactive Scientific Agent and recursive self-improvement in real research — PhAI Labs">
+<meta property="og:description" content="ScienceBuddy is an independent research and engineering exploration built around interaction with scientists, research feedback and the continual improvement of agents: follow-ups, edits, acceptances, rejections and re-runs become feedback that keeps the research agent&#39;s workspace evolving.">
 <meta property="og:url" content="https://phai-labs.com/news/sciencebuddy/">
 <meta property="og:image" content="https://phai-labs.com/assets/img/kv-static.webp">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0a0a0b">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preload" href="/assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/IBMPlexSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/NotoSerifSC-Display.woff2" as="font" type="font/woff2" crossorigin>
+  
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="stylesheet" href="/assets/css/pulse.css"><noscript><style>.rv,.w,.loop__node i,.loop__node span,.person,.person::after,.cst__n{opacity:1!important;transform:none!important;filter:none!important}.sec::before,.loop::before,.people::before,.timeline--nodes::before{transform:none!important}.cst__e,.dg__draw{stroke-dashoffset:0!important}.dg__fade{opacity:var(--o,1)!important}</style></noscript>
 </head>
 <body class="page-news">
-<a class="skip" href="#main">跳到正文</a>
+<a class="skip" href="#main">Skip to content</a>
 <div class="progress" aria-hidden="true"><i></i></div><div class="rails" aria-hidden="true">
   <div class="rail rail--l"><i></i><b>+</b><i></i><b>+</b><i></i></div>
   <div class="rail rail--r"><i></i><b>+</b><i></i><b>+</b><i></i></div>
@@ -60,82 +48,80 @@
   <a class="mast__brand" href="/" aria-label="PhAI Labs">
     <img class="mast__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="PhAI Labs">
   </a>
-  <nav class="mast__nav" aria-label="主导航" data-nav>
-    <a href="/tech/">技术</a>
-    <a href="/products/">产品</a>
-    <a href="/news/" aria-current="page">新闻动态</a>
-    <a href="/about/">关于我们</a>
-    <a href="/team/">团队</a>
-    <a href="/careers/">招聘</a>
-    <a href="/collaborate/">合作</a>
+  <nav class="mast__nav" aria-label="Primary" data-nav>
+    <a href="/tech/">Technology</a>
+    <a href="/products/">Products</a>
+    <a href="/news/" aria-current="page">News</a>
+    <a href="/about/">About</a>
+    <a href="/careers/">Careers</a>
+    <a href="/collaborate/">Collaborate</a>
   </nav>
   <div class="mast__tools">
-    <a class="mast__lang" data-lang-switch="en" href="/en/news/sciencebuddy/" hreflang="en" aria-label="Switch to English">EN</a>
-    <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请<span aria-hidden="true">↗</span></a>
+    <a class="mast__lang" data-lang-switch="zh" href="/zh/news/sciencebuddy/" hreflang="zh-CN" aria-label="切换到中文">中文</a>
+    <a class="mast__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">Apply now<span aria-hidden="true">↗</span></a>
     <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu>
-      <span class="mast__menu-label">菜单</span><i></i><i></i>
+      <span class="mast__menu-label">Menu</span><i></i><i></i>
     </button>
   </div>
 </header>
-<nav class="drawer" id="mobile-nav" aria-label="移动端导航" data-drawer hidden>
-  <a href="/tech/">技术</a>
-  <a href="/products/">产品</a>
-  <a href="/news/" aria-current="page">新闻动态</a>
-  <a href="/about/">关于我们</a>
-  <a href="/team/">团队</a>
-  <a href="/careers/">招聘</a>
-  <a href="/collaborate/">合作</a>
-  <a class="drawer__lang" data-lang-switch="en" href="/en/news/sciencebuddy/">EN</a>
-  <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">立即申请 ↗</a>
+<nav class="drawer" id="mobile-nav" aria-label="Mobile" data-drawer hidden>
+  <a href="/tech/">Technology</a>
+  <a href="/products/">Products</a>
+  <a href="/news/" aria-current="page">News</a>
+  <a href="/about/">About</a>
+  <a href="/careers/">Careers</a>
+  <a href="/collaborate/">Collaborate</a>
+  <a class="drawer__lang" data-lang-switch="zh" href="/zh/news/sciencebuddy/">中文</a>
+  <a class="drawer__cta" href="https://ecnxosgyafi8.feishu.cn/share/base/form/shrcnXLWHfYoLEKJ6UJIaPoJlid" target="_blank" rel="noopener">Apply now ↗</a>
 </nav>
 
 <main id="main" class="main" data-field="off">
 <article class="article" id="top">
   <header class="hero hero--article">
     <div class="shell shell--narrow">
-      <p class="eyebrow"><a href="/news/">新闻动态</a><span class="sep">/</span>技术发布</p>
-      <h1 class="display">ScienceBuddy · AI 科研搭档：可交互的 Scientific Agent 与真实科研交互中的递归式自我改进</h1>
-      <p class="lede">ScienceBuddy 是一项围绕科学家交互、科研反馈和智能体持续改进展开的独立研究与工程探索：科学家的追问、修改、采纳、否定和重新运行形成反馈，推动科研智能体的工作环境持续演化。</p>
+      <p class="eyebrow"><a href="/news/">News</a><span class="sep">/</span>Release</p>
+      <h1 class="display">ScienceBuddy · AI research partner: an interactive Scientific Agent and recursive self-improvement in real research</h1>
+      <p class="lede">ScienceBuddy is an independent research and engineering exploration built around interaction with scientists, research feedback and the continual improvement of agents: follow-ups, edits, acceptances, rejections and re-runs become feedback that keeps the research agent&#39;s workspace evolving.</p>
       <p class="article__meta">
-        <time datetime="2026-09-16">发布于 2026年9月16日</time>
+        <time datetime="2026-09-16">Published 16 Sep 2026</time>
       </p>
     </div>
   </header>
   <figure class="article__cover article__cover--dg"><svg class="dg dg--sciencebuddy" viewBox="0 0 1200 450" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
 
 <circle class='dg__box' cx='150' cy='90' r='30'/><circle class='dg__n' cx='150' cy='90' r='5'/>
-<text class='dg__t' x='150' y='140' text-anchor='middle'>科学家</text>
+<text class='dg__t' x='150' y='140' text-anchor='middle'>Scientist</text>
 <circle class='dg__box' cx='1050' cy='150' r='30'/><circle class='dg__n' cx='1050' cy='150' r='5'/>
-<text class='dg__t' x='1050' y='200' text-anchor='middle'>AI 科研搭档</text>
+<text class='dg__t' x='1050' y='200' text-anchor='middle'>AI research partner</text>
 <path class='dg__p dg__faint dg__draw' pathLength='1' d='M 520,90 L 680,150 L 520,210 L 680,270 L 520,330 L 1095,330'/>
-<g class='dg__hov dg__bub dg__fade' style='--d:0.6s'><rect class='dg__box' x='220' y='70' width='300' height='40' rx='8'/><path class='dg__p dg__faint' d='M 220,86 l -10,8 l 10,4'/><text class='dg__t' x='370.0' y='96.0' text-anchor='middle'>提出一个科学问题</text></g>
-<g class='dg__hov dg__bub dg__fade' style='--d:1.0s'><rect class='dg__box' x='680' y='130' width='300' height='40' rx='8'/><path class='dg__p dg__faint' d='M 980,146 l 10,8 l -10,4'/><text class='dg__t' x='830.0' y='156.0' text-anchor='middle'>调用工具，给出回应</text></g>
-<text class='dg__t--s dg__fade' x='830' y='190' text-anchor='middle' style='--d:1.0s'>查文献 · 跑代码 · 看数据</text>
-<g class='dg__hov dg__bub dg__fade' style='--d:1.4s'><rect class='dg__box' x='220' y='190' width='300' height='40' rx='8'/><path class='dg__p dg__faint' d='M 220,206 l -10,8 l 10,4'/><text class='dg__t' x='370.0' y='216.0' text-anchor='middle'>追问、修改，或者否定</text></g>
-<g class='dg__hov dg__bub dg__fade' style='--d:1.8s'><rect class='dg__box' x='680' y='250' width='300' height='40' rx='8'/><path class='dg__p dg__faint' d='M 980,266 l 10,8 l -10,4'/><text class='dg__t' x='830.0' y='276.0' text-anchor='middle'>再次回应</text></g>
-<g class='dg__hov dg__bub dg__fade' style='--d:2.2s'><rect class='dg__box' x='220' y='310' width='300' height='40' rx='8'/><path class='dg__p dg__faint' d='M 220,326 l -10,8 l 10,4'/><text class='dg__t' x='370.0' y='336.0' text-anchor='middle'>采纳，或重新运行</text></g>
-<g class='dg__hov dg__trail'><line class='dg__p dg__faint dg__draw' style='--d:1s' pathLength='1' x1='1140' y1='60' x2='1140' y2='360'/><line class='dg__p dg__fade' style='--d:0.8s' x1='1132' y1='90' x2='1148' y2='90'/><line class='dg__p dg__fade' style='--d:1.2s' x1='1132' y1='150' x2='1148' y2='150'/><line class='dg__p dg__fade' style='--d:1.6s' x1='1132' y1='210' x2='1148' y2='210'/><line class='dg__p dg__fade' style='--d:2.0s' x1='1132' y1='270' x2='1148' y2='270'/><line class='dg__p dg__fade' style='--d:2.4s' x1='1132' y1='330' x2='1148' y2='330'/><circle class='dg__n dg__n--amber dg__fade' style='--d:2.6s' cx='1140' cy='330' r='6'/><circle class='dg__ring' style='animation-delay:3s' cx='1140' cy='330' r='12'/><text class='dg__t--s dg__fade' x='1140' y='48' text-anchor='middle' style='--d:1.0s'>研究轨迹</text><text class='dg__t--s dg__fade' x='1140' y='384' text-anchor='middle' style='--d:2.6s'><tspan x='1140'>每一次交互</tspan><tspan x='1140' dy='16'>都记下来</tspan></text></g>
-<g class='dg__hov dg__ws'><rect class='dg__box dg__fade' style='--d:2.4s' x='220' y='400' width='760' height='14' rx='7'/><rect class='dg__grow dg__fade' style='--d:2.6s' x='220' y='400' height='14' rx='7'/><text class='dg__t--s dg__fade' x='220' y='436' text-anchor='start' style='--d:2.6s'>AI 的工作环境：每一轮反馈都让它变好一点</text></g>
+<g class='dg__hov dg__bub dg__fade' style='--d:0.6s'><rect class='dg__box' x='220' y='70' width='300' height='40' rx='8'/><path class='dg__p dg__faint' d='M 220,86 l -10,8 l 10,4'/><text class='dg__t' x='370.0' y='96.0' text-anchor='middle'>Asks a scientific question</text></g>
+<g class='dg__hov dg__bub dg__fade' style='--d:1.0s'><rect class='dg__box' x='680' y='130' width='300' height='40' rx='8'/><path class='dg__p dg__faint' d='M 980,146 l 10,8 l -10,4'/><text class='dg__t' x='830.0' y='156.0' text-anchor='middle'>Calls tools and answers</text></g>
+<text class='dg__t--s dg__fade' x='830' y='190' text-anchor='middle' style='--d:1.0s'>reads papers, runs code, looks at data</text>
+<g class='dg__hov dg__bub dg__fade' style='--d:1.4s'><rect class='dg__box' x='220' y='190' width='300' height='40' rx='8'/><path class='dg__p dg__faint' d='M 220,206 l -10,8 l 10,4'/><text class='dg__t' x='370.0' y='216.0' text-anchor='middle'>Follows up, edits, or rejects</text></g>
+<g class='dg__hov dg__bub dg__fade' style='--d:1.8s'><rect class='dg__box' x='680' y='250' width='300' height='40' rx='8'/><path class='dg__p dg__faint' d='M 980,266 l 10,8 l -10,4'/><text class='dg__t' x='830.0' y='276.0' text-anchor='middle'>Answers again</text></g>
+<g class='dg__hov dg__bub dg__fade' style='--d:2.2s'><rect class='dg__box' x='220' y='310' width='300' height='40' rx='8'/><path class='dg__p dg__faint' d='M 220,326 l -10,8 l 10,4'/><text class='dg__t' x='370.0' y='336.0' text-anchor='middle'>Accepts, or re-runs</text></g>
+<g class='dg__hov dg__trail'><line class='dg__p dg__faint dg__draw' style='--d:1s' pathLength='1' x1='1140' y1='60' x2='1140' y2='360'/><line class='dg__p dg__fade' style='--d:0.8s' x1='1132' y1='90' x2='1148' y2='90'/><line class='dg__p dg__fade' style='--d:1.2s' x1='1132' y1='150' x2='1148' y2='150'/><line class='dg__p dg__fade' style='--d:1.6s' x1='1132' y1='210' x2='1148' y2='210'/><line class='dg__p dg__fade' style='--d:2.0s' x1='1132' y1='270' x2='1148' y2='270'/><line class='dg__p dg__fade' style='--d:2.4s' x1='1132' y1='330' x2='1148' y2='330'/><circle class='dg__n dg__n--amber dg__fade' style='--d:2.6s' cx='1140' cy='330' r='6'/><circle class='dg__ring' style='animation-delay:3s' cx='1140' cy='330' r='12'/><text class='dg__t--s dg__fade' x='1140' y='48' text-anchor='middle' style='--d:1.0s'>Research trail</text><text class='dg__t--s dg__fade' x='1140' y='384' text-anchor='middle' style='--d:2.6s'><tspan x='1140'>every exchange</tspan><tspan x='1140' dy='16'>is written down</tspan></text></g>
+<g class='dg__hov dg__ws'><rect class='dg__box dg__fade' style='--d:2.4s' x='220' y='400' width='760' height='14' rx='7'/><rect class='dg__grow dg__fade' style='--d:2.6s' x='220' y='400' height='14' rx='7'/><text class='dg__t--s dg__fade' x='220' y='436' text-anchor='start' style='--d:2.6s'>The AI&#39;s workspace: every round of feedback makes it a little better</text></g>
 <circle class='dg__mv' r='3.2' style="offset-path:path('M 520,90 L 680,150 L 520,210 L 680,270 L 520,330 L 1095,330');--dur:9s;--delay:0s"/>
 </svg>
 
-<figcaption>科学家和 AI 搭档一问一答，追问、修改、采纳都被记下来，AI 的工作环境在一轮轮反馈里变好。</figcaption></figure>
+<figcaption>A scientist and an AI partner talk it through; every follow-up, edit and acceptance is written down, and the AI&#39;s workspace gets better round by round.</figcaption></figure>
 
-  <div class="shell shell--narrow article__body prose"><p>ScienceBuddy 是一项围绕科学家交互、科研反馈和智能体持续改进展开的独立研究与工程探索，与 DFM 所关注的 Discovery Intelligence 方向一致。</p><p>它重点探索一种交互式 Science RSI 形态：用户提出科学问题，智能体调用工具并给出回应；科学家的追问、修改、采纳、否定和重新运行形成反馈，进而推动科研智能体工作环境和 Harness 的持续演化。</p><p>ScienceBuddy 的产出不只是一次性的问答结果，也包括交互过程中的反馈、研究轨迹、工具调用和任务状态。这些信息未来可以进一步整理为可复用的科学任务和环境，用于强化学习或其他模型训练。</p><p>ScienceBuddy 主要用于承接和结构化科学问题、数据需求、研究材料、文献和代码、科研工具调用、假设形成与验证，以及后续科研工作流所需的信息。</p><p>当前为早期产品 / 研究预览形态，具体开放能力、演示方式和使用入口以实际版本为准。产品入口于 9 月 16 日开放。</p>
+  <div class="shell shell--narrow article__body prose"><p>ScienceBuddy is an independent research and engineering exploration built around interaction with scientists, research feedback and the continual improvement of agents, in the Discovery Intelligence direction DFM is about.</p><p>It focuses on an interactive form of Science RSI: a user poses a scientific question, the agent calls tools and answers; the scientist&#39;s follow-ups, edits, acceptances, rejections and re-runs become feedback that drives the research agent&#39;s workspace and harness to keep evolving.</p><p>What ScienceBuddy produces is not only one-off answers but the feedback, research trajectories, tool calls and task states of the interaction. In future these can be organised into reusable scientific tasks and environments for reinforcement learning or other model training.</p><p>ScienceBuddy takes in and structures scientific questions, data needs, research materials, literature and code, scientific tool calls, hypothesis formation and testing, and what the following research workflow needs.</p><p>An early product / research preview: the capabilities opened, demonstrations and entry points follow the actual version. The product entry opens on 16 September.</p>
   </div>
   <aside class="shell shell--narrow article__links">
     <ul class="links">
-      <li><a class="link link--live" href="https://science-buddy.io/">访问 ScienceBuddy ↗</a></li>
-      <li><a class="link link--live" href="https://phai-labs.com/papers/sciencebuddy/sciencebuddy-technical-report-v1-2026-09.pdf">技术报告 ↗</a></li>
+      <li><a class="link link--live" href="https://science-buddy.io/">Open ScienceBuddy ↗</a></li>
+      <li><a class="link link--live" href="https://phai-labs.com/papers/sciencebuddy/sciencebuddy-technical-report-v1-2026-09.pdf">Technical report ↗</a></li>
       <li><a class="link link--live" href="https://github.com/Gen-Verse/ScienceBuddy">GitHub ↗</a></li>
     </ul>
   </aside>
   <aside class="shell shell--narrow article__related">
-    <p class="eyebrow">相关阅读</p>
-    <ul><li><a href="/news/dfm-launch/">从完成科研任务到参与科学发现：PhAI Labs 提出 DFM 研究范式</a><time datetime="2026-09-15">2026年9月15日</time></li><li><a href="/news/scienceide/">ScienceIDE · 科学集成开发平台：把真实科学代码变成可验证的科学环境</a><time datetime="2026-09-17">2026年9月17日</time></li><li><a href="/news/jepa-anything/">JEPA-Anything · 跨领域统一科学世界模型：面向潜在世界模型的正交预测因子分解</a><time datetime="2026-09-18">2026年9月18日</time></li></ul>
+    <p class="eyebrow">Related</p>
+    <ul><li><a href="/news/dfm-launch/">From solving research tasks to taking part in discovery: PhAI Labs proposes the DFM paradigm</a><time datetime="2026-09-15">15 Sep 2026</time></li><li><a href="/news/scienceide/">ScienceIDE · science integrated development platform: turning real scientific code into verifiable environments</a><time datetime="2026-09-17">17 Sep 2026</time></li><li><a href="/news/jepa-anything/">JEPA-Anything · cross-domain unified science world model: orthogonal predictive factorisation for latent world models</a><time datetime="2026-09-18">18 Sep 2026</time></li></ul>
   </aside>
 
-  <p class="shell shell--narrow article__back"><a href="/news/">← 全部动态</a></p>
+  <p class="shell shell--narrow article__back"><a href="/news/">← All news</a></p>
 </article>
 
 </main>
@@ -144,51 +130,50 @@
   <div class="foot__inner">
     <div class="foot__brand">
       <img class="foot__logo" src="/assets/img/phai-labs-lockup.png" width="279" height="120" alt="PhAI Labs" loading="lazy">
-      <p class="foot__line">面向真实科学发现的模型与数据基础设施</p>
+      <p class="foot__line">Model and data infrastructure for real scientific discovery</p>
     </div>
-    <nav class="foot__nav" aria-label="页脚导航">
-      <a href="/tech/">技术</a>
-      <a href="/products/">产品</a>
-      <a href="/news/">新闻动态</a>
-      <a href="/about/">关于我们</a>
-      <a href="/team/">团队</a>
-      <a href="/careers/">招聘</a>
-      <a href="/collaborate/">合作</a>
-      <a href="/investors/">投资者关系</a>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="/tech/">Technology</a>
+      <a href="/products/">Products</a>
+      <a href="/news/">News</a>
+      <a href="/about/">About</a>
+      <a href="/careers/">Careers</a>
+      <a href="/collaborate/">Collaborate</a>
+      <a href="/investors/">Investor Relations</a>
     </nav><div class="foot__contact">
-      <span class="foot__label">联系</span>
+      <span class="foot__label">Contact</span>
       <ul class="foot__cs">
         <li>
-          <span class="foot__ckind">科研与技术合作</span>
-          <a href="mailto:yang@phai-labs.com">yang@phai-labs.com</a><span class="foot__cnote">联合研究、技术交流、产品技术问题</span>
+          <span class="foot__ckind">Research &amp; technical collaboration</span>
+          <a href="mailto:yang@phai-labs.com">yang@phai-labs.com</a><span class="foot__cnote">Joint research, technical exchange, product and technical questions</span>
         </li>
         <li>
-          <span class="foot__ckind">商务与产业合作</span>
-          <a href="mailto:wuyc@phai-labs.com">wuyc@phai-labs.com</a><span class="foot__cnote">企业合作、商业化、产业资源及客户需求</span>
+          <span class="foot__ckind">Business &amp; industry partnerships</span>
+          <a href="mailto:wuyc@phai-labs.com">wuyc@phai-labs.com</a><span class="foot__cnote">Enterprise partnerships, commercialisation, industry resources and customer needs</span>
         </li>
         <li>
-          <span class="foot__ckind">政府与机构合作</span>
+          <span class="foot__ckind">Government &amp; institutional relations</span>
           <a href="mailto:yin@phai-labs.com">yin@phai-labs.com</a>
         </li>
         <li>
-          <span class="foot__ckind">媒体与品牌合作</span>
+          <span class="foot__ckind">Media &amp; brand</span>
           <a href="mailto:social@phai-labs.com">social@phai-labs.com</a>
         </li>
       </ul>
       
 <p class="foot__social">
   <span class="foot__s">
-    <a href="https://www.xiaohongshu.com/user/profile/637a2ff5000000001f0156c2" data-mark="rednote" class="" rel="noopener" target="_blank" aria-label="小红书" title="小红书"><svg viewBox="0 7.71 24 8.57" aria-hidden="true" focusable="false"><path d="M22.405 9.879c.002.016.01.02.07.019h.725a.797.797 0 0 0 .78-.972.794.794 0 0 0-.884-.618.795.795 0 0 0-.692.794c0 .101-.002.666.001.777zm-11.509 4.808c-.203.001-1.353.004-1.685.003a2.528 2.528 0 0 1-.766-.126.025.025 0 0 0-.03.014L7.7 16.127a.025.025 0 0 0 .01.032c.111.06.336.124.495.124.66.01 1.32.002 1.981 0 .01 0 .02-.006.023-.015l.712-1.545a.025.025 0 0 0-.024-.036zM.477 9.91c-.071 0-.076.002-.076.01a.834.834 0 0 0-.01.08c-.027.397-.038.495-.234 3.06-.012.24-.034.389-.135.607-.026.057-.033.042.003.112.046.092.681 1.523.787 1.74.008.015.011.02.017.02.008 0 .033-.026.047-.044.147-.187.268-.391.371-.606.306-.635.44-1.325.486-1.706.014-.11.021-.22.03-.33l.204-2.616.022-.293c.003-.029 0-.033-.03-.034zm7.203 3.757a1.427 1.427 0 0 1-.135-.607c-.004-.084-.031-.39-.235-3.06a.443.443 0 0 0-.01-.082c-.004-.011-.052-.008-.076-.008h-1.48c-.03.001-.034.005-.03.034l.021.293c.076.982.153 1.964.233 2.946.05.4.186 1.085.487 1.706.103.215.223.419.37.606.015.018.037.051.048.049.02-.003.742-1.642.804-1.765.036-.07.03-.055.003-.112zm3.861-.913h-.872a.126.126 0 0 1-.116-.178l1.178-2.625a.025.025 0 0 0-.023-.035l-1.318-.003a.148.148 0 0 1-.135-.21l.876-1.954a.025.025 0 0 0-.023-.035h-1.56c-.01 0-.02.006-.024.015l-.926 2.068c-.085.169-.314.634-.399.938a.534.534 0 0 0-.02.191.46.46 0 0 0 .23.378.981.981 0 0 0 .46.119h.59c.041 0-.688 1.482-.834 1.972a.53.53 0 0 0-.023.172.465.465 0 0 0 .23.398c.15.092.342.12.475.12l1.66-.001c.01 0 .02-.006.023-.015l.575-1.28a.025.025 0 0 0-.024-.035zm-6.93-4.937H3.1a.032.032 0 0 0-.034.033c0 1.048-.01 2.795-.01 6.829 0 .288-.269.262-.28.262h-.74c-.04.001-.044.004-.04.047.001.037.465 1.064.555 1.263.01.02.03.033.051.033.157.003.767.009.938-.014.153-.02.3-.06.438-.132.3-.156.49-.419.595-.765.052-.172.075-.353.075-.533.002-2.33 0-4.66-.007-6.991a.032.032 0 0 0-.032-.032zm11.784 6.896c0-.014-.01-.021-.024-.022h-1.465c-.048-.001-.049-.002-.05-.049v-4.66c0-.072-.005-.07.07-.07h.863c.08 0 .075.004.075-.074V8.393c0-.082.006-.076-.08-.076h-3.5c-.064 0-.075-.006-.075.073v1.445c0 .083-.006.077.08.077h.854c.075 0 .07-.004.07.07v4.624c0 .095.008.084-.085.084-.37 0-1.11-.002-1.304 0-.048.001-.06.03-.06.03l-.697 1.519s-.014.025-.008.036c.006.01.013.008.058.008 1.748.003 3.495.002 5.243.002.03-.001.034-.006.035-.033v-1.539zm4.177-3.43c0 .013-.007.023-.02.024-.346.006-.692.004-1.037.004-.014-.002-.022-.01-.022-.024-.005-.434-.007-.869-.01-1.303 0-.072-.006-.071.07-.07l.733-.003c.041 0 .081.002.12.015.093.025.16.107.165.204.006.431.002 1.153.001 1.153zm2.67.244a1.953 1.953 0 0 0-.883-.222h-.18c-.04-.001-.04-.003-.042-.04V10.21c0-.132-.007-.263-.025-.394a1.823 1.823 0 0 0-.153-.53 1.533 1.533 0 0 0-.677-.71 2.167 2.167 0 0 0-1-.258c-.153-.003-.567 0-.72 0-.07 0-.068.004-.068-.065V7.76c0-.031-.01-.041-.046-.039H17.93s-.016 0-.023.007c-.006.006-.008.012-.008.023v.546c-.008.036-.057.015-.082.022h-.95c-.022.002-.028.008-.03.032v1.481c0 .09-.004.082.082.082h.913c.082 0 .072.128.072.128V11.19s.003.117-.06.117h-1.482c-.068 0-.06.082-.06.082v1.445s-.01.068.064.068h1.457c.082 0 .076-.006.076.079v3.225c0 .088-.007.081.082.081h1.43c.09 0 .082.007.082-.08v-3.27c0-.029.006-.035.033-.035l2.323-.003c.098 0 .191.02.28.061a.46.46 0 0 1 .274.407c.008.395.003.79.003 1.185 0 .259-.107.367-.33.367h-1.218c-.023.002-.029.008-.028.033.184.437.374.871.57 1.303a.045.045 0 0 0 .04.026c.17.005.34.002.51.003.15-.002.517.004.666-.01a2.03 2.03 0 0 0 .408-.075c.59-.18.975-.698.976-1.313v-1.981c0-.128-.01-.254-.034-.38 0 .078-.029-.641-.724-.998z"/></svg></a>
+    <a href="https://www.xiaohongshu.com/user/profile/637a2ff5000000001f0156c2" data-mark="rednote" class="is-word" rel="noopener" target="_blank" aria-label="RedNote" title="RedNote"><span class="foot__word">rednote</span></a>
     <span class="foot__qr">
-      <img src="/assets/img/social/rednote-qr.png" width="160" height="160" alt="小红书" loading="lazy" decoding="async">
-      <em>扫码关注</em>
+      <img src="/assets/img/social/rednote-qr.png" width="160" height="160" alt="RedNote" loading="lazy" decoding="async">
+      <em>Scan to follow</em>
     </span>
   </span>
   <span class="foot__s">
-    <button type="button" data-mark="wechat" class="" aria-label="微信公众号" title="微信公众号"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.027-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/></svg></button>
+    <button type="button" data-mark="wechat" class="" aria-label="WeChat" title="WeChat"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.027-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/></svg></button>
     <span class="foot__qr">
-      <img src="/assets/img/social/wechat-qr.png" width="160" height="160" alt="微信公众号" loading="lazy" decoding="async">
-      <em>扫码关注</em>
+      <img src="/assets/img/social/wechat-qr.png" width="160" height="160" alt="WeChat" loading="lazy" decoding="async">
+      <em>Scan to follow</em>
     </span>
   </span>
   <span class="foot__s">
@@ -199,10 +184,10 @@
     </div>
   </div>
   <div class="foot__base">
-    <span>© 2026 PhAI Labs. 保留所有权利。</span>
+    <span>© 2026 PhAI Labs. All rights reserved.</span>
     <span class="foot__domain"><svg class="pulse" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle class="d00" cx="1.0" cy="1.0" r="1"/><circle class="d01" cx="4.5" cy="1.0" r="1"/><circle class="d02" cx="8.0" cy="1.0" r="1"/><circle class="d03" cx="11.5" cy="1.0" r="1"/><circle class="d04" cx="15.0" cy="1.0" r="1"/><circle class="d10" cx="1.0" cy="4.5" r="1"/><circle class="d11" cx="4.5" cy="4.5" r="1"/><circle class="d12" cx="8.0" cy="4.5" r="1"/><circle class="d13" cx="11.5" cy="4.5" r="1"/><circle class="d14" cx="15.0" cy="4.5" r="1"/><circle class="d20" cx="1.0" cy="8.0" r="1"/><circle class="d21" cx="4.5" cy="8.0" r="1"/><circle class="d22 amber" cx="8.0" cy="8.0" r="1"/><circle class="d23" cx="11.5" cy="8.0" r="1"/><circle class="d24" cx="15.0" cy="8.0" r="1"/><circle class="d30" cx="1.0" cy="11.5" r="1"/><circle class="d31" cx="4.5" cy="11.5" r="1"/><circle class="d32" cx="8.0" cy="11.5" r="1"/><circle class="d33" cx="11.5" cy="11.5" r="1"/><circle class="d34" cx="15.0" cy="11.5" r="1"/><circle class="d40" cx="1.0" cy="15.0" r="1"/><circle class="d41" cx="4.5" cy="15.0" r="1"/><circle class="d42" cx="8.0" cy="15.0" r="1"/><circle class="d43" cx="11.5" cy="15.0" r="1"/><circle class="d44" cx="15.0" cy="15.0" r="1"/></svg>
 phai-labs.com</span>
-    <a class="foot__top" href="#top">返回顶部 ↑</a>
+    <a class="foot__top" href="#top">Back to top ↑</a>
   </div>
 </footer>
 
